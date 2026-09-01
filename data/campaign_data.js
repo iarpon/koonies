@@ -1260,206 +1260,38 @@ window.CAMPAIGN_DATA = {
   "atlas": [
     {
       "id": "map_1",
-      "title": "Mapa Cartográfico #1 — Región y Localizaciones",
+      "title": "Mapa I — Costa de los Naufragios y Región Costera",
       "type": "Cartografía",
       "path": "images/asset_1603148333.jpg",
-      "description": "Mapa de la Costa de los Naufragios, Ciudad de Elken, calas piratas, Palazio de Kaz y caminos hacia Milborne y Thurmaster."
+      "description": "Carta de navegación y mapa general de la Costa de los Naufragios, islas y rutas marítimas."
     },
     {
       "id": "map_2",
-      "title": "Mapa Cartográfico #2 — Región y Localizaciones",
-      "type": "Cartografía",
+      "title": "Mapa II — Plano General de la Ciudad de Elken",
+      "type": "Plano de Ciudad",
       "path": "images/asset_1515216225.png",
-      "description": "Mapa de la Costa de los Naufragios, Ciudad de Elken, calas piratas, Palazio de Kaz y caminos hacia Milborne y Thurmaster."
+      "description": "Distribución urbana de Elken: puerto, dársena, campamento kunita extramuros y accesos."
     },
     {
       "id": "map_3",
-      "title": "Mapa Cartográfico #3 — Región y Localizaciones",
-      "type": "Cartografía",
+      "title": "Mapa III — Mapa de Elken para Jugadores",
+      "type": "Plano de Ciudad",
       "path": "images/asset_1261867066.png",
-      "description": "Mapa de la Costa de los Naufragios, Ciudad de Elken, calas piratas, Palazio de Kaz y caminos hacia Milborne y Thurmaster."
+      "description": "Mapa detallado con la Taberna del Ganso, Cuartel, Botica de Elara, Templo de Solkarion, Torre de Zenopus y Casa de los Tesoros."
     },
     {
       "id": "map_4",
-      "title": "Mapa Cartográfico #4 — Región y Localizaciones",
+      "title": "Mapa IV — Plano Costero, Calas y Accesos",
       "type": "Cartografía",
       "path": "images/asset_-583554640.png",
-      "description": "Mapa de la Costa de los Naufragios, Ciudad de Elken, calas piratas, Palazio de Kaz y caminos hacia Milborne y Thurmaster."
-    },
-    {
-      "id": "map_5",
-      "title": "Mapa Cartográfico #5 — Región y Localizaciones",
-      "type": "Cartografía",
-      "path": "images/asset_381916398.png",
-      "description": "Mapa de la Costa de los Naufragios, Ciudad de Elken, calas piratas, Palazio de Kaz y caminos hacia Milborne y Thurmaster."
-    },
-    {
-      "id": "map_6",
-      "title": "Mapa Cartográfico #6 — Región y Localizaciones",
-      "type": "Cartografía",
-      "path": "images/asset_-1476706190.svg",
-      "description": "Mapa de la Costa de los Naufragios, Ciudad de Elken, calas piratas, Palazio de Kaz y caminos hacia Milborne y Thurmaster."
+      "description": "Cartografía táctica de las calas piratas, accesos subterráneos a la torre y costas escarpadas."
     },
     {
       "id": "map_7",
-      "title": "Mapa Cartográfico #7 — Región y Localizaciones",
+      "title": "Mapa V — Rutas Hacia Milborne, Thurmaster y Kanatsu-mi",
       "type": "Cartografía",
       "path": "images/asset_2125889959.png",
-      "description": "Mapa de la Costa de los Naufragios, Ciudad de Elken, calas piratas, Palazio de Kaz y caminos hacia Milborne y Thurmaster."
-    },
-    {
-      "id": "sketch_1",
-      "title": "Boceto Táctico #1 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_-667898342.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_2",
-      "title": "Boceto Táctico #2 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_2102314195.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_3",
-      "title": "Boceto Táctico #3 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_-384279313.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_4",
-      "title": "Boceto Táctico #4 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_2116628217.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_5",
-      "title": "Boceto Táctico #5 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_-428621001.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_6",
-      "title": "Boceto Táctico #6 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_-2097300571.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_7",
-      "title": "Boceto Táctico #7 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_-786352120.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_8",
-      "title": "Boceto Táctico #8 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_-384786803.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_9",
-      "title": "Boceto Táctico #9 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_-745280557.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_10",
-      "title": "Boceto Táctico #10 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_-384279313.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_11",
-      "title": "Boceto Táctico #11 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_2116628217.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_12",
-      "title": "Boceto Táctico #12 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_2102314195.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_13",
-      "title": "Boceto Táctico #13 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_-667898342.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_14",
-      "title": "Boceto Táctico #14 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_-428621001.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_15",
-      "title": "Boceto Táctico #15 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_1324901607.png",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_16",
-      "title": "Boceto Táctico #16 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_2054780468.png",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_17",
-      "title": "Boceto Táctico #17 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_669099346.png",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_18",
-      "title": "Boceto Táctico #18 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_2102314195.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_19",
-      "title": "Boceto Táctico #19 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_2116628217.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_20",
-      "title": "Boceto Táctico #20 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_-667898342.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_21",
-      "title": "Boceto Táctico #21 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_-384279313.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-    },
-    {
-      "id": "sketch_22",
-      "title": "Boceto Táctico #22 — Planos y Mazmorras",
-      "type": "Plano Táctico",
-      "path": "images/asset_-428621001.jpg",
-      "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
+      "description": "Carta terrestre del camino fluvial, monolitos sagrados de la Gran Llama y rutas hacia el Río de la Vida."
     }
   ]
 };
