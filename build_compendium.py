@@ -21,11 +21,10 @@ with open(os.path.join(ROOT_DIR, "extracted_campaign_data.json"), "r", encoding=
 pages = raw_data["pages"]
 pages_by_name = {p["name"]: p for p in pages}
 
-# Helper: Distance
 def dist(p1, p2):
     return math.hypot(p1["x"] - p2["x"], p1["y"] - p2["y"])
 
-def find_nearest_images(x, y, images, max_dist=1200, limit=2):
+def find_nearest_images(x, y, images, max_dist=1500, limit=3):
     pos = {"x": x, "y": y}
     sorted_imgs = sorted(images, key=lambda img: dist(pos, img))
     return [img["image_info"]["path"] for img in sorted_imgs if dist(pos, img) < max_dist and img.get("image_info", {}).get("path")][:limit]
@@ -42,13 +41,15 @@ koonies_roster = [
         "id": "glunt",
         "name": "Glunt",
         "title": "El Gigante de Corazón de Cristal",
-        "role": "Guerrero / Protector",
-        "archetype": "Fuerza colosal (Fuerza 17), alma noble, inocente y protectora de los pequeños.",
+        "role": "Guerrero Protector",
+        "stats": {"fuerza": "17 (Colosal)", "rol": "Defensor / Tanque", "arma": "Gran Fuerza & Pureza", "origen": "Amatsukuni (Tierras Bajas)"},
+        "archetype": "Fuerza titánica, inocencia incorruptible y protección incondicional a los pequeños.",
         "quote": "Padre dijo que me quedara. Glunt se queda. Glunt cuidará de los pequeños hasta que el sol vuelva a salir.",
         "icon": "shield",
         "badge_color": "emerald",
         "accent": "#10b981",
-        "primary_image": "images/asset_-929693943.jpg", # Glunt.jpg
+        "primary_image": "images/asset_-929693943.jpg",
+        "banner_image": "images/asset_1815133749.png",
         "match_keys": ["Glunt", "Gigante de Corazón", "Glunt:"],
         "curse_status": "Maldición de las Venas Negras (contraída en la Torre de Zenopus, contenida tras las aguas de Kanatsu-mi)."
     },
@@ -57,25 +58,29 @@ koonies_roster = [
         "name": "Hiroyuki Watanabe",
         "title": "El Acero en la Forja",
         "role": "Guerrero Kunita / Kensei Samurai",
-        "archetype": "Honor marcial, devoción a Hachiman y escudo inquebrantable de los supervivientes.",
+        "stats": {"fuerza": "15 (Atlético)", "rol": "Espadachín / Líder Táctico", "arma": "Espada Larga & Naginata", "origen": "Capital de Amatsukuni"},
+        "archetype": "Honor marcial, devoción al dios de la guerra Hachiman y escudo de su pueblo.",
         "quote": "Si Amatsukuni ha caído, yo seré el escudo de los que quedan, con o sin nombre de samurai.",
         "icon": "swords",
         "badge_color": "amber",
         "accent": "#f59e0b",
-        "primary_image": "images/asset_1793380967.jpg", # Hiro.jpg
+        "primary_image": "images/asset_1793380967.jpg",
+        "banner_image": "images/asset_1497705276.png",
         "match_keys": ["Hiroyuki", "Hiroyuki Watanabe", "El Acero en la Forja"]
     },
     {
         "id": "katsumi",
         "name": "Katsumi",
         "title": "La Llama Custodia",
-        "role": "Clériga de Shien (La Llama Púrpura) / Líder Espiritual",
-        "archetype": "Defensora con naginata y guía moral de los 40 refugiados kunitas.",
+        "role": "Clériga de Shien / Guía Espiritual",
+        "stats": {"fe": "Shien (Llama Púrpura)", "rol": "Sanación & Liderazgo", "arma": "Naginata Sagrada", "origen": "Templo de la Llama Púrpura"},
+        "archetype": "Sacerdotisa consagrada a la pureza del pueblo kunita y la esperanza en tierra extraña.",
         "quote": "Soy Katsumi, una Llama Custodia consagrada al servicio de Shien. Mi vida está ligada a la naginata y al deber de proteger a mi pueblo.",
         "icon": "flame",
         "badge_color": "purple",
         "accent": "#a855f7",
         "primary_image": "images/asset_154989466.png",
+        "banner_image": "images/asset_831679076.png",
         "match_keys": ["Katsumi", "Llama Custodia", "Shien"]
     },
     {
@@ -83,25 +88,29 @@ koonies_roster = [
         "name": "Sakura",
         "title": "La Erudita de lo Arcano",
         "role": "Maga Kunita / Investigadora de Grimorios",
-        "archetype": "Intelecto analítico, descifradora de secretos antiguos y portadora del Ojo de J'karaa.",
+        "stats": {"magia": "Evocación / Nigromancia", "rol": "Lanzadora de Conjuros & Investigadora", "arma": "Grimorio de Zarcand", "origen": "Academia Arcana de Amatsukuni"},
+        "archetype": "Mente afilada, dominadora de conjuros antiguos y actual portadora del Ojo de J'karaa.",
         "quote": "El conocimiento no es peligroso; ignorar sus consecuencias sí lo es.",
         "icon": "sparkles",
         "badge_color": "pink",
         "accent": "#ec4899",
-        "primary_image": "images/asset_1843595399.jpg", # Sakura.jpg
+        "primary_image": "images/asset_1843595399.jpg",
+        "banner_image": "images/asset_484395089.png",
         "match_keys": ["Sakura", "Maga kunita", "tercer ojo"]
     },
     {
         "id": "ainur",
         "name": "Ainur",
         "title": "El Ojo Atento",
-        "role": "Explorador / Vigilante",
-        "archetype": "Carisma, sigilo, percepción aguda y rastreo en las sombras.",
+        "role": "Explorador / Batidor",
+        "stats": {"destreza": "Alta", "rol": "Sigilo / Exploración / Percepción", "arma": "Arco & Daga", "origen": "Fronteras de Amatsukuni"},
+        "archetype": "Carisma, sigilo, percepción extrasensorial y rastreador infalible en la niebla.",
         "quote": "La niebla oculta muchas cosas, pero ninguna que no deje rastro.",
         "icon": "eye",
         "badge_color": "indigo",
         "accent": "#6366f1",
-        "primary_image": "images/asset_1067045487.jpg", # Ainur.jpg
+        "primary_image": "images/asset_1067045487.jpg",
+        "banner_image": "images/asset_1659737080.png",
         "match_keys": ["Ainur", "Ojo de J'karaa", "Airun"]
     },
     {
@@ -109,17 +118,19 @@ koonies_roster = [
         "name": "Kazgrim Iwakura (Kaz)",
         "title": "El Guardián de la Llama Perdida",
         "role": "Cantero Enano / Acólito de Kagutsuchi",
-        "archetype": "Joven cantero de piedra volcánica (38 años) que escucha a los kami y despierta el fuego renaciente.",
+        "stats": {"fuerza": "13 (+4)", "inteligencia": "10", "rol": "Clérigo Cantero / Fuego Renaciente", "origen": "Kizuna-no-Miya (Norte Montañoso)"},
+        "archetype": "Joven cantero de piedra volcánica (38 años) que escucha los susurros de los kami en la roca y el fuego.",
         "quote": "El papel arde, pero la verdad es incombustible. Si el fuego lo devoró todo, es porque algo nuevo y más fuerte debe nacer de nuestras cenizas.",
         "icon": "hammer",
         "badge_color": "orange",
         "accent": "#ea580c",
-        "primary_image": "images/asset_1063611285.jpg", # Kaz.jpg
+        "primary_image": "images/asset_1063611285.jpg",
+        "banner_image": "images/asset_-1175273093.png",
         "match_keys": ["Kazgrim", "Kaz", "Kazrim", "Iwakura", "Kagutsuchi", "La historia de Kazrim"]
     }
 ]
 
-# Map texts to characters
+# Map texts and galleries
 for k in koonies_roster:
     matched_texts = []
     matched_images = []
@@ -127,35 +138,35 @@ for k in koonies_roster:
         txt = t["text"]
         if any(key.lower() in txt.lower() for key in k["match_keys"]):
             matched_texts.append(txt)
-            imgs = find_nearest_images(t["x"], t["y"], pj_images, max_dist=1200, limit=3)
+            imgs = find_nearest_images(t["x"], t["y"], pj_images, max_dist=1200, limit=4)
             matched_images.extend(imgs)
     
     k["full_lore"] = "\n\n".join(matched_texts) if matched_texts else f"Miembro fundador de Los Koonies. {k['archetype']}."
-    k["gallery"] = list(set([k["primary_image"]] + matched_images))
+    k["gallery"] = list(set([k["primary_image"], k["banner_image"]] + matched_images))
     k["gallery"] = [img for img in k["gallery"] if os.path.exists(os.path.join(ROOT_DIR, img))]
 
-print(f"Curated {len(koonies_roster)} Koonies player characters.")
+print(f"Curated {len(koonies_roster)} Koonies with full banners & stats.")
 
 # -------------------------------------------------------------
-# 2. CURATE SESSIONS (1 to 16)
+# 2. CURATE SESSIONS (1 to 16) WITH COVER BANNERS
 # -------------------------------------------------------------
-session_titles_curated = {
-    1: {"title": "La Danza de las Cadenas — El Despertar en la Playa", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "15 de Sulmar, Año 18 CL", "loc": "Isla de Viladel — Costa del Naufragio"},
-    2: {"title": "Sangre en la Colina — El Barranco de los Trasgos", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "20 de Sulmar, Año 18 CL", "loc": "Isla de la Tortuga — Colinas Heladas"},
-    3: {"title": "La Visión de Liryel & La Mansión de Viledel", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "24 de Sulmar, Año 18 CL", "loc": "Templo de la Diosa — Mansión de Viledel"},
-    4: {"title": "Las Catacumbas de Viledel — La Traición de Keestake", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "26 de Sulmar, Año 18 CL", "loc": "Catacumbas Subterráneas de Viledel"},
-    5: {"title": "Diario de Navegación — El Escape de Korinn en el Rimed Mallow", "act": "Acto II: La Travesía por el Mar de las Nieblas", "in_game": "2 de Iryn, Año 19 CL", "loc": "Mar Abierto — A bordo del Rimed Mallow"},
-    6: {"title": "La Llegada a Elken — Refugio en Tierra Extraña", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "12 de Iryn, Año 19 CL", "loc": "Ciudad de Elken — Costa de los Naufragios"},
-    7: {"title": "La Noche del Ganso y la Mañana del Mago", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "13 de Iryn, Año 19 CL", "loc": "Taberna del Ganso — Almacenes del Puerto"},
-    8: {"title": "Los Koonies y la Niebla que No Perdona", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "13 de Iryn (Noche), Año 19 CL", "loc": "Puertas de Elken — La Torre de la Niebla"},
-    9: {"title": "El Dedo de Kaz y el Secreto de la Torre Cerca del Cementerio", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "14 de Iryn, Año 19 CL", "loc": "Torre del Cementerio de Elken"},
-    10: {"title": "La Bóveda Prohibida — Pócimas y Manos Esqueléticas", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "14 de Iryn (Tarde), Año 19 CL", "loc": "Criptas y Bóvedas de Zenopus"},
-    11: {"title": "La Máscara Habla — Revelaciones de Mandra Voss", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "15 de Iryn, Año 19 CL", "loc": "La Casa de los Tesoros — Sala de la Máscara"},
-    12: {"title": "Anamnesis — El Diario Oculto de Zenopus y Kanatsu-mi", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "16 de Iryn, Año 19 CL", "loc": "Estudio Superior de la Torre de Zenopus"},
-    13: {"title": "Cadenas, Caminos y el Símbolo de Kagutsuchi", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "17-19 de Iryn, Año 19 CL", "loc": "Camino Fluvial de Elken hacia Milborne"},
-    14: {"title": "El Monolito del Río y la Senda del Musgo", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "20 de Iryn, Año 19 CL", "loc": "Monolito de la Gran Llama — Ribera del Río"},
-    15: {"title": "La Caverna de las Columnas Olvidadas", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "21 de Iryn, Año 19 CL", "loc": "Cueva Ancestral de Construcción Tosca"},
-    16: {"title": "La Hija del Molinero, el Enano que Recordaba y la Fuente de Vida", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "22-24 de Iryn, Año 19 CL", "loc": "Milborne, Thurmaster y Kanatsu-mi"}
+session_meta_rich = {
+    1: {"title": "La Danza de las Cadenas — El Despertar en la Playa", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "15 de Sulmar, Año 18 CL", "loc": "Isla de Viladel — Costa del Naufragio", "cover": "images/asset_10816842.png"},
+    2: {"title": "Sangre en la Colina — El Barranco de los Trasgos", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "20 de Sulmar, Año 18 CL", "loc": "Isla de la Tortuga — Colinas Heladas", "cover": "images/asset_238755922.png"},
+    3: {"title": "La Visión de Liryel & La Mansión de Viledel", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "24 de Sulmar, Año 18 CL", "loc": "Templo de la Diosa — Mansión de Viledel", "cover": "images/asset_643137533.png"},
+    4: {"title": "Las Catacumbas de Viledel — La Traición de Keestake", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "26 de Sulmar, Año 18 CL", "loc": "Catacumbas Subterráneas de Viledel", "cover": "images/asset_1325026172.png"},
+    5: {"title": "Diario de Navegación — El Escape de Korinn en el Rimed Mallow", "act": "Acto II: La Travesía por el Mar de las Nieblas", "in_game": "2 de Iryn, Año 19 CL", "loc": "Mar Abierto — A bordo del Rimed Mallow", "cover": "images/asset_2006248850.png"},
+    6: {"title": "La Llegada a Elken — Refugio en Tierra Extraña", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "12 de Iryn, Año 19 CL", "loc": "Ciudad de Elken — Costa de los Naufragios", "cover": "images/asset_1515216225.png"},
+    7: {"title": "La Noche del Ganso y la Mañana del Mago", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "13 de Iryn, Año 19 CL", "loc": "Taberna del Ganso — Almacenes del Puerto", "cover": "images/asset_-199017577.png"},
+    8: {"title": "Los Koonies y la Niebla que No Perdona", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "13 de Iryn (Noche), Año 19 CL", "loc": "Puertas de Elken — La Torre de la Niebla", "cover": "images/asset_-1336998075.png"},
+    9: {"title": "El Dedo de Kaz y el Secreto de la Torre Cerca del Cementerio", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "14 de Iryn, Año 19 CL", "loc": "Torre del Cementerio de Elken", "cover": "images/asset_1704990873.png"},
+    10: {"title": "La Bóveda Prohibida — Pócimas y Manos Esqueléticas", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "14 de Iryn (Tarde), Año 19 CL", "loc": "Criptas y Bóvedas de Zenopus", "cover": "images/asset_2054780468.png"},
+    11: {"title": "La Máscara Habla — Revelaciones de Mandra Voss", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "15 de Iryn, Año 19 CL", "loc": "La Casa de los Tesoros — Sala de la Máscara", "cover": "images/asset_387950169.png"},
+    12: {"title": "Anamnesis — El Diario Oculto de Zenopus y Kanatsu-mi", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "16 de Iryn, Año 19 CL", "loc": "Estudio Superior de la Torre de Zenopus", "cover": "images/asset_1189662238.png"},
+    13: {"title": "Cadenas, Caminos y el Símbolo de Kagutsuchi", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "17-19 de Iryn, Año 19 CL", "loc": "Camino Fluvial de Elken hacia Milborne", "cover": "images/asset_-1452585810.webp"},
+    14: {"title": "El Monolito del Río y la Senda del Musgo", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "20 de Iryn, Año 19 CL", "loc": "Monolito de la Gran Llama — Ribera del Río", "cover": "images/asset_2093206144.png"},
+    15: {"title": "La Caverna de las Columnas Olvidadas", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "21 de Iryn, Año 19 CL", "loc": "Cueva Ancestral de Construcción Tosca", "cover": "images/asset_1370269724.png"},
+    16: {"title": "La Hija del Molinero, el Enano que Recordaba y la Fuente de Vida", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "22-24 de Iryn, Año 19 CL", "loc": "Milborne, Thurmaster y Kanatsu-mi", "cover": "images/asset_1659737080.png"}
 }
 
 curated_sessions = []
@@ -170,11 +181,12 @@ for sp in session_pages:
     texts = sp.get("texts", [])
     images = sp.get("images", [])
     
-    meta = session_titles_curated.get(s_num, {
+    meta = session_meta_rich.get(s_num, {
         "title": f"Sesión {s_num}",
         "act": "Crónica de Aventuras",
         "in_game": "Fecha desconocida",
-        "loc": "Costa de los Naufragios"
+        "loc": "Costa de los Naufragios",
+        "cover": "images/asset_10816842.png"
     })
     
     irl_date = ""
@@ -200,6 +212,11 @@ for sp in session_pages:
         
     all_imgs = [img["image_info"]["path"] for img in images if img.get("image_info", {}).get("path") and os.path.exists(os.path.join(ROOT_DIR, img["image_info"]["path"]))]
     
+    # Ensure cover image exists
+    cover_img = meta.get("cover", "")
+    if not os.path.exists(os.path.join(ROOT_DIR, cover_img)):
+        cover_img = all_imgs[0] if all_imgs else "images/asset_1815133749.png"
+        
     full_narrative = "\n\n".join(b["text"] for b in blocks)
     summary_snippet = ""
     for b in blocks:
@@ -218,14 +235,15 @@ for sp in session_pages:
         "irl_date": irl_date,
         "in_game_date": meta["in_game"],
         "location": meta["loc"],
-        "xp": xp_found or "200-350 PX",
+        "xp": xp_found or "250-350 PX",
+        "cover_image": cover_img,
         "summary": summary_snippet or "Los Koonies continúan su odisea a través de tierras inhóspitas y misterios arcanos.",
         "blocks": blocks,
         "images": all_imgs,
         "full_text": full_narrative
     })
 
-print(f"Curated {len(curated_sessions)} sessions.")
+print(f"Curated {len(curated_sessions)} sessions with individual cover banners.")
 
 # -------------------------------------------------------------
 # 3. CURATE NPCS (DRAMATIS PERSONAE)
@@ -394,10 +412,8 @@ for npc in curated_npcs:
                 npc["image"] = a["path"]
                 break
 
-print(f"Curated {len(curated_npcs)} key NPCs.")
-
 # -------------------------------------------------------------
-# 4. CURATE MYSTERIES & LOOSE ENDS (TABLERO DE MISTERIOS)
+# 4. MYSTERIES & ATLAS & TREASURY
 # -------------------------------------------------------------
 mysteries = [
     {
@@ -406,6 +422,7 @@ mysteries = [
         "priority": "Alta",
         "status": "Contenida / Curada en Kanatsu-mi",
         "category": "Salud de los Koonies",
+        "image": "images/asset_-929693943.jpg",
         "description": "Las venas negras que ascendían por la pierna de Glunt han remitido tras la expedición a Kanatsu-mi en el sur de Thurmaster (el Río de la Vida). La conexión con Zenopus y el origen de la plaga arcana sigue siendo investigada.",
         "clues": [
             "Descubierto en el compartimento secreto de la torre de Zenopus.",
@@ -419,6 +436,7 @@ mysteries = [
         "priority": "Alta",
         "status": "Nueva Pista Crítica",
         "category": "Destino de Kazrim",
+        "image": "images/asset_1063611285.jpg",
         "description": "El Viejo Oso reveló en Milborne la existencia de una fortaleza enana en las montañas con una forja colosal y escrituras idénticas a los monolitos de Kagutsuchi. Kazrim siente la llamada de los kami para descubrir si este santuario ancestral aguarda ser despertado.",
         "clues": [
             "El Viejo Oso perdió su hogar de niño e intentó reconquistarlo.",
@@ -432,6 +450,7 @@ mysteries = [
         "priority": "Alta",
         "status": "En Manos de Sakura",
         "category": "Artefactos Arcanos",
+        "image": "images/asset_1843595399.jpg",
         "description": "Ainur cedió el colgante a Sakura tras el análisis urgente de Jelenneth y Tauster. Tauster advierte que fuerzas oscuras buscan este artefacto con desesperación y pide al grupo adelantarse a sus enemigos.",
         "clues": [
             "El nigromante Zarcand intentó robarlo en los almacenes.",
@@ -445,6 +464,7 @@ mysteries = [
         "priority": "Media",
         "status": "Activo",
         "category": "Pueblo y Política",
+        "image": "images/asset_154989466.png",
         "description": "40 refugiados kunitas sobreviven hacinados en el campamento extramuros de Elken bajo la tutela de Katsumi, Kaito y Hanae. Las autoridades de Thir son xenófobas y los miran con recelo. Se busca un asentamiento permanente seguro.",
         "clues": [
             "La sacerdotisa Yoriko Asano sigue en paradero desconocido.",
@@ -458,6 +478,7 @@ mysteries = [
         "priority": "Media",
         "status": "Investigación Abierta",
         "category": "Amenaza Arcana",
+        "image": "images/asset_387950169.png",
         "description": "Thir fue gobernado por reyes nigromantes hace 300 años. El nigromante Zarcand, los grimorios prohibidos y la máscara demoníaca de la torre de Zenopus indican que viejos poderes intentan volver a la superficie.",
         "clues": [
             "La máscara de bronce en la torre de Zenopus responde a una hora precisa del cuadrante.",
@@ -466,9 +487,6 @@ mysteries = [
     }
 ]
 
-# -------------------------------------------------------------
-# 5. CURATE MAPS & ATLAS
-# -------------------------------------------------------------
 atlas_items = []
 map_page = pages_by_name.get("Mapas", {})
 for idx, img in enumerate(map_page.get("images", [])):
@@ -494,9 +512,6 @@ for idx, img in enumerate(sketch_page.get("images", [])):
             "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
         })
 
-# -------------------------------------------------------------
-# 6. WRITE DATA FILES
-# -------------------------------------------------------------
 final_bundle = {
     "campaign_name": "Las Crónicas de Los Koonies",
     "subtitle": "Diario de Campaña, Compendio y Crónica de Aventuras",
@@ -510,13 +525,17 @@ final_bundle = {
         "gold": 120,
         "silver": 2600,
         "copper": 450,
-        "vessel": "La Galera del Príncipe",
+        "vessel": {
+            "name": "La Galera del Príncipe",
+            "desc": "Navío insignia del grupo. Rápido galeón costero artillado y hogar flotante de los Koonies.",
+            "image": "images/asset_2006248850.png"
+        },
         "magic_items": [
-            {"name": "Collar Ojo de J'karaa", "holder": "Sakura (cedido por Ainur)", "desc": "Reliquia arcana con propiedades sensoriales y misteriosas que Tauster y nigromantes persiguen."},
-            {"name": "Ungüento de Keoghtom", "holder": "Grupo", "desc": "Bálsamo medicinal mágico de gran potencia (4 dosis restantes)."},
-            {"name": "Poción de Vida (Life Potion)", "holder": "Grupo", "desc": "Poción legendaria con propiedades de absorción vital temporal."},
-            {"name": "Grimorio de Zarcand", "holder": "Sakura", "desc": "Libro de conjuros oscuros rescatado del almacén del puerto."},
-            {"name": "Diario y Anillo de Zenopus", "holder": "Grupo", "desc": "Manuscrito con las revelaciones del Kanatsu-mi y el anillo que Tauster desea adquirir."}
+            {"name": "Collar Ojo de J'karaa", "holder": "Sakura (cedido por Ainur)", "desc": "Reliquia arcana con propiedades sensoriales que Tauster y los nigromantes persiguen.", "image": "images/asset_1843595399.jpg"},
+            {"name": "Ungüento de Keoghtom", "holder": "Grupo", "desc": "Bálsamo medicinal mágico de gran potencia (4 dosis restantes).", "image": "images/asset_-251637396.jpg"},
+            {"name": "Poción de Vida (Life Potion)", "holder": "Grupo", "desc": "Poción legendaria con propiedades de absorción vital temporal.", "image": "images/asset_2054780468.png"},
+            {"name": "Grimorio de Zarcand", "holder": "Sakura", "desc": "Libro de conjuros oscuros rescatado del almacén del puerto.", "image": "images/asset_387950169.png"},
+            {"name": "Diario y Anillo de Zenopus", "holder": "Grupo", "desc": "Manuscrito con las revelaciones del Kanatsu-mi y el anillo sellador.", "image": "images/asset_1189662238.png"}
         ]
     },
     "atlas": atlas_items
@@ -528,90 +547,4 @@ with open(os.path.join(DATA_DIR, "campaign_data.json"), "w", encoding="utf-8") a
 with open(os.path.join(DATA_DIR, "campaign_data.js"), "w", encoding="utf-8") as f:
     f.write("window.CAMPAIGN_DATA = " + json.dumps(final_bundle, indent=2, ensure_ascii=False) + ";\n")
 
-print("Generated data/campaign_data.json and data/campaign_data.js successfully.")
-
-# -------------------------------------------------------------
-# 7. GENERATE MARKDOWN WIKI FILES
-# -------------------------------------------------------------
-with open(os.path.join(WIKI_DIR, "README.md"), "w", encoding="utf-8") as f:
-    f.write(f"""# 🛡️ Las Crónicas de Los Koonies
-
-> **Compendio y Crónica de Campaña**  
-> *Sistema:* AD&D 2ª Edición  
-> *Estado:* 16 Sesiones jugadas — En marcha hacia las montañas y Thurmaster
-
----
-
-## 🧭 Índice General
-
-- [[personajes/glunt|👤 Los Koonies (6 Protagonistas)]]
-- [[sesiones/sesion-01|📜 Diario de Sesiones (I al XVI)]]
-- [[pnjs/jelenneth__jenneleth_|🎭 Dramatis Personae (PNJs y Facciones)]]
-- [[lore_y_misterios/cabos-sueltos|🧩 Tablero de Misterios y Cabos Sueltos]]
-- [[lore_y_misterios/tesoreria-y-equipo|🎒 Bóveda de Equipo y Tesorería]]
-- [[mapas/atlas|🗺️ Atlas Cartográfico y Planos]]
-
----
-
-## 👥 Los 6 Koonies (Personajes Jugadores)
-""")
-    for k in koonies_roster:
-        f.write(f"- **[[personajes/{k['id']}|{k['name']}]]** — *{k['title']}* ({k['role']})\n")
-    f.write("\n## 📜 Sesiones Recientes\n")
-    for s in curated_sessions[-5:]:
-        f.write(f"- **[[sesiones/sesion-{s['number']:02d}|Sesión {s['number']}: {s['title']}]]** ({s['in_game_date']})\n")
-
-# Characters
-for k in koonies_roster:
-    with open(os.path.join(WIKI_DIR, "personajes", f"{k['id']}.md"), "w", encoding="utf-8") as f:
-        f.write(f"""# {k['name']}
-> *"{k['title']}"*
-
-**Rol:** {k['role']}  
-**Arquetipo:** {k['archetype']}  
-**Cita:** *"{k['quote']}"*
-
----
-
-## 📜 Historia y Notas
-{k['full_lore']}
-
----
-[[README|← Volver al Índice]]
-""")
-
-# NPCs
-for npc in curated_npcs:
-    clean_id = re.sub(r'[^a-zA-Z0-9_-]', '_', npc['name'].lower())
-    with open(os.path.join(WIKI_DIR, "pnjs", f"{clean_id}.md"), "w", encoding="utf-8") as f:
-        f.write(f"""# {npc['name']}
-> *{npc['nickname']}*
-
-- **Rol / Profesión:** {npc['role']}
-- **Ubicación:** {npc['location']}
-- **Facción:** {npc['faction']}
-- **Actitud hacia el Grupo:** {npc['attitude']}
-- **Estado Actual:** {npc['status']}
-
----
-
-## 📝 Notas y Observaciones
-{npc['notes']}
-
----
-[[README|← Volver al Índice]]
-""")
-
-# Mysteries & Treasury
-with open(os.path.join(WIKI_DIR, "lore_y_misterios", "cabos-sueltos.md"), "w", encoding="utf-8") as f:
-    f.write("# 🧩 Tablero de Misterios & Cabos Sueltos\n\n")
-    for m in mysteries:
-        f.write(f"## {m['title']}\n")
-        f.write(f"- **Prioridad:** {m['priority']} | **Estado:** {m['status']} | **Categoría:** {m['category']}\n\n")
-        f.write(f"{m['description']}\n\n")
-        f.write("### Pistas y Hallazgos:\n")
-        for clue in m['clues']:
-            f.write(f"- {clue}\n")
-        f.write("\n---\n\n")
-
-print("Generated Markdown Wiki in /wiki/ successfully.")
+print("Regenerated bundle with enhanced images.")

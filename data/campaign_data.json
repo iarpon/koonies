@@ -8,13 +8,20 @@
       "id": "glunt",
       "name": "Glunt",
       "title": "El Gigante de Corazón de Cristal",
-      "role": "Guerrero / Protector",
-      "archetype": "Fuerza colosal (Fuerza 17), alma noble, inocente y protectora de los pequeños.",
+      "role": "Guerrero Protector",
+      "stats": {
+        "fuerza": "17 (Colosal)",
+        "rol": "Defensor / Tanque",
+        "arma": "Gran Fuerza & Pureza",
+        "origen": "Amatsukuni (Tierras Bajas)"
+      },
+      "archetype": "Fuerza titánica, inocencia incorruptible y protección incondicional a los pequeños.",
       "quote": "Padre dijo que me quedara. Glunt se queda. Glunt cuidará de los pequeños hasta que el sol vuelva a salir.",
       "icon": "shield",
       "badge_color": "emerald",
       "accent": "#10b981",
       "primary_image": "images/asset_-929693943.jpg",
+      "banner_image": "images/asset_1815133749.png",
       "match_keys": [
         "Glunt",
         "Gigante de Corazón",
@@ -23,15 +30,17 @@
       "curse_status": "Maldición de las Venas Negras (contraída en la Torre de Zenopus, contenida tras las aguas de Kanatsu-mi).",
       "full_lore": "### Glunt: El Gigante de Corazón de Cristal\n\n\n\nEl destino de Glunt estuvo marcado por el peso de su propia existencia desde el primer aliento. Nacido con un tamaño que la naturaleza no pudo sostener, su llegada al mundo supuso la partida de su madre. Aquellos minutos de silencio antes de su primera bocanada de aire dejaron una huella eterna en su mente, otorgándole una sencillez de espíritu que el mundo a menudo confunde con debilidad, pero que en realidad es **pureza absoluta**.\n\n\n\nHijo de un humilde labrador, Glunt creció entre surcos y arados, siendo el motor que aligeraba la vejez de su padre. Su viaje a la capital para el **Festival de Invierno** debía ser un premio, una maravilla de luces y alegría; en cambio, se convirtió en el inicio de su exilio. Con la misma entrega con la que araba la tierra, ayudó a cargar los grandes galeones, usando su inmensa fuerza (**Fuerza 17**) para salvar lo que pudiera del desastre.\n\nCuando el mundo se rompía en pedazos, su padre le dio una última instrucción: *\"Quédate en el barco\"*. \n\nY Glunt, fiel como una montaña, obedeció. No entiende de eclipses púrpura, ni de la no muerte que Ainur presintió; solo entiende que debe proteger a los que le rodean mientras espera volver a ver a su padre. En la oscuridad de la bodega de los piratas, Glunt es el único que mantiene una paz inquebrantable, convencido de que, si sigue siendo \"bueno\" y protege a sus amigos, cumplirá su palabra.\n\n\n\n*\"Padre dijo que me quedara. Glunt se queda. Glunt cuidará de los pequeños hasta que el sol vuelva a salir.\"*\n\n### Hiroyuki Watanabe: El Acero en la Forja\n\n\n\nHiroyuki no nació con un linaje de sangre noble, pero su espíritu siempre ha vibrado con la disciplina de los **Escudos de la Justicia**.\n\n\n\nDe constitución atlética y una fuerza que rivaliza con la de los veteranos, Hiroyuki recorría las calles de la capital con un solo propósito: conseguir los fondos necesarios para ser aceptado formalmente en la casta de los samurai.\n\n\n\nPara él, el honor no era un regalo de nacimiento, sino un trofeo que debía ser comprado con sudor y mérito.\n\n\n\nEn la ciudad de Amatsukuni, mientras otros celebraban o rezaban, él trabajaba y entrenaba, preparándose para el día en que pudiera portar la *naginata* o la espada larga bajo el estandarte de **Hachiman**, el Guardián Marcial. Sin embargo, la noche del eclipse púrpura no trajo su iniciación, sino el fin de su mundo.\n\n\n\nCapturado por los piratas de Lyndoria tras la caída de los galeones, Hiroyuki se encuentra ahora despojado de sus ahorros y de su futuro planeado. Pero en la oscuridad de la bodega, rodeado por el carisma de **Ainur**, la bondad de **Glunt**, la sabiduría de **Kazgrim** y la severidad de **Sumiko**, Hiroyuki comprende una verdad fundamental: el verdadero samurai no es aquel que paga por su entrada al dojo, sino aquel que protege a los suyos cuando todo lo demás se ha perdido. \n\n\n\n*\"Si Amatsukuni ha caído, yo seré el escudo de los que quedan, con o sin nombre de samurai.\"*\n\n# **La historia de Kazrim:**\n\nBackground del personaje\n\nNombre\n\nKazgrim Iwakura\n\n(pero todavía muchos lo llaman simplemente Kaz)\n\n\n\n\n# **Origen**\n\nKazgrim nació hace apenas 38 años, lo que para un enano sigue siendo casi un adolescente.\n\nCreció en un pequeño barrio de artesanos de piedra y metal en las cercanías de Kizuna-no-Miya, en el norte montañoso de Amatsukuni.\n\nSu clan no es famoso ni noble.\n\nSon canteros y constructores de templos, especialistas en trabajar la piedra volcánica de las montañas.\n\nDesde pequeño, Kazgrim creció escuchando dos cosas constantemente:\n\n- El sonido de los martillos sobre la piedra.\n- Las historias de los kami que habitan en las montañas y herramientas.\n\nEn Amatsukuni, incluso los objetos pueden albergar espíritus, y eso marcó profundamente su forma de ver el mundo. \n\n\n\n\n# **Infancia**\n\nKazgrim nunca fue el más fuerte del clan.\n\nMientras otros jóvenes competían en fuerza o en combate, él era conocido por:\n\n- hacer demasiadas preguntas\n- quedarse observando los rituales del templo\n- hablar con los ancianos y monjes\n\n\n\nSu abuelo solía decir:\n\n“La piedra escucha antes de romperse. Aprende a escuchar.”\n\nKazgrim se tomó esa frase demasiado en serio.\n\n\n\n\n# **El suceso que cambió su vida**\n\nCuando tenía 31 años, ocurrió algo extraño.\n\nDurante la reconstrucción de un pequeño santuario dedicado a Kagutsuchi, el dios del fuego, Kazgrim escuchó algo mientras trabajaba en la base del altar.\n\nNo fue una voz clara.\n\nMás bien una sensación, como si el calor de la piedra quisiera decirle algo.\n\nEsa misma noche soñó con un yunque ardiendo bajo una montaña.\n\nA la mañana siguiente, el anciano sacerdote del santuario le dijo algo inquietante:\n\n“A veces los kami hablan primero a quienes aún no saben escucharlos.”\n\nDesde entonces, Kazgrim comenzó a pasar cada vez más tiempo en templos y santuarios.\n\n\n\n\n# **Situación actual**\n\nKazgrim aún no es clérigo.\n\nEn realidad es poco más que un acólito curioso que ayuda con tareas simples:\n\n- limpiar altares\n- transportar ofrendas\n- mantener el fuego de los braseros\n- ayudar durante los festivales matsuri\n\nPero algo dentro de él está despertando.\n\nNo tiene formación completa.\n\nNo conoce aún los conjuros sagrados.\n\nSin embargo, cuando reza…\n\nlas velas a veces arden más intensamente de lo normal.\n\n\n\n\n# **Personalidad**\n\nKazgrim es:\n\n- curioso\n- sincero\n- un poco ingenuo\n- extremadamente respetuoso con las tradiciones\n\nTiene una fe instintiva, no dogmática.\n\nEn Amatsukuni es común venerar distintos kami según el momento de la vida, y Kazgrim todavía está intentando descubrir qué espíritu guía realmente su destino. \n\n\n\n\n# **Motivación para la aventura**\n\nKazgrim ha salido al mundo por tres razones:\n\n- Comprender la voz de los kami que cree haber escuchado.\n- Descubrir qué dios lo ha marcado realmente.\n- Demostrar a su clan que no hace falta ser el más fuerte para proteger a los demás.\n\n\n\n# **El guardian de la Llama perdida**\n\nEn los templos de Amatsukuni, el nombre de Kazgrim era sinónimo de devoción silenciosa y s\n\nabiduría profunda. Como enano de los templos, su vida estaba dedicada al estudio de los ciclos \n\ny a la protección de las reliquias sagradas. Se le confió la tarea más alta de su orden: \n\ncustodiar las escrituras de **==Kagutsuchi, el Fuego Renaciente==**, el dios que enseña que \n\nla destrucción es solo el preludio de la purificación.z\n\n\n\nSin embargo, la ingenuidad de su buen corazón no fue rival para la crueldad del acero pirata. \n\nEn la noche del naufragio, Kazgrim vio con horror cómo las llamas naturales de su dios eran \n\nsuperadas por el fuego de la traición. No pudo proteger los textos; las palabras sagradas se \n\nhundieron en el abismo junto con el orgullo de su pueblo.\n\nAhora, encadenado en la bodega, Kazgrim ya no es solo un bibliotecario de lo divino. \n\nEs un sabio que debe aprender que la verdadera escritura de Kagutsuchi no está en el \n\npapel, sino en la voluntad de renacer de las cenizas. Aunque se siente perdido, su sola \n\npresencia es un faro de calma para Glunt y una brújula moral para Ainur. Kazgrim busca \n\nsu camino, sin saber que el destino ya lo ha marcado para reescribir la historia de su pueblo \n\ncon sus propios actos.\n\n\n\n*\"El papel arde, pero la verdad es incombustible. Si el fuego lo devoró todo, es porque algo *\n\n*nuevo y más fuerte debe nacer de nuestras cenizas.\"*",
       "gallery": [
+        "images/asset_-1175273093.png",
+        "images/asset_794337629.png",
+        "images/asset_1059562584.png",
         "images/asset_-824114163.png",
         "images/asset_-411168708.png",
-        "images/asset_1067045487.jpg",
-        "images/asset_794337629.png",
-        "images/asset_1724052793.png",
         "images/asset_-233100722.png",
-        "images/asset_-1175273093.png",
-        "images/asset_1059562584.png",
-        "images/asset_-929693943.jpg"
+        "images/asset_25870190.png",
+        "images/asset_1067045487.jpg",
+        "images/asset_-929693943.jpg",
+        "images/asset_1724052793.png",
+        "images/asset_1815133749.png"
       ]
     },
     {
@@ -39,12 +48,19 @@
       "name": "Hiroyuki Watanabe",
       "title": "El Acero en la Forja",
       "role": "Guerrero Kunita / Kensei Samurai",
-      "archetype": "Honor marcial, devoción a Hachiman y escudo inquebrantable de los supervivientes.",
+      "stats": {
+        "fuerza": "15 (Atlético)",
+        "rol": "Espadachín / Líder Táctico",
+        "arma": "Espada Larga & Naginata",
+        "origen": "Capital de Amatsukuni"
+      },
+      "archetype": "Honor marcial, devoción al dios de la guerra Hachiman y escudo de su pueblo.",
       "quote": "Si Amatsukuni ha caído, yo seré el escudo de los que quedan, con o sin nombre de samurai.",
       "icon": "swords",
       "badge_color": "amber",
       "accent": "#f59e0b",
       "primary_image": "images/asset_1793380967.jpg",
+      "banner_image": "images/asset_1497705276.png",
       "match_keys": [
         "Hiroyuki",
         "Hiroyuki Watanabe",
@@ -52,22 +68,30 @@
       ],
       "full_lore": "### Hiroyuki Watanabe: El Acero en la Forja\n\n\n\nHiroyuki no nació con un linaje de sangre noble, pero su espíritu siempre ha vibrado con la disciplina de los **Escudos de la Justicia**.\n\n\n\nDe constitución atlética y una fuerza que rivaliza con la de los veteranos, Hiroyuki recorría las calles de la capital con un solo propósito: conseguir los fondos necesarios para ser aceptado formalmente en la casta de los samurai.\n\n\n\nPara él, el honor no era un regalo de nacimiento, sino un trofeo que debía ser comprado con sudor y mérito.\n\n\n\nEn la ciudad de Amatsukuni, mientras otros celebraban o rezaban, él trabajaba y entrenaba, preparándose para el día en que pudiera portar la *naginata* o la espada larga bajo el estandarte de **Hachiman**, el Guardián Marcial. Sin embargo, la noche del eclipse púrpura no trajo su iniciación, sino el fin de su mundo.\n\n\n\nCapturado por los piratas de Lyndoria tras la caída de los galeones, Hiroyuki se encuentra ahora despojado de sus ahorros y de su futuro planeado. Pero en la oscuridad de la bodega, rodeado por el carisma de **Ainur**, la bondad de **Glunt**, la sabiduría de **Kazgrim** y la severidad de **Sumiko**, Hiroyuki comprende una verdad fundamental: el verdadero samurai no es aquel que paga por su entrada al dojo, sino aquel que protege a los suyos cuando todo lo demás se ha perdido. \n\n\n\n*\"Si Amatsukuni ha caído, yo seré el escudo de los que quedan, con o sin nombre de samurai.\"*",
       "gallery": [
-        "images/asset_794337629.png",
         "images/asset_1724052793.png",
-        "images/asset_1793380967.jpg"
+        "images/asset_794337629.png",
+        "images/asset_1793380967.jpg",
+        "images/asset_1497705276.png"
       ]
     },
     {
       "id": "katsumi",
       "name": "Katsumi",
       "title": "La Llama Custodia",
-      "role": "Clériga de Shien (La Llama Púrpura) / Líder Espiritual",
-      "archetype": "Defensora con naginata y guía moral de los 40 refugiados kunitas.",
+      "role": "Clériga de Shien / Guía Espiritual",
+      "stats": {
+        "fe": "Shien (Llama Púrpura)",
+        "rol": "Sanación & Liderazgo",
+        "arma": "Naginata Sagrada",
+        "origen": "Templo de la Llama Púrpura"
+      },
+      "archetype": "Sacerdotisa consagrada a la pureza del pueblo kunita y la esperanza en tierra extraña.",
       "quote": "Soy Katsumi, una Llama Custodia consagrada al servicio de Shien. Mi vida está ligada a la naginata y al deber de proteger a mi pueblo.",
       "icon": "flame",
       "badge_color": "purple",
       "accent": "#a855f7",
       "primary_image": "images/asset_154989466.png",
+      "banner_image": "images/asset_831679076.png",
       "match_keys": [
         "Katsumi",
         "Llama Custodia",
@@ -75,7 +99,8 @@
       ],
       "full_lore": "Katsumi\n\n\"Soy Katsumi, una **Llama Custodia** consagrada al servicio de **Shien**, la Llama Púrpura. Mi vida está ligada a la **naginata** que porto y al deber de proteger la pureza de mi pueblo en esta tierra extraña. Visto el púrpura y el oro de mi orden, y aunque este mundo me resulta caótico y confuso, trato de mantener el orden interno que mi diosa exige.\n\nNo soy versada en las palabras de los mercaderes ni en las leyes de este reino de Thir, pero entiendo las leyes del destino. Mi rostro busca la serenidad inmutable, y cuando el dolor del exilio se vuelve insoportable, me oculto tras mi **máscara de porcelana** para que los demás solo vean la perfección estética que Shien demanda. Mi magia no es un arma de destrucción, sino una llama sagrada destinada a **iluminar y purificar** la corrupción que acecha en las sombras de este puerto.\"",
       "gallery": [
-        "images/asset_154989466.png"
+        "images/asset_154989466.png",
+        "images/asset_831679076.png"
       ]
     },
     {
@@ -83,19 +108,27 @@
       "name": "Sakura",
       "title": "La Erudita de lo Arcano",
       "role": "Maga Kunita / Investigadora de Grimorios",
-      "archetype": "Intelecto analítico, descifradora de secretos antiguos y portadora del Ojo de J'karaa.",
+      "stats": {
+        "magia": "Evocación / Nigromancia",
+        "rol": "Lanzadora de Conjuros & Investigadora",
+        "arma": "Grimorio de Zarcand",
+        "origen": "Academia Arcana de Amatsukuni"
+      },
+      "archetype": "Mente afilada, dominadora de conjuros antiguos y actual portadora del Ojo de J'karaa.",
       "quote": "El conocimiento no es peligroso; ignorar sus consecuencias sí lo es.",
       "icon": "sparkles",
       "badge_color": "pink",
       "accent": "#ec4899",
       "primary_image": "images/asset_1843595399.jpg",
+      "banner_image": "images/asset_484395089.png",
       "match_keys": [
         "Sakura",
         "Maga kunita",
         "tercer ojo"
       ],
-      "full_lore": "Miembro fundador de Los Koonies. Intelecto analítico, descifradora de secretos antiguos y portadora del Ojo de J'karaa..",
+      "full_lore": "Miembro fundador de Los Koonies. Mente afilada, dominadora de conjuros antiguos y actual portadora del Ojo de J'karaa..",
       "gallery": [
+        "images/asset_484395089.png",
         "images/asset_1843595399.jpg"
       ]
     },
@@ -103,13 +136,20 @@
       "id": "ainur",
       "name": "Ainur",
       "title": "El Ojo Atento",
-      "role": "Explorador / Vigilante",
-      "archetype": "Carisma, sigilo, percepción aguda y rastreo en las sombras.",
+      "role": "Explorador / Batidor",
+      "stats": {
+        "destreza": "Alta",
+        "rol": "Sigilo / Exploración / Percepción",
+        "arma": "Arco & Daga",
+        "origen": "Fronteras de Amatsukuni"
+      },
+      "archetype": "Carisma, sigilo, percepción extrasensorial y rastreador infalible en la niebla.",
       "quote": "La niebla oculta muchas cosas, pero ninguna que no deje rastro.",
       "icon": "eye",
       "badge_color": "indigo",
       "accent": "#6366f1",
       "primary_image": "images/asset_1067045487.jpg",
+      "banner_image": "images/asset_1659737080.png",
       "match_keys": [
         "Ainur",
         "Ojo de J'karaa",
@@ -117,16 +157,17 @@
       ],
       "full_lore": "### Ainur\n\nEn su juventud, las llamas que Ainur prendió contra la \"civilización\" nacieron de un amor feroz por lo salvaje; una rebelión contra el progreso que devoraba la naturaleza. Pero el tiempo atemperó su fuego, convirtiendo la ira en carisma y la imprudencia en maestría de exploración. Sin embargo, nada en sus años bajo la fronda lo preparó para lo que sus ojos de elfo captarían en la hora del eclipse.\n\n\n\nMientras otros solo veían humo y muerte, la aguzada visión de Ainur atravesó el velo de la tormenta púrpura. Allí, donde los templos de Amatsukuni se hundían en el abismo, vio cómo el antiguo pueblo kunita se alzaba de nuevo... pero no como mártires, sino como cáscaras vacías abrazadas por la **podredumbre de la no muerte**.\n\n\n\nAinur sabe lo que el resto ignora: que su hogar no solo ha sido destruido, sino profanado. Ahora, en la penumbra de la bodega, su pasión por la naturaleza se ha transformado en un propósito más alto. Ya no busca quemar ciudades, sino encontrar un refugio donde la vida no sea una burla de sí misma y donde el rastro de la putrefacción que vio en Amatsukuni no pueda alcanzarles.\n\n\n\n*\"He visto a los muertos reclamar lo que el fuego no pudo consumir. Si la civilización es una plaga, lo que viene tras ella es el fin de todas las cosas.\"*\n\n### Glunt: El Gigante de Corazón de Cristal\n\n\n\nEl destino de Glunt estuvo marcado por el peso de su propia existencia desde el primer aliento. Nacido con un tamaño que la naturaleza no pudo sostener, su llegada al mundo supuso la partida de su madre. Aquellos minutos de silencio antes de su primera bocanada de aire dejaron una huella eterna en su mente, otorgándole una sencillez de espíritu que el mundo a menudo confunde con debilidad, pero que en realidad es **pureza absoluta**.\n\n\n\nHijo de un humilde labrador, Glunt creció entre surcos y arados, siendo el motor que aligeraba la vejez de su padre. Su viaje a la capital para el **Festival de Invierno** debía ser un premio, una maravilla de luces y alegría; en cambio, se convirtió en el inicio de su exilio. Con la misma entrega con la que araba la tierra, ayudó a cargar los grandes galeones, usando su inmensa fuerza (**Fuerza 17**) para salvar lo que pudiera del desastre.\n\nCuando el mundo se rompía en pedazos, su padre le dio una última instrucción: *\"Quédate en el barco\"*. \n\nY Glunt, fiel como una montaña, obedeció. No entiende de eclipses púrpura, ni de la no muerte que Ainur presintió; solo entiende que debe proteger a los que le rodean mientras espera volver a ver a su padre. En la oscuridad de la bodega de los piratas, Glunt es el único que mantiene una paz inquebrantable, convencido de que, si sigue siendo \"bueno\" y protege a sus amigos, cumplirá su palabra.\n\n\n\n*\"Padre dijo que me quedara. Glunt se queda. Glunt cuidará de los pequeños hasta que el sol vuelva a salir.\"*\n\n### Hiroyuki Watanabe: El Acero en la Forja\n\n\n\nHiroyuki no nació con un linaje de sangre noble, pero su espíritu siempre ha vibrado con la disciplina de los **Escudos de la Justicia**.\n\n\n\nDe constitución atlética y una fuerza que rivaliza con la de los veteranos, Hiroyuki recorría las calles de la capital con un solo propósito: conseguir los fondos necesarios para ser aceptado formalmente en la casta de los samurai.\n\n\n\nPara él, el honor no era un regalo de nacimiento, sino un trofeo que debía ser comprado con sudor y mérito.\n\n\n\nEn la ciudad de Amatsukuni, mientras otros celebraban o rezaban, él trabajaba y entrenaba, preparándose para el día en que pudiera portar la *naginata* o la espada larga bajo el estandarte de **Hachiman**, el Guardián Marcial. Sin embargo, la noche del eclipse púrpura no trajo su iniciación, sino el fin de su mundo.\n\n\n\nCapturado por los piratas de Lyndoria tras la caída de los galeones, Hiroyuki se encuentra ahora despojado de sus ahorros y de su futuro planeado. Pero en la oscuridad de la bodega, rodeado por el carisma de **Ainur**, la bondad de **Glunt**, la sabiduría de **Kazgrim** y la severidad de **Sumiko**, Hiroyuki comprende una verdad fundamental: el verdadero samurai no es aquel que paga por su entrada al dojo, sino aquel que protege a los suyos cuando todo lo demás se ha perdido. \n\n\n\n*\"Si Amatsukuni ha caído, yo seré el escudo de los que quedan, con o sin nombre de samurai.\"*\n\n# **La historia de Kazrim:**\n\nBackground del personaje\n\nNombre\n\nKazgrim Iwakura\n\n(pero todavía muchos lo llaman simplemente Kaz)\n\n\n\n\n# **Origen**\n\nKazgrim nació hace apenas 38 años, lo que para un enano sigue siendo casi un adolescente.\n\nCreció en un pequeño barrio de artesanos de piedra y metal en las cercanías de Kizuna-no-Miya, en el norte montañoso de Amatsukuni.\n\nSu clan no es famoso ni noble.\n\nSon canteros y constructores de templos, especialistas en trabajar la piedra volcánica de las montañas.\n\nDesde pequeño, Kazgrim creció escuchando dos cosas constantemente:\n\n- El sonido de los martillos sobre la piedra.\n- Las historias de los kami que habitan en las montañas y herramientas.\n\nEn Amatsukuni, incluso los objetos pueden albergar espíritus, y eso marcó profundamente su forma de ver el mundo. \n\n\n\n\n# **Infancia**\n\nKazgrim nunca fue el más fuerte del clan.\n\nMientras otros jóvenes competían en fuerza o en combate, él era conocido por:\n\n- hacer demasiadas preguntas\n- quedarse observando los rituales del templo\n- hablar con los ancianos y monjes\n\n\n\nSu abuelo solía decir:\n\n“La piedra escucha antes de romperse. Aprende a escuchar.”\n\nKazgrim se tomó esa frase demasiado en serio.\n\n\n\n\n# **El suceso que cambió su vida**\n\nCuando tenía 31 años, ocurrió algo extraño.\n\nDurante la reconstrucción de un pequeño santuario dedicado a Kagutsuchi, el dios del fuego, Kazgrim escuchó algo mientras trabajaba en la base del altar.\n\nNo fue una voz clara.\n\nMás bien una sensación, como si el calor de la piedra quisiera decirle algo.\n\nEsa misma noche soñó con un yunque ardiendo bajo una montaña.\n\nA la mañana siguiente, el anciano sacerdote del santuario le dijo algo inquietante:\n\n“A veces los kami hablan primero a quienes aún no saben escucharlos.”\n\nDesde entonces, Kazgrim comenzó a pasar cada vez más tiempo en templos y santuarios.\n\n\n\n\n# **Situación actual**\n\nKazgrim aún no es clérigo.\n\nEn realidad es poco más que un acólito curioso que ayuda con tareas simples:\n\n- limpiar altares\n- transportar ofrendas\n- mantener el fuego de los braseros\n- ayudar durante los festivales matsuri\n\nPero algo dentro de él está despertando.\n\nNo tiene formación completa.\n\nNo conoce aún los conjuros sagrados.\n\nSin embargo, cuando reza…\n\nlas velas a veces arden más intensamente de lo normal.\n\n\n\n\n# **Personalidad**\n\nKazgrim es:\n\n- curioso\n- sincero\n- un poco ingenuo\n- extremadamente respetuoso con las tradiciones\n\nTiene una fe instintiva, no dogmática.\n\nEn Amatsukuni es común venerar distintos kami según el momento de la vida, y Kazgrim todavía está intentando descubrir qué espíritu guía realmente su destino. \n\n\n\n\n# **Motivación para la aventura**\n\nKazgrim ha salido al mundo por tres razones:\n\n- Comprender la voz de los kami que cree haber escuchado.\n- Descubrir qué dios lo ha marcado realmente.\n- Demostrar a su clan que no hace falta ser el más fuerte para proteger a los demás.\n\n\n\n# **El guardian de la Llama perdida**\n\nEn los templos de Amatsukuni, el nombre de Kazgrim era sinónimo de devoción silenciosa y s\n\nabiduría profunda. Como enano de los templos, su vida estaba dedicada al estudio de los ciclos \n\ny a la protección de las reliquias sagradas. Se le confió la tarea más alta de su orden: \n\ncustodiar las escrituras de **==Kagutsuchi, el Fuego Renaciente==**, el dios que enseña que \n\nla destrucción es solo el preludio de la purificación.z\n\n\n\nSin embargo, la ingenuidad de su buen corazón no fue rival para la crueldad del acero pirata. \n\nEn la noche del naufragio, Kazgrim vio con horror cómo las llamas naturales de su dios eran \n\nsuperadas por el fuego de la traición. No pudo proteger los textos; las palabras sagradas se \n\nhundieron en el abismo junto con el orgullo de su pueblo.\n\nAhora, encadenado en la bodega, Kazgrim ya no es solo un bibliotecario de lo divino. \n\nEs un sabio que debe aprender que la verdadera escritura de Kagutsuchi no está en el \n\npapel, sino en la voluntad de renacer de las cenizas. Aunque se siente perdido, su sola \n\npresencia es un faro de calma para Glunt y una brújula moral para Ainur. Kazgrim busca \n\nsu camino, sin saber que el destino ya lo ha marcado para reescribir la historia de su pueblo \n\ncon sus propios actos.\n\n\n\n*\"El papel arde, pero la verdad es incombustible. Si el fuego lo devoró todo, es porque algo *\n\n*nuevo y más fuerte debe nacer de nuestras cenizas.\"*",
       "gallery": [
-        "images/asset_-824114163.png",
-        "images/asset_-1203673405.png",
-        "images/asset_-411168708.png",
-        "images/asset_25870190.png",
-        "images/asset_1067045487.jpg",
-        "images/asset_794337629.png",
-        "images/asset_1724052793.png",
-        "images/asset_-233100722.png",
         "images/asset_-1175273093.png",
-        "images/asset_1059562584.png"
+        "images/asset_794337629.png",
+        "images/asset_-1203673405.png",
+        "images/asset_1059562584.png",
+        "images/asset_-824114163.png",
+        "images/asset_-411168708.png",
+        "images/asset_-233100722.png",
+        "images/asset_1067045487.jpg",
+        "images/asset_1659737080.png",
+        "images/asset_1724052793.png",
+        "images/asset_25870190.png"
       ]
     },
     {
@@ -134,12 +175,19 @@
       "name": "Kazgrim Iwakura (Kaz)",
       "title": "El Guardián de la Llama Perdida",
       "role": "Cantero Enano / Acólito de Kagutsuchi",
-      "archetype": "Joven cantero de piedra volcánica (38 años) que escucha a los kami y despierta el fuego renaciente.",
+      "stats": {
+        "fuerza": "13 (+4)",
+        "inteligencia": "10",
+        "rol": "Clérigo Cantero / Fuego Renaciente",
+        "origen": "Kizuna-no-Miya (Norte Montañoso)"
+      },
+      "archetype": "Joven cantero de piedra volcánica (38 años) que escucha los susurros de los kami en la roca y el fuego.",
       "quote": "El papel arde, pero la verdad es incombustible. Si el fuego lo devoró todo, es porque algo nuevo y más fuerte debe nacer de nuestras cenizas.",
       "icon": "hammer",
       "badge_color": "orange",
       "accent": "#ea580c",
       "primary_image": "images/asset_1063611285.jpg",
+      "banner_image": "images/asset_-1175273093.png",
       "match_keys": [
         "Kazgrim",
         "Kaz",
@@ -150,13 +198,13 @@
       ],
       "full_lore": "### Hiroyuki Watanabe: El Acero en la Forja\n\n\n\nHiroyuki no nació con un linaje de sangre noble, pero su espíritu siempre ha vibrado con la disciplina de los **Escudos de la Justicia**.\n\n\n\nDe constitución atlética y una fuerza que rivaliza con la de los veteranos, Hiroyuki recorría las calles de la capital con un solo propósito: conseguir los fondos necesarios para ser aceptado formalmente en la casta de los samurai.\n\n\n\nPara él, el honor no era un regalo de nacimiento, sino un trofeo que debía ser comprado con sudor y mérito.\n\n\n\nEn la ciudad de Amatsukuni, mientras otros celebraban o rezaban, él trabajaba y entrenaba, preparándose para el día en que pudiera portar la *naginata* o la espada larga bajo el estandarte de **Hachiman**, el Guardián Marcial. Sin embargo, la noche del eclipse púrpura no trajo su iniciación, sino el fin de su mundo.\n\n\n\nCapturado por los piratas de Lyndoria tras la caída de los galeones, Hiroyuki se encuentra ahora despojado de sus ahorros y de su futuro planeado. Pero en la oscuridad de la bodega, rodeado por el carisma de **Ainur**, la bondad de **Glunt**, la sabiduría de **Kazgrim** y la severidad de **Sumiko**, Hiroyuki comprende una verdad fundamental: el verdadero samurai no es aquel que paga por su entrada al dojo, sino aquel que protege a los suyos cuando todo lo demás se ha perdido. \n\n\n\n*\"Si Amatsukuni ha caído, yo seré el escudo de los que quedan, con o sin nombre de samurai.\"*\n\n# **La historia de Kazrim:**\n\nBackground del personaje\n\nNombre\n\nKazgrim Iwakura\n\n(pero todavía muchos lo llaman simplemente Kaz)\n\n\n\n\n# **Origen**\n\nKazgrim nació hace apenas 38 años, lo que para un enano sigue siendo casi un adolescente.\n\nCreció en un pequeño barrio de artesanos de piedra y metal en las cercanías de Kizuna-no-Miya, en el norte montañoso de Amatsukuni.\n\nSu clan no es famoso ni noble.\n\nSon canteros y constructores de templos, especialistas en trabajar la piedra volcánica de las montañas.\n\nDesde pequeño, Kazgrim creció escuchando dos cosas constantemente:\n\n- El sonido de los martillos sobre la piedra.\n- Las historias de los kami que habitan en las montañas y herramientas.\n\nEn Amatsukuni, incluso los objetos pueden albergar espíritus, y eso marcó profundamente su forma de ver el mundo. \n\n\n\n\n# **Infancia**\n\nKazgrim nunca fue el más fuerte del clan.\n\nMientras otros jóvenes competían en fuerza o en combate, él era conocido por:\n\n- hacer demasiadas preguntas\n- quedarse observando los rituales del templo\n- hablar con los ancianos y monjes\n\n\n\nSu abuelo solía decir:\n\n“La piedra escucha antes de romperse. Aprende a escuchar.”\n\nKazgrim se tomó esa frase demasiado en serio.\n\n\n\n\n# **El suceso que cambió su vida**\n\nCuando tenía 31 años, ocurrió algo extraño.\n\nDurante la reconstrucción de un pequeño santuario dedicado a Kagutsuchi, el dios del fuego, Kazgrim escuchó algo mientras trabajaba en la base del altar.\n\nNo fue una voz clara.\n\nMás bien una sensación, como si el calor de la piedra quisiera decirle algo.\n\nEsa misma noche soñó con un yunque ardiendo bajo una montaña.\n\nA la mañana siguiente, el anciano sacerdote del santuario le dijo algo inquietante:\n\n“A veces los kami hablan primero a quienes aún no saben escucharlos.”\n\nDesde entonces, Kazgrim comenzó a pasar cada vez más tiempo en templos y santuarios.\n\n\n\n\n# **Situación actual**\n\nKazgrim aún no es clérigo.\n\nEn realidad es poco más que un acólito curioso que ayuda con tareas simples:\n\n- limpiar altares\n- transportar ofrendas\n- mantener el fuego de los braseros\n- ayudar durante los festivales matsuri\n\nPero algo dentro de él está despertando.\n\nNo tiene formación completa.\n\nNo conoce aún los conjuros sagrados.\n\nSin embargo, cuando reza…\n\nlas velas a veces arden más intensamente de lo normal.\n\n\n\n\n# **Personalidad**\n\nKazgrim es:\n\n- curioso\n- sincero\n- un poco ingenuo\n- extremadamente respetuoso con las tradiciones\n\nTiene una fe instintiva, no dogmática.\n\nEn Amatsukuni es común venerar distintos kami según el momento de la vida, y Kazgrim todavía está intentando descubrir qué espíritu guía realmente su destino. \n\n\n\n\n# **Motivación para la aventura**\n\nKazgrim ha salido al mundo por tres razones:\n\n- Comprender la voz de los kami que cree haber escuchado.\n- Descubrir qué dios lo ha marcado realmente.\n- Demostrar a su clan que no hace falta ser el más fuerte para proteger a los demás.\n\n\n\n# **El guardian de la Llama perdida**\n\nEn los templos de Amatsukuni, el nombre de Kazgrim era sinónimo de devoción silenciosa y s\n\nabiduría profunda. Como enano de los templos, su vida estaba dedicada al estudio de los ciclos \n\ny a la protección de las reliquias sagradas. Se le confió la tarea más alta de su orden: \n\ncustodiar las escrituras de **==Kagutsuchi, el Fuego Renaciente==**, el dios que enseña que \n\nla destrucción es solo el preludio de la purificación.z\n\n\n\nSin embargo, la ingenuidad de su buen corazón no fue rival para la crueldad del acero pirata. \n\nEn la noche del naufragio, Kazgrim vio con horror cómo las llamas naturales de su dios eran \n\nsuperadas por el fuego de la traición. No pudo proteger los textos; las palabras sagradas se \n\nhundieron en el abismo junto con el orgullo de su pueblo.\n\nAhora, encadenado en la bodega, Kazgrim ya no es solo un bibliotecario de lo divino. \n\nEs un sabio que debe aprender que la verdadera escritura de Kagutsuchi no está en el \n\npapel, sino en la voluntad de renacer de las cenizas. Aunque se siente perdido, su sola \n\npresencia es un faro de calma para Glunt y una brújula moral para Ainur. Kazgrim busca \n\nsu camino, sin saber que el destino ya lo ha marcado para reescribir la historia de su pueblo \n\ncon sus propios actos.\n\n\n\n*\"El papel arde, pero la verdad es incombustible. Si el fuego lo devoró todo, es porque algo *\n\n*nuevo y más fuerte debe nacer de nuestras cenizas.\"*\n\nKazgrim **no es el típico clérigo de fuego**.\n\n\n\n- No busca quemar\n- No quiere hacer daño\n- Pero ha sido tocado por un dios que **sí lo exige en ciertos momentos**\n\n\n\n¿Qué merece salvarse… y qué debe arder?",
       "gallery": [
-        "images/asset_1724052793.png",
-        "images/asset_794337629.png",
+        "images/asset_1063611285.jpg",
         "images/asset_-1175273093.png",
-        "images/asset_-233100722.png",
-        "images/asset_1059562584.png",
+        "images/asset_794337629.png",
         "images/asset_316444982.png",
-        "images/asset_1063611285.jpg"
+        "images/asset_1059562584.png",
+        "images/asset_-233100722.png",
+        "images/asset_1724052793.png"
       ]
     }
   ],
@@ -168,7 +216,8 @@
       "irl_date": "15/0/26",
       "in_game_date": "15 de Sulmar, Año 18 CL",
       "location": "Isla de Viladel — Costa del Naufragio",
-      "xp": "200-350 PX",
+      "xp": "250-350 PX",
+      "cover_image": "images/asset_10816842.png",
       "summary": "Hace apenas dos lunas, el continente de Amatsukuni, la Tierra del Amanecer, fue consumido por la ruina. Aquella noche —la última del año, cuando los dos astros se cruzaron en un eclipse— el cielo se tornó del color de la ceniza púrpura, y una llama verde, fría y antinatural, naci...",
       "blocks": [
         {
@@ -227,6 +276,7 @@
       "in_game_date": "20 de Sulmar, Año 18 CL",
       "location": "Isla de la Tortuga — Colinas Heladas",
       "xp": "## Crónica de la Sesión 2: Sangre en la Colina\n\nTras sobrevivir al naufragio y al negrero Hafkris, el grupo se aventuró hacia el interior de la isla buscando refugio contra el frío insoportable. En un barranco entre dos colinas, os topasteis con una visión brutal: una escaramuza entre orcos de la tribu **Hak-kubra** y goblins de la **Flota Sithisila**.\n\n\n\n\n### ⚔️ El Bautismo de Fuego (y Piedra)\n\nLa batalla no fue una coreografía heroica, sino un caos desesperado por la supervivencia:\n\n- **Kazgrim Iwakura y la Prueba del Destino:** Movido por su deseo de demostrar que la fuerza física no lo es todo para proteger a los suyos, Kazgrim intentó usar el entorno a su favor empujando rocas para aplastar a los enemigos. Sin embargo, la fortuna le fue esquiva y sus esfuerzos resultaron en vano. La situación se tornó trágica cuando una flecha de un arquero goblin le atravesó el cuello, dejándolo al borde de la muerte.\n- **Sakura, la Protectora Inesperada:** Mientras los demás se centraban en el acero, Sakura mantuvo la cabeza fría. Se dedicó a hostigar a los enemigos arrojando piedras con precisión y, en un acto heroico, logró estabilizar y salvar la vida de Kazgrim tras su herida mortal.\n- **Glunt y el Rechazo de la Tecnología:** Por tercera vez consecutiva, la ballesta pesada le falló a Glunt en el momento crítico. Frustrado, el coloso arrojó el arma mecánica al suelo y recurrió a su vieja fiabilidad: un **remo de madera**. Con él, cargó al cuerpo a cuerpo, demostrando que su fuerza bruta es mucho más efectiva con un madero que con engranajes.\n- **Hiroyuki, el Acero de Amatsukuni:** Con la espada ancha de Hafkris en mano, Hiroyuki fue un torbellino de metal. Se abrió paso entre las filas goblins, eliminando a todo aquel que se interpusiera en su camino con una determinación gélida.\n- **Ainur y el Rescate de la Esperanza:** Mientras el caos reinaba, Ainur centró sus esfuerzos en el objetivo táctico: rescatar al anciano maniatado que los orcos tenían como botín. Esquivando con agilidad los embates del imponente Líder Orco, logró poner a salvo al prisionero.\n\n\n### 🗝️ Un Nuevo Aliado: Keestake\n\nFinalmente, el grupo unió fuerzas para abatir al Líder Orco. Con la zona despejada y el corazón aún latiendo con fuerza, rescatasteis al hombre: **Keestake**, el antiguo palafrenero del Rey del Mar, Viledel.\n\n\n\nKeestake, un hombre demacrado que ha sobrevivido 60 años solo en esta roca comiendo ratas, os ha contado la verdad: este es el antiguo hogar del **Sea King** y estáis rodeados de enemigos que buscan su tesoro perdido. Por ahora, os ha guiado hacia el único lugar donde los orcos no se atreven a entrar por miedo a la ira divina: el **Templo de la Diosa**.\n\n\n\n\n### 📊 Estado de los Personajes\n\n- **Experiencia:** Al haber derrotado a los orcos y goblins y rescatado a Keestake, el grupo ha ganado una valiosa cantidad de puntos de experiencia hacia su **Nivel 1**.\n- **Equipo recuperado:** Habéis podido saquear los cuerpos, obteniendo capas para el frío (aunque infestadas de sabandijas), dagas y las botas altas del líder orco.\n- **Salud:** Kazgrim se encuentra extremadamente débil, pero a salvo bajo el techo del templo.",
+      "cover_image": "images/asset_238755922.png",
       "summary": "Tras sobrevivir al naufragio y a Hafkris, el grupo se aventuró hacia el interior buscando refugio contra el frío insoportable. En un barranco entre dos colinas se toparon con una visión brutal: una escaramuza entre orcos de la tribu Hak-kubra y goblins de la Flota Sithisila....",
       "blocks": [
         {
@@ -298,7 +348,8 @@
       "irl_date": "03/04/26",
       "in_game_date": "24 de Sulmar, Año 18 CL",
       "location": "Templo de la Diosa — Mansión de Viledel",
-      "xp": "200-350 PX",
+      "xp": "250-350 PX",
+      "cover_image": "images/asset_643137533.png",
       "summary": "Esta sesión empezó con un sueño que no era un sueño y terminó con la traición de quien los había guiado hasta el umbral de las catacumbas....",
       "blocks": [
         {
@@ -364,6 +415,7 @@
       "in_game_date": "26 de Sulmar, Año 18 CL",
       "location": "Catacumbas Subterráneas de Viledel",
       "xp": "**Personaje               PX Base (3,330 / 5)         Clase             Total PX Final        10%**\n\n**Glunt                                      **666                            65                             **731               804  **\n\n**Hiroyuki                                **666                             65                            **731               804**\n\n**Sakura                                   **666                           100                           **766               842**\n\n**Ainur                                 **333/333                   65/200                    398/**533      398/**586\n\n**Kazgrim                                **666                            100                          **766                842**",
+      "cover_image": "images/asset_1325026172.png",
       "summary": "Esta sesión transcurrió entera bajo tierra, en la oscuridad más absoluta, con la certeza de que la traición de Keestake no tenía remedio y que la única salida estaba más adentro....",
       "blocks": [
         {
@@ -430,6 +482,7 @@
       "in_game_date": "2 de Iryn, Año 19 CL",
       "location": "Mar Abierto — A bordo del Rimed Mallow",
       "xp": "PX para los participantes 100 xp",
+      "cover_image": "images/asset_2006248850.png",
       "summary": "Esta sesión transcurrió en el mar. Sin tierra firme, sin brújula fiable, sin saber con certeza adónde iban. Lo que la campaña había sido hasta entonces —una lucha por sobrevivir en una isla maldita— dio paso a algo distinto: el mundo que esperaba al otro lado del horizonte....",
       "blocks": [
         {
@@ -504,6 +557,7 @@
       "in_game_date": "12 de Iryn, Año 19 CL",
       "location": "Ciudad de Elken — Costa de los Naufragios",
       "xp": "PX: Sakura, Kaz y Ainur 150. Glunt y Hiroyuki 175. +10% a quien corresponda.",
+      "cover_image": "images/asset_1515216225.png",
       "summary": "El último tramo de travesía transcurrió en calma tensa. Ainur no lo mencionó a nadie, pero durante aquellos días finales en el barco la sensación de ser observado no le abandonó. Volvía cuando menos lo esperaba —al girar la cabeza, al bajar la guardia— y nunca había nadie mirando...",
       "blocks": [
         {
@@ -580,6 +634,7 @@
       "in_game_date": "13 de Iryn, Año 19 CL",
       "location": "Taberna del Ganso — Almacenes del Puerto",
       "xp": "PX: \n\nAinur: 60px +10%=66px ladrón 60+90px =150px para Ranger\n\nSakura: 120 + 100px +10% = 242 px\n\nGlunt: 120+90px + 10%=231 px\n\nHiroyuki: 120 + 90px+10% = 231 px",
+      "cover_image": "images/asset_-199017577.png",
       "summary": "Esta sesión empezó con vino especiado y té mediocre y terminó con tres compañeros malheridos, Lord Emmothach muerto y Lady Thora e Itarus en paradero desconocido. En el cuerpo de un matón de callejón encontraron una nota escrita por ambas caras que explicaban bastante más de lo q...",
       "blocks": [
         {
@@ -633,7 +688,8 @@
       "irl_date": "17/05/26",
       "in_game_date": "13 de Iryn (Noche), Año 19 CL",
       "location": "Puertas de Elken — La Torre de la Niebla",
-      "xp": "200-350 PX",
+      "xp": "250-350 PX",
+      "cover_image": "images/asset_-1336998075.png",
       "summary": "Esta sesión empezó con la compra de ungüentos y terminó con una puerta cerrada a duras penas, una niebla que no acepta que le den con ella en las narices, y un miembro del grupo que camina y respira aunque dejó de hacerlo por unos instantes....",
       "blocks": [
         {
@@ -698,7 +754,8 @@
       "irl_date": "24/05/26",
       "in_game_date": "14 de Iryn, Año 19 CL",
       "location": "Torre del Cementerio de Elken",
-      "xp": "200-350 PX",
+      "xp": "250-350 PX",
+      "cover_image": "images/asset_1704990873.png",
       "summary": "***Sesión IX - *****Iryn 14, año 19 CL -** ***El Dedo de Kaz y lo que Alguien Sabe de Nosotros***...",
       "blocks": [
         {
@@ -721,6 +778,7 @@
       "in_game_date": "14 de Iryn (Tarde), Año 19 CL",
       "location": "Criptas y Bóvedas de Zenopus",
       "xp": "PX: \n\nSakura 250 +10% = 275\n\nGlunt: 250+50+10%= 330\n\nHiro: 250+50+10%= 330\n\nAinur: Ladrón 125+10%=137 \n\n             Ranger 125+50=175",
+      "cover_image": "images/asset_2054780468.png",
       "summary": "The duration of the potion is 1d4+4 rounds, and during that time the user can drain two life levels each time someone is successfully touched....",
       "blocks": [
         {
@@ -766,7 +824,8 @@
       "irl_date": "13/06/26",
       "in_game_date": "15 de Iryn, Año 19 CL",
       "location": "La Casa de los Tesoros — Sala de la Máscara",
-      "xp": "200-350 PX",
+      "xp": "250-350 PX",
+      "cover_image": "images/asset_387950169.png",
       "summary": "Hay preguntas que se hacen buscando una salida. Y hay preguntas que se hacen porque ya no queda ninguna. El grupo aprendió hoy la diferencia....",
       "blocks": [
         {
@@ -793,6 +852,7 @@
       "in_game_date": "16 de Iryn, Año 19 CL",
       "location": "Estudio Superior de la Torre de Zenopus",
       "xp": "PX:\n\nSakura 150 + 100  + 10% = 275\n\nGlunt: 150+10%= 165\n\nHiro: 150+10%= 165\n\nAinur: Ladrón 75+50+10%=137\n\nRanger 75+50=125",
+      "cover_image": "images/asset_1189662238.png",
       "summary": "Hay palabras que abren puertas. Y hay palabras que abren lo que alguien dejó escondido porque sabía que no iba a tener tiempo de volver a buscarlo. Hoy encontraron una de esas....",
       "blocks": [
         {
@@ -835,7 +895,8 @@
       "irl_date": "12/07/26",
       "in_game_date": "17-19 de Iryn, Año 19 CL",
       "location": "Camino Fluvial de Elken hacia Milborne",
-      "xp": "200-350 PX",
+      "xp": "250-350 PX",
+      "cover_image": "images/asset_-1452585810.webp",
       "summary": "Esta sesión empezó con unos perros hambrientos y una trampilla bajo una alfombra, y terminó a un día de camino de Elken, frente a un mojón de piedra con un símbolo que ninguno de ellos esperaba encontrar tan lejos de cualquier templo....",
       "blocks": [
         {
@@ -883,7 +944,8 @@
       "irl_date": "18/07/26",
       "in_game_date": "20 de Iryn, Año 19 CL",
       "location": "Monolito de la Gran Llama — Ribera del Río",
-      "xp": "200-350 PX",
+      "xp": "250-350 PX",
+      "cover_image": "images/asset_2093206144.png",
       "summary": "Arrancamos el camino junto al río, donde un monolito marca el inicio. Un monolito que esconde entre el musgo una talla de una gran llama sobre un fondo de aguas tranquilas; todo enmarcado en un trabajado sobre relieve....",
       "blocks": [
         {
@@ -923,6 +985,7 @@
       "in_game_date": "21 de Iryn, Año 19 CL",
       "location": "Cueva Ancestral de Construcción Tosca",
       "xp": "215 PX cada uno\n\n- Glunt + 20\n- Ainur (ranger) +20\n- Kaz +500\n\n\n\n+10% a quien le toque",
+      "cover_image": "images/asset_1370269724.png",
       "summary": "Entramos en lo que parece una cueva a la que han añadido paredes. Una antigua construcción de factura tosca pero eficaz....",
       "blocks": [
         {
@@ -954,7 +1017,8 @@
       "irl_date": "24/08/26",
       "in_game_date": "22-24 de Iryn, Año 19 CL",
       "location": "Milborne, Thurmaster y Kanatsu-mi",
-      "xp": "200-350 PX",
+      "xp": "250-350 PX",
+      "cover_image": "images/asset_1659737080.png",
       "summary": "Hay viajes que terminan donde empezaron y viajes que terminan donde no esperabas. El camino de vuelta del Kanatsu-mi los trajo a Milborne, que ya empezaba a sentirse como algo parecido a un hogar. Lo que encontraron en el pueblo no fue descanso — fue el tipo de información que co...",
       "blocks": [
         {
@@ -1131,6 +1195,7 @@
       "priority": "Alta",
       "status": "Contenida / Curada en Kanatsu-mi",
       "category": "Salud de los Koonies",
+      "image": "images/asset_-929693943.jpg",
       "description": "Las venas negras que ascendían por la pierna de Glunt han remitido tras la expedición a Kanatsu-mi en el sur de Thurmaster (el Río de la Vida). La conexión con Zenopus y el origen de la plaga arcana sigue siendo investigada.",
       "clues": [
         "Descubierto en el compartimento secreto de la torre de Zenopus.",
@@ -1144,6 +1209,7 @@
       "priority": "Alta",
       "status": "Nueva Pista Crítica",
       "category": "Destino de Kazrim",
+      "image": "images/asset_1063611285.jpg",
       "description": "El Viejo Oso reveló en Milborne la existencia de una fortaleza enana en las montañas con una forja colosal y escrituras idénticas a los monolitos de Kagutsuchi. Kazrim siente la llamada de los kami para descubrir si este santuario ancestral aguarda ser despertado.",
       "clues": [
         "El Viejo Oso perdió su hogar de niño e intentó reconquistarlo.",
@@ -1157,6 +1223,7 @@
       "priority": "Alta",
       "status": "En Manos de Sakura",
       "category": "Artefactos Arcanos",
+      "image": "images/asset_1843595399.jpg",
       "description": "Ainur cedió el colgante a Sakura tras el análisis urgente de Jelenneth y Tauster. Tauster advierte que fuerzas oscuras buscan este artefacto con desesperación y pide al grupo adelantarse a sus enemigos.",
       "clues": [
         "El nigromante Zarcand intentó robarlo en los almacenes.",
@@ -1170,6 +1237,7 @@
       "priority": "Media",
       "status": "Activo",
       "category": "Pueblo y Política",
+      "image": "images/asset_154989466.png",
       "description": "40 refugiados kunitas sobreviven hacinados en el campamento extramuros de Elken bajo la tutela de Katsumi, Kaito y Hanae. Las autoridades de Thir son xenófobas y los miran con recelo. Se busca un asentamiento permanente seguro.",
       "clues": [
         "La sacerdotisa Yoriko Asano sigue en paradero desconocido.",
@@ -1183,6 +1251,7 @@
       "priority": "Media",
       "status": "Investigación Abierta",
       "category": "Amenaza Arcana",
+      "image": "images/asset_387950169.png",
       "description": "Thir fue gobernado por reyes nigromantes hace 300 años. El nigromante Zarcand, los grimorios prohibidos y la máscara demoníaca de la torre de Zenopus indican que viejos poderes intentan volver a la superficie.",
       "clues": [
         "La máscara de bronce en la torre de Zenopus responde a una hora precisa del cuadrante.",
@@ -1194,32 +1263,41 @@
     "gold": 120,
     "silver": 2600,
     "copper": 450,
-    "vessel": "La Galera del Príncipe",
+    "vessel": {
+      "name": "La Galera del Príncipe",
+      "desc": "Navío insignia del grupo. Rápido galeón costero artillado y hogar flotante de los Koonies.",
+      "image": "images/asset_2006248850.png"
+    },
     "magic_items": [
       {
         "name": "Collar Ojo de J'karaa",
         "holder": "Sakura (cedido por Ainur)",
-        "desc": "Reliquia arcana con propiedades sensoriales y misteriosas que Tauster y nigromantes persiguen."
+        "desc": "Reliquia arcana con propiedades sensoriales que Tauster y los nigromantes persiguen.",
+        "image": "images/asset_1843595399.jpg"
       },
       {
         "name": "Ungüento de Keoghtom",
         "holder": "Grupo",
-        "desc": "Bálsamo medicinal mágico de gran potencia (4 dosis restantes)."
+        "desc": "Bálsamo medicinal mágico de gran potencia (4 dosis restantes).",
+        "image": "images/asset_-251637396.jpg"
       },
       {
         "name": "Poción de Vida (Life Potion)",
         "holder": "Grupo",
-        "desc": "Poción legendaria con propiedades de absorción vital temporal."
+        "desc": "Poción legendaria con propiedades de absorción vital temporal.",
+        "image": "images/asset_2054780468.png"
       },
       {
         "name": "Grimorio de Zarcand",
         "holder": "Sakura",
-        "desc": "Libro de conjuros oscuros rescatado del almacén del puerto."
+        "desc": "Libro de conjuros oscuros rescatado del almacén del puerto.",
+        "image": "images/asset_387950169.png"
       },
       {
         "name": "Diario y Anillo de Zenopus",
         "holder": "Grupo",
-        "desc": "Manuscrito con las revelaciones del Kanatsu-mi y el anillo que Tauster desea adquirir."
+        "desc": "Manuscrito con las revelaciones del Kanatsu-mi y el anillo sellador.",
+        "image": "images/asset_1189662238.png"
       }
     ]
   },

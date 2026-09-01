@@ -8,6 +8,7 @@ let currentAtlasFilter = 'all';
 document.addEventListener('DOMContentLoaded', () => {
   initLucide();
   initAmbientParticles();
+  renderHomePartyLineup();
   initTimeline();
   renderSessionsList();
   renderSessionReader(currentSessionId);
@@ -42,7 +43,6 @@ function initLucide() {
 function navigateTab(tabId) {
   activeTab = tabId;
   
-  // Update Tab Content
   document.querySelectorAll('.tab-content').forEach(el => {
     el.classList.add('hidden');
     el.classList.remove('block');
@@ -73,6 +73,41 @@ function navigateTab(tabId) {
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
   initLucide();
+}
+
+// -------------------------------------------------------------
+// HOME: PARTY LINEUP
+// -------------------------------------------------------------
+function renderHomePartyLineup() {
+  const container = document.getElementById('homePartyLineup');
+  if (!container || !window.CAMPAIGN_DATA) return;
+
+  const characters = window.CAMPAIGN_DATA.characters;
+  container.innerHTML = '';
+
+  characters.forEach(c => {
+    const card = document.createElement('div');
+    card.className = 'rpg-card rounded-2xl overflow-hidden border p-3 flex flex-col items-center text-center cursor-pointer hover:border-amber-500/60 transition group';
+    card.style.borderColor = `${c.accent}40`;
+    card.onclick = () => {
+      navigateTab('characters');
+      openCharacterModal(c.id);
+    };
+
+    card.innerHTML = `
+      <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 mb-2 shadow-lg group-hover:scale-105 transition" style="border-color: ${c.accent};">
+        <img src="${c.primary_image}" alt="${c.name}" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/20 group-hover:opacity-0 transition"></div>
+      </div>
+      <h4 class="font-cinzel text-xs sm:text-sm font-bold text-white group-hover:text-amber-200 transition truncate w-full">${c.name}</h4>
+      <p class="text-[10px] text-slate-400 truncate w-full mt-0.5">${c.role.split('/')[0]}</p>
+      <span class="mt-2 text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider" style="background-color: ${c.accent}20; color: ${c.accent};">
+        ${c.stats?.rol || 'Koonie'}
+      </span>
+    `;
+
+    container.appendChild(card);
+  });
 }
 
 // -------------------------------------------------------------
@@ -109,7 +144,7 @@ function filterSessions(act) {
     if (btn.dataset.act === act) {
       btn.className = 'session-filter-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-500/20 text-amber-300 border border-amber-500/40';
     } else {
-      btn.className = 'session-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700';
+      btn.className = 'session-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900/80 text-slate-300 hover:bg-slate-800';
     }
   });
   renderSessionsList();
@@ -129,7 +164,7 @@ function renderSessionsList() {
   filtered.forEach(s => {
     const isSelected = s.number === currentSessionId;
     const card = document.createElement('div');
-    card.className = `p-4 rounded-xl cursor-pointer transition rpg-card border ${
+    card.className = `p-3.5 sm:p-4 rounded-2xl cursor-pointer transition rpg-card border flex gap-3.5 items-center ${
       isSelected 
         ? 'border-amber-500/60 bg-amber-950/20 shadow-md shadow-amber-500/10' 
         : 'border-slate-800 hover:border-amber-500/30'
@@ -137,29 +172,39 @@ function renderSessionsList() {
     card.onclick = () => openSessionDetail(s.number);
 
     card.innerHTML = `
-      <div class="flex items-start justify-between gap-2">
-        <div>
-          <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md ${
-            isSelected ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'bg-slate-800 text-slate-400'
-          }">
-            ${s.act || 'Crónica'}
-          </span>
-          <h4 class="font-cinzel font-bold text-sm text-slate-100 mt-1.5 ${isSelected ? 'text-amber-200' : ''}">
-            Sesión ${s.number}: ${s.title}
-          </h4>
+      <!-- Thumbnail Image -->
+      <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-slate-950 flex-shrink-0 border border-amber-500/20">
+        <img src="${s.cover_image}" alt="S${s.number}" class="w-full h-full object-cover">
+        <div class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/80 text-[10px] font-mono font-bold text-amber-300">
+          S${s.number}
         </div>
-        <span class="text-[11px] font-mono text-slate-400 flex-shrink-0">${s.irl_date || ''}</span>
       </div>
 
-      <p class="font-crimson text-xs text-slate-300 line-clamp-2 mt-2 leading-relaxed">
-        ${s.summary}
-      </p>
+      <!-- Info -->
+      <div class="flex-1 min-w-0 space-y-1">
+        <div class="flex items-center justify-between gap-1">
+          <span class="text-[9px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md ${
+            isSelected ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'bg-slate-800 text-slate-400'
+          }">
+            ${s.act.split(':')[0] || 'Crónica'}
+          </span>
+          <span class="text-[10px] font-mono text-slate-400">${s.irl_date || ''}</span>
+        </div>
 
-      <div class="flex items-center justify-between text-[11px] text-slate-400 mt-3 pt-2 border-t border-slate-800/60">
-        <span class="truncate max-w-[200px] flex items-center gap-1">
-          <i data-lucide="map-pin" class="w-3 h-3 text-amber-400"></i> ${s.location || 'Costa de los Naufragios'}
-        </span>
-        <span class="text-amber-400 font-mono">${s.xp || ''}</span>
+        <h4 class="font-cinzel font-bold text-xs sm:text-sm text-slate-100 truncate ${isSelected ? 'text-amber-200' : ''}">
+          ${s.title}
+        </h4>
+
+        <p class="font-crimson text-xs text-slate-300 line-clamp-2 leading-tight">
+          ${s.summary}
+        </p>
+
+        <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1">
+          <span class="truncate max-w-[150px] flex items-center gap-1">
+            <i data-lucide="map-pin" class="w-3 h-3 text-amber-400"></i> ${s.location.split('—')[0]}
+          </span>
+          <span class="text-amber-400 font-mono">${s.xp || ''}</span>
+        </div>
       </div>
     `;
 
@@ -175,7 +220,6 @@ function openSessionDetail(sessionNum) {
   renderSessionsList();
   renderSessionReader(sessionNum);
 
-  // If on mobile, scroll reader into view
   if (window.innerWidth < 1024) {
     const reader = document.getElementById('sessionReaderCol');
     if (reader) reader.scrollIntoView({ behavior: 'smooth' });
@@ -189,11 +233,9 @@ function renderSessionReader(sessionNum) {
   const session = window.CAMPAIGN_DATA.sessions.find(s => s.number === sessionNum);
   if (!session) return;
 
-  // Format full text nicely
   let formattedHtml = session.blocks.map(b => {
     let text = b.text;
     
-    // Markdown-like parse
     text = text.replace(/# (.*)/g, '<h1 class="font-cinzel text-xl text-amber-200 font-bold mt-4 mb-2">$1</h1>');
     text = text.replace(/## (.*)/g, '<h2 class="font-cinzel text-lg text-slate-200 font-semibold mt-4 mb-2">$1</h2>');
     text = text.replace(/### (.*)/g, '<h3 class="font-cinzel text-base text-amber-300 font-semibold mt-3 mb-1">$1</h3>');
@@ -202,21 +244,19 @@ function renderSessionReader(sessionNum) {
     text = text.replace(/==(.*?)==/g, '<mark class="bg-amber-500/20 text-amber-200 px-1 rounded">$1</mark>');
     text = text.replace(/- (.*)/g, '<li class="ml-4 list-disc text-slate-300">$1</li>');
 
-    // Split paragraphs
     const paragraphs = text.split('\n\n').map(p => {
       if (p.startsWith('<h') || p.startsWith('<li')) return p;
       return `<p class="mb-3 leading-relaxed">${p}</p>`;
     }).join('');
 
-    // Attach block images if any
     let imgsHtml = '';
     if (b.images && b.images.length > 0) {
-      imgsHtml = `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">` + 
+      imgsHtml = `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 my-5">` + 
         b.images.map(img => `
-          <div class="relative group cursor-pointer overflow-hidden rounded-xl border border-amber-500/30" onclick="openLightbox('${img}', 'Ilustración de la Sesión ${session.number}')">
-            <img src="${img}" alt="Ilustración" class="w-full h-44 object-cover group-hover:scale-105 transition duration-300">
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs text-amber-300 font-medium">
-              <i data-lucide="zoom-in" class="w-4 h-4 mr-1"></i> Ampliar Ilustración
+          <div class="relative group cursor-pointer overflow-hidden rounded-xl border border-amber-500/30 shadow-lg" onclick="openLightbox('${img}', 'Ilustración de la Sesión ${session.number}')">
+            <img src="${img}" alt="Ilustración" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs text-amber-200 font-semibold gap-1">
+              <i data-lucide="zoom-in" class="w-4 h-4"></i> Ampliar Ilustración
             </div>
           </div>
         `).join('') + `</div>`;
@@ -226,50 +266,52 @@ function renderSessionReader(sessionNum) {
   }).join('');
 
   container.innerHTML = `
-    <!-- Reader Header -->
-    <div class="border-b border-amber-500/20 pb-5 mb-6">
-      <div class="flex items-center justify-between gap-2 text-xs text-slate-400 mb-2">
-        <span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30 font-semibold uppercase tracking-wider">
+    <!-- Top Hero Banner for Session -->
+    <div class="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-950">
+      <img src="${session.cover_image}" alt="${session.title}" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#121826] via-[#121826]/75 to-black/30"></div>
+      
+      <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
+        <span class="px-3 py-1 rounded-full bg-amber-500/20 backdrop-blur-md text-amber-200 border border-amber-500/40 text-xs font-bold uppercase tracking-wider">
           ${session.act || 'Crónica de Campaña'}
         </span>
-        <span class="font-mono text-slate-300">Sesión Real: ${session.irl_date || 'N/A'}</span>
+        <span class="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md font-mono text-xs text-slate-300 border border-slate-700">
+          Fecha real: ${session.irl_date || 'N/A'}
+        </span>
       </div>
 
-      <h2 class="font-cinzel text-2xl sm:text-3xl font-bold text-amber-100 leading-tight">
-        Sesión ${session.number}: ${session.title}
-      </h2>
-
-      <div class="flex flex-wrap items-center gap-4 text-xs text-slate-300 mt-3 pt-3 border-t border-slate-800">
-        <div class="flex items-center gap-1.5 text-amber-400 font-medium">
-          <i data-lucide="calendar" class="w-3.5 h-3.5"></i> ${session.in_game_date || 'Fecha en el mundo no registrada'}
-        </div>
-        <div class="flex items-center gap-1.5 text-slate-300">
-          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-500"></i> ${session.location || 'Costa de los Naufragios'}
-        </div>
-        <div class="flex items-center gap-1.5 text-emerald-400 font-mono">
-          <i data-lucide="award" class="w-3.5 h-3.5"></i> ${session.xp || '200 PX'}
+      <div class="absolute bottom-4 left-4 right-4 space-y-1">
+        <h2 class="font-cinzel text-xl sm:text-2xl lg:text-3xl font-bold text-white drop-shadow-md leading-tight">
+          Sesión ${session.number}: ${session.title}
+        </h2>
+        <div class="flex flex-wrap items-center gap-3 text-xs text-amber-300/90 pt-1">
+          <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3.5 h-3.5 text-amber-400"></i> ${session.in_game_date || 'Fecha en el mundo no registrada'}</span>
+          <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400"></i> ${session.location || 'Costa de los Naufragios'}</span>
+          <span class="flex items-center gap-1 text-emerald-400 font-mono"><i data-lucide="award" class="w-3.5 h-3.5"></i> ${session.xp || '250 PX'}</span>
         </div>
       </div>
     </div>
 
     <!-- Reader Prose Body -->
-    <div class="prose-rpg">
-      ${formattedHtml}
-    </div>
+    <div class="p-6 sm:p-8 space-y-4">
+      <div class="prose-rpg">
+        ${formattedHtml}
+      </div>
 
-    <!-- Reader Footer Navigation -->
-    <div class="mt-8 pt-5 border-t border-slate-800 flex items-center justify-between">
-      ${session.number > 1 
-        ? `<button onclick="openSessionDetail(${session.number - 1})" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition flex items-center gap-1.5">
-             <i data-lucide="chevron-left" class="w-4 h-4"></i> Sesión Anterior
-           </button>` 
-        : `<div></div>`}
+      <!-- Reader Footer Navigation -->
+      <div class="mt-8 pt-5 border-t border-slate-800 flex items-center justify-between">
+        ${session.number > 1 
+          ? `<button onclick="openSessionDetail(${session.number - 1})" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition flex items-center gap-1.5 border border-slate-700">
+               <i data-lucide="chevron-left" class="w-4 h-4"></i> Sesión ${session.number - 1}
+             </button>` 
+          : `<div></div>`}
 
-      ${session.number < window.CAMPAIGN_DATA.sessions.length 
-        ? `<button onclick="openSessionDetail(${session.number + 1})" class="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-xs font-bold text-slate-950 transition flex items-center gap-1.5">
-             Siguiente Sesión <i data-lucide="chevron-right" class="w-4 h-4"></i>
-           </button>` 
-        : `<div></div>`}
+        ${session.number < window.CAMPAIGN_DATA.sessions.length 
+          ? `<button onclick="openSessionDetail(${session.number + 1})" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-xs font-bold text-slate-950 transition flex items-center gap-1.5 shadow-md shadow-amber-500/20">
+               Sesión ${session.number + 1} <i data-lucide="chevron-right" class="w-4 h-4"></i>
+             </button>` 
+          : `<div></div>`}
+      </div>
     </div>
   `;
 
@@ -291,14 +333,21 @@ function renderCharacters() {
     card.className = 'rpg-card rounded-2xl overflow-hidden border flex flex-col justify-between transition duration-300 group';
     card.style.borderColor = `${c.accent}40`;
 
+    const statBadges = c.stats ? Object.entries(c.stats).map(([k, v]) => `
+      <div class="p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-[11px] flex flex-col">
+        <span class="text-[9px] uppercase font-bold text-slate-400">${k}</span>
+        <span class="font-semibold text-slate-200 truncate">${v}</span>
+      </div>
+    `).join('') : '';
+
     card.innerHTML = `
       <!-- Character Image Header -->
-      <div class="relative h-56 w-full overflow-hidden bg-slate-950">
+      <div class="relative h-64 w-full overflow-hidden bg-slate-950">
         <img src="${c.primary_image}" alt="${c.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-[#12161f] via-[#12161f]/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#121826] via-[#121826]/40 to-transparent"></div>
         
-        <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-xs font-semibold uppercase tracking-wider flex items-center gap-1" style="color: ${c.accent}; border: 1px solid ${c.accent}50;">
-          <i data-lucide="${c.icon || 'shield'}" class="w-3.5 h-3.5"></i> ${c.role}
+        <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-xs font-semibold uppercase tracking-wider flex items-center gap-1 shadow-lg" style="color: ${c.accent}; border: 1px solid ${c.accent}50;">
+          <i data-lucide="${c.icon || 'shield'}" class="w-3.5 h-3.5"></i> ${c.role.split('/')[0]}
         </div>
 
         <div class="absolute bottom-3 left-4 right-4">
@@ -310,9 +359,13 @@ function renderCharacters() {
       <!-- Character Info Body -->
       <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
         <div class="space-y-3">
-          <blockquote class="font-crimson text-sm italic text-slate-300 border-l-2 pl-3 py-0.5" style="border-color: ${c.accent};">
+          <blockquote class="font-crimson text-sm italic text-slate-300 border-l-2 pl-3 py-0.5 bg-slate-900/40 rounded-r-lg" style="border-color: ${c.accent};">
             "${c.quote}"
           </blockquote>
+
+          <div class="grid grid-cols-2 gap-2">
+            ${statBadges}
+          </div>
 
           <p class="font-crimson text-xs text-slate-300 leading-relaxed">
             ${c.archetype}
@@ -328,9 +381,9 @@ function renderCharacters() {
 
         <!-- Gallery / Lore Button -->
         <div class="pt-3 border-t border-slate-800 flex items-center justify-between">
-          <span class="text-[11px] text-slate-400">${c.gallery.length} Ilustraciones</span>
-          <button onclick="openCharacterModal('${c.id}')" class="text-xs font-semibold flex items-center gap-1 hover:underline" style="color: ${c.accent};">
-            Ver Ficha Completa <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          <span class="text-[11px] text-slate-400 font-mono">${c.gallery.length} Ilustraciones</span>
+          <button onclick="openCharacterModal('${c.id}')" class="text-xs font-bold flex items-center gap-1 hover:underline" style="color: ${c.accent};">
+            Ficha Completa & Lore <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
           </button>
         </div>
       </div>
@@ -362,7 +415,7 @@ function openCharacterModal(charId) {
         </div>
 
         <div class="space-y-4">
-          <blockquote class="font-crimson text-base italic text-slate-200 border-l-3 pl-4 py-1" style="border-color: ${character.accent};">
+          <blockquote class="font-crimson text-base italic text-slate-200 border-l-3 pl-4 py-1 bg-slate-900/50 rounded-r-xl" style="border-color: ${character.accent};">
             "${character.quote}"
           </blockquote>
 
@@ -481,9 +534,9 @@ function filterAtlas(type) {
   currentAtlasFilter = type;
   document.querySelectorAll('.atlas-filter-btn').forEach(btn => {
     if (btn.dataset.type === type) {
-      btn.className = 'atlas-filter-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-500/20 text-amber-300 border border-amber-500/40';
+      btn.className = 'atlas-filter-btn active px-3.5 py-1.5 rounded-xl text-xs font-medium bg-amber-500/20 text-amber-300 border border-amber-500/40';
     } else {
-      btn.className = 'atlas-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700';
+      btn.className = 'atlas-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-medium bg-slate-900/80 text-slate-300 hover:bg-slate-800';
     }
   });
   renderAtlas();
@@ -539,42 +592,50 @@ function renderMysteries() {
 
   mysteries.forEach(m => {
     const card = document.createElement('div');
-    card.className = 'rpg-card p-6 rounded-2xl border border-amber-500/20 space-y-4';
+    card.className = 'rpg-card rounded-2xl border border-amber-500/20 overflow-hidden flex flex-col justify-between';
 
     let priorityBadge = 'bg-slate-800 text-slate-300';
     if (m.priority === 'Alta') priorityBadge = 'bg-rose-500/20 text-rose-300 border border-rose-500/40';
     else if (m.priority === 'Media') priorityBadge = 'bg-amber-500/20 text-amber-300 border border-amber-500/40';
 
     card.innerHTML = `
-      <div class="flex items-start justify-between gap-3">
-        <div class="space-y-1">
-          <div class="flex items-center gap-2">
-            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded ${priorityBadge}">
+      ${m.image ? `
+        <div class="relative h-40 w-full overflow-hidden bg-slate-950">
+          <img src="${m.image}" alt="${m.title}" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#121826] to-transparent"></div>
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-bold uppercase px-2.5 py-1 rounded-full ${priorityBadge} backdrop-blur-md">
               Prioridad ${m.priority}
             </span>
+          </div>
+        </div>
+      ` : ''}
+
+      <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
             <span class="text-xs text-purple-300 font-mono">${m.category}</span>
+            <span class="text-xs text-slate-400 font-semibold px-2 py-0.5 rounded-full bg-slate-900 border border-slate-800">
+              ${m.status}
+            </span>
           </div>
           <h3 class="font-cinzel text-lg font-bold text-amber-100">${m.title}</h3>
+          <p class="font-crimson text-slate-300 text-sm leading-relaxed">
+            ${m.description}
+          </p>
         </div>
-        <span class="text-xs text-slate-400 font-semibold px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800">
-          ${m.status}
-        </span>
-      </div>
 
-      <p class="font-crimson text-slate-300 text-sm leading-relaxed">
-        ${m.description}
-      </p>
-
-      <div class="space-y-1.5 pt-2 border-t border-slate-800/80">
-        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-cinzel">Pistas y Hechos Conocidos:</p>
-        <ul class="space-y-1">
-          ${m.clues.map(c => `
-            <li class="text-xs text-slate-300 flex items-start gap-2">
-              <span class="text-amber-400 mt-1">•</span>
-              <span>${c}</span>
-            </li>
-          `).join('')}
-        </ul>
+        <div class="space-y-1.5 pt-3 border-t border-slate-800/80">
+          <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-cinzel">Pistas y Hechos Conocidos:</p>
+          <ul class="space-y-1">
+            ${m.clues.map(c => `
+              <li class="text-xs text-slate-300 flex items-start gap-2">
+                <span class="text-amber-400 mt-1">•</span>
+                <span>${c}</span>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
       </div>
     `;
 
@@ -596,13 +657,17 @@ function renderMagicItems() {
 
   items.forEach(item => {
     const card = document.createElement('div');
-    card.className = 'p-4 rounded-xl bg-slate-900/60 border border-purple-500/20 space-y-1.5';
+    card.className = 'rpg-card rounded-xl overflow-hidden border border-purple-500/30 flex flex-col sm:flex-row items-center gap-3.5 p-3.5 hover:border-purple-500/60 transition';
+    
     card.innerHTML = `
-      <div class="flex items-center justify-between">
-        <h4 class="font-cinzel font-bold text-sm text-purple-200">${item.name}</h4>
-        <span class="text-[10px] px-2 py-0.5 rounded bg-purple-950/60 text-purple-300 border border-purple-800/40">${item.holder}</span>
+      <img src="${item.image || 'images/asset_1843595399.jpg'}" class="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-cover border border-purple-500/40 flex-shrink-0 cursor-pointer" onclick="openLightbox('${item.image}', '${item.name}')">
+      <div class="space-y-1 flex-1">
+        <div class="flex items-center justify-between gap-1">
+          <h4 class="font-cinzel font-bold text-sm text-purple-200">${item.name}</h4>
+          <span class="text-[9px] px-2 py-0.5 rounded bg-purple-950/60 text-purple-300 border border-purple-800/40 font-mono">${item.holder}</span>
+        </div>
+        <p class="font-crimson text-xs text-slate-300 leading-snug">${item.desc}</p>
       </div>
-      <p class="font-crimson text-xs text-slate-300">${item.desc}</p>
     `;
     container.appendChild(card);
   });
@@ -764,7 +829,7 @@ function initAmbientParticles() {
       speedY: Math.random() * 0.4 + 0.15,
       speedX: (Math.random() - 0.5) * 0.25,
       opacity: Math.random() * 0.5 + 0.2,
-      color: Math.random() > 0.4 ? '212, 168, 83' : '168, 85, 247' // Gold or Purple
+      color: Math.random() > 0.4 ? '212, 168, 83' : '168, 85, 247'
     });
   }
 
@@ -825,7 +890,6 @@ function startAmbientAudio() {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     audioCtx = new AudioContext();
 
-    // Generate procedural warm rain/fire noise
     const bufferSize = audioCtx.sampleRate * 2;
     const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
     const output = noiseBuffer.getChannelData(0);
@@ -833,7 +897,7 @@ function startAmbientAudio() {
     let lastOut = 0.0;
     for (let i = 0; i < bufferSize; i++) {
       const white = Math.random() * 2 - 1;
-      output[i] = (lastOut + (0.02 * white)) / 1.02; // Brown noise filter
+      output[i] = (lastOut + (0.02 * white)) / 1.02;
       lastOut = output[i];
       output[i] *= 3.5;
     }
@@ -842,7 +906,6 @@ function startAmbientAudio() {
     noiseNode.buffer = noiseBuffer;
     noiseNode.loop = true;
 
-    // Filter to warm tone
     const filter = audioCtx.createBiquadFilter();
     filter.type = 'lowpass';
     filter.frequency.value = 450;
@@ -857,7 +920,7 @@ function startAmbientAudio() {
 
     noiseNode.start();
   } catch (e) {
-    console.log("Audio Web API not supported or blocked: ", e);
+    console.log("Audio Web API error: ", e);
   }
 }
 

@@ -3,20 +3,19 @@
 :root {
   --bg-primary: #0a0c10;
   --bg-secondary: #12161f;
-  --bg-card: rgba(22, 28, 40, 0.75);
-  --bg-card-hover: rgba(30, 38, 56, 0.85);
-  --border-card: rgba(212, 168, 83, 0.18);
-  --border-card-hover: rgba(212, 168, 83, 0.45);
+  --bg-card: rgba(18, 24, 38, 0.85);
+  --bg-card-hover: rgba(26, 35, 54, 0.95);
+  --border-card: rgba(212, 168, 83, 0.22);
+  --border-card-hover: rgba(212, 168, 83, 0.55);
   --gold-primary: #d4a853;
   --gold-light: #f3d289;
   --gold-dark: #8c6a23;
   --purple-shien: #a855f7;
-  --purple-glow: rgba(168, 85, 247, 0.25);
+  --purple-glow: rgba(168, 85, 247, 0.35);
   --emerald-glunt: #10b981;
   --amber-hiro: #f59e0b;
-  --text-main: #e2e8f0;
+  --text-main: #f1f5f9;
   --text-muted: #94a3b8;
-  --text-parchment: #f8fafc;
 }
 
 body {
@@ -48,7 +47,31 @@ body {
   height: 100vh;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.6;
+  opacity: 0.65;
+}
+
+/* Section Header Banners with Background Art */
+.section-banner {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
+  background-size: cover;
+  background-position: center;
+}
+
+.section-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10, 12, 16, 0.92) 0%, rgba(18, 24, 38, 0.85) 60%, rgba(10, 12, 16, 0.95) 100%);
+  z-index: 1;
+}
+
+.section-banner-content {
+  position: relative;
+  z-index: 2;
 }
 
 /* Glassmorphism RPG Card */
@@ -57,33 +80,20 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-card);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .rpg-card:hover {
   border-color: var(--border-card-hover);
-  box-shadow: 0 12px 40px 0 rgba(212, 168, 83, 0.12);
+  box-shadow: 0 14px 44px 0 rgba(212, 168, 83, 0.15);
   transform: translateY(-2px);
-}
-
-.rpg-card-purple {
-  border-color: rgba(168, 85, 247, 0.25);
-}
-.rpg-card-purple:hover {
-  border-color: rgba(168, 85, 247, 0.6);
-  box-shadow: 0 12px 40px 0 var(--purple-glow);
 }
 
 /* Glowing text */
 .text-gold-glow {
-  color: var(--gold-primary);
-  text-shadow: 0 0 12px rgba(212, 168, 83, 0.35);
-}
-
-.text-purple-glow {
-  color: var(--purple-shien);
-  text-shadow: 0 0 12px var(--purple-glow);
+  color: var(--gold-light);
+  text-shadow: 0 0 12px rgba(212, 168, 83, 0.4);
 }
 
 /* Custom Scrollbar */
@@ -111,7 +121,7 @@ body {
 .timeline-dot::after {
   content: '';
   position: absolute;
-  inset: -4px;
+  inset: -3px;
   border-radius: 9999px;
   background: var(--gold-primary);
   opacity: 0;
@@ -124,16 +134,16 @@ body {
 
 /* Lightbox Modal */
 .lightbox-modal {
-  background: rgba(5, 7, 12, 0.94);
+  background: rgba(4, 6, 10, 0.95);
   backdrop-filter: blur(20px);
 }
 
 /* Prose for sessions */
 .prose-rpg {
   font-family: 'Crimson Pro', serif;
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   line-height: 1.85;
-  color: #e2e8f0;
+  color: #f1f5f9;
 }
 .prose-rpg h1 {
   font-family: 'Cinzel', serif;
@@ -141,40 +151,64 @@ body {
   font-size: 2rem;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(212, 168, 83, 0.25);
+  padding-bottom: 0.5rem;
 }
 .prose-rpg h2 {
   font-family: 'Cinzel', serif;
-  color: #cbd5e1;
+  color: #e2e8f0;
   font-size: 1.5rem;
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
   margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.prose-rpg h2::before {
+  content: '❖';
+  color: var(--gold-primary);
+  font-size: 0.9em;
 }
 .prose-rpg h3 {
   font-family: 'Cinzel', serif;
   color: var(--gold-primary);
   font-size: 1.25rem;
-  margin-top: 1rem;
+  margin-top: 1.25rem;
   margin-bottom: 0.5rem;
 }
 .prose-rpg p {
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.15rem;
 }
 .prose-rpg blockquote {
   border-left: 3px solid var(--gold-primary);
-  padding-left: 1rem;
+  background: rgba(212, 168, 83, 0.05);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0.75rem 0.75rem 0;
   font-style: italic;
-  color: #94a3b8;
-  margin: 1.25rem 0;
+  color: #cbd5e1;
+  margin: 1.5rem 0;
 }
 .prose-rpg strong {
   color: #ffffff;
   font-weight: 600;
 }
 
+/* Image Hover Zoom Effects */
+.img-zoom-container {
+  overflow: hidden;
+  position: relative;
+}
+.img-zoom-container img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-zoom-container:hover img {
+  transform: scale(1.06);
+}
+
 /* Badge pulse */
 @keyframes goldPulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.75; transform: scale(1.05); }
+  50% { opacity: 0.8; transform: scale(1.04); }
 }
 .pulse-gold {
   animation: goldPulse 3s infinite;
