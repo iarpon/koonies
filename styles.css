@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=MedievalSharp&display=swap');
+
+:root {
+  --bg-primary: #0a0c10;
+  --bg-secondary: #12161f;
+  --bg-card: rgba(22, 28, 40, 0.75);
+  --bg-card-hover: rgba(30, 38, 56, 0.85);
+  --border-card: rgba(212, 168, 83, 0.18);
+  --border-card-hover: rgba(212, 168, 83, 0.45);
+  --gold-primary: #d4a853;
+  --gold-light: #f3d289;
+  --gold-dark: #8c6a23;
+  --purple-shien: #a855f7;
+  --purple-glow: rgba(168, 85, 247, 0.25);
+  --emerald-glunt: #10b981;
+  --amber-hiro: #f59e0b;
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-parchment: #f8fafc;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-medieval {
+  font-family: 'MedievalSharp', cursive;
+}
+
+.font-crimson {
+  font-family: 'Crimson Pro', serif;
+}
+
+/* Ambient Canvas */
+#ambientCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* Glassmorphism RPG Card */
+.rpg-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-card);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rpg-card:hover {
+  border-color: var(--border-card-hover);
+  box-shadow: 0 12px 40px 0 rgba(212, 168, 83, 0.12);
+  transform: translateY(-2px);
+}
+
+.rpg-card-purple {
+  border-color: rgba(168, 85, 247, 0.25);
+}
+.rpg-card-purple:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 12px 40px 0 var(--purple-glow);
+}
+
+/* Glowing text */
+.text-gold-glow {
+  color: var(--gold-primary);
+  text-shadow: 0 0 12px rgba(212, 168, 83, 0.35);
+}
+
+.text-purple-glow {
+  color: var(--purple-shien);
+  text-shadow: 0 0 12px var(--purple-glow);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #273142;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 168, 83, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}
+
+/* Timeline Custom Track */
+.timeline-dot {
+  position: relative;
+  transition: all 0.3s ease;
+}
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  background: var(--gold-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+.timeline-dot:hover::after, .timeline-dot.active::after {
+  opacity: 0.3;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  background: rgba(5, 7, 12, 0.94);
+  backdrop-filter: blur(20px);
+}
+
+/* Prose for sessions */
+.prose-rpg {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: #e2e8f0;
+}
+.prose-rpg h1 {
+  font-family: 'Cinzel', serif;
+  color: var(--gold-light);
+  font-size: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.prose-rpg h2 {
+  font-family: 'Cinzel', serif;
+  color: #cbd5e1;
+  font-size: 1.5rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.prose-rpg h3 {
+  font-family: 'Cinzel', serif;
+  color: var(--gold-primary);
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.prose-rpg p {
+  margin-bottom: 1.1rem;
+}
+.prose-rpg blockquote {
+  border-left: 3px solid var(--gold-primary);
+  padding-left: 1rem;
+  font-style: italic;
+  color: #94a3b8;
+  margin: 1.25rem 0;
+}
+.prose-rpg strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Badge pulse */
+@keyframes goldPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.05); }
+}
+.pulse-gold {
+  animation: goldPulse 3s infinite;
+}
