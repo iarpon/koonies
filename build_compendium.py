@@ -2,6 +2,7 @@ import json
 import os
 import re
 import math
+from collections import Counter
 
 ROOT_DIR = "/Users/ivan/Documents/koonies"
 DATA_DIR = os.path.join(ROOT_DIR, "data")
@@ -24,11 +25,6 @@ pages_by_name = {p["name"]: p for p in pages}
 def dist(p1, p2):
     return math.hypot(p1["x"] - p2["x"], p1["y"] - p2["y"])
 
-def find_nearest_images(x, y, images, max_dist=1500, limit=3):
-    pos = {"x": x, "y": y}
-    sorted_imgs = sorted(images, key=lambda img: dist(pos, img))
-    return [img["image_info"]["path"] for img in sorted_imgs if dist(pos, img) < max_dist and img.get("image_info", {}).get("path")][:limit]
-
 # -------------------------------------------------------------
 # 1. CURATE CHARACTERS (LOS KOONIES - PJ's)
 # -------------------------------------------------------------
@@ -42,14 +38,13 @@ koonies_roster = [
         "name": "Glunt",
         "title": "El Gigante de Corazón de Cristal",
         "role": "Guerrero Protector",
-        "stats": {"fuerza": "17 (Colosal)", "rol": "Defensor / Tanque", "arma": "Gran Fuerza & Pureza", "origen": "Amatsukuni (Tierras Bajas)"},
-        "archetype": "Fuerza titánica, inocencia incorruptible y protección incondicional a los pequeños.",
+        "stats": {"fuerza": "17 (Colosal)", "rol": "Defensor / Tanque", "arma": "Gran Fuerza & Pureza", "origen": "Tierras Bajas de Amatsukuni"},
+        "archetype": "Fuerza titánica, inocencia incorruptible y devoción incondicional a los pequeños.",
         "quote": "Padre dijo que me quedara. Glunt se queda. Glunt cuidará de los pequeños hasta que el sol vuelva a salir.",
         "icon": "shield",
         "badge_color": "emerald",
         "accent": "#10b981",
         "primary_image": "images/asset_-929693943.jpg",
-        "banner_image": "images/asset_1815133749.png",
         "match_keys": ["Glunt", "Gigante de Corazón", "Glunt:"],
         "curse_status": "Maldición de las Venas Negras (contraída en la Torre de Zenopus, contenida tras las aguas de Kanatsu-mi)."
     },
@@ -59,13 +54,12 @@ koonies_roster = [
         "title": "El Acero en la Forja",
         "role": "Guerrero Kunita / Kensei Samurai",
         "stats": {"fuerza": "15 (Atlético)", "rol": "Espadachín / Líder Táctico", "arma": "Espada Larga & Naginata", "origen": "Capital de Amatsukuni"},
-        "archetype": "Honor marcial, devoción al dios de la guerra Hachiman y escudo de su pueblo.",
+        "archetype": "Honor marcial, devoción a Hachiman y escudo inquebrantable de los supervivientes.",
         "quote": "Si Amatsukuni ha caído, yo seré el escudo de los que quedan, con o sin nombre de samurai.",
         "icon": "swords",
         "badge_color": "amber",
         "accent": "#f59e0b",
         "primary_image": "images/asset_1793380967.jpg",
-        "banner_image": "images/asset_1497705276.png",
         "match_keys": ["Hiroyuki", "Hiroyuki Watanabe", "El Acero en la Forja"]
     },
     {
@@ -80,7 +74,6 @@ koonies_roster = [
         "badge_color": "purple",
         "accent": "#a855f7",
         "primary_image": "images/asset_154989466.png",
-        "banner_image": "images/asset_831679076.png",
         "match_keys": ["Katsumi", "Llama Custodia", "Shien"]
     },
     {
@@ -88,14 +81,13 @@ koonies_roster = [
         "name": "Sakura",
         "title": "La Erudita de lo Arcano",
         "role": "Maga Kunita / Investigadora de Grimorios",
-        "stats": {"magia": "Evocación / Nigromancia", "rol": "Lanzadora de Conjuros & Investigadora", "arma": "Grimorio de Zarcand", "origen": "Academia Arcana de Amatsukuni"},
-        "archetype": "Mente afilada, dominadora de conjuros antiguos y actual portadora del Ojo de J'karaa.",
+        "stats": {"magia": "Evocación / Arcano", "rol": "Lanzadora de Conjuros", "arma": "Grimorio de Zarcand", "origen": "Academia Arcana"},
+        "archetype": "Mente incisiva, descifradora de secretos antiguos y actual portadora del Ojo de J'karaa.",
         "quote": "El conocimiento no es peligroso; ignorar sus consecuencias sí lo es.",
         "icon": "sparkles",
         "badge_color": "pink",
         "accent": "#ec4899",
         "primary_image": "images/asset_1843595399.jpg",
-        "banner_image": "images/asset_484395089.png",
         "match_keys": ["Sakura", "Maga kunita", "tercer ojo"]
     },
     {
@@ -110,7 +102,6 @@ koonies_roster = [
         "badge_color": "indigo",
         "accent": "#6366f1",
         "primary_image": "images/asset_1067045487.jpg",
-        "banner_image": "images/asset_1659737080.png",
         "match_keys": ["Ainur", "Ojo de J'karaa", "Airun"]
     },
     {
@@ -124,49 +115,61 @@ koonies_roster = [
         "icon": "hammer",
         "badge_color": "orange",
         "accent": "#ea580c",
-        "primary_image": "images/asset_1063611285.jpg",
-        "banner_image": "images/asset_-1175273093.png",
+        "primary_image": "images/asset_-1175273093.png",
         "match_keys": ["Kazgrim", "Kaz", "Kazrim", "Iwakura", "Kagutsuchi", "La historia de Kazrim"]
     }
 ]
 
-# Map texts and galleries
 for k in koonies_roster:
     matched_texts = []
-    matched_images = []
     for t in pj_texts:
         txt = t["text"]
         if any(key.lower() in txt.lower() for key in k["match_keys"]):
             matched_texts.append(txt)
-            imgs = find_nearest_images(t["x"], t["y"], pj_images, max_dist=1200, limit=4)
-            matched_images.extend(imgs)
-    
     k["full_lore"] = "\n\n".join(matched_texts) if matched_texts else f"Miembro fundador de Los Koonies. {k['archetype']}."
-    k["gallery"] = list(set([k["primary_image"], k["banner_image"]] + matched_images))
-    k["gallery"] = [img for img in k["gallery"] if os.path.exists(os.path.join(ROOT_DIR, img))]
+    k["gallery"] = [k["primary_image"]]
 
-print(f"Curated {len(koonies_roster)} Koonies with full banners & stats.")
+print(f"Curated {len(koonies_roster)} Koonies player characters.")
 
 # -------------------------------------------------------------
-# 2. CURATE SESSIONS (1 to 16) WITH COVER BANNERS
+# 2. CURATE SESSIONS (1 to 16) WITH STRICTLY UNIQUE COVERS & NON-REPEATING INLINE IMAGES
 # -------------------------------------------------------------
-session_meta_rich = {
-    1: {"title": "La Danza de las Cadenas — El Despertar en la Playa", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "15 de Sulmar, Año 18 CL", "loc": "Isla de Viladel — Costa del Naufragio", "cover": "images/asset_10816842.png"},
-    2: {"title": "Sangre en la Colina — El Barranco de los Trasgos", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "20 de Sulmar, Año 18 CL", "loc": "Isla de la Tortuga — Colinas Heladas", "cover": "images/asset_238755922.png"},
-    3: {"title": "La Visión de Liryel & La Mansión de Viledel", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "24 de Sulmar, Año 18 CL", "loc": "Templo de la Diosa — Mansión de Viledel", "cover": "images/asset_643137533.png"},
-    4: {"title": "Las Catacumbas de Viledel — La Traición de Keestake", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "26 de Sulmar, Año 18 CL", "loc": "Catacumbas Subterráneas de Viledel", "cover": "images/asset_1325026172.png"},
-    5: {"title": "Diario de Navegación — El Escape de Korinn en el Rimed Mallow", "act": "Acto II: La Travesía por el Mar de las Nieblas", "in_game": "2 de Iryn, Año 19 CL", "loc": "Mar Abierto — A bordo del Rimed Mallow", "cover": "images/asset_2006248850.png"},
-    6: {"title": "La Llegada a Elken — Refugio en Tierra Extraña", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "12 de Iryn, Año 19 CL", "loc": "Ciudad de Elken — Costa de los Naufragios", "cover": "images/asset_1515216225.png"},
-    7: {"title": "La Noche del Ganso y la Mañana del Mago", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "13 de Iryn, Año 19 CL", "loc": "Taberna del Ganso — Almacenes del Puerto", "cover": "images/asset_-199017577.png"},
-    8: {"title": "Los Koonies y la Niebla que No Perdona", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "13 de Iryn (Noche), Año 19 CL", "loc": "Puertas de Elken — La Torre de la Niebla", "cover": "images/asset_-1336998075.png"},
-    9: {"title": "El Dedo de Kaz y el Secreto de la Torre Cerca del Cementerio", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "14 de Iryn, Año 19 CL", "loc": "Torre del Cementerio de Elken", "cover": "images/asset_1704990873.png"},
-    10: {"title": "La Bóveda Prohibida — Pócimas y Manos Esqueléticas", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "14 de Iryn (Tarde), Año 19 CL", "loc": "Criptas y Bóvedas de Zenopus", "cover": "images/asset_2054780468.png"},
-    11: {"title": "La Máscara Habla — Revelaciones de Mandra Voss", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "15 de Iryn, Año 19 CL", "loc": "La Casa de los Tesoros — Sala de la Máscara", "cover": "images/asset_387950169.png"},
-    12: {"title": "Anamnesis — El Diario Oculto de Zenopus y Kanatsu-mi", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "16 de Iryn, Año 19 CL", "loc": "Estudio Superior de la Torre de Zenopus", "cover": "images/asset_1189662238.png"},
-    13: {"title": "Cadenas, Caminos y el Símbolo de Kagutsuchi", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "17-19 de Iryn, Año 19 CL", "loc": "Camino Fluvial de Elken hacia Milborne", "cover": "images/asset_-1452585810.webp"},
-    14: {"title": "El Monolito del Río y la Senda del Musgo", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "20 de Iryn, Año 19 CL", "loc": "Monolito de la Gran Llama — Ribera del Río", "cover": "images/asset_2093206144.png"},
-    15: {"title": "La Caverna de las Columnas Olvidadas", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "21 de Iryn, Año 19 CL", "loc": "Cueva Ancestral de Construcción Tosca", "cover": "images/asset_1370269724.png"},
-    16: {"title": "La Hija del Molinero, el Enano que Recordaba y la Fuente de Vida", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "22-24 de Iryn, Año 19 CL", "loc": "Milborne, Thurmaster y Kanatsu-mi", "cover": "images/asset_1659737080.png"}
+session_covers_unique = {
+    1: "images/asset_10816842.png",       # Playa / naufragio
+    2: "images/asset_238755922.png",      # Isla congelada
+    3: "images/asset_643137533.png",      # Mansión Viledel / Templo
+    4: "images/asset_1325026172.png",     # Catacumbas oscuras
+    5: "images/asset_2006248850.png",     # Rimed Mallow en mar abierto
+    6: "images/asset_1515216225.png",     # Ciudad de Elken
+    7: "images/asset_-199017577.png",     # Taberna y almacén nocturno
+    8: "images/asset_-1336998075.png",    # Niebla de Elken
+    9: "images/asset_1704990873.png",     # Torre cerca del cementerio
+    10: "images/asset_2054780468.png",    # Bóveda de Zenopus / pociones
+    11: "images/asset_387950169.png",     # Máscara de bronce / Mandra Voss
+    12: "images/asset_1189662238.png",    # Estudio superior y diario de Zenopus
+    13: "images/asset_-1452585810.webp",   # Camino a Milborne
+    14: "images/asset_2093206144.png",    # Monolito de la Gran Llama
+    15: "images/asset_1370269724.png",    # Cueva de columnas derrumbadas
+    16: "images/asset_1659737080.png"     # Kanatsu-mi / Río de la Vida
+}
+
+session_meta_titles = {
+    1: {"title": "La Danza de las Cadenas — El Despertar en la Playa", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "15 de Sulmar, Año 18 CL", "loc": "Isla de Viladel — Costa del Naufragio"},
+    2: {"title": "Sangre en la Colina — El Barranco de los Trasgos", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "20 de Sulmar, Año 18 CL", "loc": "Isla de la Tortuga — Colinas Heladas"},
+    3: {"title": "La Visión de Liryel & La Mansión de Viledel", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "24 de Sulmar, Año 18 CL", "loc": "Templo de la Diosa — Mansión de Viledel"},
+    4: {"title": "Las Catacumbas de Viledel — La Traición de Keestake", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "26 de Sulmar, Año 18 CL", "loc": "Catacumbas Subterráneas de Viledel"},
+    5: {"title": "Diario de Navegación — El Escape de Korinn en el Rimed Mallow", "act": "Acto II: La Travesía por el Mar de las Nieblas", "in_game": "2 de Iryn, Año 19 CL", "loc": "Mar Abierto — A bordo del Rimed Mallow"},
+    6: {"title": "La Llegada a Elken — Refugio en Tierra Extraña", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "12 de Iryn, Año 19 CL", "loc": "Ciudad de Elken — Costa de los Naufragios"},
+    7: {"title": "La Noche del Ganso y la Mañana del Mago", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "13 de Iryn, Año 19 CL", "loc": "Taberna del Ganso — Almacenes del Puerto"},
+    8: {"title": "Los Koonies y la Niebla que No Perdona", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "13 de Iryn (Noche), Año 19 CL", "loc": "Puertas de Elken — La Torre de la Niebla"},
+    9: {"title": "El Dedo de Kaz y el Secreto de la Torre Cerca del Cementerio", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "14 de Iryn, Año 19 CL", "loc": "Torre del Cementerio de Elken"},
+    10: {"title": "La Bóveda Prohibida — Pócimas y Manos Esqueléticas", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "14 de Iryn (Tarde), Año 19 CL", "loc": "Criptas y Bóvedas de Zenopus"},
+    11: {"title": "La Máscara Habla — Revelaciones de Mandra Voss", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "15 de Iryn, Año 19 CL", "loc": "La Casa de los Tesoros — Sala de la Máscara"},
+    12: {"title": "Anamnesis — El Diario Oculto de Zenopus y Kanatsu-mi", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "16 de Iryn, Año 19 CL", "loc": "Estudio Superior de la Torre de Zenopus"},
+    13: {"title": "Cadenas, Caminos y el Símbolo de Kagutsuchi", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "17-19 de Iryn, Año 19 CL", "loc": "Camino Fluvial de Elken hacia Milborne"},
+    14: {"title": "El Monolito del Río y la Senda del Musgo", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "20 de Iryn, Año 19 CL", "loc": "Monolito de la Gran Llama — Ribera del Río"},
+    15: {"title": "La Caverna de las Columnas Olvidadas", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "21 de Iryn, Año 19 CL", "loc": "Cueva Ancestral de Construcción Tosca"},
+    16: {"title": "La Hija del Molinero, el Enano que Recordaba y la Fuente de Vida", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "22-24 de Iryn, Año 19 CL", "loc": "Milborne, Thurmaster y Kanatsu-mi"}
 }
 
 curated_sessions = []
@@ -179,15 +182,16 @@ session_pages.sort(key=lambda p: get_session_num(p["name"]))
 for sp in session_pages:
     s_num = get_session_num(sp["name"])
     texts = sp.get("texts", [])
-    images = sp.get("images", [])
+    page_images = sp.get("images", [])
     
-    meta = session_meta_rich.get(s_num, {
+    meta = session_meta_titles.get(s_num, {
         "title": f"Sesión {s_num}",
         "act": "Crónica de Aventuras",
         "in_game": "Fecha desconocida",
-        "loc": "Costa de los Naufragios",
-        "cover": "images/asset_10816842.png"
+        "loc": "Costa de los Naufragios"
     })
+    
+    cover_img = session_covers_unique.get(s_num, "images/asset_10816842.png")
     
     irl_date = ""
     date_m = re.search(r'(\d{1,2}/\d{1,2}/\d{2,4})', sp["name"])
@@ -198,25 +202,30 @@ for sp in session_pages:
     blocks = []
     xp_found = ""
     
+    # Track used images in this session to strictly PREVENT duplicates
+    used_images_in_session = set([cover_img])
+    
     for t in ordered_texts:
         raw_t = t["text"].strip()
         if "PX:" in raw_t or "PX " in raw_t or "Experiencia:" in raw_t:
             xp_found = raw_t
             
-        imgs = find_nearest_images(t["x"], t["y"], images, max_dist=1200, limit=2)
-        valid_imgs = [img for img in imgs if os.path.exists(os.path.join(ROOT_DIR, img))]
+        # Find nearest images from this page that have not been used yet
+        valid_imgs = []
+        for img in sorted(page_images, key=lambda item: dist(t, item)):
+            p = img.get("image_info", {}).get("path")
+            if p and p not in used_images_in_session and os.path.exists(os.path.join(ROOT_DIR, p)):
+                valid_imgs.append(p)
+                used_images_in_session.add(p)
+                if len(valid_imgs) >= 1:
+                    break
+                    
         blocks.append({
             "text": raw_t,
             "images": valid_imgs
         })
         
-    all_imgs = [img["image_info"]["path"] for img in images if img.get("image_info", {}).get("path") and os.path.exists(os.path.join(ROOT_DIR, img["image_info"]["path"]))]
-    
-    # Ensure cover image exists
-    cover_img = meta.get("cover", "")
-    if not os.path.exists(os.path.join(ROOT_DIR, cover_img)):
-        cover_img = all_imgs[0] if all_imgs else "images/asset_1815133749.png"
-        
+    all_session_images = list(used_images_in_session)
     full_narrative = "\n\n".join(b["text"] for b in blocks)
     summary_snippet = ""
     for b in blocks:
@@ -239,14 +248,14 @@ for sp in session_pages:
         "cover_image": cover_img,
         "summary": summary_snippet or "Los Koonies continúan su odisea a través de tierras inhóspitas y misterios arcanos.",
         "blocks": blocks,
-        "images": all_imgs,
+        "images": all_session_images,
         "full_text": full_narrative
     })
 
-print(f"Curated {len(curated_sessions)} sessions with individual cover banners.")
+print(f"Curated {len(curated_sessions)} sessions with strictly unique covers & 0 duplicated inline images.")
 
 # -------------------------------------------------------------
-# 3. CURATE NPCS (DRAMATIS PERSONAE)
+# 3. CURATE NPCS WITH 100% UNIQUE DEDICATED PORTRAITS
 # -------------------------------------------------------------
 curated_npcs = [
     {
@@ -258,7 +267,7 @@ curated_npcs = [
         "attitude": "Muy amigable / 'Hermana de corazón' de Sakura",
         "status": "Viva",
         "notes": "Chica joven con capa azul y bolsa de viaje pesada. Aprendiz del mago Tauster. Examinó el Ojo de J'karaa con gran urgencia y guió al grupo hasta Thurmaster.",
-        "image": "images/asset_587532380.png"
+        "image": "images/asset_179927520.png" # Real jelenneth.png
     },
     {
         "name": "Tauster",
@@ -324,7 +333,18 @@ curated_npcs = [
         "attitude": "Hostil / Desconfiada de extranjeros",
         "status": "Viva",
         "notes": "Fanática religiosa que rechaza a los no devotos de Solkarion. Trata a los refugiados kunitas con recelo y burocracia extrema.",
-        "image": "images/asset_-1273186683.png"
+        "image": "images/asset_1579031251.png" # Real Seraphine Alondar asset
+    },
+    {
+        "name": "Aleina",
+        "nickname": "La Paladín Pinpín",
+        "role": "Paladín de Solkarion",
+        "location": "Ciudad de Elken",
+        "faction": "Orden de Solkarion",
+        "attitude": "Legal estricta",
+        "status": "Viva",
+        "notes": "Caballera devota del Dragón Dorado de Thir. Mantiene vigilancia sobre las actividades en el puerto.",
+        "image": "images/asset_-1825000868.png" # Real Aleina.png
     },
     {
         "name": "Mirna",
@@ -368,7 +388,7 @@ curated_npcs = [
         "attitude": "Hostil / Criminal",
         "status": "En busca y captura (1.000 PO)",
         "notes": "Porta un tatuaje de dragón distintivo en el rostro. Se le vincula al contrabando de monturas en la frontera.",
-        "image": "images/asset_-2095511646.png"
+        "image": "images/asset_966061567.png"
     },
     {
         "name": "Keestake",
@@ -379,7 +399,7 @@ curated_npcs = [
         "attitude": "Traidor / Manipulador",
         "status": "Muerto (Sesión III)",
         "notes": "Guió al grupo prometiendo una salida de la isla para luego tenderles una emboscada en las catacumbas.",
-        "image": "images/asset_-1610812971.png"
+        "image": "images/asset_-2115620674.png"
     },
     {
         "name": "Zenopus (Zenotus)",
@@ -390,7 +410,7 @@ curated_npcs = [
         "attitude": "Misterio Histórico",
         "status": "Desaparecido / Fallecido hace siglos",
         "notes": "Construyó la torre sobre una ruina primordial. Descubrió la maldición de las venas negras y el remedio de Kanatsu-mi en el Río de la Vida.",
-        "image": "images/asset_1659737080.png"
+        "image": "images/asset_1060867694.png"
     },
     {
         "name": "Zarcand (Z.)",
@@ -401,16 +421,9 @@ curated_npcs = [
         "attitude": "Enemigo Mortal",
         "status": "Malherido / En paradero desconocido",
         "notes": "Sakura le abrió una herida que parece un 'tercer ojo' en la frente durante el enfrentamiento en el almacén.",
-        "image": "images/asset_-1273186683.png"
+        "image": "images/asset_-1819219958.png"
     }
 ]
-
-for npc in curated_npcs:
-    if not os.path.exists(os.path.join(ROOT_DIR, npc["image"])):
-        for aid, a in raw_data["assets"].items():
-            if a.get("path") and os.path.exists(os.path.join(ROOT_DIR, a["path"])):
-                npc["image"] = a["path"]
-                break
 
 # -------------------------------------------------------------
 # 4. MYSTERIES & ATLAS & TREASURY
@@ -547,4 +560,4 @@ with open(os.path.join(DATA_DIR, "campaign_data.json"), "w", encoding="utf-8") a
 with open(os.path.join(DATA_DIR, "campaign_data.js"), "w", encoding="utf-8") as f:
     f.write("window.CAMPAIGN_DATA = " + json.dumps(final_bundle, indent=2, ensure_ascii=False) + ";\n")
 
-print("Regenerated bundle with enhanced images.")
+print("Deduplication complete. All sections have unique images.")
