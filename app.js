@@ -4,6 +4,7 @@ let activeTab = 'home';
 let currentSessionId = 16;
 let currentActFilter = 'all';
 let currentAtlasFilter = 'all';
+let mobileSessionView = 'reader'; // 'list' or 'reader'
 
 document.addEventListener('DOMContentLoaded', () => {
   initLucide();
@@ -17,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAtlas();
   renderMysteries();
   renderMagicItems();
+
+  // Initialize mobile session view
+  updateMobileSessionView();
 
   // Keyboard shortcut for search
   document.addEventListener('keydown', (e) => {
@@ -53,7 +57,7 @@ function navigateTab(tabId) {
     target.classList.add('block');
   }
 
-  // Update Nav Buttons
+  // Update Nav Buttons (Desktop)
   document.querySelectorAll('.nav-btn').forEach(btn => {
     if (btn.dataset.tab === tabId) {
       btn.className = 'nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition flex items-center gap-1.5 text-amber-300 bg-amber-500/10 border border-amber-500/30 shadow-sm';
@@ -65,9 +69,9 @@ function navigateTab(tabId) {
   // Mobile Nav Buttons
   document.querySelectorAll('.nav-mobile-btn').forEach(btn => {
     if (btn.dataset.tab === tabId) {
-      btn.className = 'nav-mobile-btn text-xs px-2 py-1 text-amber-300 font-bold';
+      btn.className = 'nav-mobile-btn flex-shrink-0 flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold';
     } else {
-      btn.className = 'nav-mobile-btn text-xs px-2 py-1 text-slate-400 font-medium';
+      btn.className = 'nav-mobile-btn flex-shrink-0 flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium';
     }
   });
 
@@ -76,7 +80,7 @@ function navigateTab(tabId) {
 }
 
 // -------------------------------------------------------------
-// HOME: PARTY LINEUP
+// HOME: PARTY LINEUP (THE 5 KOONIES)
 // -------------------------------------------------------------
 function renderHomePartyLineup() {
   const container = document.getElementById('homePartyLineup');
@@ -94,15 +98,17 @@ function renderHomePartyLineup() {
       openCharacterModal(c.id);
     };
 
+    const roleTag = c.tag || c.role.split('/')[0].trim();
+
     card.innerHTML = `
-      <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 mb-2 shadow-lg group-hover:scale-105 transition" style="border-color: ${c.accent};">
+      <div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 mb-2 shadow-lg group-hover:scale-105 transition" style="border-color: ${c.accent};">
         <img src="${c.primary_image}" alt="${c.name}" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/20 group-hover:opacity-0 transition"></div>
       </div>
       <h4 class="font-cinzel text-xs sm:text-sm font-bold text-white group-hover:text-amber-200 transition truncate w-full">${c.name}</h4>
-      <p class="text-[10px] text-slate-400 truncate w-full mt-0.5">${c.role.split('/')[0]}</p>
-      <span class="mt-2 text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider" style="background-color: ${c.accent}20; color: ${c.accent};">
-        ${c.stats?.rol || 'Koonie'}
+      <p class="text-[10px] text-slate-400 truncate w-full mt-0.5">${c.title}</p>
+      <span class="mt-2 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider" style="background-color: ${c.accent}25; color: ${c.accent}; border: 1px solid ${c.accent}40;">
+        ${roleTag}
       </span>
     `;
 
@@ -111,8 +117,55 @@ function renderHomePartyLineup() {
 }
 
 // -------------------------------------------------------------
-// SESSIONS & TIMELINE
+// SESSIONS & MOBILE RESPONSIVE NAVIGATION
 // -------------------------------------------------------------
+function setMobileSessionView(view) {
+  mobileSessionView = view;
+  updateMobileSessionView();
+}
+
+function updateMobileSessionView() {
+  const listCol = document.getElementById('sessionsListCol');
+  const readerCol = document.getElementById('sessionReaderCol');
+  const listBtn = document.getElementById('mobileViewListBtn');
+  const readerBtn = document.getElementById('mobileViewReaderBtn');
+  const sessionNumLabel = document.getElementById('mobileSessionNumberLabel');
+
+  if (sessionNumLabel) sessionNumLabel.textContent = currentSessionId;
+
+  if (window.innerWidth >= 1024) {
+    if (listCol) { listCol.classList.remove('hidden'); listCol.classList.add('block'); }
+    if (readerCol) { readerCol.classList.remove('hidden'); readerCol.classList.add('block'); }
+    return;
+  }
+
+  if (mobileSessionView === 'list') {
+    if (listCol) { listCol.classList.remove('hidden'); listCol.classList.add('block'); }
+    if (readerCol) { readerCol.classList.add('hidden'); readerCol.classList.remove('block'); }
+    if (listBtn) {
+      listBtn.className = 'flex-1 py-2 rounded-lg text-xs font-bold text-center transition flex items-center justify-center gap-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/40';
+    }
+    if (readerBtn) {
+      readerBtn.className = 'flex-1 py-2 rounded-lg text-xs font-bold text-center transition flex items-center justify-center gap-1.5 text-slate-400';
+    }
+  } else {
+    if (listCol) { listCol.classList.add('hidden'); listCol.classList.remove('block'); }
+    if (readerCol) { readerCol.classList.remove('hidden'); readerCol.classList.add('block'); }
+    if (readerBtn) {
+      readerBtn.className = 'flex-1 py-2 rounded-lg text-xs font-bold text-center transition flex items-center justify-center gap-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/40';
+    }
+    if (listBtn) {
+      listBtn.className = 'flex-1 py-2 rounded-lg text-xs font-bold text-center transition flex items-center justify-center gap-1.5 text-slate-400';
+    }
+  }
+
+  initLucide();
+}
+
+window.addEventListener('resize', () => {
+  updateMobileSessionView();
+});
+
 function initTimeline() {
   const container = document.getElementById('timelineTrack');
   if (!container || !window.CAMPAIGN_DATA) return;
@@ -123,7 +176,7 @@ function initTimeline() {
   sessions.forEach(s => {
     const dotBtn = document.createElement('button');
     const isActive = s.number === currentSessionId;
-    dotBtn.className = `timeline-dot flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-medium transition ${
+    dotBtn.className = `timeline-dot flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-semibold transition ${
       isActive 
         ? 'bg-amber-500/20 text-amber-200 border-amber-500/60 shadow-lg shadow-amber-500/20 active' 
         : 'bg-slate-900/80 text-slate-400 border-slate-700/60 hover:text-amber-300 hover:border-amber-500/40'
@@ -131,7 +184,7 @@ function initTimeline() {
     dotBtn.onclick = () => openSessionDetail(s.number);
     dotBtn.innerHTML = `
       <span class="w-2 h-2 rounded-full ${isActive ? 'bg-amber-400 animate-pulse' : 'bg-slate-500'}"></span>
-      <span class="font-mono font-bold">S${s.number}</span>
+      <span class="font-sans font-bold">S${s.number}</span>
       <span class="hidden xl:inline text-[11px] truncate max-w-[120px]">${s.in_game_date || s.title}</span>
     `;
     container.appendChild(dotBtn);
@@ -142,9 +195,9 @@ function filterSessions(act) {
   currentActFilter = act;
   document.querySelectorAll('.session-filter-btn').forEach(btn => {
     if (btn.dataset.act === act) {
-      btn.className = 'session-filter-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-500/20 text-amber-300 border border-amber-500/40';
+      btn.className = 'session-filter-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-500/20 text-amber-300 border border-amber-500/40 flex-shrink-0';
     } else {
-      btn.className = 'session-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900/80 text-slate-300 hover:bg-slate-800';
+      btn.className = 'session-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900/80 text-slate-300 hover:bg-slate-800 flex-shrink-0';
     }
   });
   renderSessionsList();
@@ -173,9 +226,9 @@ function renderSessionsList() {
 
     card.innerHTML = `
       <!-- Thumbnail Image -->
-      <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-slate-950 flex-shrink-0 border border-amber-500/20">
+      <div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-slate-950 flex-shrink-0 border border-amber-500/20">
         <img src="${s.cover_image}" alt="S${s.number}" class="w-full h-full object-cover">
-        <div class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/80 text-[10px] font-mono font-bold text-amber-300">
+        <div class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/80 text-[10px] font-sans font-bold text-amber-300">
           S${s.number}
         </div>
       </div>
@@ -188,14 +241,14 @@ function renderSessionsList() {
           }">
             ${s.act.split(':')[0] || 'Crónica'}
           </span>
-          <span class="text-[10px] font-mono text-slate-400">${s.irl_date || ''}</span>
+          <span class="text-[10px] font-sans text-slate-400 font-medium">${s.irl_date || ''}</span>
         </div>
 
         <h4 class="font-cinzel font-bold text-xs sm:text-sm text-slate-100 truncate ${isSelected ? 'text-amber-200' : ''}">
           ${s.title}
         </h4>
 
-        <p class="font-crimson text-xs text-slate-300 line-clamp-2 leading-tight">
+        <p class="font-crimson text-xs text-slate-300 line-clamp-2 leading-snug">
           ${s.summary}
         </p>
 
@@ -203,7 +256,7 @@ function renderSessionsList() {
           <span class="truncate max-w-[150px] flex items-center gap-1">
             <i data-lucide="map-pin" class="w-3 h-3 text-amber-400"></i> ${s.location.split('—')[0]}
           </span>
-          <span class="text-amber-400 font-mono">${s.xp || ''}</span>
+          <span class="text-amber-400 font-sans font-bold">${s.xp || ''}</span>
         </div>
       </div>
     `;
@@ -220,9 +273,16 @@ function openSessionDetail(sessionNum) {
   renderSessionsList();
   renderSessionReader(sessionNum);
 
-  if (window.innerWidth < 1024) {
-    const reader = document.getElementById('sessionReaderCol');
-    if (reader) reader.scrollIntoView({ behavior: 'smooth' });
+  // Switch to reader view on mobile and scroll to top
+  setMobileSessionView('reader');
+
+  const reader = document.getElementById('sessionReaderCol');
+  if (reader) {
+    if (window.innerWidth < 1024) {
+      reader.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      reader.scrollTop = 0;
+    }
   }
 }
 
@@ -235,18 +295,33 @@ function renderSessionReader(sessionNum) {
 
   let formattedHtml = session.blocks.map(b => {
     let text = b.text;
-    
+
+    // Clean long hyphen strings that destroy layouts
+    text = text.replace(/-{3,}/g, '<hr class="my-6 border-slate-700/60">');
+    // Normalize excessive tabs
+    text = text.replace(/\t+/g, ' ');
+
+    // Special callout formatting for in-game letters/notes
+    if (text.includes('Mr. Izen,') || text.includes('Harvey,') || text.includes('Señor Izen,')) {
+      text = `<div class="rpg-callout-letter my-4"><i data-lucide="mail" class="w-4 h-4 text-amber-400 mb-1 inline mr-1"></i>${text}</div>`;
+    } else if (text.startsWith('PX:') || text.startsWith('PX ')) {
+      text = `<div class="rpg-callout-reward my-4"><strong class="font-cinzel text-emerald-300 block mb-1">⚔️ Recompensas de Experiencia:</strong>${text}</div>`;
+    }
+
+    // Markdown-like parse
     text = text.replace(/# (.*)/g, '<h1 class="font-cinzel text-xl text-amber-200 font-bold mt-4 mb-2">$1</h1>');
     text = text.replace(/## (.*)/g, '<h2 class="font-cinzel text-lg text-slate-200 font-semibold mt-4 mb-2">$1</h2>');
     text = text.replace(/### (.*)/g, '<h3 class="font-cinzel text-base text-amber-300 font-semibold mt-3 mb-1">$1</h3>');
     text = text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>');
     text = text.replace(/\*(.*?)\*/g, '<em class="text-amber-100/90 italic">$1</em>');
-    text = text.replace(/==(.*?)==/g, '<mark class="bg-amber-500/20 text-amber-200 px-1 rounded">$1</mark>');
-    text = text.replace(/- (.*)/g, '<li class="ml-4 list-disc text-slate-300">$1</li>');
+    text = text.replace(/==(.*?)==/g, '<mark class="bg-amber-500/20 text-amber-200 px-1.5 py-0.5 rounded">$1</mark>');
+    text = text.replace(/- (.*)/g, '<li class="ml-4 list-disc text-slate-300 mb-1">$1</li>');
 
     const paragraphs = text.split('\n\n').map(p => {
-      if (p.startsWith('<h') || p.startsWith('<li')) return p;
-      return `<p class="mb-3 leading-relaxed">${p}</p>`;
+      p = p.trim();
+      if (!p) return '';
+      if (p.startsWith('<h') || p.startsWith('<li') || p.startsWith('<hr') || p.startsWith('<div')) return p;
+      return `<p class="mb-3.5 leading-relaxed text-slate-200">${p}</p>`;
     }).join('');
 
     let imgsHtml = '';
@@ -266,49 +341,63 @@ function renderSessionReader(sessionNum) {
   }).join('');
 
   container.innerHTML = `
+    <!-- Mobile Fast Switcher Bar inside reader -->
+    <div class="lg:hidden flex items-center justify-between p-3 bg-slate-900 border-b border-slate-800 text-xs">
+      <button onclick="setMobileSessionView('list')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 flex items-center gap-1.5 font-bold border border-slate-700">
+        <i data-lucide="list" class="w-3.5 h-3.5"></i> Ver Índice de Capítulos
+      </button>
+      <div class="flex items-center gap-1 text-slate-400 text-[11px] font-sans font-semibold">
+        <span>Capítulo ${session.number} de 16</span>
+      </div>
+    </div>
+
     <!-- Top Hero Banner for Session -->
-    <div class="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-950">
+    <div class="relative h-56 sm:h-72 w-full overflow-hidden bg-slate-950">
       <img src="${session.cover_image}" alt="${session.title}" class="w-full h-full object-cover">
       <div class="absolute inset-0 bg-gradient-to-t from-[#121826] via-[#121826]/75 to-black/30"></div>
       
-      <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
-        <span class="px-3 py-1 rounded-full bg-amber-500/20 backdrop-blur-md text-amber-200 border border-amber-500/40 text-xs font-bold uppercase tracking-wider">
+      <div class="absolute top-3 left-3 right-3 sm:top-4 sm:left-4 sm:right-4 flex items-center justify-between">
+        <span class="px-2.5 py-1 rounded-full bg-amber-500/20 backdrop-blur-md text-amber-200 border border-amber-500/40 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
           ${session.act || 'Crónica de Campaña'}
         </span>
-        <span class="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md font-mono text-xs text-slate-300 border border-slate-700">
+        <span class="px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md font-sans font-semibold text-[10px] sm:text-xs text-slate-300 border border-slate-700">
           Fecha real: ${session.irl_date || 'N/A'}
         </span>
       </div>
 
-      <div class="absolute bottom-4 left-4 right-4 space-y-1">
-        <h2 class="font-cinzel text-xl sm:text-2xl lg:text-3xl font-bold text-white drop-shadow-md leading-tight">
+      <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 space-y-1">
+        <h2 class="font-cinzel text-lg sm:text-2xl lg:text-3xl font-bold text-white drop-shadow-md leading-tight">
           Sesión ${session.number}: ${session.title}
         </h2>
-        <div class="flex flex-wrap items-center gap-3 text-xs text-amber-300/90 pt-1">
+        <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs text-amber-300/90 pt-1">
           <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3.5 h-3.5 text-amber-400"></i> ${session.in_game_date || 'Fecha en el mundo no registrada'}</span>
           <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400"></i> ${session.location || 'Costa de los Naufragios'}</span>
-          <span class="flex items-center gap-1 text-emerald-400 font-mono"><i data-lucide="award" class="w-3.5 h-3.5"></i> ${session.xp || '250 PX'}</span>
+          <span class="flex items-center gap-1 text-emerald-400 font-sans font-bold"><i data-lucide="award" class="w-3.5 h-3.5"></i> ${session.xp || '250 PX'}</span>
         </div>
       </div>
     </div>
 
     <!-- Reader Prose Body -->
-    <div class="p-6 sm:p-8 space-y-4">
+    <div class="p-4 sm:p-7 space-y-4">
       <div class="prose-rpg">
         ${formattedHtml}
       </div>
 
       <!-- Reader Footer Navigation -->
-      <div class="mt-8 pt-5 border-t border-slate-800 flex items-center justify-between">
+      <div class="mt-8 pt-5 border-t border-slate-800 flex items-center justify-between gap-2">
         ${session.number > 1 
-          ? `<button onclick="openSessionDetail(${session.number - 1})" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition flex items-center gap-1.5 border border-slate-700">
-               <i data-lucide="chevron-left" class="w-4 h-4"></i> Sesión ${session.number - 1}
+          ? `<button onclick="openSessionDetail(${session.number - 1})" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition flex items-center gap-1.5 border border-slate-700">
+               <i data-lucide="chevron-left" class="w-4 h-4"></i> S${session.number - 1}
              </button>` 
           : `<div></div>`}
 
+        <button onclick="setMobileSessionView('list')" class="lg:hidden px-3 py-2 rounded-xl bg-slate-800 text-amber-300 text-xs font-bold border border-slate-700 flex items-center gap-1">
+          <i data-lucide="list" class="w-3.5 h-3.5"></i> Índice
+        </button>
+
         ${session.number < window.CAMPAIGN_DATA.sessions.length 
-          ? `<button onclick="openSessionDetail(${session.number + 1})" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-xs font-bold text-slate-950 transition flex items-center gap-1.5 shadow-md shadow-amber-500/20">
-               Sesión ${session.number + 1} <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          ? `<button onclick="openSessionDetail(${session.number + 1})" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-xs font-bold text-slate-950 transition flex items-center gap-1.5 shadow-md shadow-amber-500/20">
+               S${session.number + 1} <i data-lucide="chevron-right" class="w-4 h-4"></i>
              </button>` 
           : `<div></div>`}
       </div>
@@ -319,7 +408,7 @@ function renderSessionReader(sessionNum) {
 }
 
 // -------------------------------------------------------------
-// CHARACTERS (LOS KOONIES)
+// CHARACTERS (LOS 5 KOONIES)
 // -------------------------------------------------------------
 function renderCharacters() {
   const container = document.getElementById('charactersGrid');
@@ -340,14 +429,16 @@ function renderCharacters() {
       </div>
     `).join('') : '';
 
+    const roleTag = c.tag || c.role.split('/')[0].trim();
+
     card.innerHTML = `
       <!-- Character Image Header -->
-      <div class="relative h-64 w-full overflow-hidden bg-slate-950">
+      <div class="relative h-60 sm:h-64 w-full overflow-hidden bg-slate-950">
         <img src="${c.primary_image}" alt="${c.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
         <div class="absolute inset-0 bg-gradient-to-t from-[#121826] via-[#121826]/40 to-transparent"></div>
         
-        <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-xs font-semibold uppercase tracking-wider flex items-center gap-1 shadow-lg" style="color: ${c.accent}; border: 1px solid ${c.accent}50;">
-          <i data-lucide="${c.icon || 'shield'}" class="w-3.5 h-3.5"></i> ${c.role.split('/')[0]}
+        <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-xs font-bold uppercase tracking-wider flex items-center gap-1 shadow-lg" style="color: ${c.accent}; border: 1px solid ${c.accent}50;">
+          <i data-lucide="${c.icon || 'shield'}" class="w-3.5 h-3.5"></i> ${roleTag}
         </div>
 
         <div class="absolute bottom-3 left-4 right-4">
@@ -357,7 +448,7 @@ function renderCharacters() {
       </div>
 
       <!-- Character Info Body -->
-      <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
+      <div class="p-4 sm:p-5 space-y-4 flex-1 flex flex-col justify-between">
         <div class="space-y-3">
           <blockquote class="font-crimson text-sm italic text-slate-300 border-l-2 pl-3 py-0.5 bg-slate-900/40 rounded-r-lg" style="border-color: ${c.accent};">
             "${c.quote}"
@@ -367,7 +458,7 @@ function renderCharacters() {
             ${statBadges}
           </div>
 
-          <p class="font-crimson text-xs text-slate-300 leading-relaxed">
+          <p class="font-crimson text-xs sm:text-sm text-slate-300 leading-relaxed">
             ${c.archetype}
           </p>
 
@@ -379,9 +470,9 @@ function renderCharacters() {
           ` : ''}
         </div>
 
-        <!-- Gallery / Lore Button -->
+        <!-- Lore Button -->
         <div class="pt-3 border-t border-slate-800 flex items-center justify-between">
-          <span class="text-[11px] text-slate-400 font-mono">${c.gallery.length} Ilustraciones</span>
+          <span class="text-[11px] text-slate-400 font-sans font-semibold">${roleTag} oficial</span>
           <button onclick="openCharacterModal('${c.id}')" class="text-xs font-bold flex items-center gap-1 hover:underline" style="color: ${c.accent};">
             Ficha Completa & Lore <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
           </button>
@@ -400,22 +491,22 @@ function openCharacterModal(charId) {
   if (!character) return;
 
   const modalHtml = `
-    <div id="charDetailModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4" onclick="closeCharacterModal()">
-      <div class="rpg-card max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border p-6 lg:p-8 space-y-6" style="border-color: ${character.accent}60;" onclick="event.stopPropagation()">
+    <div id="charDetailModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-3 sm:p-4" onclick="closeCharacterModal()">
+      <div class="rpg-card max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border p-5 sm:p-8 space-y-5" style="border-color: ${character.accent}60;" onclick="event.stopPropagation()">
         
         <div class="flex items-start justify-between gap-4 border-b border-slate-800 pb-4">
-          <div class="flex items-center gap-4">
-            <img src="${character.primary_image}" class="w-16 h-16 rounded-2xl object-cover border" style="border-color: ${character.accent};">
+          <div class="flex items-center gap-3 sm:gap-4">
+            <img src="${character.primary_image}" class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl object-cover border-2 flex-shrink-0" style="border-color: ${character.accent};">
             <div>
-              <h3 class="font-cinzel text-2xl font-bold text-white">${character.name}</h3>
-              <p class="text-xs font-medium text-amber-200">${character.title} • ${character.role}</p>
+              <h3 class="font-cinzel text-xl sm:text-2xl font-bold text-white">${character.name}</h3>
+              <p class="text-xs font-semibold text-amber-200">${character.title} • <span class="px-2 py-0.5 rounded uppercase text-[10px]" style="background-color: ${character.accent}20; color: ${character.accent}; border: 1px solid ${character.accent}40;">${character.tag || character.role}</span></p>
             </div>
           </div>
-          <button onclick="closeCharacterModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+          <button onclick="closeCharacterModal()" class="text-slate-400 hover:text-white p-1"><i data-lucide="x" class="w-6 h-6"></i></button>
         </div>
 
         <div class="space-y-4">
-          <blockquote class="font-crimson text-base italic text-slate-200 border-l-3 pl-4 py-1 bg-slate-900/50 rounded-r-xl" style="border-color: ${character.accent};">
+          <blockquote class="font-crimson text-sm sm:text-base italic text-slate-200 border-l-3 pl-4 py-1 bg-slate-900/50 rounded-r-xl" style="border-color: ${character.accent};">
             "${character.quote}"
           </blockquote>
 
@@ -423,17 +514,6 @@ function openCharacterModal(charId) {
             <h4 class="font-cinzel text-base font-bold text-amber-300">Notas de Campaña y Trasfondo</h4>
             <div class="text-slate-300 leading-relaxed whitespace-pre-line">${character.full_lore}</div>
           </div>
-
-          ${character.gallery && character.gallery.length > 1 ? `
-            <div>
-              <h4 class="font-cinzel text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Galería de Ilustraciones</h4>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                ${character.gallery.map(img => `
-                  <img src="${img}" class="h-24 w-full object-cover rounded-lg border border-slate-700 cursor-pointer hover:scale-105 transition" onclick="openLightbox('${img}', '${character.name}')">
-                `).join('')}
-              </div>
-            </div>
-          ` : ''}
         </div>
 
       </div>
@@ -478,10 +558,10 @@ function renderNpcs() {
 
   filtered.forEach(n => {
     const card = document.createElement('div');
-    card.className = 'rpg-card p-5 rounded-2xl border border-slate-800 hover:border-amber-500/30 transition flex flex-col justify-between space-y-4';
+    card.className = 'rpg-card p-4 sm:p-5 rounded-2xl border border-slate-800 hover:border-amber-500/30 transition flex flex-col justify-between space-y-4';
 
     let attitudeBadge = 'bg-slate-800 text-slate-300';
-    if (n.attitude.toLowerCase().includes('aliad') || n.attitude.toLowerCase().includes('amig') || n.attitude.toLowerCase().includes('favorable')) {
+    if (n.attitude.toLowerCase().includes('aliad') || n.attitude.toLowerCase().includes('amig') || n.attitude.toLowerCase().includes('favorable') || n.attitude.toLowerCase().includes('devota')) {
       attitudeBadge = 'bg-emerald-500/10 text-emerald-300 border border-emerald-500/30';
     } else if (n.attitude.toLowerCase().includes('hostil') || n.attitude.toLowerCase().includes('traidor') || n.attitude.toLowerCase().includes('enemigo')) {
       attitudeBadge = 'bg-rose-500/10 text-rose-300 border border-rose-500/30';
@@ -498,7 +578,7 @@ function renderNpcs() {
               ${n.status || 'Estado Desconocido'}
             </span>
           </div>
-          <h4 class="font-cinzel text-base font-bold text-white truncate mt-1">${n.name}</h4>
+          <h4 class="font-cinzel text-sm sm:text-base font-bold text-white truncate mt-1">${n.name}</h4>
           <p class="text-xs text-amber-300/90 italic font-crimson">${n.nickname || n.role}</p>
         </div>
       </div>
@@ -506,14 +586,14 @@ function renderNpcs() {
       <div class="space-y-2 text-xs text-slate-300 font-crimson text-sm leading-relaxed">
         <p><strong>Rol:</strong> ${n.role}</p>
         <p><strong>Ubicación:</strong> ${n.location}</p>
-        <p class="text-slate-400 bg-slate-900/40 p-2.5 rounded-lg border border-slate-800 text-xs">
+        <p class="text-slate-400 bg-slate-900/50 p-2.5 rounded-lg border border-slate-800/80 text-xs leading-relaxed">
           ${n.notes}
         </p>
       </div>
 
       <div class="pt-2 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
-        <span>${n.faction}</span>
-        <span class="italic text-amber-400">${n.attitude}</span>
+        <span class="truncate max-w-[150px]">${n.faction}</span>
+        <span class="italic text-amber-400">${n.attitude.split('/')[0]}</span>
       </div>
     `;
 
@@ -528,7 +608,7 @@ function filterNpcs() {
 }
 
 // -------------------------------------------------------------
-// ATLAS & MAPS
+// ATLAS & MAPS (5 OFFICIAL MAPS)
 // -------------------------------------------------------------
 function filterAtlas(type) {
   currentAtlasFilter = type;
@@ -564,7 +644,7 @@ function renderAtlas() {
         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs text-amber-200 font-semibold gap-1.5">
           <i data-lucide="maximize-2" class="w-4 h-4"></i> Examinar Detalle
         </div>
-        <div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-black/70 backdrop-blur-md text-[10px] font-bold text-amber-300 uppercase">
+        <div class="absolute top-2 left-2 px-2.5 py-0.5 rounded bg-black/75 backdrop-blur-md text-[10px] font-bold text-amber-300 uppercase">
           ${item.type}
         </div>
       </div>
@@ -611,15 +691,15 @@ function renderMysteries() {
         </div>
       ` : ''}
 
-      <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
+      <div class="p-4 sm:p-5 space-y-4 flex-1 flex flex-col justify-between">
         <div class="space-y-2">
           <div class="flex items-center justify-between">
-            <span class="text-xs text-purple-300 font-mono">${m.category}</span>
-            <span class="text-xs text-slate-400 font-semibold px-2 py-0.5 rounded-full bg-slate-900 border border-slate-800">
+            <span class="text-xs text-purple-300 font-sans font-semibold">${m.category}</span>
+            <span class="text-xs text-slate-300 font-semibold px-2 py-0.5 rounded-full bg-slate-900 border border-slate-800">
               ${m.status}
             </span>
           </div>
-          <h3 class="font-cinzel text-lg font-bold text-amber-100">${m.title}</h3>
+          <h3 class="font-cinzel text-base sm:text-lg font-bold text-amber-100">${m.title}</h3>
           <p class="font-crimson text-slate-300 text-sm leading-relaxed">
             ${m.description}
           </p>
@@ -661,10 +741,10 @@ function renderMagicItems() {
     
     card.innerHTML = `
       <img src="${item.image || 'images/asset_1843595399.jpg'}" class="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-cover border border-purple-500/40 flex-shrink-0 cursor-pointer" onclick="openLightbox('${item.image}', '${item.name}')">
-      <div class="space-y-1 flex-1">
+      <div class="space-y-1 flex-1 w-full">
         <div class="flex items-center justify-between gap-1">
           <h4 class="font-cinzel font-bold text-sm text-purple-200">${item.name}</h4>
-          <span class="text-[9px] px-2 py-0.5 rounded bg-purple-950/60 text-purple-300 border border-purple-800/40 font-mono">${item.holder}</span>
+          <span class="text-[10px] px-2 py-0.5 rounded bg-purple-950/60 text-purple-300 border border-purple-800/40 font-sans font-medium">${item.holder}</span>
         </div>
         <p class="font-crimson text-xs text-slate-300 leading-snug">${item.desc}</p>
       </div>
@@ -795,7 +875,7 @@ function handleGlobalSearch() {
     <div class="p-3 rounded-xl bg-slate-900/60 hover:bg-amber-500/10 border border-slate-800 hover:border-amber-500/30 transition cursor-pointer" onclick="window._searchResults[${idx}].action()">
       <div class="flex items-center justify-between text-xs mb-1">
         <span class="font-bold text-amber-300 font-cinzel">${r.title}</span>
-        <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">${r.type}</span>
+        <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400 font-sans">${r.type}</span>
       </div>
       <p class="font-crimson text-xs text-slate-400 line-clamp-2">${r.snippet}</p>
     </div>
@@ -821,7 +901,7 @@ function initAmbientParticles() {
   });
 
   const particles = [];
-  for (let i = 0; i < 45; i++) {
+  for (let i = 0; i < 40; i++) {
     particles.push({
       x: Math.random() * width,
       y: Math.random() * height,

@@ -3,8 +3,8 @@
 :root {
   --bg-primary: #0a0c10;
   --bg-secondary: #12161f;
-  --bg-card: rgba(18, 24, 38, 0.85);
-  --bg-card-hover: rgba(26, 35, 54, 0.95);
+  --bg-card: rgba(18, 24, 38, 0.88);
+  --bg-card-hover: rgba(26, 35, 54, 0.96);
   --border-card: rgba(212, 168, 83, 0.22);
   --border-card-hover: rgba(212, 168, 83, 0.55);
   --gold-primary: #d4a853;
@@ -21,9 +21,15 @@
 body {
   background-color: var(--bg-primary);
   color: var(--text-main);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ensure no ugly Courier or monospace fonts override text */
+code, pre, kbd, samp, .font-mono {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
 }
 
 .font-cinzel {
@@ -82,6 +88,8 @@ body {
   border: 1px solid var(--border-card);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .rpg-card:hover {
@@ -98,8 +106,8 @@ body {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
@@ -111,6 +119,15 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gold-dark);
+}
+
+/* Mobile Scrollbar Hide */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Timeline Custom Track */
@@ -138,59 +155,114 @@ body {
   backdrop-filter: blur(20px);
 }
 
-/* Prose for sessions */
+/* Prose for sessions - Impeccable Mobile and Web typography */
 .prose-rpg {
   font-family: 'Crimson Pro', serif;
   font-size: 1.18rem;
   line-height: 1.85;
   color: #f1f5f9;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
+
+@media (max-width: 640px) {
+  .prose-rpg {
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+}
+
 .prose-rpg h1 {
   font-family: 'Cinzel', serif;
   color: var(--gold-light);
-  font-size: 2rem;
+  font-size: 1.75rem;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
   border-bottom: 1px solid rgba(212, 168, 83, 0.25);
   padding-bottom: 0.5rem;
+  word-break: break-word;
 }
+@media (max-width: 640px) {
+  .prose-rpg h1 {
+    font-size: 1.4rem;
+  }
+}
+
 .prose-rpg h2 {
   font-family: 'Cinzel', serif;
   color: #e2e8f0;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  word-break: break-word;
 }
 .prose-rpg h2::before {
   content: '❖';
   color: var(--gold-primary);
-  font-size: 0.9em;
+  font-size: 0.85em;
+  flex-shrink: 0;
 }
+@media (max-width: 640px) {
+  .prose-rpg h2 {
+    font-size: 1.2rem;
+  }
+}
+
 .prose-rpg h3 {
   font-family: 'Cinzel', serif;
   color: var(--gold-primary);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   margin-top: 1.25rem;
   margin-bottom: 0.5rem;
+  word-break: break-word;
 }
+
 .prose-rpg p {
   margin-bottom: 1.15rem;
+  word-break: break-word;
 }
+
 .prose-rpg blockquote {
   border-left: 3px solid var(--gold-primary);
-  background: rgba(212, 168, 83, 0.05);
-  padding: 0.75rem 1.25rem;
+  background: rgba(212, 168, 83, 0.06);
+  padding: 0.85rem 1.25rem;
   border-radius: 0 0.75rem 0.75rem 0;
   font-style: italic;
-  color: #cbd5e1;
+  color: #e2e8f0;
   margin: 1.5rem 0;
+  word-break: break-word;
 }
+
 .prose-rpg strong {
   color: #ffffff;
   font-weight: 600;
+}
+
+/* Callout cards inside reader */
+.rpg-callout-letter {
+  background: rgba(28, 22, 16, 0.75);
+  border: 1px solid rgba(212, 168, 83, 0.35);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  font-style: italic;
+  color: #fef3c7;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.rpg-callout-reward {
+  background: rgba(6, 78, 59, 0.25);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 0.75rem;
+  padding: 0.85rem 1.25rem;
+  margin: 1.25rem 0;
+  color: #a7f3d0;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
 }
 
 /* Image Hover Zoom Effects */

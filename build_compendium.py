@@ -26,7 +26,7 @@ def dist(p1, p2):
     return math.hypot(p1["x"] - p2["x"], p1["y"] - p2["y"])
 
 # -------------------------------------------------------------
-# 1. CURATE CHARACTERS (LOS KOONIES - PJ's)
+# 1. CURATE CHARACTERS (LOS 5 KOONIES - PJ's)
 # -------------------------------------------------------------
 pj_page = pages_by_name.get("Personajes", {})
 pj_texts = pj_page.get("texts", [])
@@ -37,8 +37,9 @@ koonies_roster = [
         "id": "glunt",
         "name": "Glunt",
         "title": "El Gigante de Corazón de Cristal",
-        "role": "Guerrero Protector",
-        "stats": {"fuerza": "17 (Colosal)", "rol": "Defensor / Tanque", "arma": "Gran Fuerza & Pureza", "origen": "Tierras Bajas de Amatsukuni"},
+        "role": "Guerrero",
+        "tag": "Guerrero",
+        "stats": {"clase": "Guerrero", "fuerza": "17 (Colosal)", "arma": "Gran Fuerza & Pureza", "origen": "Tierras Bajas de Amatsukuni"},
         "archetype": "Fuerza titánica, inocencia incorruptible y devoción incondicional a los pequeños.",
         "quote": "Padre dijo que me quedara. Glunt se queda. Glunt cuidará de los pequeños hasta que el sol vuelva a salir.",
         "icon": "shield",
@@ -52,8 +53,9 @@ koonies_roster = [
         "id": "hiroyuki",
         "name": "Hiroyuki Watanabe",
         "title": "El Acero en la Forja",
-        "role": "Guerrero Kunita / Kensei Samurai",
-        "stats": {"fuerza": "15 (Atlético)", "rol": "Espadachín / Líder Táctico", "arma": "Espada Larga & Naginata", "origen": "Capital de Amatsukuni"},
+        "role": "Guerrero",
+        "tag": "Guerrero",
+        "stats": {"clase": "Guerrero (Kensei)", "fuerza": "15 (Atlético)", "arma": "Espada Larga & Naginata", "origen": "Capital de Amatsukuni"},
         "archetype": "Honor marcial, devoción a Hachiman y escudo inquebrantable de los supervivientes.",
         "quote": "Si Amatsukuni ha caído, yo seré el escudo de los que quedan, con o sin nombre de samurai.",
         "icon": "swords",
@@ -63,25 +65,12 @@ koonies_roster = [
         "match_keys": ["Hiroyuki", "Hiroyuki Watanabe", "El Acero en la Forja"]
     },
     {
-        "id": "katsumi",
-        "name": "Katsumi",
-        "title": "La Llama Custodia",
-        "role": "Clériga de Shien / Guía Espiritual",
-        "stats": {"fe": "Shien (Llama Púrpura)", "rol": "Sanación & Liderazgo", "arma": "Naginata Sagrada", "origen": "Templo de la Llama Púrpura"},
-        "archetype": "Sacerdotisa consagrada a la pureza del pueblo kunita y la esperanza en tierra extraña.",
-        "quote": "Soy Katsumi, una Llama Custodia consagrada al servicio de Shien. Mi vida está ligada a la naginata y al deber de proteger a mi pueblo.",
-        "icon": "flame",
-        "badge_color": "purple",
-        "accent": "#a855f7",
-        "primary_image": "images/asset_154989466.png",
-        "match_keys": ["Katsumi", "Llama Custodia", "Shien"]
-    },
-    {
         "id": "sakura",
         "name": "Sakura",
         "title": "La Erudita de lo Arcano",
-        "role": "Maga Kunita / Investigadora de Grimorios",
-        "stats": {"magia": "Evocación / Arcano", "rol": "Lanzadora de Conjuros", "arma": "Grimorio de Zarcand", "origen": "Academia Arcana"},
+        "role": "Maga",
+        "tag": "Maga",
+        "stats": {"clase": "Maga", "magia": "Evocación / Arcano", "arma": "Grimorio de Zarcand", "origen": "Academia Arcana"},
         "archetype": "Mente incisiva, descifradora de secretos antiguos y actual portadora del Ojo de J'karaa.",
         "quote": "El conocimiento no es peligroso; ignorar sus consecuencias sí lo es.",
         "icon": "sparkles",
@@ -94,8 +83,9 @@ koonies_roster = [
         "id": "ainur",
         "name": "Ainur",
         "title": "El Ojo Atento",
-        "role": "Explorador / Batidor",
-        "stats": {"destreza": "Alta", "rol": "Sigilo / Exploración / Percepción", "arma": "Arco & Daga", "origen": "Fronteras de Amatsukuni"},
+        "role": "Explorador",
+        "tag": "Explorador",
+        "stats": {"clase": "Explorador / Pícaro", "destreza": "Alta", "arma": "Arco & Daga", "origen": "Fronteras de Amatsukuni"},
         "archetype": "Carisma, sigilo, percepción extrasensorial y rastreador infalible en la niebla.",
         "quote": "La niebla oculta muchas cosas, pero ninguna que no deje rastro.",
         "icon": "eye",
@@ -108,9 +98,10 @@ koonies_roster = [
         "id": "kazgrim",
         "name": "Kazgrim Iwakura (Kaz)",
         "title": "El Guardián de la Llama Perdida",
-        "role": "Cantero Enano / Acólito de Kagutsuchi",
-        "stats": {"fuerza": "13 (+4)", "inteligencia": "10", "rol": "Clérigo Cantero / Fuego Renaciente", "origen": "Kizuna-no-Miya (Norte Montañoso)"},
-        "archetype": "Joven cantero de piedra volcánica (38 años) que escucha los susurros de los kami en la roca y el fuego.",
+        "role": "Clérigo",
+        "tag": "Clérigo",
+        "stats": {"clase": "Clérigo de Kagutsuchi", "fuerza": "13 (+4)", "inteligencia": "10", "origen": "Kizuna-no-Miya (Norte Montañoso)"},
+        "archetype": "Cantero enano (38 años) que escucha los kami en la roca y despierta el fuego renaciente.",
         "quote": "El papel arde, pero la verdad es incombustible. Si el fuego lo devoró todo, es porque algo nuevo y más fuerte debe nacer de nuestras cenizas.",
         "icon": "hammer",
         "badge_color": "orange",
@@ -129,28 +120,28 @@ for k in koonies_roster:
     k["full_lore"] = "\n\n".join(matched_texts) if matched_texts else f"Miembro fundador de Los Koonies. {k['archetype']}."
     k["gallery"] = [k["primary_image"]]
 
-print(f"Curated {len(koonies_roster)} Koonies player characters.")
+print(f"Curated {len(koonies_roster)} Koonies player characters (PJs).")
 
 # -------------------------------------------------------------
-# 2. CURATE SESSIONS (1 to 16) WITH STRICTLY UNIQUE COVERS & NON-REPEATING INLINE IMAGES
+# 2. CURATE SESSIONS (1 to 16) WITH TEXT CLEANUP (NO DASH LINES / NO OVERFLOW)
 # -------------------------------------------------------------
 session_covers_unique = {
-    1: "images/asset_10816842.png",       # Playa / naufragio
-    2: "images/asset_238755922.png",      # Isla congelada
-    3: "images/asset_643137533.png",      # Mansión Viledel / Templo
-    4: "images/asset_1325026172.png",     # Catacumbas oscuras
-    5: "images/asset_2006248850.png",     # Rimed Mallow en mar abierto
-    6: "images/asset_1515216225.png",     # Ciudad de Elken
-    7: "images/asset_-199017577.png",     # Taberna y almacén nocturno
-    8: "images/asset_-1336998075.png",    # Niebla de Elken
-    9: "images/asset_1704990873.png",     # Torre cerca del cementerio
-    10: "images/asset_2054780468.png",    # Bóveda de Zenopus / pociones
-    11: "images/asset_387950169.png",     # Máscara de bronce / Mandra Voss
-    12: "images/asset_1189662238.png",    # Estudio superior y diario de Zenopus
-    13: "images/asset_-1452585810.webp",   # Camino a Milborne
-    14: "images/asset_2093206144.png",    # Monolito de la Gran Llama
-    15: "images/asset_1370269724.png",    # Cueva de columnas derrumbadas
-    16: "images/asset_1659737080.png"     # Kanatsu-mi / Río de la Vida
+    1: "images/asset_10816842.png",
+    2: "images/asset_238755922.png",
+    3: "images/asset_643137533.png",
+    4: "images/asset_1325026172.png",
+    5: "images/asset_2006248850.png",
+    6: "images/asset_1515216225.png",
+    7: "images/asset_-199017577.png",
+    8: "images/asset_-1336998075.png",
+    9: "images/asset_1704990873.png",
+    10: "images/asset_2054780468.png",
+    11: "images/asset_387950169.png",
+    12: "images/asset_1189662238.png",
+    13: "images/asset_-1452585810.webp",
+    14: "images/asset_2093206144.png",
+    15: "images/asset_1370269724.png",
+    16: "images/asset_1659737080.png"
 }
 
 session_meta_titles = {
@@ -202,15 +193,19 @@ for sp in session_pages:
     blocks = []
     xp_found = ""
     
-    # Track used images in this session to strictly PREVENT duplicates
     used_images_in_session = set([cover_img])
     
     for t in ordered_texts:
         raw_t = t["text"].strip()
+        
+        # Clean long dashes that cause horizontal overflow
+        raw_t = re.sub(r'-{3,}', '---', raw_t)
+        # Normalize excessive tabs
+        raw_t = re.sub(r'\t+', ' ', raw_t)
+        
         if "PX:" in raw_t or "PX " in raw_t or "Experiencia:" in raw_t:
             xp_found = raw_t
             
-        # Find nearest images from this page that have not been used yet
         valid_imgs = []
         for img in sorted(page_images, key=lambda item: dist(t, item)):
             p = img.get("image_info", {}).get("path")
@@ -252,12 +247,23 @@ for sp in session_pages:
         "full_text": full_narrative
     })
 
-print(f"Curated {len(curated_sessions)} sessions with strictly unique covers & 0 duplicated inline images.")
+print(f"Curated {len(curated_sessions)} sessions.")
 
 # -------------------------------------------------------------
-# 3. CURATE NPCS WITH 100% UNIQUE DEDICATED PORTRAITS
+# 3. CURATE NPCS (INCLUDING KATSUMI AS PNJ)
 # -------------------------------------------------------------
 curated_npcs = [
+    {
+        "name": "Katsumi",
+        "nickname": "La Llama Custodia / Líder del Campamento",
+        "role": "Clériga de Shien & Líder de Refugiados",
+        "location": "Campamento Kunita, Elken",
+        "faction": "Refugiados de Amatsukuni / Culto de Shien",
+        "attitude": "Devota, protectora y leal aliada",
+        "status": "Viva",
+        "notes": "Llama Custodia consagrada al servicio de Shien, la Llama Púrpura. Administra el campamento de los 40 supervivientes kunitas extramuros de Elken con su naginata sagrada. Pone sus esperanzas en encontrar a Yoriko Asano.",
+        "image": "images/asset_154989466.png"
+    },
     {
         "name": "Jelenneth (Jenneleth)",
         "nickname": "La Maga Samaritana",
@@ -267,7 +273,7 @@ curated_npcs = [
         "attitude": "Muy amigable / 'Hermana de corazón' de Sakura",
         "status": "Viva",
         "notes": "Chica joven con capa azul y bolsa de viaje pesada. Aprendiz del mago Tauster. Examinó el Ojo de J'karaa con gran urgencia y guió al grupo hasta Thurmaster.",
-        "image": "images/asset_179927520.png" # Real jelenneth.png
+        "image": "images/asset_179927520.png"
     },
     {
         "name": "Tauster",
@@ -333,7 +339,7 @@ curated_npcs = [
         "attitude": "Hostil / Desconfiada de extranjeros",
         "status": "Viva",
         "notes": "Fanática religiosa que rechaza a los no devotos de Solkarion. Trata a los refugiados kunitas con recelo y burocracia extrema.",
-        "image": "images/asset_1579031251.png" # Real Seraphine Alondar asset
+        "image": "images/asset_1579031251.png"
     },
     {
         "name": "Aleina",
@@ -344,7 +350,7 @@ curated_npcs = [
         "attitude": "Legal estricta",
         "status": "Viva",
         "notes": "Caballera devota del Dragón Dorado de Thir. Mantiene vigilancia sobre las actividades en el puerto.",
-        "image": "images/asset_-1825000868.png" # Real Aleina.png
+        "image": "images/asset_-1825000868.png"
     },
     {
         "name": "Mirna",
@@ -500,30 +506,43 @@ mysteries = [
     }
 ]
 
-atlas_items = []
-map_page = pages_by_name.get("Mapas", {})
-for idx, img in enumerate(map_page.get("images", [])):
-    p = img.get("image_info", {}).get("path")
-    if p and os.path.exists(os.path.join(ROOT_DIR, p)):
-        atlas_items.append({
-            "id": f"map_{idx+1}",
-            "title": f"Mapa Cartográfico #{idx+1} — Región y Localizaciones",
-            "type": "Cartografía",
-            "path": p,
-            "description": "Mapa de la Costa de los Naufragios, Ciudad de Elken, calas piratas, Palazio de Kaz y caminos hacia Milborne y Thurmaster."
-        })
-
-sketch_page = pages_by_name.get("Sketch", {})
-for idx, img in enumerate(sketch_page.get("images", [])):
-    p = img.get("image_info", {}).get("path")
-    if p and os.path.exists(os.path.join(ROOT_DIR, p)):
-        atlas_items.append({
-            "id": f"sketch_{idx+1}",
-            "title": f"Boceto Táctico #{idx+1} — Planos y Mazmorras",
-            "type": "Plano Táctico",
-            "path": p,
-            "description": "Esquema táctico de combate, distribución de salas subterráneas y notas de exploración."
-        })
+curated_atlas = [
+    {
+        "id": "map_1",
+        "title": "Mapa I — Costa de los Naufragios y Región Costera",
+        "type": "Cartografía",
+        "path": "images/asset_1603148333.jpg",
+        "description": "Carta de navegación y mapa general de la Costa de los Naufragios, islas y rutas marítimas."
+    },
+    {
+        "id": "map_2",
+        "title": "Mapa II — Plano General de la Ciudad de Elken",
+        "type": "Plano de Ciudad",
+        "path": "images/asset_1515216225.png",
+        "description": "Distribución urbana de Elken: puerto, dársena, campamento kunita extramuros y accesos."
+    },
+    {
+        "id": "map_3",
+        "title": "Mapa III — Mapa de Elken para Jugadores",
+        "type": "Plano de Ciudad",
+        "path": "images/asset_1261867066.png",
+        "description": "Mapa detallado con la Taberna del Ganso, Cuartel, Botica de Elara, Templo de Solkarion, Torre de Zenopus y Casa de los Tesoros."
+    },
+    {
+        "id": "map_4",
+        "title": "Mapa IV — Plano Costero, Calas y Accesos",
+        "type": "Cartografía",
+        "path": "images/asset_-583554640.png",
+        "description": "Cartografía táctica de las calas piratas, accesos subterráneos a la torre y costas escarpadas."
+    },
+    {
+        "id": "map_7",
+        "title": "Mapa V — Rutas Hacia Milborne, Thurmaster y Kanatsu-mi",
+        "type": "Cartografía",
+        "path": "images/asset_2125889959.png",
+        "description": "Carta terrestre del camino fluvial, monolitos sagrados de la Gran Llama y rutas hacia el Río de la Vida."
+    }
+]
 
 final_bundle = {
     "campaign_name": "Las Crónicas de Los Koonies",
@@ -551,7 +570,7 @@ final_bundle = {
             {"name": "Diario y Anillo de Zenopus", "holder": "Grupo", "desc": "Manuscrito con las revelaciones del Kanatsu-mi y el anillo sellador.", "image": "images/asset_1189662238.png"}
         ]
     },
-    "atlas": atlas_items
+    "atlas": curated_atlas
 }
 
 with open(os.path.join(DATA_DIR, "campaign_data.json"), "w", encoding="utf-8") as f:
@@ -560,4 +579,4 @@ with open(os.path.join(DATA_DIR, "campaign_data.json"), "w", encoding="utf-8") a
 with open(os.path.join(DATA_DIR, "campaign_data.js"), "w", encoding="utf-8") as f:
     f.write("window.CAMPAIGN_DATA = " + json.dumps(final_bundle, indent=2, ensure_ascii=False) + ";\n")
 
-print("Deduplication complete. All sections have unique images.")
+print(f"Build complete. {len(koonies_roster)} PJs, {len(curated_npcs)} NPCs, {len(curated_sessions)} Sessions.")
