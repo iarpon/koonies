@@ -106,8 +106,8 @@ function renderHomePartyLineup() {
         <div class="absolute inset-0 bg-black/20 group-hover:opacity-0 transition"></div>
       </div>
       <h4 class="font-cinzel text-xs sm:text-sm font-bold text-white group-hover:text-amber-200 transition truncate w-full">${c.name}</h4>
-      <p class="text-[10px] text-slate-400 truncate w-full mt-0.5">${c.title}</p>
-      <span class="mt-2 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider" style="background-color: ${c.accent}25; color: ${c.accent}; border: 1px solid ${c.accent}40;">
+      <p class="text-xs font-semibold text-slate-400 truncate w-full mt-0.5">${c.title}</p>
+      <span class="mt-2 text-xs font-semibold font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider" style="background-color: ${c.accent}25; color: ${c.accent}; border: 1px solid ${c.accent}40;">
         ${roleTag}
       </span>
     `;
@@ -185,7 +185,7 @@ function initTimeline() {
     dotBtn.innerHTML = `
       <span class="w-2 h-2 rounded-full ${isActive ? 'bg-amber-400 animate-pulse' : 'bg-slate-500'}"></span>
       <span class="font-sans font-bold">S${s.number}</span>
-      <span class="hidden xl:inline text-[11px] truncate max-w-[120px]">${s.in_game_date || s.title}</span>
+      <span class="hidden xl:inline text-xs sm:text-sm truncate max-w-[120px]">${s.in_game_date || s.title}</span>
     `;
     container.appendChild(dotBtn);
   });
@@ -228,7 +228,7 @@ function renderSessionsList() {
       <!-- Thumbnail Image -->
       <div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-slate-950 flex-shrink-0 border border-amber-500/20">
         <img src="${s.cover_image}" alt="S${s.number}" class="w-full h-full object-cover">
-        <div class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/80 text-[10px] font-sans font-bold text-amber-300">
+        <div class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/80 text-xs font-semibold font-sans font-bold text-amber-300">
           S${s.number}
         </div>
       </div>
@@ -236,23 +236,23 @@ function renderSessionsList() {
       <!-- Info -->
       <div class="flex-1 min-w-0 space-y-1">
         <div class="flex items-center justify-between gap-1">
-          <span class="text-[9px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md ${
+          <span class="text-xs uppercase font-bold tracking-wider px-2 py-0.5 rounded-md ${
             isSelected ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'bg-slate-800 text-slate-400'
           }">
             ${s.act.split(':')[0] || 'Crónica'}
           </span>
-          <span class="text-[10px] font-sans text-slate-400 font-medium">${s.irl_date || ''}</span>
+          <span class="text-xs font-semibold font-sans text-slate-400 font-medium">${s.irl_date || ''}</span>
         </div>
 
-        <h4 class="font-cinzel font-bold text-xs sm:text-sm text-slate-100 truncate ${isSelected ? 'text-amber-200' : ''}">
+        <h4 class="font-cinzel font-bold text-sm sm:text-base text-slate-100 truncate ${isSelected ? 'text-amber-200' : ''}">
           ${s.title}
         </h4>
 
-        <p class="font-crimson text-xs text-slate-300 line-clamp-2 leading-snug">
+        <p class="font-crimson text-sm sm:text-base text-slate-300 line-clamp-2 leading-relaxed">
           ${s.summary}
         </p>
 
-        <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-400 pt-1">
           <span class="truncate max-w-[150px] flex items-center gap-1">
             <i data-lucide="map-pin" class="w-3 h-3 text-amber-400"></i> ${s.location.split('—')[0]}
           </span>
@@ -321,7 +321,7 @@ function renderSessionReader(sessionNum) {
       p = p.trim();
       if (!p) return '';
       if (p.startsWith('<h') || p.startsWith('<li') || p.startsWith('<hr') || p.startsWith('<div')) return p;
-      return `<p class="mb-3.5 leading-relaxed text-slate-200">${p}</p>`;
+      return `<p class="mb-4 leading-relaxed text-slate-100 text-base sm:text-lg">${p}</p>`;
     }).join('');
 
     let imgsHtml = '';
@@ -346,7 +346,7 @@ function renderSessionReader(sessionNum) {
       <button onclick="setMobileSessionView('list')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 flex items-center gap-1.5 font-bold border border-slate-700">
         <i data-lucide="list" class="w-3.5 h-3.5"></i> Ver Índice de Capítulos
       </button>
-      <div class="flex items-center gap-1 text-slate-400 text-[11px] font-sans font-semibold">
+      <div class="flex items-center gap-1 text-slate-400 text-xs sm:text-sm font-sans font-semibold">
         <span>Capítulo ${session.number} de 16</span>
       </div>
     </div>
@@ -357,10 +357,10 @@ function renderSessionReader(sessionNum) {
       <div class="absolute inset-0 bg-gradient-to-t from-[#121826] via-[#121826]/75 to-black/30"></div>
       
       <div class="absolute top-3 left-3 right-3 sm:top-4 sm:left-4 sm:right-4 flex items-center justify-between">
-        <span class="px-2.5 py-1 rounded-full bg-amber-500/20 backdrop-blur-md text-amber-200 border border-amber-500/40 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+        <span class="px-2.5 py-1 rounded-full bg-amber-500/20 backdrop-blur-md text-amber-200 border border-amber-500/40 text-xs font-semibold sm:text-xs font-bold uppercase tracking-wider">
           ${session.act || 'Crónica de Campaña'}
         </span>
-        <span class="px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md font-sans font-semibold text-[10px] sm:text-xs text-slate-300 border border-slate-700">
+        <span class="px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md font-sans font-semibold text-xs font-semibold sm:text-xs text-slate-300 border border-slate-700">
           Fecha real: ${session.irl_date || 'N/A'}
         </span>
       </div>
@@ -427,17 +427,17 @@ function renderCharacters() {
 
     const abilityGrid = `
       <div class="grid grid-cols-6 gap-1 text-center bg-black/40 p-2 rounded-xl border border-slate-800 text-xs">
-        <div><span class="block text-[8px] text-slate-400 font-bold uppercase">FUE</span><span class="font-bold text-white">${s.fue ? s.fue.split(' ')[0] : '10'}</span></div>
-        <div><span class="block text-[8px] text-slate-400 font-bold uppercase">DES</span><span class="font-bold text-white">${s.des ? s.des.split(' ')[0] : '10'}</span></div>
-        <div><span class="block text-[8px] text-slate-400 font-bold uppercase">CON</span><span class="font-bold text-white">${s.con ? s.con.split(' ')[0] : '10'}</span></div>
-        <div><span class="block text-[8px] text-slate-400 font-bold uppercase">INT</span><span class="font-bold text-amber-200">${s.int ? s.int.split(' ')[0] : '10'}</span></div>
-        <div><span class="block text-[8px] text-slate-400 font-bold uppercase">SAB</span><span class="font-bold text-white">${s.sab ? s.sab.split(' ')[0] : '10'}</span></div>
-        <div><span class="block text-[8px] text-slate-400 font-bold uppercase">CAR</span><span class="font-bold text-white">${s.car ? s.car.split(' ')[0] : '10'}</span></div>
+        <div><span class="block text-xs sm:text-sm text-slate-400 font-bold uppercase">FUE</span><span class="font-bold text-white">${s.fue ? s.fue.split(' ')[0] : '10'}</span></div>
+        <div><span class="block text-xs sm:text-sm text-slate-400 font-bold uppercase">DES</span><span class="font-bold text-white">${s.des ? s.des.split(' ')[0] : '10'}</span></div>
+        <div><span class="block text-xs sm:text-sm text-slate-400 font-bold uppercase">CON</span><span class="font-bold text-white">${s.con ? s.con.split(' ')[0] : '10'}</span></div>
+        <div><span class="block text-xs sm:text-sm text-slate-400 font-bold uppercase">INT</span><span class="font-bold text-amber-200">${s.int ? s.int.split(' ')[0] : '10'}</span></div>
+        <div><span class="block text-xs sm:text-sm text-slate-400 font-bold uppercase">SAB</span><span class="font-bold text-white">${s.sab ? s.sab.split(' ')[0] : '10'}</span></div>
+        <div><span class="block text-xs sm:text-sm text-slate-400 font-bold uppercase">CAR</span><span class="font-bold text-white">${s.car ? s.car.split(' ')[0] : '10'}</span></div>
       </div>
-      <div class="grid grid-cols-3 gap-1.5 text-center text-[11px] mt-1.5">
-        <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800"><span class="text-[9px] text-slate-400 block uppercase">Armadura</span><span class="font-bold text-amber-300">CA ${s.ca || '10'}</span></div>
-        <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800"><span class="text-[9px] text-slate-400 block uppercase">Vida</span><span class="font-bold text-emerald-400">${s.pg || '10'} PG</span></div>
-        <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800"><span class="text-[9px] text-slate-400 block uppercase">GAC0</span><span class="font-bold text-slate-200">${s.thac0 ? s.thac0.split(' ')[0] : '20'}</span></div>
+      <div class="grid grid-cols-3 gap-1.5 text-center text-xs sm:text-sm mt-1.5">
+        <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800"><span class="text-xs text-slate-400 block uppercase">Armadura</span><span class="font-bold text-amber-300">CA ${s.ca || '10'}</span></div>
+        <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800"><span class="text-xs text-slate-400 block uppercase">Vida</span><span class="font-bold text-emerald-400">${s.pg || '10'} PG</span></div>
+        <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800"><span class="text-xs text-slate-400 block uppercase">GAC0</span><span class="font-bold text-slate-200">${s.thac0 ? s.thac0.split(' ')[0] : '20'}</span></div>
       </div>
     `;
 
@@ -462,7 +462,7 @@ function renderCharacters() {
       <!-- Character Info Body -->
       <div class="p-4 sm:p-5 space-y-4 flex-1 flex flex-col justify-between">
         <div class="space-y-3">
-          <blockquote class="font-crimson text-sm italic text-slate-300 border-l-2 pl-3 py-0.5 bg-slate-900/40 rounded-r-lg" style="border-color: ${c.accent};">
+          <blockquote class="font-crimson text-base sm:text-lg italic text-slate-200 border-l-2 pl-3 py-0.5 bg-slate-900/40 rounded-r-lg" style="border-color: ${c.accent};">
             "${c.quote}"
           </blockquote>
 
@@ -470,21 +470,21 @@ function renderCharacters() {
             ${abilityGrid}
           </div>
 
-          <p class="font-crimson text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <p class="font-crimson text-sm sm:text-base text-slate-200 leading-relaxed">
             ${c.archetype}
           </p>
 
           ${c.curse_status ? `
             <div class="p-3 rounded-xl bg-purple-950/40 border border-purple-800/50 text-xs text-purple-200">
               <span class="font-bold flex items-center gap-1 text-purple-300"><i data-lucide="skull" class="w-3.5 h-3.5"></i> ${c.curse_status.split(':')[0]}</span>
-              <p class="mt-1 text-[11px] text-purple-300/80">${c.curse_status}</p>
+              <p class="mt-1 text-xs sm:text-sm text-purple-300/80">${c.curse_status}</p>
             </div>
           ` : ''}
         </div>
 
         <!-- Lore Button -->
         <div class="pt-3 border-t border-slate-800 flex items-center justify-between">
-          <span class="text-[11px] text-slate-400 font-sans font-semibold">${roleTag} oficial</span>
+          <span class="text-xs sm:text-sm text-slate-400 font-sans font-semibold">${roleTag} oficial</span>
           <a href="${c.id === 'kazgrim' ? 'kazrim.html' : c.id + '.html'}" class="text-xs font-bold flex items-center gap-1 hover:underline" style="color: ${c.accent};">
             Ficha Completa & Lore <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
           </a>
@@ -514,7 +514,7 @@ function openCharacterModal(charId) {
             <img src="${character.primary_image}" class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl object-cover border-2 flex-shrink-0" style="border-color: ${character.accent};">
             <div>
               <h3 class="font-cinzel text-xl sm:text-2xl font-bold text-white">${character.name}</h3>
-              <p class="text-xs font-semibold text-amber-200">${character.title} • <span class="px-2 py-0.5 rounded uppercase text-[10px]" style="background-color: ${character.accent}20; color: ${character.accent}; border: 1px solid ${character.accent}40;">${character.tag || character.role}</span></p>
+              <p class="text-xs font-semibold text-amber-200">${character.title} • <span class="px-2 py-0.5 rounded uppercase text-xs font-semibold" style="background-color: ${character.accent}20; color: ${character.accent}; border: 1px solid ${character.accent}40;">${character.tag || character.role}</span></p>
             </div>
           </div>
           <button onclick="closeCharacterModal()" class="text-slate-400 hover:text-white p-1"><i data-lucide="x" class="w-6 h-6"></i></button>
@@ -532,32 +532,32 @@ function openCharacterModal(charId) {
             </h4>
             
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Clase / Nivel</span><span class="font-bold text-slate-200">${character.stats?.clase || character.role}</span></div>
-              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Raza</span><span class="font-bold text-slate-200">${character.stats?.raza || 'Humano'}</span></div>
-              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Clase de Armadura</span><span class="font-bold text-amber-300">CA ${character.stats?.ca || '10'}</span></div>
-              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Puntos de Golpe</span><span class="font-bold text-emerald-400">${character.stats?.pg || '10'} PG</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-xs text-slate-400 uppercase block font-bold">Clase / Nivel</span><span class="font-bold text-slate-200">${character.stats?.clase || character.role}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-xs text-slate-400 uppercase block font-bold">Raza</span><span class="font-bold text-slate-200">${character.stats?.raza || 'Humano'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-xs text-slate-400 uppercase block font-bold">Clase de Armadura</span><span class="font-bold text-amber-300">CA ${character.stats?.ca || '10'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-xs text-slate-400 uppercase block font-bold">Puntos de Golpe</span><span class="font-bold text-emerald-400">${character.stats?.pg || '10'} PG</span></div>
             </div>
 
             <!-- 6 Abilities with breakdowns -->
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
-              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Fuerza (FUE)</span><span class="font-bold text-white">${character.stats?.fue || '10'}</span></div>
-              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Destreza (DES)</span><span class="font-bold text-white">${character.stats?.des || '10'}</span></div>
-              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Constitución (CON)</span><span class="font-bold text-white">${character.stats?.con || '10'}</span></div>
-              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Inteligencia (INT)</span><span class="font-bold text-amber-200">${character.stats?.int || '10'}</span></div>
-              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Sabiduría (SAB)</span><span class="font-bold text-white">${character.stats?.sab || '10'}</span></div>
-              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Carisma (CAR)</span><span class="font-bold text-white">${character.stats?.car || '10'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-xs text-slate-400 uppercase block font-bold">Fuerza (FUE)</span><span class="font-bold text-white">${character.stats?.fue || '10'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-xs text-slate-400 uppercase block font-bold">Destreza (DES)</span><span class="font-bold text-white">${character.stats?.des || '10'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-xs text-slate-400 uppercase block font-bold">Constitución (CON)</span><span class="font-bold text-white">${character.stats?.con || '10'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-xs text-slate-400 uppercase block font-bold">Inteligencia (INT)</span><span class="font-bold text-amber-200">${character.stats?.int || '10'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-xs text-slate-400 uppercase block font-bold">Sabiduría (SAB)</span><span class="font-bold text-white">${character.stats?.sab || '10'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-xs text-slate-400 uppercase block font-bold">Carisma (CAR)</span><span class="font-bold text-white">${character.stats?.car || '10'}</span></div>
             </div>
 
             <!-- Tiradas de Salvacion -->
             ${character.saves ? `
               <div class="pt-2 border-t border-slate-800">
-                <span class="text-[10px] text-slate-400 uppercase tracking-wider block font-bold mb-1.5 font-cinzel">Tiradas de Salvación:</span>
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block font-bold mb-1.5 font-cinzel">Tiradas de Salvación:</span>
                 <div class="grid grid-cols-5 gap-1.5 text-center text-xs">
-                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-[8px] text-slate-400 block uppercase">Veneno/Muerte</span><span class="font-bold text-emerald-300">${character.saves.paralisis_veneno_muerte || 14}</span></div>
-                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-[8px] text-slate-400 block uppercase">Varas/Varitas</span><span class="font-bold text-amber-300">${character.saves.varas_bastones_varitas || 16}</span></div>
-                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-[8px] text-slate-400 block uppercase">Petrificación</span><span class="font-bold text-amber-300">${character.saves.petrificacion_polimorfia || 15}</span></div>
-                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-[8px] text-slate-400 block uppercase">Aliento</span><span class="font-bold text-rose-300">${character.saves.armas_aliento || 17}</span></div>
-                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-[8px] text-slate-400 block uppercase">Conjuros</span><span class="font-bold text-purple-300">${character.saves.conjuros || 17}</span></div>
+                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-xs sm:text-sm text-slate-400 block uppercase">Veneno/Muerte</span><span class="font-bold text-emerald-300">${character.saves.paralisis_veneno_muerte || 14}</span></div>
+                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-xs sm:text-sm text-slate-400 block uppercase">Varas/Varitas</span><span class="font-bold text-amber-300">${character.saves.varas_bastones_varitas || 16}</span></div>
+                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-xs sm:text-sm text-slate-400 block uppercase">Petrificación</span><span class="font-bold text-amber-300">${character.saves.petrificacion_polimorfia || 15}</span></div>
+                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-xs sm:text-sm text-slate-400 block uppercase">Aliento</span><span class="font-bold text-rose-300">${character.saves.armas_aliento || 17}</span></div>
+                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-xs sm:text-sm text-slate-400 block uppercase">Conjuros</span><span class="font-bold text-purple-300">${character.saves.conjuros || 17}</span></div>
                 </div>
               </div>
             ` : ''}
@@ -627,7 +627,7 @@ function renderNpcs() {
         <img src="${n.image}" alt="${n.name}" class="w-16 h-16 rounded-xl object-cover border border-amber-500/30 cursor-pointer flex-shrink-0" onclick="openLightbox('${n.image}', '${n.name}')">
         <div class="flex-1 min-w-0">
           <div class="flex items-center justify-between gap-1">
-            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded ${attitudeBadge}">
+            <span class="text-xs font-semibold uppercase font-bold px-2 py-0.5 rounded ${attitudeBadge}">
               ${n.status || 'Estado Desconocido'}
             </span>
           </div>
@@ -644,7 +644,7 @@ function renderNpcs() {
         </p>
       </div>
 
-      <div class="pt-2 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
+      <div class="pt-2 border-t border-slate-800 text-xs sm:text-sm text-slate-400 flex items-center justify-between">
         <span class="truncate max-w-[150px]">${n.faction}</span>
         <span class="italic text-amber-400">${n.attitude.split('/')[0]}</span>
       </div>
@@ -697,7 +697,7 @@ function renderAtlas() {
         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs text-amber-200 font-semibold gap-1.5">
           <i data-lucide="maximize-2" class="w-4 h-4"></i> Examinar Detalle
         </div>
-        <div class="absolute top-2 left-2 px-2.5 py-0.5 rounded bg-black/75 backdrop-blur-md text-[10px] font-bold text-amber-300 uppercase">
+        <div class="absolute top-2 left-2 px-2.5 py-0.5 rounded bg-black/75 backdrop-blur-md text-xs font-semibold font-bold text-amber-300 uppercase">
           ${item.type}
         </div>
       </div>
@@ -737,7 +737,7 @@ function renderMysteries() {
           <img src="${m.image}" alt="${m.title}" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-[#121826] to-transparent"></div>
           <div class="absolute top-3 left-3">
-            <span class="text-[10px] font-bold uppercase px-2.5 py-1 rounded-full ${priorityBadge} backdrop-blur-md">
+            <span class="text-xs font-semibold font-bold uppercase px-2.5 py-1 rounded-full ${priorityBadge} backdrop-blur-md">
               Prioridad ${m.priority}
             </span>
           </div>
@@ -759,7 +759,7 @@ function renderMysteries() {
         </div>
 
         <div class="space-y-1.5 pt-3 border-t border-slate-800/80">
-          <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-cinzel">Pistas y Hechos Conocidos:</p>
+          <p class="text-xs sm:text-sm font-bold text-slate-400 uppercase tracking-wider font-cinzel">Pistas y Hechos Conocidos:</p>
           <ul class="space-y-1">
             ${m.clues.map(c => `
               <li class="text-xs text-slate-300 flex items-start gap-2">
@@ -797,7 +797,7 @@ function renderMagicItems() {
       <div class="space-y-1 flex-1 w-full">
         <div class="flex items-center justify-between gap-1">
           <h4 class="font-cinzel font-bold text-sm text-purple-200">${item.name}</h4>
-          <span class="text-[10px] px-2 py-0.5 rounded bg-purple-950/60 text-purple-300 border border-purple-800/40 font-sans font-medium">${item.holder}</span>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded bg-purple-950/60 text-purple-300 border border-purple-800/40 font-sans font-medium">${item.holder}</span>
         </div>
         <p class="font-crimson text-xs text-slate-300 leading-snug">${item.desc}</p>
       </div>
@@ -928,7 +928,7 @@ function handleGlobalSearch() {
     <div class="p-3 rounded-xl bg-slate-900/60 hover:bg-amber-500/10 border border-slate-800 hover:border-amber-500/30 transition cursor-pointer" onclick="window._searchResults[${idx}].action()">
       <div class="flex items-center justify-between text-xs mb-1">
         <span class="font-bold text-amber-300 font-cinzel">${r.title}</span>
-        <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400 font-sans">${r.type}</span>
+        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-400 font-sans">${r.type}</span>
       </div>
       <p class="font-crimson text-xs text-slate-400 line-clamp-2">${r.snippet}</p>
     </div>

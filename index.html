@@ -24,34 +24,34 @@
         </div>
         <div>
           <h1 class="font-cinzel text-base sm:text-lg font-bold tracking-wider text-amber-200 hover:text-amber-100 transition leading-tight">LOS KOONIES</h1>
-          <p class="text-[9px] sm:text-[10px] tracking-widest text-slate-400 uppercase font-medium">Crónica de Campaña • AD&D 2E</p>
+          <p class="text-xs tracking-wider text-slate-400 uppercase font-semibold">Crónica de Campaña • AD&D 2E</p>
         </div>
       </div>
 
       <!-- Main Navigation Tabs (Desktop) -->
       <nav class="hidden md:flex items-center gap-1.5 lg:gap-2">
-        <button onclick="navigateTab('home')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition flex items-center gap-1.5 text-amber-300 bg-amber-500/10 border border-amber-500/30" data-tab="home">
+        <button onclick="navigateTab('home')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-amber-300 bg-amber-500/10 border border-amber-500/30" data-tab="home">
           <i data-lucide="compass" class="w-3.5 h-3.5"></i> Inicio
         </button>
-        <button onclick="navigateTab('sessions')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="sessions">
+        <button onclick="navigateTab('sessions')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="sessions">
           <i data-lucide="scroll" class="w-3.5 h-3.5"></i> Diario & Cronología
-          <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-sans font-bold">16</span>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-sans font-bold">16</span>
         </button>
-        <button onclick="navigateTab('characters')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="characters">
+        <button onclick="navigateTab('characters')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="characters">
           <i data-lucide="users" class="w-3.5 h-3.5"></i> Protagonistas
-          <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-sans font-bold">5</span>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-sans font-bold">5</span>
         </button>
-        <button onclick="navigateTab('npcs')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="npcs">
+        <button onclick="navigateTab('npcs')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="npcs">
           <i data-lucide="drama" class="w-3.5 h-3.5"></i> Dramatis Personae
         </button>
-        <button onclick="navigateTab('maps')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="maps">
+        <button onclick="navigateTab('maps')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="maps">
           <i data-lucide="map" class="w-3.5 h-3.5"></i> Atlas
-          <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-sans font-bold">5</span>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-sans font-bold">5</span>
         </button>
-        <button onclick="navigateTab('mysteries')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="mysteries">
+        <button onclick="navigateTab('mysteries')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="mysteries">
           <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> Misterios
         </button>
-        <button onclick="navigateTab('vault')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="vault">
+        <button onclick="navigateTab('vault')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="vault">
           <i data-lucide="coins" class="w-3.5 h-3.5"></i> Bóveda
         </button>
       </nav>
@@ -74,25 +74,25 @@
 
     <!-- Mobile App-Style Tab Navigation -->
     <div class="md:hidden flex items-center pt-2.5 mt-2 border-t border-slate-800/80 overflow-x-auto no-scrollbar gap-1.5 pb-0.5">
-      <button onclick="navigateTab('home')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold" data-tab="home">
+      <button onclick="navigateTab('home')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold" data-tab="home">
         <i data-lucide="compass" class="w-3.5 h-3.5"></i> Inicio
       </button>
-      <button onclick="navigateTab('sessions')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="sessions">
+      <button onclick="navigateTab('sessions')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="sessions">
         <i data-lucide="scroll" class="w-3.5 h-3.5"></i> Diario (16)
       </button>
-      <button onclick="navigateTab('characters')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="characters">
+      <button onclick="navigateTab('characters')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="characters">
         <i data-lucide="users" class="w-3.5 h-3.5"></i> Koonies (5)
       </button>
-      <button onclick="navigateTab('npcs')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="npcs">
+      <button onclick="navigateTab('npcs')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="npcs">
         <i data-lucide="drama" class="w-3.5 h-3.5"></i> PNJs
       </button>
-      <button onclick="navigateTab('maps')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="maps">
+      <button onclick="navigateTab('maps')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="maps">
         <i data-lucide="map" class="w-3.5 h-3.5"></i> Atlas (5)
       </button>
-      <button onclick="navigateTab('mysteries')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="mysteries">
+      <button onclick="navigateTab('mysteries')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="mysteries">
         <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> Misterios
       </button>
-      <button onclick="navigateTab('vault')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="vault">
+      <button onclick="navigateTab('vault')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="vault">
         <i data-lucide="coins" class="w-3.5 h-3.5"></i> Bóveda
       </button>
     </div>
@@ -154,7 +154,7 @@
           </div>
           <div>
             <p class="text-xl sm:text-2xl font-bold font-cinzel text-slate-100">16</p>
-            <p class="text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-wider">Sesiones</p>
+            <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Sesiones</p>
           </div>
         </div>
 
@@ -164,7 +164,7 @@
           </div>
           <div>
             <p class="text-xl sm:text-2xl font-bold font-cinzel text-slate-100">5</p>
-            <p class="text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-wider">Koonies (PJs)</p>
+            <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Koonies (PJs)</p>
           </div>
         </div>
 
@@ -174,7 +174,7 @@
           </div>
           <div>
             <p class="text-xl sm:text-2xl font-bold font-cinzel text-slate-100">2.600</p>
-            <p class="text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-wider">Platas en Tesoro</p>
+            <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Platas en Tesoro</p>
           </div>
         </div>
 
@@ -184,7 +184,7 @@
           </div>
           <div>
             <p class="text-xl sm:text-2xl font-bold font-cinzel text-slate-100">5</p>
-            <p class="text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-wider">Mapas Oficiales</p>
+            <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Mapas Oficiales</p>
           </div>
         </div>
       </div>
