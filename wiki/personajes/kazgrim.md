@@ -1,5 +1,9 @@
 # 🔨 Kazgrim Iwakura (Kaz) — El Guardián de la Llama Perdida
 
+> 📱 **[Abrir Dossier Web Interactivo para Móvil (kazrim.html)](../../kazrim.html)**
+
+
+
 > *"El papel arde, pero la verdad es incombustible. Si el fuego lo devoró todo, es porque algo nuevo y más fuerte debe nacer de nuestras cenizas."*
 
 - **Clase:** Clérigo 1 (Acólito de Kagutsuchi / Cantero Enano)

@@ -1,5 +1,9 @@
 # 🔮 Sakura — La Erudita de lo Arcano
 
+> 📱 **[Abrir Dossier Web Interactivo para Móvil (sakura.html)](../../sakura.html)**
+
+
+
 > *"El conocimiento no es peligroso; ignorar sus consecuencias sí lo es."*
 
 - **Clase:** Maga 1 (*Mage*)

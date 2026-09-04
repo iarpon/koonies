@@ -1,5 +1,9 @@
 # ⚔️ Hiroyuki Watanabe — El Acero en la Forja
 
+> 📱 **[Abrir Dossier Web Interactivo para Móvil (hiroyuki.html)](../../hiroyuki.html)**
+
+
+
 > *"Si Amatsukuni ha caído, yo seré el escudo de los que quedan, con o sin nombre de samurai."*
 
 - **Clase:** Guerrero 1 (*Fighter / Kensei*)

@@ -1,5 +1,9 @@
 # 🛡️ Glunt — El Gigante de Corazón de Cristal
 
+> 📱 **[Abrir Dossier Web Interactivo para Móvil (glunt.html)](../../glunt.html)**
+
+
+
 > *"Padre dijo que me quedara. Glunt se queda. Glunt cuidará de los pequeños hasta que el sol vuelva a salir."*
 
 - **Clase:** Guerrero 1 (*Fighter*)

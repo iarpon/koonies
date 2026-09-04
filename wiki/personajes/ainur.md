@@ -1,5 +1,9 @@
 # 🏹 Ainur — El Ojo Atento
 
+> 📱 **[Abrir Dossier Web Interactivo para Móvil (ainur.html)](../../ainur.html)**
+
+
+
 > *"La niebla oculta muchas cosas, pero ninguna que no deje rastro."*
 
 - **Clase:** Explorador 1 / Pícaro 1 (*Ranger 1 / Thief 1*)

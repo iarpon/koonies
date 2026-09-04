@@ -2,14 +2,23 @@
 
 Bienvenido al repositorio digital y enciclopedia de **Las Crónicas de Los Koonies**, una campaña de rol ambientada en un mundo de fantasía épica (AD&D 2ª Edición).
 
+> 🌐 **[Abrir el Portal Web Interactivo de la Campaña (index.html)](../index.html)**
+
 ---
 
 ## 👥 Los 5 Koonies (Personajes Jugadores)
-1. **[[personajes/glunt|Glunt — El Gigante de Corazón de Cristal]]** (Guerrero Protector / F17)
-2. **[[personajes/hiroyuki|Hiroyuki Watanabe — El Acero en la Forja]]** (Guerrero Kunita / Kensei)
-3. **[[personajes/sakura|Sakura — La Erudita de lo Arcano]]** (Maga Kunita / Portadora del Ojo de J'karaa)
-4. **[[personajes/ainur|Ainur — El Ojo Atento]]** (Explorador / Batidor)
-5. **[[personajes/kazgrim|Kazgrim Iwakura (Kaz) — El Guardián de la Llama Perdida]]** (Clérigo de Kagutsuchi)
+*Cada protagonista cuenta con su documento en Markdown y su **página web interactiva optimizada para móvil**:*
+
+1. **[[personajes/glunt|Glunt — El Gigante de Corazón de Cristal]]** (Guerrero / F18 / CON 18 / CA 7)  
+   👉 *[🌐 Ver Ficha Web Móvil (glunt.html)](../glunt.html)*
+2. **[[personajes/hiroyuki|Hiroyuki Watanabe — El Acero en la Forja]]** (Guerrero Kensei / F18 / DES 18 / CA 6)  
+   👉 *[🌐 Ver Ficha Web Móvil (hiroyuki.html)](../hiroyuki.html)*
+3. **[[personajes/sakura|Sakura — La Erudita de lo Arcano]]** (Maga Kunita / INT 18 / SAB 18 / Ojo de J'karaa)  
+   👉 *[🌐 Ver Ficha Web Móvil (sakura.html)](../sakura.html)*
+4. **[[personajes/ainur|Ainur — El Ojo Atento]]** (Explorador / Pícaro / DES 18 / CA 6)  
+   👉 *[🌐 Ver Ficha Web Móvil (ainur.html)](../ainur.html)*
+5. **[[personajes/kazgrim|Kazgrim Iwakura (Kaz) — El Guardián de la Llama Perdida]]** (Clérigo de Kagutsuchi / INT 14)  
+   👉 *[🌐 Ver Ficha Web Móvil (kazrim.html)](../kazrim.html)*
 
 ---
 
