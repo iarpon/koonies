@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Dossier Personal • Hiroyuki Watanabe (El Acero en la Forja)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .hiro-badge {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.25) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      color: #fde68a;
+    }
+    .hiro-glow {
+      box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.35);
+    }
+    .hiro-card {
+      background: rgba(26, 22, 16, 0.95);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+    .quick-chip {
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #fef3c7;
+      white-space: nowrap;
+    }
+    .quick-chip.active, .quick-chip:hover {
+      background: rgba(245, 158, 11, 0.3);
+      border-color: #f59e0b;
+      color: #fff;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-[#090b10] text-slate-100 min-h-screen flex flex-col selection:bg-amber-600 selection:text-white pb-20">
+
+  <!-- Floating Sticky Header -->
+  <header class="sticky top-0 z-40 bg-[#0c1017]/95 backdrop-blur-md border-b border-amber-500/30 px-4 py-3">
+    <div class="max-w-3xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-amber-300 transition">
+        <i data-lucide="arrow-left" class="w-4 h-4 text-amber-400"></i>
+        <span>Compendio</span>
+      </a>
+
+      <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full hiro-badge text-[11px] font-bold uppercase tracking-wider">
+        <i data-lucide="swords" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span>HIROYUKI</span>
+      </div>
+
+      <!-- Koonies Switcher -->
+      <div class="flex items-center gap-1 text-xs">
+        <a href="glunt.html" class="w-6 h-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-[10px] text-emerald-300 hover:border-emerald-400">G</a>
+        <a href="hiroyuki.html" class="w-6 h-6 rounded-full bg-amber-500/30 border border-amber-400 flex items-center justify-center font-bold text-[10px] text-amber-300">H</a>
+        <a href="sakura.html" class="w-6 h-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-[10px] text-pink-300 hover:border-pink-400">S</a>
+        <a href="ainur.html" class="w-6 h-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-[10px] text-indigo-300 hover:border-indigo-400">A</a>
+        <a href="kazrim.html" class="w-6 h-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-[10px] text-orange-300 hover:border-orange-400">K</a>
+      </div>
+    </div>
+
+    <!-- Quick Jump Chips -->
+    <div class="max-w-3xl mx-auto flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-2.5 pb-0.5 text-xs">
+      <a href="#hitos" class="quick-chip px-3 py-1 rounded-full font-medium flex items-center gap-1">
+        <i data-lucide="award" class="w-3 h-3 text-amber-400"></i> Tus Hitos
+      </a>
+      <a href="#trama" class="quick-chip px-3 py-1 rounded-full font-bold text-amber-200 border-amber-500/50 flex items-center gap-1">
+        <i data-lucide="target" class="w-3 h-3 text-amber-400"></i> Tu Dilema
+      </a>
+      <a href="#resumen" class="quick-chip px-3 py-1 rounded-full font-medium flex items-center gap-1">
+        <i data-lucide="scroll" class="w-3 h-3 text-amber-400"></i> Resumen
+      </a>
+      <a href="#vinculos" class="quick-chip px-3 py-1 rounded-full font-medium flex items-center gap-1">
+        <i data-lucide="users" class="w-3 h-3 text-amber-400"></i> Vínculos
+      </a>
+      <a href="#roleplay" class="quick-chip px-3 py-1 rounded-full font-medium flex items-center gap-1">
+        <i data-lucide="sparkles" class="w-3 h-3 text-amber-400"></i> Roleplay
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-3xl w-full mx-auto px-4 py-6 space-y-7" id="inicio">
+
+    <!-- HERO PROFILE BANNER -->
+    <div class="relative rounded-3xl overflow-hidden border border-amber-500/40 hiro-glow bg-gradient-to-b from-amber-950/40 to-[#181410] p-5 sm:p-7">
+      <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 text-center sm:text-left">
+        
+        <!-- Portrait -->
+        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-amber-500 shadow-xl flex-shrink-0">
+          <img src="images/asset_1793380967.jpg" alt="Hiroyuki Watanabe" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <span class="absolute bottom-1 right-1 text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-600 text-white uppercase font-sans">
+            Guerrero Kensei
+          </span>
+        </div>
+
+        <!-- Bio Details -->
+        <div class="space-y-1.5 flex-1">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold uppercase tracking-wider border border-amber-500/30">
+            <i data-lucide="swords" class="w-3.5 h-3.5"></i> Ficha de Personaje
+          </div>
+          <h1 class="font-cinzel text-2xl sm:text-3xl font-black text-amber-100 leading-tight">
+            Hiroyuki Watanabe
+          </h1>
+          <p class="text-xs sm:text-sm text-amber-200 font-medium">
+            El Acero en la Forja • Guerrero Kunita / Kensei Samurai
+          </p>
+          
+          <!-- 6 Abilities Grid -->
+          <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 pt-2 text-xs">
+            <div class="p-2 rounded-xl bg-black/40 border border-amber-500/40 text-center bg-amber-950/20">
+              <span class="block text-[9px] uppercase text-amber-300 font-bold">FUE</span>
+              <span class="font-bold text-white text-sm">18</span>
+              <span class="block text-[9px] text-amber-400 font-sans">+1/+3 dñ</span>
+            </div>
+            <div class="p-2 rounded-xl bg-black/40 border border-amber-500/40 text-center bg-amber-950/20">
+              <span class="block text-[9px] uppercase text-amber-300 font-bold">DES</span>
+              <span class="font-bold text-white text-sm">18</span>
+              <span class="block text-[9px] text-amber-400 font-sans">-4 CA / +2</span>
+            </div>
+            <div class="p-2 rounded-xl bg-black/40 border border-slate-800 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">CON</span>
+              <span class="font-bold text-slate-100">12</span>
+              <span class="block text-[9px] text-slate-400 font-sans">0</span>
+            </div>
+            <div class="p-2 rounded-xl bg-black/40 border border-slate-800 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">INT</span>
+              <span class="font-bold text-slate-100">16</span>
+              <span class="block text-[9px] text-slate-400 font-sans">5 id.</span>
+            </div>
+            <div class="p-2 rounded-xl bg-black/40 border border-slate-800 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">SAB</span>
+              <span class="font-bold text-slate-100">8</span>
+              <span class="block text-[9px] text-slate-400 font-sans">Impulsivo</span>
+            </div>
+            <div class="p-2 rounded-xl bg-black/40 border border-slate-800 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">CAR</span>
+              <span class="font-bold text-slate-100">11</span>
+              <span class="block text-[9px] text-slate-400 font-sans">0</span>
+            </div>
+          </div>
+
+          <!-- Combat Specs -->
+          <div class="grid grid-cols-4 gap-2 pt-1 text-xs">
+            <div class="p-2 rounded-xl bg-slate-900/60 border border-amber-500/40 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">Clase de Armadura</span>
+              <span class="font-bold text-amber-300 font-sans text-sm">CA 6</span>
+            </div>
+            <div class="p-2 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">Puntos de Golpe</span>
+              <span class="font-bold text-emerald-400 font-sans text-sm">10 PG</span>
+            </div>
+            <div class="p-2 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">GAC0 (THAC0)</span>
+              <span class="font-bold text-slate-200 font-sans text-sm">20 (19/18)</span>
+            </div>
+            <div class="p-2 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">Movimiento</span>
+              <span class="font-bold text-slate-200 font-sans text-sm">120 (12")</span>
+            </div>
+          </div>
+
+          <!-- Tiradas de Salvación -->
+          <div class="p-3 rounded-2xl bg-black/50 border border-amber-500/30 mt-2 space-y-1.5">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 font-cinzel block">Tiradas de Salvación (AD&D 2E)</span>
+            <div class="grid grid-cols-5 gap-1 text-[11px] text-center">
+              <div class="p-1 rounded bg-slate-900 border border-slate-800">
+                <span class="block text-[8px] text-slate-400 uppercase">Veneno/Muerte</span>
+                <span class="font-bold text-emerald-300">14</span>
+              </div>
+              <div class="p-1 rounded bg-slate-900 border border-slate-800">
+                <span class="block text-[8px] text-slate-400 uppercase">Varas/Varitas</span>
+                <span class="font-bold text-amber-300">16</span>
+              </div>
+              <div class="p-1 rounded bg-slate-900 border border-slate-800">
+                <span class="block text-[8px] text-slate-400 uppercase">Petrificación</span>
+                <span class="font-bold text-amber-300">15</span>
+              </div>
+              <div class="p-1 rounded bg-slate-900 border border-slate-800">
+                <span class="block text-[8px] text-slate-400 uppercase">Aliento</span>
+                <span class="font-bold text-rose-300">17</span>
+              </div>
+              <div class="p-1 rounded bg-slate-900 border border-slate-800">
+                <span class="block text-[8px] text-slate-400 uppercase">Conjuros</span>
+                <span class="font-bold text-purple-300">17</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Quote -->
+      <blockquote class="mt-4 pt-3 border-t border-amber-500/20 font-crimson text-sm italic text-amber-200/90 text-center sm:text-left">
+        "Si Amatsukuni ha caído, yo seré el escudo de los que quedan, con o sin nombre de samurai."
+      </blockquote>
+    </div>
+
+    <!-- 1. HITOS DECISIVOS -->
+    <section id="hitos" class="space-y-3">
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-2">
+        <i data-lucide="award" class="w-5 h-5 text-amber-400"></i>
+        <h2 class="font-cinzel text-lg font-bold text-white">1. Hitos Decisivos de Hiroyuki</h2>
+      </div>
+
+      <div class="space-y-3">
+        <div class="hiro-card p-4 rounded-2xl space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-300 font-cinzel">La Batalla del Barranco</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-black/60 text-slate-400">Sesión II</span>
+          </div>
+          <p class="text-xs text-slate-300 font-crimson leading-relaxed">
+            Organizó al grupo en formación defensiva en las colinas heladas de Viladel para repeler a las patrullas trasgas sin perder a ningún superviviente.
+          </p>
+        </div>
+
+        <div class="hiro-card p-4 rounded-2xl space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-rose-300 font-cinzel">El Mausoleo y el Milagro de Kaz</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-black/60 text-slate-400">Sesión IV</span>
+          </div>
+          <p class="text-xs text-slate-300 font-crimson leading-relaxed">
+            Se batió en solitario contra el Rey no-muerto de Viladel. Al huir al muelle fue abatido a tiros de proyectil; <strong>Kazrim invocó a Kagutsuchi y lo resucitó</strong> en el último suspiro.
+          </p>
+        </div>
+
+        <div class="hiro-card p-4 rounded-2xl space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-300 font-cinzel">Asalto al Almacén de Sutter Izen</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-black/60 text-slate-400">Sesión VII</span>
+          </div>
+          <p class="text-xs text-slate-300 font-crimson leading-relaxed">
+            Tras la trampa en la Taberna del Ganso, lideró el asalto al cuartel de los contrabandistas para cortar el paso a los asesinos de Lord Emmothach.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. EL DILEMA DE HIRO -->
+    <section id="trama" class="rounded-3xl p-5 sm:p-6 border-2 border-amber-500/50 bg-gradient-to-br from-amber-950/40 via-slate-900 to-black space-y-3 shadow-xl">
+      <div class="flex items-center gap-2">
+        <span class="p-2 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/40">
+          <i data-lucide="target" class="w-5 h-5"></i>
+        </span>
+        <div>
+          <span class="text-[10px] uppercase font-bold tracking-widest text-amber-400">Tu Gran Obsesión Moral</span>
+          <h2 class="font-cinzel text-lg sm:text-xl font-bold text-white">El Rescate del Niño Itarus en Elken</h2>
+        </div>
+      </div>
+
+      <div class="text-xs sm:text-sm text-slate-200 font-crimson leading-relaxed space-y-2">
+        <p>
+          Mientras el grupo se dirigía a Thurmaster para curar a Glunt y ver a Tauster, el noble niño <strong>Itarus</strong> sigue desaparecido en manos del sindicato de <strong>Sutter Izen</strong> y el Mercado Negro del Shahn.
+        </p>
+        <p>
+          Hiroyuki siente el peso del deshonor: prometió proteger a los nobles y no descansará hasta derribar las puertas de los traficantes. Está en conflicto con el deseo de Kaz de subir a la montaña o de Tauster de buscar reliquias.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. VÍNCULOS -->
+    <section id="vinculos" class="space-y-3">
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-2">
+        <i data-lucide="users" class="w-5 h-5 text-amber-400"></i>
+        <h2 class="font-cinzel text-lg font-bold text-white">2. Vínculos con los Koonies</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+          <strong class="font-cinzel text-orange-300 block mb-0.5">Con Kazrim:</strong>
+          <span class="text-slate-300 font-crimson">Le debe su vida física. Aunque a veces le desespera su lentitud enana, su gratitud es eterna.</span>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+          <strong class="font-cinzel text-emerald-300 block mb-0.5">Con Glunt:</strong>
+          <span class="text-slate-300 font-crimson">Su fiel muralla. Forman una pareja letal en cuerpo a cuerpo.</span>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+          <strong class="font-cinzel text-pink-300 block mb-0.5">Con Sakura:</strong>
+          <span class="text-slate-300 font-crimson">Custodio de su seguridad. Teme que el Ojo de J'karaa la consuma.</span>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+          <strong class="font-cinzel text-indigo-300 block mb-0.5">Con Ainur:</strong>
+          <span class="text-slate-300 font-crimson">Valora sus ojos en la niebla pero le exige disciplina marcial.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CONSEJOS DE ROLEPLAY -->
+    <section id="roleplay" class="rounded-3xl p-5 sm:p-6 border border-amber-500/40 bg-slate-900/90 space-y-3">
+      <div class="flex items-center gap-2">
+        <i data-lucide="sparkles" class="w-5 h-5 text-amber-400"></i>
+        <h2 class="font-cinzel text-lg font-bold text-white">3. Consejos de Roleplay y Combate</h2>
+      </div>
+
+      <div class="space-y-2 text-xs sm:text-sm font-crimson text-slate-200 leading-relaxed">
+        <p>
+          <strong>En Combate:</strong> Tu combinación de <strong>Fuerza 18 y Destreza 18</strong> te da una increíble **CA 6** sin necesidad de armaduras pesadas que te resten velocidad. Eres un vendaval con la katana/espada a dos manos (+3 al daño).
+        </p>
+        <p>
+          <strong>En Roleplay:</strong> Recto, cortante y protector. Te cuesta ceder cuando hay inocentes en peligro. Úsalo para generar tensión dramática saludable en la mesa cuando Kaz o Tauster propongan otras rutas.
+        </p>
+      </div>
+    </section>
+
+    <!-- Bottom Actions -->
+    <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+      <a href="index.html" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold transition flex items-center justify-center gap-2 border border-slate-700">
+        <i data-lucide="book-open" class="w-4 h-4 text-amber-400"></i> Ir al Compendio General
+      </a>
+      <a href="#inicio" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold transition flex items-center justify-center gap-2 shadow-lg shadow-amber-600/30">
+        <i data-lucide="arrow-up" class="w-4 h-4"></i> Volver Arriba
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    if (window.lucide) lucide.createIcons();
+  </script>
+</body>
+</html>

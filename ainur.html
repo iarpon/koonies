@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Dossier Personal • Ainur (El Ojo Atento)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .ainur-badge {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(6, 182, 212, 0.25) 100%);
+      border: 1px solid rgba(99, 102, 241, 0.5);
+      color: #c7d2fe;
+    }
+    .ainur-glow {
+      box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.35);
+    }
+    .ainur-card {
+      background: rgba(16, 20, 31, 0.95);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+    }
+    .quick-chip {
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #e0e7ff;
+      white-space: nowrap;
+    }
+    .quick-chip.active, .quick-chip:hover {
+      background: rgba(99, 102, 241, 0.3);
+      border-color: #6366f1;
+      color: #fff;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-[#090b10] text-slate-100 min-h-screen flex flex-col selection:bg-indigo-600 selection:text-white pb-20">
+
+  <!-- Floating Sticky Header -->
+  <header class="sticky top-0 z-40 bg-[#0c1017]/95 backdrop-blur-md border-b border-indigo-500/30 px-4 py-3">
+    <div class="max-w-3xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-indigo-300 transition">
+        <i data-lucide="arrow-left" class="w-4 h-4 text-indigo-400"></i>
+        <span>Compendio</span>
+      </a>
+
+      <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full ainur-badge text-[11px] font-bold uppercase tracking-wider">
+        <i data-lucide="eye" class="w-3.5 h-3.5 text-indigo-400"></i>
+        <span>AINUR</span>
+      </div>
+
+      <!-- Koonies Switcher -->
+      <div class="flex items-center gap-1 text-xs">
+        <a href="glunt.html" class="w-6 h-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-[10px] text-emerald-300 hover:border-emerald-400">G</a>
+        <a href="hiroyuki.html" class="w-6 h-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-[10px] text-amber-300 hover:border-amber-400">H</a>
+        <a href="sakura.html" class="w-6 h-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-[10px] text-pink-300 hover:border-pink-400">S</a>
+        <a href="ainur.html" class="w-6 h-6 rounded-full bg-indigo-500/30 border border-indigo-400 flex items-center justify-center font-bold text-[10px] text-indigo-300">A</a>
+        <a href="kazrim.html" class="w-6 h-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-[10px] text-orange-300 hover:border-orange-400">K</a>
+      </div>
+    </div>
+
+    <!-- Quick Jump Chips -->
+    <div class="max-w-3xl mx-auto flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-2.5 pb-0.5 text-xs">
+      <a href="#hitos" class="quick-chip px-3 py-1 rounded-full font-medium flex items-center gap-1">
+        <i data-lucide="award" class="w-3 h-3 text-indigo-400"></i> Tus Hitos
+      </a>
+      <a href="#trama" class="quick-chip px-3 py-1 rounded-full font-bold text-indigo-200 border-indigo-500/50 flex items-center gap-1">
+        <i data-lucide="feather" class="w-3 h-3 text-indigo-400"></i> Tu Alivio
+      </a>
+      <a href="#resumen" class="quick-chip px-3 py-1 rounded-full font-medium flex items-center gap-1">
+        <i data-lucide="scroll" class="w-3 h-3 text-indigo-400"></i> Resumen
+      </a>
+      <a href="#vinculos" class="quick-chip px-3 py-1 rounded-full font-medium flex items-center gap-1">
+        <i data-lucide="users" class="w-3 h-3 text-indigo-400"></i> Vínculos
+      </a>
+      <a href="#roleplay" class="quick-chip px-3 py-1 rounded-full font-medium flex items-center gap-1">
+        <i data-lucide="sparkles" class="w-3 h-3 text-indigo-400"></i> Roleplay
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-3xl w-full mx-auto px-4 py-6 space-y-7" id="inicio">
+
+    <!-- HERO PROFILE BANNER -->
+    <div class="relative rounded-3xl overflow-hidden border border-indigo-500/40 ainur-glow bg-gradient-to-b from-indigo-950/40 to-[#101424] p-5 sm:p-7">
+      <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 text-center sm:text-left">
+        
+        <!-- Portrait -->
+        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-indigo-500 shadow-xl flex-shrink-0">
+          <img src="images/asset_1067045487.jpg" alt="Ainur" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <span class="absolute bottom-1 right-1 text-[10px] font-bold px-1.5 py-0.5 rounded bg-indigo-600 text-white uppercase font-sans">
+            Ranger / Ladrón
+          </span>
+        </div>
+
+        <!-- Bio Details -->
+        <div class="space-y-1.5 flex-1">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-wider border border-indigo-500/30">
+            <i data-lucide="eye" class="w-3.5 h-3.5"></i> Ficha de Personaje
+          </div>
+          <h1 class="font-cinzel text-2xl sm:text-3xl font-black text-indigo-100 leading-tight">
+            Ainur
+          </h1>
+          <p class="text-xs sm:text-sm text-indigo-200 font-medium">
+            El Ojo Atento • Explorador / Pícaro Semielfo (Sigilo y Percepción)
+          </p>
+          
+          <!-- 6 Abilities Grid -->
+          <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 pt-2 text-xs">
+            <div class="p-2 rounded-xl bg-black/40 border border-slate-800 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">FUE</span>
+              <span class="font-bold text-white text-sm">14</span>
+              <span class="block text-[9px] text-slate-400 font-sans">0</span>
+            </div>
+            <div class="p-2 rounded-xl bg-black/40 border border-indigo-500/40 text-center bg-indigo-950/20">
+              <span class="block text-[9px] uppercase text-indigo-300 font-bold">DES</span>
+              <span class="font-bold text-white text-sm">18</span>
+              <span class="block text-[9px] text-indigo-400 font-sans">-4 CA / +2</span>
+            </div>
+            <div class="p-2 rounded-xl bg-black/40 border border-indigo-500/40 text-center bg-indigo-950/20">
+              <span class="block text-[9px] uppercase text-indigo-300 font-bold">CON</span>
+              <span class="font-bold text-white text-sm">16</span>
+              <span class="block text-[9px] text-indigo-400 font-sans">+2 PG</span>
+            </div>
+            <div class="p-2 rounded-xl bg-black/40 border border-slate-800 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">INT</span>
+              <span class="font-bold text-slate-100">13</span>
+              <span class="block text-[9px] text-slate-400 font-sans">3 id.</span>
+            </div>
+            <div class="p-2 rounded-xl bg-black/40 border border-slate-800 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">SAB</span>
+              <span class="font-bold text-slate-100">16</span>
+              <span class="block text-[9px] text-indigo-400 font-sans">+2 vs mag</span>
+            </div>
+            <div class="p-2 rounded-xl bg-black/40 border border-indigo-500/40 text-center bg-indigo-950/20">
+              <span class="block text-[9px] uppercase text-indigo-300 font-bold">CAR</span>
+              <span class="font-bold text-white text-sm">15</span>
+              <span class="block text-[9px] text-indigo-400 font-sans">+3 reac</span>
+            </div>
+          </div>
+
+          <!-- Combat Specs -->
+          <div class="grid grid-cols-4 gap-2 pt-1 text-xs">
+            <div class="p-2 rounded-xl bg-slate-900/60 border border-indigo-500/40 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">Clase de Armadura</span>
+              <span class="font-bold text-indigo-300 font-sans text-sm">CA 6</span>
+            </div>
+            <div class="p-2 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">Puntos de Golpe</span>
+              <span class="font-bold text-emerald-400 font-sans text-sm">10 PG</span>
+            </div>
+            <div class="p-2 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">GAC0 (THAC0)</span>
+              <span class="font-bold text-slate-200 font-sans text-sm">20 (18)</span>
+            </div>
+            <div class="p-2 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
+              <span class="block text-[9px] uppercase text-slate-400 font-bold">Movimiento</span>
+              <span class="font-bold text-slate-200 font-sans text-sm">120 (12")</span>
+            </div>
+          </div>
+
+          <!-- Tiradas de Salvación -->
+          <div class="p-3 rounded-2xl bg-black/50 border border-indigo-500/30 mt-2 space-y-1.5">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-300 font-cinzel block">Tiradas de Salvación (AD&D 2E)</span>
+            <div class="grid grid-cols-5 gap-1 text-[11px] text-center">
+              <div class="p-1 rounded bg-slate-900 border border-slate-800">
+                <span class="block text-[8px] text-slate-400 uppercase">Veneno/Muerte</span>
+                <span class="font-bold text-emerald-300">13</span>
+              </div>
+              <div class="p-1 rounded bg-slate-900 border border-slate-800">
+                <span class="block text-[8px] text-slate-400 uppercase">Varas/Varitas</span>
+                <span class="font-bold text-indigo-300">14</span>
+              </div>
+              <div class="p-1 rounded bg-slate-900 border border-slate-800">
+                <span class="block text-[8px] text-slate-400 uppercase">Petrificación</span>
+                <span class="font-bold text-amber-300">12</span>
+              </div>
+              <div class="p-1 rounded bg-slate-900 border border-slate-800">
+                <span class="block text-[8px] text-slate-400 uppercase">Aliento</span>
+                <span class="font-bold text-rose-300">16</span>
+              </div>
+              <div class="p-1 rounded bg-slate-900 border border-slate-800">
+                <span class="block text-[8px] text-slate-400 uppercase">Conjuros</span>
+                <span class="font-bold text-purple-300">15</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Quote -->
+      <blockquote class="mt-4 pt-3 border-t border-indigo-500/20 font-crimson text-sm italic text-indigo-200/90 text-center sm:text-left">
+        "La niebla oculta muchas cosas, pero ninguna que no deje rastro."
+      </blockquote>
+    </div>
+
+    <!-- 1. HITOS DECISIVOS -->
+    <section id="hitos" class="space-y-3">
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-2">
+        <i data-lucide="award" class="w-5 h-5 text-indigo-400"></i>
+        <h2 class="font-cinzel text-lg font-bold text-white">1. Hitos Decisivos de Ainur</h2>
+      </div>
+
+      <div class="space-y-3">
+        <div class="ainur-card p-4 rounded-2xl space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-indigo-300 font-cinzel">Esquiva de la Trampa del Techo</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-black/60 text-slate-400">Sesión IV</span>
+          </div>
+          <p class="text-xs text-slate-300 font-crimson leading-relaxed">
+            En las catacumbas de Viladel, detectó por instinto las piedras afiladas que pendían del techo y se deslizó por debajo en el último instante salvando al grupo de una muerte aplastante.
+          </p>
+        </div>
+
+        <div class="ainur-card p-4 rounded-2xl space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-cyan-300 font-cinzel">El Hallazgo del Ojo de J'karaa</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-black/60 text-slate-400">Sesión VII</span>
+          </div>
+          <p class="text-xs text-slate-300 font-crimson leading-relaxed">
+            Rescató el extraño collar arcano en la cala pirata, portándolo al cuello y soportando la persecución encarnizada de sectarios y ladrones en Elken.
+          </p>
+        </div>
+
+        <div class="ainur-card p-4 rounded-2xl space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-indigo-300 font-cinzel">La Sabia Renuncia en Thurmaster</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-black/60 text-slate-400">Sesión XVI</span>
+          </div>
+          <p class="text-xs text-slate-300 font-crimson leading-relaxed">
+            Al enterarse por Tauster del peligro cósmico que encierra la reliquia, se la quitó del cuello y se la cedió voluntariamente a Sakura, liberándose de ser la diana de los nigromantes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ESTADO ACTUAL Y ALIVIO -->
+    <section id="trama" class="rounded-3xl p-5 sm:p-6 border-2 border-indigo-500/50 bg-gradient-to-br from-indigo-950/40 via-slate-900 to-black space-y-3 shadow-xl">
+      <div class="flex items-center gap-2">
+        <span class="p-2 rounded-xl bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">
+          <i data-lucide="feather" class="w-5 h-5"></i>
+        </span>
+        <div>
+          <span class="text-[10px] uppercase font-bold tracking-widest text-indigo-400">Liberación y Nuevo Rumbo</span>
+          <h2 class="font-cinzel text-lg sm:text-xl font-bold text-white">Libre del Ojo, Listo para Explorar</h2>
+        </div>
+      </div>
+
+      <div class="text-xs sm:text-sm text-slate-200 font-crimson leading-relaxed space-y-2">
+        <p>
+          Habiendo dejado la carga mágica en manos de Sakura, Ainur vuelve a ser lo que mejor sabe hacer: <strong>el explorador invisible</strong>.
+        </p>
+        <p>
+          Con los extraños rumores de Orlane (gente fría, desconfiada, como copias desalmadas) y los peligros del Bosque Espinoso, su Destreza 18 y percepción semielfa serán vitales para rastrear emboscadas antes de que alcancen a sus compañeros.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. VÍNCULOS -->
+    <section id="vinculos" class="space-y-3">
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-2">
+        <i data-lucide="users" class="w-5 h-5 text-indigo-400"></i>
+        <h2 class="font-cinzel text-lg font-bold text-white">2. Vínculos con los Koonies</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+          <strong class="font-cinzel text-pink-300 block mb-0.5">Con Sakura:</strong>
+          <span class="text-slate-300 font-crimson">Confianza absoluta; le confió la reliquia que casi le cuesta la vida.</span>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+          <strong class="font-cinzel text-emerald-300 block mb-0.5">Con Glunt:</strong>
+          <span class="text-slate-300 font-crimson">Se siente seguro bajo la sombra del gigante cuando el sigilo falla.</span>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+          <strong class="font-cinzel text-amber-300 block mb-0.5">Con Hiroyuki:</strong>
+          <span class="text-slate-300 font-crimson">Le respeta como líder pero se burla de su rigidez samurái.</span>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+          <strong class="font-cinzel text-orange-300 block mb-0.5">Con Kazrim:</strong>
+          <span class="text-slate-300 font-crimson">Aprecia la templanza y el sentido de orientación en túneles del enano.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CONSEJOS DE ROLEPLAY -->
+    <section id="roleplay" class="rounded-3xl p-5 sm:p-6 border border-indigo-500/40 bg-slate-900/90 space-y-3">
+      <div class="flex items-center gap-2">
+        <i data-lucide="sparkles" class="w-5 h-5 text-indigo-400"></i>
+        <h2 class="font-cinzel text-lg font-bold text-white">3. Consejos de Roleplay y Combate</h2>
+      </div>
+
+      <div class="space-y-2 text-xs sm:text-sm font-crimson text-slate-200 leading-relaxed">
+        <p>
+          <strong>En Combate:</strong> Tu **Destreza 18** te da una defensiva **CA 6** y un letal **+2 al impacto con arcos** (GAC0 18 con arco corto). Mantente en retaguardia, dispara a blancos clave y remata con ataques por la espalda si tienes la oportunidad.
+        </p>
+        <p>
+          <strong>En Roleplay:</strong> Ágil, sarcástico y con un Carisma 15 que lo hace simpático con los taberneros y mercaderes. Le gusta la libertad y le disgusta la fanfarronería.
+        </p>
+      </div>
+    </section>
+
+    <!-- Bottom Actions -->
+    <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+      <a href="index.html" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold transition flex items-center justify-center gap-2 border border-slate-700">
+        <i data-lucide="book-open" class="w-4 h-4 text-indigo-400"></i> Ir al Compendio General
+      </a>
+      <a href="#inicio" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
+        <i data-lucide="arrow-up" class="w-4 h-4"></i> Volver Arriba
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    if (window.lucide) lucide.createIcons();
+  </script>
+</body>
+</html>

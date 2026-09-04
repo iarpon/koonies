@@ -93,9 +93,9 @@ function renderHomePartyLineup() {
     const card = document.createElement('div');
     card.className = 'rpg-card rounded-2xl overflow-hidden border p-3 flex flex-col items-center text-center cursor-pointer hover:border-amber-500/60 transition group';
     card.style.borderColor = `${c.accent}40`;
+    const targetUrl = c.id === 'kazgrim' ? 'kazrim.html' : `${c.id}.html`;
     card.onclick = () => {
-      navigateTab('characters');
-      openCharacterModal(c.id);
+      window.location.href = targetUrl;
     };
 
     const roleTag = c.tag || c.role.split('/')[0].trim();
@@ -485,9 +485,9 @@ function renderCharacters() {
         <!-- Lore Button -->
         <div class="pt-3 border-t border-slate-800 flex items-center justify-between">
           <span class="text-[11px] text-slate-400 font-sans font-semibold">${roleTag} oficial</span>
-          <button onclick="openCharacterModal('${c.id}')" class="text-xs font-bold flex items-center gap-1 hover:underline" style="color: ${c.accent};">
+          <a href="${c.id === 'kazgrim' ? 'kazrim.html' : c.id + '.html'}" class="text-xs font-bold flex items-center gap-1 hover:underline" style="color: ${c.accent};">
             Ficha Completa & Lore <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-          </button>
+          </a>
         </div>
       </div>
     `;
@@ -499,6 +499,9 @@ function renderCharacters() {
 }
 
 function openCharacterModal(charId) {
+  const url = charId === 'kazgrim' ? 'kazrim.html' : `${charId}.html`;
+  window.location.href = url;
+  return;
   const character = window.CAMPAIGN_DATA.characters.find(c => c.id === charId);
   if (!character) return;
 
