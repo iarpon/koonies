@@ -422,12 +422,24 @@ function renderCharacters() {
     card.className = 'rpg-card rounded-2xl overflow-hidden border flex flex-col justify-between transition duration-300 group';
     card.style.borderColor = `${c.accent}40`;
 
-    const statBadges = c.stats ? Object.entries(c.stats).map(([k, v]) => `
-      <div class="p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-[11px] flex flex-col">
-        <span class="text-[9px] uppercase font-bold text-slate-400">${k}</span>
-        <span class="font-semibold text-slate-200 truncate">${v}</span>
+    const s = c.stats || {};
+    const saves = c.saves || {};
+
+    const abilityGrid = `
+      <div class="grid grid-cols-6 gap-1 text-center bg-black/40 p-2 rounded-xl border border-slate-800 text-xs">
+        <div><span class="block text-[8px] text-slate-400 font-bold uppercase">FUE</span><span class="font-bold text-white">${s.fue ? s.fue.split(' ')[0] : '10'}</span></div>
+        <div><span class="block text-[8px] text-slate-400 font-bold uppercase">DES</span><span class="font-bold text-white">${s.des ? s.des.split(' ')[0] : '10'}</span></div>
+        <div><span class="block text-[8px] text-slate-400 font-bold uppercase">CON</span><span class="font-bold text-white">${s.con ? s.con.split(' ')[0] : '10'}</span></div>
+        <div><span class="block text-[8px] text-slate-400 font-bold uppercase">INT</span><span class="font-bold text-amber-200">${s.int ? s.int.split(' ')[0] : '10'}</span></div>
+        <div><span class="block text-[8px] text-slate-400 font-bold uppercase">SAB</span><span class="font-bold text-white">${s.sab ? s.sab.split(' ')[0] : '10'}</span></div>
+        <div><span class="block text-[8px] text-slate-400 font-bold uppercase">CAR</span><span class="font-bold text-white">${s.car ? s.car.split(' ')[0] : '10'}</span></div>
       </div>
-    `).join('') : '';
+      <div class="grid grid-cols-3 gap-1.5 text-center text-[11px] mt-1.5">
+        <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800"><span class="text-[9px] text-slate-400 block uppercase">Armadura</span><span class="font-bold text-amber-300">CA ${s.ca || '10'}</span></div>
+        <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800"><span class="text-[9px] text-slate-400 block uppercase">Vida</span><span class="font-bold text-emerald-400">${s.pg || '10'} PG</span></div>
+        <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800"><span class="text-[9px] text-slate-400 block uppercase">GAC0</span><span class="font-bold text-slate-200">${s.thac0 ? s.thac0.split(' ')[0] : '20'}</span></div>
+      </div>
+    `;
 
     const roleTag = c.tag || c.role.split('/')[0].trim();
 
@@ -455,7 +467,7 @@ function renderCharacters() {
           </blockquote>
 
           <div class="grid grid-cols-2 gap-2">
-            ${statBadges}
+            ${abilityGrid}
           </div>
 
           <p class="font-crimson text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -509,6 +521,44 @@ function openCharacterModal(charId) {
           <blockquote class="font-crimson text-sm sm:text-base italic text-slate-200 border-l-3 pl-4 py-1 bg-slate-900/50 rounded-r-xl" style="border-color: ${character.accent};">
             "${character.quote}"
           </blockquote>
+
+          <!-- Full Character Sheet Tabulation -->
+          <div class="space-y-3 bg-slate-900/70 p-4 rounded-2xl border border-slate-800">
+            <h4 class="font-cinzel text-sm font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="shield" class="w-4 h-4 text-amber-400"></i> Ficha Oficial de AD&D 2ª Edición
+            </h4>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Clase / Nivel</span><span class="font-bold text-slate-200">${character.stats?.clase || character.role}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Raza</span><span class="font-bold text-slate-200">${character.stats?.raza || 'Humano'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Clase de Armadura</span><span class="font-bold text-amber-300">CA ${character.stats?.ca || '10'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Puntos de Golpe</span><span class="font-bold text-emerald-400">${character.stats?.pg || '10'} PG</span></div>
+            </div>
+
+            <!-- 6 Abilities with breakdowns -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Fuerza (FUE)</span><span class="font-bold text-white">${character.stats?.fue || '10'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Destreza (DES)</span><span class="font-bold text-white">${character.stats?.des || '10'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Constitución (CON)</span><span class="font-bold text-white">${character.stats?.con || '10'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Inteligencia (INT)</span><span class="font-bold text-amber-200">${character.stats?.int || '10'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Sabiduría (SAB)</span><span class="font-bold text-white">${character.stats?.sab || '10'}</span></div>
+              <div class="p-2 rounded-xl bg-black/40 border border-slate-800"><span class="text-[9px] text-slate-400 uppercase block font-bold">Carisma (CAR)</span><span class="font-bold text-white">${character.stats?.car || '10'}</span></div>
+            </div>
+
+            <!-- Tiradas de Salvacion -->
+            ${character.saves ? `
+              <div class="pt-2 border-t border-slate-800">
+                <span class="text-[10px] text-slate-400 uppercase tracking-wider block font-bold mb-1.5 font-cinzel">Tiradas de Salvación:</span>
+                <div class="grid grid-cols-5 gap-1.5 text-center text-xs">
+                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-[8px] text-slate-400 block uppercase">Veneno/Muerte</span><span class="font-bold text-emerald-300">${character.saves.paralisis_veneno_muerte || 14}</span></div>
+                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-[8px] text-slate-400 block uppercase">Varas/Varitas</span><span class="font-bold text-amber-300">${character.saves.varas_bastones_varitas || 16}</span></div>
+                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-[8px] text-slate-400 block uppercase">Petrificación</span><span class="font-bold text-amber-300">${character.saves.petrificacion_polimorfia || 15}</span></div>
+                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-[8px] text-slate-400 block uppercase">Aliento</span><span class="font-bold text-rose-300">${character.saves.armas_aliento || 17}</span></div>
+                  <div class="p-1.5 rounded-lg bg-black/40 border border-slate-800"><span class="text-[8px] text-slate-400 block uppercase">Conjuros</span><span class="font-bold text-purple-300">${character.saves.conjuros || 17}</span></div>
+                </div>
+              </div>
+            ` : ''}
+          </div>
 
           <div class="prose-rpg text-sm space-y-3">
             <h4 class="font-cinzel text-base font-bold text-amber-300">Notas de Campaña y Trasfondo</h4>
