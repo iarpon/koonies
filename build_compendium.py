@@ -754,7 +754,7 @@ mysteries = [
         "priority": "Alta",
         "status": "Descubierto / Enigma Teológico",
         "category": "Destino de Kazgrim & Cosmología",
-        "image": "images/asset_2330689914.jpg",
+        "image": "images/asset_2093206144.png",
         "description": "Al entrar Kaz con su símbolo sagrado, las paredes del sanctum se iluminaron con cuatro frescos de la Corte Celestial. Revelan la Llama Dorada de Kagutsuchi que coexiste con el agua y nutre, un círculo de dioses concebido para diez pero pintado con nueve, la ausencia deliberada de Shien y un vigía solitario conteniendo la oscuridad exterior.",
         "clues": [
             "Panel I: Llegada a Thir-Lashan. Kagutsuchi porta una llama roja descendente (destrucción) y una dorada ascendente (crecimiento).",

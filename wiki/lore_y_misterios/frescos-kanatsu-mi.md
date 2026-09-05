@@ -5,6 +5,11 @@
 
 > 🌐 **[Abrir el Dossier Personal de Kazgrim](../../kazrim.html)** • **[Ver Compendio de Deidades](../../index.html#deities)** • **[📄 Descargar Docx Original (Frescos_Kanatsu-mi.docx)](../../Frescos_Kanatsu-mi.docx)**
 
+<div align="center" style="margin: 1.5rem 0;">
+  <img src="../../images/asset_2093206144.png" alt="Fresco del Sanctum de Kanatsu-mi: La Llama Dorada y el Agua Sagrada" style="border-radius: 12px; max-width: 100%; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); border: 1px solid rgba(245, 158, 11, 0.4);" />
+  <p style="font-size: 0.9em; color: #cbd5e1; margin-top: 0.5rem;"><em>Fresco canónico del Sanctum de Kanatsu-mi: Kagutsuchi y la Llama Dorada coexistiendo sobre la fuente sagrada.</em></p>
+</div>
+
 ---
 
 ## 👁️ El Despertar del Sanctum
