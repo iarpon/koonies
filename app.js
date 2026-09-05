@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAtlas();
   renderMysteries();
   renderMagicItems();
+  renderDeities();
 
   // Initialize mobile session view
   updateMobileSessionView();
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       closeSearchModal();
       closeLightbox();
+      closeDeityModal();
     }
   });
 });
@@ -807,6 +809,378 @@ function renderMagicItems() {
 }
 
 // -------------------------------------------------------------
+// DEITIES & PANTHEON
+// -------------------------------------------------------------
+let currentPantheonFilter = 'all';
+
+function filterDeities(pantheon) {
+  currentPantheonFilter = pantheon;
+  
+  // Update button active styles
+  document.querySelectorAll('.deity-filter-btn').forEach(btn => {
+    if (btn.dataset.filter === pantheon) {
+      btn.className = 'deity-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition flex items-center gap-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm';
+    } else {
+      btn.className = 'deity-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition flex items-center gap-1.5 bg-slate-900/80 text-slate-300 border border-slate-800 hover:bg-slate-800';
+    }
+  });
+
+  renderDeities();
+}
+
+function renderDeities() {
+  const container = document.getElementById('deitiesGrid');
+  const countLabel = document.getElementById('deitiesCountLabel');
+  if (!container || !window.CAMPAIGN_DATA || !window.CAMPAIGN_DATA.deities) return;
+
+  const deities = window.CAMPAIGN_DATA.deities;
+  const search = document.getElementById('deitySearchInput')?.value.toLowerCase().trim() || '';
+
+  const filtered = deities.filter(d => {
+    // Pantheon filter
+    if (currentPantheonFilter === 'campaign') {
+      if (!['kagutsuchi', 'shien', 'liryel', 'solkarion'].includes(d.id)) return false;
+    } else if (currentPantheonFilter !== 'all') {
+      if (d.pantheon !== currentPantheonFilter) return false;
+    }
+
+    // Search filter
+    if (search) {
+      const matchName = d.name.toLowerCase().includes(search);
+      const matchTitle = (d.title || '').toLowerCase().includes(search);
+      const matchPortfolio = (d.portfolio || []).some(p => p.toLowerCase().includes(search));
+      const matchOrder = (d.cleric_order || '').toLowerCase().includes(search);
+      const matchPlane = (d.plane || '').toLowerCase().includes(search);
+      const matchAlign = (d.alignment || '').toLowerCase().includes(search) || (d.alignment_name || '').toLowerCase().includes(search);
+      const matchDogma = (d.dogma || '').toLowerCase().includes(search);
+      if (!matchName && !matchTitle && !matchPortfolio && !matchOrder && !matchPlane && !matchAlign && !matchDogma) {
+        return false;
+      }
+    }
+
+    return true;
+  });
+
+  if (countLabel) {
+    countLabel.textContent = `${filtered.length} deidades mostradas`;
+  }
+
+  container.innerHTML = '';
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="col-span-full p-8 text-center bg-slate-900/40 rounded-2xl border border-slate-800 space-y-2">
+        <i data-lucide="compass" class="w-8 h-8 text-slate-500 mx-auto"></i>
+        <p class="text-sm text-slate-400">No se encontraron deidades que coincidan con la búsqueda o filtro.</p>
+        <button onclick="document.getElementById('deitySearchInput').value=''; filterDeities('all')" class="text-xs text-amber-400 hover:underline">Restablecer filtros</button>
+      </div>
+    `;
+    initLucide();
+    return;
+  }
+
+  filtered.forEach(d => {
+    const card = document.createElement('div');
+    
+    // Theme accents depending on pantheon
+    let borderAccent = 'border-slate-800 hover:border-amber-500/40';
+    let pantheonBadge = 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30';
+    let pantheonIcon = '🌿';
+    
+    if (d.pantheon === 'Amatsukuni') {
+      borderAccent = 'border-slate-800 hover:border-purple-500/40';
+      pantheonBadge = 'bg-purple-500/10 text-purple-300 border-purple-500/30';
+      pantheonIcon = '🌸';
+    } else if (d.pantheon === 'Amarkan') {
+      borderAccent = 'border-slate-800 hover:border-amber-500/60 shadow-amber-500/5';
+      pantheonBadge = 'bg-amber-500/10 text-amber-300 border-amber-500/30';
+      pantheonIcon = '☀️';
+    }
+
+    // Special Campaign highlight
+    let campaignBadge = '';
+    if (d.id === 'kagutsuchi') {
+      campaignBadge = `<span class="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40">🔥 Patrón de Kazgrim</span>`;
+    } else if (d.id === 'shien') {
+      campaignBadge = `<span class="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40">🔮 Patrona de Katsumi</span>`;
+    } else if (d.id === 'liryel') {
+      campaignBadge = `<span class="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/40">✨ Invocada por Kazgrim</span>`;
+    } else if (d.id === 'solkarion') {
+      campaignBadge = `<span class="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-200 border border-amber-500/40">☀️ Culto de Thir</span>`;
+    }
+
+    // Alignment color
+    let alignBadge = 'bg-slate-800 text-slate-300';
+    if (d.alignment.includes('B')) alignBadge = 'bg-cyan-500/10 text-cyan-300 border border-cyan-500/30';
+    else if (d.alignment.includes('M')) alignBadge = 'bg-rose-500/10 text-rose-300 border border-rose-500/30';
+    else if (d.alignment === 'LN' || d.alignment === 'LE') alignBadge = 'bg-indigo-500/10 text-indigo-300 border border-indigo-500/30';
+    else alignBadge = 'bg-amber-500/10 text-amber-300 border border-amber-500/30';
+
+    // Portfolio badges
+    const portfolioPills = (d.portfolio || []).slice(0, 4).map(p => 
+      `<span class="text-[11px] px-2 py-0.5 rounded-md bg-slate-900/90 text-slate-300 border border-slate-700/60">${p}</span>`
+    ).join('');
+
+    card.className = `rpg-card p-4 sm:p-5 rounded-2xl border ${borderAccent} transition flex flex-col justify-between space-y-4 hover:shadow-xl`;
+    
+    card.innerHTML = `
+      <div class="space-y-3">
+        <!-- Top Tags -->
+        <div class="flex items-center justify-between gap-1 flex-wrap">
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full border ${pantheonBadge}">
+              ${pantheonIcon} ${d.pantheon}
+            </span>
+            <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full ${alignBadge}">
+              ${d.alignment} (${d.rank})
+            </span>
+          </div>
+          ${campaignBadge}
+        </div>
+
+        <!-- Deity Title & Name -->
+        <div class="flex items-start gap-3">
+          <div class="w-12 h-12 rounded-xl bg-slate-950/80 border border-amber-500/30 flex items-center justify-center text-2xl flex-shrink-0 shadow-inner">
+            ${d.icon || '✨'}
+          </div>
+          <div class="min-w-0 flex-1">
+            <h3 class="font-cinzel text-lg sm:text-xl font-bold text-amber-100 hover:text-amber-300 cursor-pointer transition truncate" onclick="openDeityModal('${d.id}')">
+              ${d.name}
+            </h3>
+            <p class="font-crimson text-xs sm:text-sm text-amber-200/80 italic line-clamp-1">
+              ${d.title || d.rank}
+            </p>
+          </div>
+        </div>
+
+        <!-- Portfolio -->
+        <div class="flex flex-wrap gap-1 pt-1">
+          ${portfolioPills}
+        </div>
+
+        <!-- Sacred Symbol -->
+        <div class="text-xs text-slate-300 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800/80 flex items-start gap-2">
+          <span class="text-amber-400 font-cinzel text-[11px] font-bold uppercase flex-shrink-0">Símbolo:</span>
+          <span class="font-crimson text-slate-300 line-clamp-2 text-xs leading-relaxed">${d.symbol}</span>
+        </div>
+
+        <!-- Clerical Order -->
+        <div class="text-xs p-2.5 rounded-xl bg-slate-900/40 border border-slate-800 space-y-1">
+          <div class="text-[11px] font-bold uppercase text-amber-300 font-cinzel flex items-center gap-1">
+            <i data-lucide="shield" class="w-3.5 h-3.5 text-amber-400"></i> ${d.cleric_order}
+          </div>
+          <div class="text-[11px] text-slate-400 font-mono">
+            Req: <span class="text-slate-200">${d.cleric_requirements}</span> • Alineamiento: <span class="text-slate-200">${d.cleric_alignment}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="pt-2 border-t border-slate-800/80">
+        <button onclick="openDeityModal('${d.id}')" class="w-full py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-200 text-xs font-semibold transition flex items-center justify-center gap-1.5 border border-slate-700">
+          <span>Ver Sacerdocio & Ficha Completa</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-amber-400"></i>
+        </button>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+
+  initLucide();
+}
+
+function openDeityModal(deityId) {
+  const modal = document.getElementById('deityModal');
+  const content = document.getElementById('deityModalContent');
+  if (!modal || !content || !window.CAMPAIGN_DATA || !window.CAMPAIGN_DATA.deities) return;
+
+  const d = window.CAMPAIGN_DATA.deities.find(item => item.id === deityId);
+  if (!d) return;
+
+  // Alignment Pill
+  let alignBadge = 'bg-slate-800 text-slate-300';
+  if (d.alignment.includes('B')) alignBadge = 'bg-cyan-500/10 text-cyan-300 border border-cyan-500/30';
+  else if (d.alignment.includes('M')) alignBadge = 'bg-rose-500/10 text-rose-300 border border-rose-500/30';
+  else if (d.alignment === 'LN' || d.alignment === 'LE') alignBadge = 'bg-indigo-500/10 text-indigo-300 border border-indigo-500/30';
+  else alignBadge = 'bg-amber-500/10 text-amber-300 border border-amber-500/30';
+
+  // Campaign link callout
+  let campaignBox = '';
+  if (d.campaign_link) {
+    campaignBox = `
+      <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs sm:text-sm font-crimson space-y-1">
+        <div class="font-cinzel font-bold text-amber-300 text-xs uppercase flex items-center gap-1.5">
+          <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i> Vínculo con la Crónica de los Koonies
+        </div>
+        <p class="leading-relaxed">${d.campaign_link}</p>
+      </div>
+    `;
+  }
+
+  // Granted powers
+  const powersRows = (d.powers_granted || []).map(p => `
+    <div class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-950/60 border border-slate-800">
+      <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 flex-shrink-0">
+        Nivel ${p.level}
+      </span>
+      <div class="space-y-0.5">
+        <div class="text-xs font-bold text-slate-200 font-cinzel">${p.name}</div>
+        <div class="text-xs text-slate-300 font-crimson leading-snug">${p.description}</div>
+      </div>
+    </div>
+  `).join('');
+
+  // Major and Minor Spheres
+  const majorSpheres = (d.spheres_major || []).map(s => 
+    `<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-purple-950/50 text-purple-200 border border-purple-800/40">${s}</span>`
+  ).join(' ');
+  const minorSpheres = (d.spheres_minor || []).map(s => 
+    `<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-800">${s}</span>`
+  ).join(' ');
+
+  content.innerHTML = `
+    <!-- Modal Close Button -->
+    <button onclick="closeDeityModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-900/80 border border-slate-800 text-sm flex items-center gap-1 transition">
+      <i data-lucide="x" class="w-4 h-4"></i> ESC
+    </button>
+
+    <!-- Deity Header -->
+    <div class="flex items-start gap-4 border-b border-slate-800 pb-4 pr-12">
+      <div class="w-16 h-16 rounded-2xl bg-slate-950 border border-amber-500/40 flex items-center justify-center text-3xl shadow-lg shadow-amber-500/10 flex-shrink-0">
+        ${d.icon || '✨'}
+      </div>
+      <div>
+        <div class="flex items-center gap-2 flex-wrap mb-1">
+          <span class="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30 font-cinzel">
+            ${d.pantheon_title || d.pantheon}
+          </span>
+          <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full ${alignBadge}">
+            ${d.alignment} • ${d.alignment_name}
+          </span>
+          <span class="text-[11px] text-slate-400 font-mono">
+            Plano: ${d.plane}
+          </span>
+        </div>
+        <h2 class="font-cinzel text-xl sm:text-2xl font-bold text-amber-100">${d.name}</h2>
+        <p class="font-crimson text-sm sm:text-base text-amber-200/90 italic">${d.title || d.rank}</p>
+      </div>
+    </div>
+
+    <!-- Campaign Box -->
+    ${campaignBox}
+
+    <!-- Quick Info Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800 space-y-1">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400 font-cinzel">Símbolo Sagrado</span>
+        <p class="font-crimson text-xs sm:text-sm text-slate-200 leading-relaxed">${d.symbol}</p>
+      </div>
+      <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800 space-y-1">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400 font-cinzel">Adoradores Principales</span>
+        <p class="font-crimson text-xs sm:text-sm text-slate-200 leading-relaxed">${d.worshippers}</p>
+      </div>
+    </div>
+
+    <!-- Clerical Order / Sacerdocio Especialista -->
+    <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-950/90 to-slate-900/60 border border-purple-500/30 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+        <div class="flex items-center gap-2">
+          <i data-lucide="shield-alert" class="w-4 h-4 text-purple-400"></i>
+          <h3 class="font-cinzel text-sm sm:text-base font-bold text-purple-200">
+            Sacerdocio: ${d.cleric_order}
+          </h3>
+        </div>
+        <span class="text-[11px] text-slate-400 font-mono">AD&D 2ª Edición</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+        <div>
+          <span class="text-slate-400 font-medium">Requisitos de Atributos:</span>
+          <p class="text-slate-100 font-semibold mt-0.5">${d.cleric_requirements}</p>
+        </div>
+        <div>
+          <span class="text-slate-400 font-medium">Alineamiento Permitido:</span>
+          <p class="text-slate-100 font-semibold mt-0.5">${d.cleric_alignment}</p>
+        </div>
+        <div>
+          <span class="text-slate-400 font-medium">Armas Permitidas:</span>
+          <p class="text-slate-100 mt-0.5 font-crimson text-xs sm:text-sm">${d.weapons}</p>
+        </div>
+        <div>
+          <span class="text-slate-400 font-medium">Armadura & Escudos:</span>
+          <p class="text-slate-100 mt-0.5 font-crimson text-xs sm:text-sm">${d.armor}</p>
+        </div>
+      </div>
+
+      <!-- Spheres -->
+      <div class="space-y-2 pt-2 border-t border-slate-800/80 text-xs">
+        <div>
+          <span class="text-amber-400 font-semibold font-cinzel text-[11px] uppercase block mb-1">Esferas Mayores:</span>
+          <div class="flex flex-wrap gap-1">${majorSpheres || '<span class="text-slate-500">Estándar</span>'}</div>
+        </div>
+        <div>
+          <span class="text-slate-400 font-semibold font-cinzel text-[11px] uppercase block mb-1">Esferas Menores:</span>
+          <div class="flex flex-wrap gap-1">${minorSpheres || '<span class="text-slate-500">Estándar</span>'}</div>
+        </div>
+      </div>
+
+      <!-- Granted Powers -->
+      <div class="space-y-2 pt-2 border-t border-slate-800/80">
+        <span class="text-amber-300 font-semibold font-cinzel text-xs uppercase flex items-center gap-1.5">
+          <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i> Poderes Concedidos por Nivel
+        </span>
+        <div class="space-y-2">
+          ${powersRows}
+        </div>
+      </div>
+    </div>
+
+    <!-- Dogma, Culto & Ritos -->
+    <div class="space-y-3 text-xs sm:text-sm font-crimson">
+      <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-1.5">
+        <h4 class="font-cinzel text-xs font-bold uppercase text-amber-400">Dogma y Filosofía Sagrada</h4>
+        <p class="text-slate-300 leading-relaxed">${d.dogma}</p>
+      </div>
+
+      ${d.rituals ? `
+      <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-1.5">
+        <h4 class="font-cinzel text-xs font-bold uppercase text-amber-400">Fiestas Sagradas & Rituales</h4>
+        <p class="text-slate-300 leading-relaxed">${d.rituals}</p>
+      </div>` : ''}
+
+      ${d.allies_enemies ? `
+      <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-1.5">
+        <h4 class="font-cinzel text-xs font-bold uppercase text-amber-400">Alianzas y Enemistades Cósmicas</h4>
+        <p class="text-slate-300 leading-relaxed">${d.allies_enemies}</p>
+      </div>` : ''}
+
+      ${d.stronghold ? `
+      <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-1.5">
+        <h4 class="font-cinzel text-xs font-bold uppercase text-amber-400">Fortaleza & Seguidores (Nivel 9)</h4>
+        <p class="text-slate-300 leading-relaxed">${d.stronghold}</p>
+      </div>` : ''}
+    </div>
+
+    <!-- Direct PDF Link in Modal -->
+    <div class="flex items-center justify-between p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs">
+      <span class="text-amber-200">¿Quieres consultar el texto íntegro en el códice original?</span>
+      <a href="Panteones%20de%20Eranthys_Sebas.pdf" target="_blank" class="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 font-semibold transition flex items-center gap-1">
+        <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Abrir Panteones PDF
+      </a>
+    </div>
+  `;
+
+  modal.classList.remove('hidden');
+  initLucide();
+}
+
+function closeDeityModal(event) {
+  const modal = document.getElementById('deityModal');
+  if (modal) modal.classList.add('hidden');
+}
+
+// -------------------------------------------------------------
 // LIGHTBOX MODAL
 // -------------------------------------------------------------
 function openLightbox(src, caption) {
@@ -918,6 +1292,30 @@ function handleGlobalSearch() {
       });
     }
   });
+
+  // Search Deities
+  if (window.CAMPAIGN_DATA.deities) {
+    window.CAMPAIGN_DATA.deities.forEach(d => {
+      const matchName = d.name.toLowerCase().includes(query);
+      const matchTitle = (d.title || '').toLowerCase().includes(query);
+      const matchPortfolio = (d.portfolio || []).some(p => p.toLowerCase().includes(query));
+      const matchOrder = (d.cleric_order || '').toLowerCase().includes(query);
+      const matchDogma = (d.dogma || '').toLowerCase().includes(query);
+
+      if (matchName || matchTitle || matchPortfolio || matchOrder || matchDogma) {
+        results.push({
+          type: 'Deidad',
+          title: `${d.icon || '✨'} ${d.name} (${d.pantheon}) — ${d.title}`,
+          snippet: `Orden: ${d.cleric_order} • Ámbitos: ${(d.portfolio || []).join(', ')}`,
+          action: () => {
+            navigateTab('deities');
+            openDeityModal(d.id);
+            closeSearchModal();
+          }
+        });
+      }
+    });
+  }
 
   if (results.length === 0) {
     container.innerHTML = `<p class="text-xs text-slate-400 text-center py-6">No se encontraron resultados para "<strong>${query}</strong>".</p>`;

@@ -57,3 +57,10 @@ Bienvenido al repositorio digital y enciclopedia de **Las Crónicas de Los Kooni
 ## 🗺️ Cartografía & Misterios
 - **[[mapas/atlas|Atlas Oficial de 5 Mapas]]**
 - **[[lore_y_misterios/cabos-sueltos|Tablero de Misterios & Cabos Sueltos]]**
+
+---
+
+## ☀️ Panteón de Deidades & Códices Sagrados (PDFs)
+- **[[deidades|☀️ Compendio Completo de Deidades de Eranthys (23 Deidades y Clérigos Especialistas)]]**
+- 📜 **[Descargar / Ver Códice: Panteones de Eranthys (PDF)](../Panteones%20de%20Eranthys_Sebas.pdf)** (22 páginas, 15.3 MB)
+- 🗺️ **[Descargar / Ver Manual: Guía del Jugador v2 (PDF)](../guia%20del%20jugador%20v2.pdf)** (24 páginas, 9.2 MB)

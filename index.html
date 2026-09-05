@@ -44,6 +44,10 @@
         <button onclick="navigateTab('npcs')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="npcs">
           <i data-lucide="drama" class="w-3.5 h-3.5"></i> Dramatis Personae
         </button>
+        <button onclick="navigateTab('deities')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="deities">
+          <i data-lucide="sun" class="w-3.5 h-3.5"></i> Deidades
+          <span class="text-xs px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-sans font-bold">23</span>
+        </button>
         <button onclick="navigateTab('maps')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="maps">
           <i data-lucide="map" class="w-3.5 h-3.5"></i> Atlas
           <span class="text-xs px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-sans font-bold">5</span>
@@ -86,6 +90,9 @@
       <button onclick="navigateTab('npcs')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="npcs">
         <i data-lucide="drama" class="w-3.5 h-3.5"></i> PNJs
       </button>
+      <button onclick="navigateTab('deities')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="deities">
+        <i data-lucide="sun" class="w-3.5 h-3.5"></i> Deidades (23)
+      </button>
       <button onclick="navigateTab('maps')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="maps">
         <i data-lucide="map" class="w-3.5 h-3.5"></i> Atlas (5)
       </button>
@@ -124,6 +131,9 @@
             </button>
             <button onclick="navigateTab('characters')" class="w-full sm:w-auto justify-center px-5 py-2.5 sm:py-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 backdrop-blur-md border border-amber-500/30 text-amber-200 font-semibold text-xs sm:text-sm transition flex items-center gap-2">
               <i data-lucide="users" class="w-4 h-4 text-purple-400"></i> Los 5 Protagonistas
+            </button>
+            <button onclick="navigateTab('deities')" class="w-full sm:w-auto justify-center px-5 py-2.5 sm:py-3 rounded-xl bg-slate-900/80 hover:bg-amber-950/40 backdrop-blur-md border border-amber-500/30 text-amber-200 font-semibold text-xs sm:text-sm transition flex items-center gap-2">
+              <i data-lucide="sun" class="w-4 h-4 text-amber-400"></i> Panteón & Códices (PDFs)
             </button>
           </div>
         </div>
@@ -252,6 +262,69 @@
           </button>
         </div>
 
+      </div>
+
+      <!-- Featured PDF Códices & World Guide Banner in Home -->
+      <div class="rpg-card p-5 sm:p-6 rounded-2xl border border-amber-500/30 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-amber-950/20 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div class="flex items-center gap-2">
+            <i data-lucide="book-open" class="w-5 h-5 text-amber-400"></i>
+            <h4 class="font-cinzel text-base sm:text-lg font-bold text-amber-100">Códices Sagrados & Manuales Oficiales (PDFs)</h4>
+          </div>
+          <button onclick="navigateTab('deities')" class="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 transition self-start sm:self-auto">
+            Explorar Compendio Teológico (23 Deidades) <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- PDF Card 1: Panteon -->
+          <div class="p-4 rounded-xl bg-slate-950/60 border border-amber-500/25 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30">Códice Divino</span>
+                <span class="text-[11px] font-mono text-slate-400">22 págs • 15.3 MB</span>
+              </div>
+              <h5 class="font-cinzel text-sm sm:text-base font-bold text-amber-200 mt-2 flex items-center gap-1.5">
+                <span>📜</span> Panteones de Eranthys
+              </h5>
+              <p class="font-crimson text-xs sm:text-sm text-slate-300 mt-1">
+                Guía completa de los dioses de Lyndoria y Amatsukuni, requisitos para clérigos especialistas, esferas mayores y menores y poderes concedidos.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 pt-2 border-t border-slate-800/80">
+              <a href="Panteones%20de%20Eranthys_Sebas.pdf" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-semibold transition flex items-center justify-center gap-1.5">
+                <i data-lucide="eye" class="w-3.5 h-3.5"></i> Ver PDF Online
+              </a>
+              <a href="Panteones%20de%20Eranthys_Sebas.pdf" download="Panteones_de_Eranthys_Sebas.pdf" class="py-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition flex items-center gap-1">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> Descargar
+              </a>
+            </div>
+          </div>
+
+          <!-- PDF Card 2: Guia del Jugador -->
+          <div class="p-4 rounded-xl bg-slate-950/60 border border-purple-500/25 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/30">Manual de Campaña</span>
+                <span class="text-[11px] font-mono text-slate-400">24 págs • 9.2 MB</span>
+              </div>
+              <h5 class="font-cinzel text-sm sm:text-base font-bold text-purple-200 mt-2 flex items-center gap-1.5">
+                <span>🗺️</span> Guía del Jugador v2
+              </h5>
+              <p class="font-crimson text-xs sm:text-sm text-slate-300 mt-1">
+                Trasfondo imperial de Amatsukuni, el Código del Bushi, kits de personaje para AD&D 2ª Edición, reglas de curación y trasfondo cultural kunita.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 pt-2 border-t border-slate-800/80">
+              <a href="guia%20del%20jugador%20v2.pdf" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border border-purple-500/40 text-xs font-semibold transition flex items-center justify-center gap-1.5">
+                <i data-lucide="eye" class="w-3.5 h-3.5"></i> Ver PDF Online
+              </a>
+              <a href="guia%20del%20jugador%20v2.pdf" download="Guia_del_Jugador_v2.pdf" class="py-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition flex items-center gap-1">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> Descargar
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
     </section>
@@ -492,6 +565,121 @@
 
     </section>
 
+    <!-- 8. TAB: DEIDADES & PANTEÓN -->
+    <section id="tab-deities" class="tab-content hidden space-y-6">
+      
+      <!-- Section Banner -->
+      <div class="section-banner p-6 sm:p-8" style="background-image: url('images/asset_2330689914.jpg');">
+        <div class="section-banner-content">
+          <span class="text-xs uppercase font-bold tracking-widest text-amber-400 font-cinzel">Cosmología & Teología de Eranthys</span>
+          <h2 class="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-bold text-amber-100">Panteón y Deidades de Eranthys</h2>
+          <p class="text-xs text-slate-300 font-crimson text-base mt-1 max-w-3xl">
+            Los Antiguos Dioses de Lyndoria, la Corte Celestial de Amatsukuni y la fe monolítica de Amarkan. Códices divinos, órdenes clericales especialistas, requisitos de atributos, esferas de conjuros y poderes sagrados de AD&D 2ª Edición.
+          </p>
+        </div>
+      </div>
+
+      <!-- PDFs / Códices Download & View Showcase -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+        
+        <!-- Códice Panteón PDF -->
+        <div class="rpg-card p-5 sm:p-6 rounded-2xl border border-amber-500/30 bg-gradient-to-br from-slate-900/90 via-slate-900/60 to-amber-950/20 flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30 flex items-center gap-1.5">
+                <i data-lucide="book-open" class="w-3.5 h-3.5"></i> Códice Teológico Canónico
+              </span>
+              <span class="text-xs font-mono text-slate-400">PDF • 22 págs • 15.3 MB</span>
+            </div>
+            <h3 class="font-cinzel text-lg sm:text-xl font-bold text-amber-100 flex items-center gap-2">
+              <span>📜</span> Panteones de Eranthys
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-300 font-crimson leading-relaxed">
+              Tratado oficial redactado por el DM (Xati y Sebax). Recoge con detalle los dos grandes panteones (Lyndoriano y Kunita), el monoteísmo de Amarkan, dogmas, mitos, requisitos para clérigos especialistas, tablas de esferas mayores y menores y poderes concedidos por nivel.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2.5 pt-2 border-t border-slate-800">
+            <a href="Panteones%20de%20Eranthys_Sebas.pdf" target="_blank" class="flex-1 min-w-[140px] text-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs transition flex items-center justify-center gap-1.5 shadow-md shadow-amber-500/20">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> Leer / Ver Online
+            </a>
+            <a href="Panteones%20de%20Eranthys_Sebas.pdf" download="Panteones_de_Eranthys_Sebas.pdf" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition flex items-center gap-1.5 border border-slate-700">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Descargar (15 MB)
+            </a>
+          </div>
+        </div>
+
+        <!-- Guía del Jugador PDF -->
+        <div class="rpg-card p-5 sm:p-6 rounded-2xl border border-purple-500/30 bg-gradient-to-br from-slate-900/90 via-slate-900/60 to-purple-950/20 flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/30 flex items-center gap-1.5">
+                <i data-lucide="compass" class="w-3.5 h-3.5"></i> Manual de Campaña Oficial
+              </span>
+              <span class="text-xs font-mono text-slate-400">PDF • 24 págs • 9.2 MB</span>
+            </div>
+            <h3 class="font-cinzel text-lg sm:text-xl font-bold text-purple-100 flex items-center gap-2">
+              <span>🗺️</span> Guía del Jugador (v2)
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-300 font-crimson leading-relaxed">
+              Manual del mundo redactado por Sebax: trasfondo imperial de Amatsukuni, el Código del Bushi, kits de personaje para AD&D 2ª Edición, clases kunita, reglas de curación natural, trasfondo cultural y la convivencia con lo invisible.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2.5 pt-2 border-t border-slate-800">
+            <a href="guia%20del%20jugador%20v2.pdf" target="_blank" class="flex-1 min-w-[140px] text-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-400 hover:to-purple-500 text-slate-950 font-bold text-xs transition flex items-center justify-center gap-1.5 shadow-md shadow-purple-500/20">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> Leer / Ver Online
+            </a>
+            <a href="guia%20del%20jugador%20v2.pdf" download="Guia_del_Jugador_v2.pdf" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition flex items-center gap-1.5 border border-slate-700">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Descargar (9 MB)
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Filters, Search & Categories -->
+      <div class="rpg-card p-4 sm:p-5 rounded-2xl border border-slate-800 space-y-4">
+        <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+          
+          <!-- Search input -->
+          <div class="relative flex-1">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input type="text" id="deitySearchInput" oninput="renderDeities()" placeholder="Buscar por deidad, orden clerical, ámbito, alineamiento o plano..." class="w-full pl-10 pr-4 py-2 bg-slate-900/90 border border-slate-700/80 rounded-xl text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500/50">
+          </div>
+
+          <!-- Quick Stats -->
+          <div class="text-xs text-slate-400 font-mono flex items-center gap-2 self-end md:self-center">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span id="deitiesCountLabel">23 deidades catalogadas</span>
+          </div>
+        </div>
+
+        <!-- Pantheon Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+          <button onclick="filterDeities('all')" class="deity-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition flex items-center gap-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/40" data-filter="all">
+            ✨ Todas (23)
+          </button>
+          <button onclick="filterDeities('campaign')" class="deity-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition flex items-center gap-1.5 bg-slate-900/80 text-amber-200 border border-amber-500/30 hover:bg-slate-800" data-filter="campaign">
+            ⭐ Vínculo con Koonies (4)
+          </button>
+          <button onclick="filterDeities('Lyndoria')" class="deity-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition flex items-center gap-1.5 bg-slate-900/80 text-slate-300 border border-slate-800 hover:bg-slate-800" data-filter="Lyndoria">
+            🌿 Panteón Lyndoriano (12)
+          </button>
+          <button onclick="filterDeities('Amatsukuni')" class="deity-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition flex items-center gap-1.5 bg-slate-900/80 text-slate-300 border border-slate-800 hover:bg-slate-800" data-filter="Amatsukuni">
+            🌸 Corte de Amatsukuni (10)
+          </button>
+          <button onclick="filterDeities('Amarkan')" class="deity-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition flex items-center gap-1.5 bg-slate-900/80 text-slate-300 border border-slate-800 hover:bg-slate-800" data-filter="Amarkan">
+            ☀️ Fe de Amarkan (1)
+          </button>
+        </div>
+      </div>
+
+      <!-- Deities Grid Container -->
+      <div id="deitiesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <!-- Populated dynamically by app.js -->
+      </div>
+
+    </section>
+
   </main>
 
   <!-- Image Lightbox Modal -->
@@ -516,6 +704,13 @@
       <div id="searchResultsContainer" class="max-h-96 overflow-y-auto p-3 space-y-2">
         <p class="text-xs text-slate-500 text-center py-6">Escribe al menos 2 letras para buscar en toda la crónica...</p>
       </div>
+    </div>
+  </div>
+
+  <!-- Deity & Clerical Order Detail Modal -->
+  <div id="deityModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/85 backdrop-blur-md p-3 sm:p-4 overflow-y-auto" onclick="closeDeityModal(event)">
+    <div id="deityModalContent" class="rpg-card w-full max-w-3xl max-h-[92vh] overflow-y-auto rounded-2xl border border-amber-500/40 shadow-2xl p-5 sm:p-7 space-y-6 relative" onclick="event.stopPropagation()">
+      <!-- Populated by JS -->
     </div>
   </div>
 
