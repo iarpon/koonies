@@ -42,15 +42,42 @@ Bienvenido al repositorio digital y enciclopedia de **Las Crónicas de Los Kooni
 
 ---
 
-## 🎭 Dramatis Personae (PNJs Clave)
-- **[[pnjs/katsumi__consejera_|Katsumi — La Llama Custodia]]** (Clériga de Shien & Líder de los 40 Refugiados Kunitas)
-- **[[pnjs/jelenneth__jenneleth_|Jelenneth (Jenneleth)]]** (Maga y Sanadora / Aprendiz de Tauster)
-- **[[pnjs/tauster|Tauster]]** (Mago de la Torre de Thurmaster)
-- **[[pnjs/el_viejo_oso|El Viejo Oso]]** (Veterano enano de la ciudadela perdida)
-- **[[pnjs/mandra_voss|Mandra Voss]]** (La anticuaria de La Casa de los Tesoros)
-- **[[pnjs/elara_frin|Elara Frin]]** (Boticaria y herbolaria de Elken)
-- **[[pnjs/rurik_feldon|Rurik Feldon]]** (Capitán de la Guardia de Elken)
-- **[[pnjs/seraphine_alondar|Seraphine Alondar]]** (Magistrada de Solkarion)
+## 🎭 Dramatis Personae (23 PNJs Clasificados)
+
+### 🏕️ Campamento Kunita en Elken
+- **[[pnjs/katsumi__consejera_|Katsumi — La Llama Custodia]]** (Clériga de Shien & Líder de los 40 Refugiados)
+- **[[pnjs/kaito|Kaito — El Arraigado]]** (Carpintero y Consejero Pragmático)
+- **[[pnjs/hanae|Hanae — Voz de los Buscadores]]** (Maestra, Cronista y Consejera)
+- **[[pnjs/yoriko_asano|Yoriko Asano]]** (Suma Sacerdotisa de Shien, desaparecida en el mar)
+
+### 🏰 Ciudad de Elken
+- **[[pnjs/soren_durnik|Soren Durnik]]** (Alcalde de la Ciudad de Elken)
+- **[[pnjs/rurik_feldon|Rurik Feldon]]** (Capitán de la Guardia Urbana)
+- **[[pnjs/seraphine_alondar|Seraphine Alondar]]** (Escribana Real, Magistrada y Clériga de Solkarion)
+- **[[pnjs/aleina|Aleina]]** (Paladín de la Orden de Solkarion)
+- **[[pnjs/elara_frin|Elara Frin]]** (Boticaria y Maestra de Remedios Naturales)
+- **[[pnjs/mandra_voss|Mandra Voss]]** (Anticuaria arcana de La Casa de los Tesoros)
+- **[[pnjs/xikilla|Xikilla]]** (Camarera vivaz de la Taberna del Ganso)
+- **[[pnjs/sutter_izen|Sutter Izen]]** (Curtidor fortificado y enlace de la emboscada / Prófugo)
+- **[[pnjs/bruiser_holloway|Bruiser Holloway]]** (Ladrón de caballos del rostro de dragón / En busca y captura)
+
+### ⛵ Rimed Mallow
+- **[[pnjs/mirna|Mirna — La Loba]]** (Capitana del Rimed Mallow y Miembro del Consejo)
+- **[[pnjs/jelenneth__jenneleth_|Jelenneth (Jenneleth)]]** (Maga, Sanadora y Aprendiz de Tauster)
+- **[[pnjs/lord_emmothach|Lord Emmothach]]** (Noble de alcurnia del Reino de Zahar)
+- **[[pnjs/lady_thora|Lady Thora]]** (Dama noble rescatada de la curtiduría)
+- **[[pnjs/itarus|Itarus]]** (El zagal secuestrado del barquito de madera)
+
+### 🏝️ Isla de Viladel
+- **[[pnjs/keestake|Keestake]]** (Antiguo Chambelán Real de Viladel, muerto en la Sesión 3)
+
+### 🌲 Valle de Milborne & Thurmaster
+- **[[pnjs/tauster|Tauster]]** (Mago veterano de la Torre de Thurmaster)
+- **[[pnjs/el_viejo_oso|El Viejo Oso]]** (Veterano enano y bebedor de Milborne)
+
+### 🔮 Misterios Arcanos & Nigromancia
+- **[[pnjs/zenopus__zenotus_|Zenopus (Zenotus)]]** (Archimago nigromante de la torre en ruinas)
+- **[[pnjs/zarcand__z__|Zarcand (Z.)]]** (Nigromante del tercer ojo en los callejones)
 
 ---
 

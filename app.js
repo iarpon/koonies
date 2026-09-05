@@ -586,81 +586,234 @@ function closeCharacterModal() {
 }
 
 // -------------------------------------------------------------
-// NPCS (DRAMATIS PERSONAE)
+// NPCS (DRAMATIS PERSONAE - CLASIFICADOS SEGÚN TLDRAW)
 // -------------------------------------------------------------
-function renderNpcs() {
-  const container = document.getElementById('npcsGrid');
-  if (!container || !window.CAMPAIGN_DATA) return;
+let currentNpcCategory = 'all';
 
-  const npcs = window.CAMPAIGN_DATA.npcs;
-  const search = document.getElementById('npcSearchInput')?.value.toLowerCase() || '';
-  const locFilter = document.getElementById('npcLocationFilter')?.value || 'all';
+const NPC_CATEGORIES = [
+  {
+    id: "Campamento Kunita en Elken",
+    name: "Campamento Kunita en Elken",
+    icon: "🏕️",
+    desc: "Refugiados y líderes de Amatsukuni extramuros de Elken",
+    color: "from-amber-900/30 to-amber-950/20"
+  },
+  {
+    id: "Ciudad de Elken",
+    name: "Ciudad de Elken",
+    icon: "🏰",
+    desc: "Autoridades, guardias, magistrados, mercaderes y prófugos de la ciudad portuaria",
+    color: "from-blue-900/30 to-slate-950/20"
+  },
+  {
+    id: "Rimed Mallow",
+    name: "Rimed Mallow",
+    icon: "⛵",
+    desc: "Tripulantes, capitana y nobles pasajeros del galeón costero",
+    color: "from-cyan-900/30 to-slate-950/20"
+  },
+  {
+    id: "Isla de Viladel",
+    name: "Isla de Viladel",
+    icon: "🏝️",
+    desc: "Vestigios de la corte real de Viladel y supervivientes del naufragio",
+    color: "from-emerald-900/30 to-slate-950/20"
+  },
+  {
+    id: "Valle de Milborne & Thurmaster",
+    name: "Valle de Milborne & Thurmaster",
+    icon: "🌲",
+    desc: "Tierras altas, sabios ermitaños, aprendices y veteranos enanos",
+    color: "from-emerald-950/40 to-slate-950/20"
+  },
+  {
+    id: "Misterios Arcanos & Nigromancia",
+    name: "Misterios Arcanos & Nigromancia",
+    icon: "🔮",
+    desc: "Archimagos primordiales, torres malditas y sectas de las sombras",
+    color: "from-purple-900/30 to-slate-950/20"
+  }
+];
 
-  const filtered = npcs.filter(n => {
-    const matchesSearch = !search || 
-      n.name.toLowerCase().includes(search) || 
-      n.nickname.toLowerCase().includes(search) || 
-      n.role.toLowerCase().includes(search) ||
-      n.notes.toLowerCase().includes(search);
-
-    const matchesLoc = locFilter === 'all' || 
-      (locFilter === 'Prófugo' && n.status.includes('busca')) ||
-      n.location.includes(locFilter);
-
-    return matchesSearch && matchesLoc;
-  });
-
-  container.innerHTML = '';
-
-  filtered.forEach(n => {
-    const card = document.createElement('div');
-    card.className = 'rpg-card p-4 sm:p-5 rounded-2xl border border-slate-800 hover:border-amber-500/30 transition flex flex-col justify-between space-y-4';
-
-    let attitudeBadge = 'bg-slate-800 text-slate-300';
-    if (n.attitude.toLowerCase().includes('aliad') || n.attitude.toLowerCase().includes('amig') || n.attitude.toLowerCase().includes('favorable') || n.attitude.toLowerCase().includes('devota')) {
-      attitudeBadge = 'bg-emerald-500/10 text-emerald-300 border border-emerald-500/30';
-    } else if (n.attitude.toLowerCase().includes('hostil') || n.attitude.toLowerCase().includes('traidor') || n.attitude.toLowerCase().includes('enemigo')) {
-      attitudeBadge = 'bg-rose-500/10 text-rose-300 border border-rose-500/30';
+function setNpcCategoryFilter(cat) {
+  currentNpcCategory = cat;
+  
+  // Sync pill buttons
+  document.querySelectorAll('.npc-cat-btn').forEach(btn => {
+    if (btn.dataset.cat === cat) {
+      btn.className = 'npc-cat-btn active px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-amber-500/20 text-amber-300 border border-amber-500/40 transition';
     } else {
-      attitudeBadge = 'bg-amber-500/10 text-amber-300 border border-amber-500/30';
+      btn.className = 'npc-cat-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-slate-900/80 text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition';
     }
-
-    card.innerHTML = `
-      <div class="flex items-start gap-3.5">
-        <img src="${n.image}" alt="${n.name}" class="w-16 h-16 rounded-xl object-cover border border-amber-500/30 cursor-pointer flex-shrink-0" onclick="openLightbox('${n.image}', '${n.name}')">
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center justify-between gap-1">
-            <span class="text-xs font-semibold uppercase font-bold px-2 py-0.5 rounded ${attitudeBadge}">
-              ${n.status || 'Estado Desconocido'}
-            </span>
-          </div>
-          <h4 class="font-cinzel text-base sm:text-lg font-bold text-white truncate mt-1">${n.name}</h4>
-          <p class="text-xs text-amber-300/90 italic font-crimson">${n.nickname || n.role}</p>
-        </div>
-      </div>
-
-      <div class="space-y-2 text-xs text-slate-300 font-crimson text-sm leading-relaxed">
-        <p><strong>Rol:</strong> ${n.role}</p>
-        <p><strong>Ubicación:</strong> ${n.location}</p>
-        <p class="text-slate-400 bg-slate-900/50 p-2.5 rounded-lg border border-slate-800/80 text-xs leading-relaxed">
-          ${n.notes}
-        </p>
-      </div>
-
-      <div class="pt-2 border-t border-slate-800 text-xs sm:text-sm text-slate-400 flex items-center justify-between">
-        <span class="truncate max-w-[150px]">${n.faction}</span>
-        <span class="italic text-amber-400">${n.attitude.split('/')[0]}</span>
-      </div>
-    `;
-
-    container.appendChild(card);
   });
 
-  initLucide();
+  // Sync select dropdown
+  const select = document.getElementById('npcLocationFilter');
+  if (select) {
+    select.value = cat;
+  }
+
+  renderNpcs();
+}
+
+function onNpcSelectFilterChange(val) {
+  setNpcCategoryFilter(val);
 }
 
 function filterNpcs() {
   renderNpcs();
+}
+
+function createNpcCardHtml(n) {
+  let attitudeBadge = 'bg-slate-800 text-slate-300 border border-slate-700';
+  const attLower = (n.attitude || '').toLowerCase();
+  if (attLower.includes('aliad') || attLower.includes('amig') || attLower.includes('favorable') || attLower.includes('devota') || attLower.includes('venerada')) {
+    attitudeBadge = 'bg-emerald-500/10 text-emerald-300 border border-emerald-500/30';
+  } else if (attLower.includes('hostil') || attLower.includes('traidor') || attLower.includes('enemigo') || attLower.includes('criminal')) {
+    attitudeBadge = 'bg-rose-500/10 text-rose-300 border border-rose-500/30';
+  } else {
+    attitudeBadge = 'bg-amber-500/10 text-amber-300 border border-amber-500/30';
+  }
+
+  const wikiSlug = n.wiki_file || (n.name.toLowerCase().replace(/[^a-z0-9_]/g, '_') + '.md');
+
+  return `
+    <div class="rpg-card p-4 sm:p-5 rounded-2xl border border-slate-800 hover:border-amber-500/40 transition flex flex-col justify-between space-y-4 shadow-lg bg-slate-950/60 backdrop-blur-sm">
+      
+      <!-- Top header with portrait and badges -->
+      <div class="flex items-start gap-3.5">
+        <div class="relative group flex-shrink-0">
+          <img src="${n.image}" alt="${n.name}" class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover border-2 border-amber-500/40 cursor-pointer shadow-md group-hover:scale-105 transition-transform duration-200" onclick="openLightbox('${n.image}', '${n.name} — ${n.nickname || n.role}')">
+          <button onclick="openLightbox('${n.image}', '${n.name} — ${n.nickname || n.role}')" class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center text-white" title="Ampliar retrato">
+            <i data-lucide="maximize-2" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-1.5 mb-1">
+            <span class="text-[11px] uppercase font-bold px-2 py-0.5 rounded ${attitudeBadge}">
+              ${n.status || 'Estado Desconocido'}
+            </span>
+            <span class="text-[10px] font-medium text-amber-400/90 bg-amber-950/50 px-2 py-0.5 rounded border border-amber-500/20 truncate max-w-[140px]">
+              ${n.category || 'Campaña'}
+            </span>
+          </div>
+          <h4 class="font-cinzel text-lg sm:text-xl font-bold text-white tracking-wide leading-tight">${n.name}</h4>
+          <p class="text-xs sm:text-sm text-amber-300 font-crimson italic mt-0.5">${n.nickname || n.role}</p>
+        </div>
+      </div>
+
+      <!-- Details Block -->
+      <div class="space-y-2 text-xs sm:text-sm text-slate-300 font-crimson leading-relaxed">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pb-1 border-b border-slate-800/60 text-xs">
+          <div><strong class="text-slate-400">Raza/Edad:</strong> <span class="text-slate-200">${n.race || 'Humano'} (${n.age || '—'})</span></div>
+          <div><strong class="text-slate-400">Ubicación:</strong> <span class="text-slate-200">${n.location}</span></div>
+        </div>
+        <div><strong class="text-slate-400 text-xs">Rol:</strong> <span class="text-slate-200 text-xs sm:text-sm">${n.role}</span></div>
+        <p class="text-slate-300 bg-slate-900/70 p-3 rounded-xl border border-slate-800 text-xs sm:text-sm leading-relaxed font-crimson mt-1.5">
+          ${n.notes}
+        </p>
+      </div>
+
+      <!-- Card Footer -->
+      <div class="pt-2 border-t border-slate-800/80 space-y-2 text-xs">
+        <div class="flex items-center justify-between text-slate-400">
+          <span class="truncate max-w-[180px] font-medium">${n.faction}</span>
+          <span class="italic text-amber-400 font-crimson font-semibold">${(n.attitude || '').split('/')[0]}</span>
+        </div>
+        <div class="flex items-center justify-between pt-1 text-xs">
+          <a href="wiki/pnjs/${wikiSlug}" target="_blank" class="text-amber-400 hover:text-amber-200 transition font-crimson text-sm flex items-center gap-1 font-semibold">
+            <i data-lucide="book-open" class="w-3.5 h-3.5"></i> Ficha en Wiki
+          </a>
+          <button onclick="openLightbox('${n.image}', '${n.name} — ${n.nickname || n.role}')" class="text-slate-400 hover:text-slate-200 transition font-crimson text-sm flex items-center gap-1">
+            <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i> Ver retrato
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderNpcs() {
+  const container = document.getElementById('npcsGrid');
+  if (!container || !window.CAMPAIGN_DATA) return;
+
+  const npcs = window.CAMPAIGN_DATA.npcs || [];
+  const search = document.getElementById('npcSearchInput')?.value.toLowerCase().trim() || '';
+  const filterCat = currentNpcCategory;
+
+  const filterNpcItem = (n) => {
+    const matchesSearch = !search || 
+      (n.name && n.name.toLowerCase().includes(search)) || 
+      (n.nickname && n.nickname.toLowerCase().includes(search)) || 
+      (n.role && n.role.toLowerCase().includes(search)) ||
+      (n.category && n.category.toLowerCase().includes(search)) ||
+      (n.notes && n.notes.toLowerCase().includes(search)) ||
+      (n.faction && n.faction.toLowerCase().includes(search)) ||
+      (n.location && n.location.toLowerCase().includes(search));
+
+    const matchesCategory = filterCat === 'all' || 
+      (filterCat === 'Prófugo' && (n.status.toLowerCase().includes('busca') || n.status.toLowerCase().includes('prófugo'))) ||
+      n.category === filterCat ||
+      n.location.includes(filterCat);
+
+    return matchesSearch && matchesCategory;
+  };
+
+  const filtered = npcs.filter(filterNpcItem);
+
+  container.innerHTML = '';
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="text-center py-12 bg-slate-900/40 rounded-2xl border border-slate-800 text-slate-400 font-crimson text-lg">
+        <i data-lucide="user-x" class="w-10 h-10 mx-auto text-amber-500/40 mb-3"></i>
+        <p>No se encontraron personajes para los criterios especificados.</p>
+        <button onclick="setNpcCategoryFilter('all'); if(document.getElementById('npcSearchInput')) document.getElementById('npcSearchInput').value='';" class="mt-3 text-sm text-amber-400 hover:underline">Restablecer filtros</button>
+      </div>
+    `;
+    initLucide();
+    return;
+  }
+
+  // If viewing 'all' and no active text search: group by canonical categories
+  if (filterCat === 'all' && !search) {
+    NPC_CATEGORIES.forEach(catMeta => {
+      const catNpcs = npcs.filter(n => n.category === catMeta.id);
+      if (catNpcs.length === 0) return;
+
+      const groupWrapper = document.createElement('div');
+      groupWrapper.className = 'npc-category-group space-y-4';
+
+      groupWrapper.innerHTML = `
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-amber-500/30 bg-gradient-to-r ${catMeta.color} p-3 rounded-xl border border-slate-800">
+          <div class="flex items-center gap-2.5">
+            <span class="text-2xl">${catMeta.icon}</span>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-cinzel text-lg sm:text-xl font-bold text-amber-100 tracking-wide">${catMeta.name}</h3>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-semibold border border-amber-500/30 font-cinzel">${catNpcs.length} PNJs</span>
+              </div>
+              <p class="text-xs text-slate-300 font-crimson mt-0.5">${catMeta.desc}</p>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          ${catNpcs.map(n => createNpcCardHtml(n)).join('')}
+        </div>
+      `;
+
+      container.appendChild(groupWrapper);
+    });
+  } else {
+    // Flat filtered grid
+    const grid = document.createElement('div');
+    grid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6';
+    grid.innerHTML = filtered.map(n => createNpcCardHtml(n)).join('');
+    container.appendChild(grid);
+  }
+
+  initLucide();
 }
 
 // -------------------------------------------------------------

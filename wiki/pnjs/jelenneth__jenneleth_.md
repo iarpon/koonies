@@ -1,7 +1,9 @@
 # Jelenneth (Jenneleth)
 > *La Maga Samaritana*
 
-- **Rol / Profesión:** Maga y Sanadora / Aprendiz de Tauster
+- **Categoría:** Rimed Mallow
+- **Raza / Edad:** Humana (21 años)
+- **Rol / Profesión:** Maga y Erudita / Aprendiz de Tauster
 - **Ubicación:** Milborne & Thurmaster
 - **Facción:** Aliada Íntima de Sakura y Los Koonies
 - **Actitud hacia el Grupo:** Muy amigable / 'Hermana de corazón' de Sakura
@@ -10,7 +12,7 @@
 ---
 
 ## 📝 Notas y Observaciones
-Chica joven con capa azul y bolsa de viaje pesada. Aprendiz del mago Tauster. Examinó el Ojo de J'karaa con gran urgencia y guió al grupo hasta Thurmaster.
+Joven maga de mirada despierta con capa azul y alforja repleta de pergaminos. Aprendiz aventajada del maestro Tauster. Conoció a los Koonies a bordo del Rimed Mallow, donde entabló una fraternal amistad con Sakura. Ayudó a inspeccionar el Ojo de J'karaa y facilitó la llegada del grupo a Thurmaster.
 
 ---
-[[README|← Volver al Índice]]
+[[README|← Volver al Índice de la Wiki]]

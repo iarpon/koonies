@@ -433,28 +433,44 @@
       <div class="section-banner p-6 sm:p-8" style="background-image: url('images/asset_1603148333.jpg');">
         <div class="section-banner-content flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <span class="text-xs uppercase font-bold tracking-widest text-amber-400 font-cinzel">Directorio de Thir</span>
+            <span class="text-xs uppercase font-bold tracking-widest text-amber-400 font-cinzel">Directorio Canónico de Thir & tldraw</span>
             <h2 class="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-bold text-amber-100">Dramatis Personae & Facciones</h2>
-            <p class="text-xs text-slate-300 font-crimson text-base mt-1">Aliados, sabios, consejeros kunitas (incluida Katsumi), magistrados y antagonistas.</p>
+            <p class="text-sm sm:text-base text-slate-300 font-crimson mt-1">23 personajes organizados según el mural oficial: Campamento Kunita, Ciudad de Elken, Rimed Mallow, Viladel y misterios.</p>
           </div>
 
-          <!-- Search & Filter NPCs -->
-          <div class="flex items-center gap-2">
-            <input type="text" id="npcSearchInput" oninput="filterNpcs()" placeholder="Buscar PNJ..." class="px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-slate-200 focus:outline-none focus:border-amber-500">
-            <select id="npcLocationFilter" onchange="filterNpcs()" class="px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-slate-200 focus:outline-none focus:border-amber-500">
-              <option value="all">Todas las regiones</option>
-              <option value="Elken">Ciudad de Elken</option>
-              <option value="Milborne">Milborne & Thurmaster</option>
-              <option value="Viladel">Isla de Viladel</option>
-              <option value="Campamento">Campamento Kunita</option>
-              <option value="Prófugo">En busca y captura</option>
+          <!-- Search & Dropdown Filter -->
+          <div class="flex flex-wrap sm:flex-nowrap items-center gap-2">
+            <div class="relative flex-1 sm:w-60">
+              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+              <input type="text" id="npcSearchInput" oninput="filterNpcs()" placeholder="Buscar PNJ por nombre, rol o notas..." class="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-amber-500 placeholder:text-slate-500">
+            </div>
+            <select id="npcLocationFilter" onchange="onNpcSelectFilterChange(this.value)" class="px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-amber-500">
+              <option value="all">Todas las categorías (23)</option>
+              <option value="Campamento Kunita en Elken">🏕️ Campamento Kunita en Elken (4)</option>
+              <option value="Ciudad de Elken">🏰 Ciudad de Elken (9)</option>
+              <option value="Rimed Mallow">⛵ Rimed Mallow (5)</option>
+              <option value="Isla de Viladel">🏝️ Isla de Viladel (1)</option>
+              <option value="Valle de Milborne & Thurmaster">🌲 Valle de Milborne & Thurmaster (2)</option>
+              <option value="Misterios Arcanos & Nigromancia">🔮 Misterios Arcanos & Nigromancia (2)</option>
+              <option value="Prófugo">🚨 En busca y captura (2)</option>
             </select>
           </div>
         </div>
+
+        <!-- Category Pill Navigation (mirroring tldraw sections) -->
+        <div class="mt-5 pt-4 border-t border-amber-500/20 flex items-center gap-2 overflow-x-auto pb-1 max-w-full scrollbar-none">
+          <button onclick="setNpcCategoryFilter('all')" class="npc-cat-btn active px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-amber-500/20 text-amber-300 border border-amber-500/40 transition" data-cat="all">Todos (23)</button>
+          <button onclick="setNpcCategoryFilter('Campamento Kunita en Elken')" class="npc-cat-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-slate-900/80 text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition" data-cat="Campamento Kunita en Elken">🏕️ Campamento Kunita (4)</button>
+          <button onclick="setNpcCategoryFilter('Ciudad de Elken')" class="npc-cat-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-slate-900/80 text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition" data-cat="Ciudad de Elken">🏰 Ciudad de Elken (9)</button>
+          <button onclick="setNpcCategoryFilter('Rimed Mallow')" class="npc-cat-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-slate-900/80 text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition" data-cat="Rimed Mallow">⛵ Rimed Mallow (5)</button>
+          <button onclick="setNpcCategoryFilter('Isla de Viladel')" class="npc-cat-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-slate-900/80 text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition" data-cat="Isla de Viladel">🏝️ Isla de Viladel (1)</button>
+          <button onclick="setNpcCategoryFilter('Valle de Milborne & Thurmaster')" class="npc-cat-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-slate-900/80 text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition" data-cat="Valle de Milborne & Thurmaster">🌲 Milborne & Thurmaster (2)</button>
+          <button onclick="setNpcCategoryFilter('Misterios Arcanos & Nigromancia')" class="npc-cat-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-slate-900/80 text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition" data-cat="Misterios Arcanos & Nigromancia">🔮 Misterios & Nigromancia (2)</button>
+        </div>
       </div>
 
-      <!-- NPCs Grid -->
-      <div id="npcsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+      <!-- NPCs Container (Sectioned or Grid) -->
+      <div id="npcsGrid" class="space-y-8">
         <!-- Populated by JS -->
       </div>
 

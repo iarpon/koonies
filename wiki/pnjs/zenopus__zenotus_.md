@@ -1,16 +1,18 @@
 # Zenopus (Zenotus)
-> *El Mago de las Profundidades*
+> *El Archimago de la Colina*
 
-- **Rol / Profesión:** Archimago Nigromante / Erudito Olvidado
-- **Ubicación:** Torre de Zenopus, Elken (Histórico)
-- **Facción:** Círculo Arcano de Thir
-- **Actitud hacia el Grupo:** Misterio Histórico
-- **Estado Actual:** Desaparecido / Fallecido hace siglos
+- **Categoría:** Misterios Arcanos & Nigromancia
+- **Raza / Edad:** Humano (Histórico (Siglos atrás))
+- **Rol / Profesión:** Archimago Nigromante y Erudito Primordial
+- **Ubicación:** Torre en Ruinas del Cementerio, Elken
+- **Facción:** Círculo Arcano de Thir (Antiguo)
+- **Actitud hacia el Grupo:** Amenaza Histórica y Misterio
+- **Estado Actual:** Fallecido hace siglos
 
 ---
 
 ## 📝 Notas y Observaciones
-Construyó la torre sobre una ruina primordial. Descubrió la maldición de las venas negras y el remedio de Kanatsu-mi en el Río de la Vida.
+Poderoso mago que alzó su torre sobre un santuario primordial. Sus manuscritos secretos revelaron el origen del azote de las venas negras y el remedio de Kanatsu-mi en el Río de la Vida. Su torre alberga autómatas de bronce y cámaras selladas.
 
 ---
-[[README|← Volver al Índice]]
+[[README|← Volver al Índice de la Wiki]]

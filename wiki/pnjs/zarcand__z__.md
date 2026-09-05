@@ -1,16 +1,18 @@
 # Zarcand (Z.)
 > *El Nigromante del Tercer Ojo*
 
-- **Rol / Profesión:** Nigromante de los Callejones
-- **Ubicación:** Bajos Fondos de Elken
-- **Facción:** Cultos Prohibidos
-- **Actitud hacia el Grupo:** Enemigo Mortal
+- **Categoría:** Misterios Arcanos & Nigromancia
+- **Raza / Edad:** Humano (Desconocida)
+- **Rol / Profesión:** Nigromante de los Callejones de Elken
+- **Ubicación:** Bajos Fondos de Elken (Prófugo)
+- **Facción:** Cultos Nigrománticos Prohibidos
+- **Actitud hacia el Grupo:** Enemigo Mortal de Los Koonies
 - **Estado Actual:** Malherido / En paradero desconocido
 
 ---
 
 ## 📝 Notas y Observaciones
-Sakura le abrió una herida que parece un 'tercer ojo' en la frente durante el enfrentamiento en el almacén.
+Mago oscuro que operaba clandestinamente en un almacén portuario. Durante el combate final, Sakura le hendió una herida frontal que asemeja un 'tercer ojo' místico. Abandonó un valioso grimorio arcano antes de evadirse en las sombras.
 
 ---
-[[README|← Volver al Índice]]
+[[README|← Volver al Índice de la Wiki]]
