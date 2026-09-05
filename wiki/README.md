@@ -57,6 +57,7 @@ Bienvenido al repositorio digital y enciclopedia de **Las Crónicas de Los Kooni
 ## 🗺️ Cartografía & Misterios
 - **[[mapas/atlas|Atlas Oficial de 5 Mapas]]**
 - **[[lore_y_misterios/cabos-sueltos|Tablero de Misterios & Cabos Sueltos]]**
+- **[[lore_y_misterios/frescos-kanatsu-mi|🏛️ Los Frescos del Sanctum de Kanatsu-mi (La Llama Dorada & El Décimo Dios)]]**
 
 ---
 

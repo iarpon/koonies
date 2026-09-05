@@ -15,8 +15,8 @@ Compendio teológico, códices divinos y guía de órdenes clericales para **Las
 ## 🌟 Vínculos Divinos Directos con los Koonies
 | Deidad | Ámbitos Clave | Alineamiento | Vínculo con el Grupo |
 |---|---|---|---|
-| **🔥 Kagutsuchi** | Fuego, Forja, Purificación, Renovación | CN | **Patrón supremo de Kazgrim.** Eje de la forja sagrada enana de Karak-Kharag revelada por El Viejo Oso. |
-| **🔮 Shien** | Magia Ordenada, Muerte Ritual, Belleza | LN | **Patrona de Katsumi y de los 40 refugiados kunitas** (*Llamas Custodias / Hi no Mamori*). |
+| **🔥 Kagutsuchi** | Fuego, Forja, Purificación, Renovación | CN | **Patrón supremo de Kazgrim.** Eje de la forja sagrada enana de Karak-Kharag. Los **Frescos de Kanatsu-mi** revelaron su Llama Dorada ascendente que nutre y coexiste con el agua. |
+| **🔮 Shien** | Magia Ordenada, Muerte Ritual, Belleza | LN | **Patrona de Katsumi y de los 40 refugiados kunitas** (*Llamas Custodias / Hi no Mamori*). Su triple y deliberada omisión en Kanatsu-mi es uno de los mayores enigmas del grupo. |
 | **✨ Liryel** | Magia, Misterio, Sueños, Inspiración | CB | **Invocada por Kazgrim en la oubliette (Sesión 4)**; concedió el orbe celeste que reveló la trampilla de escape. |
 | **☀️ Solkarion** | Sol Divino, Ley Imperial, Inquisición | LB | **Fe oficial del Imperio de Thir y de Seraphine Alondar.** Doctrina monoteísta intransigente contra cultos extranjeros. |
 
@@ -480,7 +480,7 @@ Conocido como la Corte Celestial, este panteón reúne a los kami mayores que ve
 - **Ámbitos (Portafolio):** Fuego, Destrucción, Purificación, Pasión, Renovación
 - **Símbolo Sagrado:** Una llama estilizada en rojo y dorado
 - **Adoradores Principales:** Kagutsuchi es venerado por herreros, guerreros, exorcistas y todos aquellos que creen en el poder del fuego para destruir y purificar. Los cultos rurales le ofrecen plegarias durante incendios rituales, mientras que en las ciudades sus templos son visitados por quienes buscan fuerza o catarsis.
-- **⚡ Vínculo con los Koonies:** ¡Patrón sagrado de Kazgrim! Señor del fuego primordial, la forja y la renovación por las llamas. Eje de la misión enana de Karak-Kharag.
+- **⚡ Vínculo con los Koonies:** ¡Patrón sagrado de Kazgrim! Señor del fuego primordial, la forja y la renovación por las llamas. Eje de la misión enana de Karak-Kharag. Los **[[lore_y_misterios/frescos-kanatsu-mi|Frescos del Sanctum de Kanatsu-mi]]** han revelado su **Llama Dorada ascendente**: un fuego que nutre la vida, reconstruye tras la ceniza y coexiste en armonía con el agua en la fuente sagrada.
 
 #### Sacerdocio: Seguidores del Fuego Eterno (Enka no Tomoshibi)
 - **Requisitos de Habilidad:** Sabiduría 14, Constitución 13
@@ -534,7 +534,7 @@ Conocido como la Corte Celestial, este panteón reúne a los kami mayores que ve
 - **Ámbitos (Portafolio):** Magia ordenada, Muerte, Belleza, Purificación
 - **Símbolo Sagrado:** Un círculo con una llama púrpura estilizada en su interior
 - **Adoradores Principales:** Shien es adorada por magas, jueces, guardianes de tumbas y todos aquellos que buscan armonizar la magia con el orden. Sus fieles incluyen artistas y sacerdotisas que valoran la belleza como reflejo del orden interno. La veneran también quienes temen la corrupción de la magia y desean mantener su pureza.
-- **⚡ Vínculo con los Koonies:** ¡Patrona de Katsumi y de las Llamas Custodias (Hi no Mamori)! Diosa de la magia ordenada y la purificación ritual. Crucial para los refugiados kunitas.
+- **⚡ Vínculo con los Koonies:** ¡Patrona de Katsumi y de las Llamas Custodias (Hi no Mamori)! Su deliberada y sistemática ausencia en Kanatsu-mi (puerta exterior de obsidiana, estanterías y los **[[lore_y_misterios/frescos-kanatsu-mi|Frescos del Sanctum]]** calculados geométricamente para diez dioses pero con solo nueve figuras) constituye uno de los mayores enigmas teológicos del grupo.
 
 #### Sacerdocio: Llamas Custodias (Hi no Mamori / Murasaki no Hi)
 - **Requisitos de Habilidad:** Sabiduría 15, Inteligencia 14, Carisma 13

@@ -73,6 +73,9 @@
       <a href="#ciudadela" class="quick-chip px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold text-amber-200 border-amber-500/50 flex items-center gap-1">
         <i data-lucide="flame" class="w-3 h-3 text-amber-400"></i> Tu Trama
       </a>
+      <a href="#frescos" class="quick-chip px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold text-orange-200 border-orange-500/50 flex items-center gap-1">
+        <i data-lucide="sparkles" class="w-3 h-3 text-orange-400"></i> Frescos
+      </a>
       <a href="#resumen" class="quick-chip px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold flex items-center gap-1.5">
         <i data-lucide="scroll" class="w-3 h-3 text-orange-400"></i> Resumen
       </a>
@@ -311,6 +314,82 @@
           <a href="index.html#deities" onclick="localStorage.setItem('activeTab', 'deities')" class="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 font-medium">
             <span>Ver el Compendio Completo de 23 Deidades en el Portal Web</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2B. LA REVELACIÓN DE LOS FRESCOS DEL SANCTUM -->
+    <section id="frescos" class="rounded-3xl p-5 sm:p-6 border-2 border-orange-500/50 bg-gradient-to-br from-orange-950/40 via-slate-900 to-black space-y-4 shadow-xl">
+      <div class="flex items-center gap-2">
+        <span class="p-2 rounded-xl bg-orange-500/20 text-orange-300 border border-orange-500/40">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+        </span>
+        <div>
+          <span class="text-xs sm:text-sm uppercase font-bold tracking-widest text-orange-400">¡Tu Gran Revelación en Kanatsu-mi!</span>
+          <h2 class="font-cinzel text-xl sm:text-2xl font-bold text-white">Los Frescos del Sanctum: La Llama Dorada</h2>
+        </div>
+      </div>
+
+      <div class="space-y-3 text-sm sm:text-base text-slate-200 font-crimson leading-relaxed">
+        <p>
+          Al cruzar tú el umbral del sanctum subterráneo con tu <strong>símbolo sagrado de Kagutsuchi descubierto sobre el pecho</strong>, las cuatro paredes de la cámara de la fuente cobraron vida despacio, revelando un ciclo sagrado que conmociona los cimientos de tu fe:
+        </p>
+
+        <!-- 4 Panels Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-sans">
+          <div class="p-3.5 rounded-xl bg-black/60 border border-amber-500/30 space-y-1.5">
+            <span class="text-amber-400 font-cinzel font-bold text-xs uppercase flex items-center gap-1">
+              <span>🌅</span> Panel I: La Doble Llama
+            </span>
+            <p class="font-crimson text-slate-300 text-xs sm:text-sm leading-snug">
+              Kagutsuchi sostiene dos llamas: una <strong>roja descendente</strong> (la furia destructiva que conoces) y una <strong>dorada ascendente</strong> que no quema: <em>nutre y hace crecer</em>. Nueve dioses en arco celeste asimétrico diseñado para diez.
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-black/60 border border-blue-500/30 space-y-1.5">
+            <span class="text-blue-300 font-cinzel font-bold text-xs uppercase flex items-center gap-1">
+              <span>🌊</span> Panel II: Comunión Elemental
+            </span>
+            <p class="font-crimson text-slate-300 text-xs sm:text-sm leading-snug">
+              Los sacerdotes no son siervos: comparten la fuerza con el fuego y el agua. Las antiguas oraciones que aprendiste de memoria no eran metáforas poéticas, sino <strong>instrucciones técnicas literales</strong>.
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-black/60 border border-emerald-500/30 space-y-1.5">
+            <span class="text-emerald-300 font-cinzel font-bold text-xs uppercase flex items-center gap-1">
+              <span>🏛️</span> Panel III: Fuego y Agua Unidos
+            </span>
+            <p class="font-crimson text-slate-300 text-xs sm:text-sm leading-snug">
+              Kagutsuchi toca la fuente con la llama dorada. La piedra brilla demostrando que <strong>el fuego y el agua coexisten en armonía</strong>, rompiendo el dogma de que se destruyen mutuamente.
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-black/60 border border-purple-500/30 space-y-1.5">
+            <span class="text-purple-300 font-cinzel font-bold text-xs uppercase flex items-center gap-1">
+              <span>🛡️</span> Panel IV: El Vigía Anónimo
+            </span>
+            <p class="font-crimson text-slate-300 text-xs sm:text-sm leading-snug">
+              Una figura humana solitaria de espaldas, sin armas ni símbolos, mantiene a raya la oscuridad exterior solo con su mirada. Detrás, los 9 dioses en círculo protector dejan un hueco exacto para un décimo hermano.
+            </p>
+          </div>
+        </div>
+
+        <!-- The 3 Enigmas callout -->
+        <div class="p-3.5 rounded-xl bg-orange-950/40 border border-orange-500/40 space-y-2 text-xs sm:text-sm">
+          <div class="font-cinzel font-bold text-orange-300 flex items-center gap-1.5">
+            <i data-lucide="help-circle" class="w-4 h-4 text-orange-400"></i> Los 3 Grandes Enigmas para Kaz:
+          </div>
+          <ul class="list-disc list-inside space-y-1.5 text-slate-300 font-crimson text-xs sm:text-sm">
+            <li><strong>La Ausencia de Shien:</strong> Ni rastro de la deidad de Katsumi en la puerta, los estantes ni los frescos. ¿Por qué la Corte calculada para diez fue pintada solo con nueve?</li>
+            <li><strong>El Observador Iluminado:</strong> Todos los paneles están pintados desde un único punto de vista elevado, y las sombras se alejan de ti, como si la luz brotara del propio espectador.</li>
+            <li><strong>La Forja de las Montañas:</strong> Si la ciudadela enana que describió El Viejo Oso contiene escrituras idénticas a este templo, es muy probable que allí aguarde el secreto de la <strong>Llama Dorada de Kagutsuchi</strong>.</li>
+          </ul>
+          <div class="pt-2 border-t border-orange-500/30 flex items-center justify-between">
+            <span class="text-xs text-orange-300 font-medium">Documento completo en la Wiki:</span>
+            <a href="wiki/lore_y_misterios/frescos-kanatsu-mi.md" class="text-xs text-amber-300 hover:text-amber-200 font-bold flex items-center gap-1 transition">
+              <span>frescos-kanatsu-mi.md</span> ➔
+            </a>
+          </div>
         </div>
       </div>
     </section>

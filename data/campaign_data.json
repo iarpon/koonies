@@ -1210,6 +1210,23 @@
   ],
   "mysteries": [
     {
+      "id": "frescos-kanatsu-mi",
+      "title": "Los Frescos del Sanctum de Kanatsu-mi y el Décimo Dios",
+      "priority": "Alta",
+      "status": "Descubierto / Enigma Teológico",
+      "category": "Destino de Kazgrim & Cosmología",
+      "image": "images/asset_2330689914.jpg",
+      "description": "Al entrar Kaz con su símbolo sagrado, las paredes del sanctum se iluminaron con cuatro frescos de la Corte Celestial. Revelan la Llama Dorada de Kagutsuchi que coexiste con el agua y nutre, un círculo de dioses concebido para diez pero pintado con nueve, la ausencia deliberada de Shien y un vigía solitario conteniendo la oscuridad exterior.",
+      "clues": [
+        "Panel I: Llegada a Thir-Lashan. Kagutsuchi porta una llama roja descendente (destrucción) y una dorada ascendente (crecimiento).",
+        "Panel II: Comunión elemental. Las antiguas oraciones litúrgicas de Kaz eran instrucciones técnicas literales.",
+        "Panel III: Kagutsuchi toca la fuente con fuego dorado. Fuego y agua coexisten sin destruirse en la piedra sagrada.",
+        "Panel IV: Un vigía anónimo de espaldas mantiene a raya la oscuridad exterior. El círculo protector divino tiene espacio para un décimo dios.",
+        "La Triple Ausencia de Shien: Omitida en la puerta de obsidiana, los estantes superiores y los frescos por razones desconocidas.",
+        "Perspectiva fija: Todos los paneles comparten un punto de vista elevado idéntico y las sombras se alejan del espectador."
+      ]
+    },
+    {
       "id": "maldicion-glunt",
       "title": "La Maldición de las Venas Negras de Glunt",
       "priority": "Alta",
@@ -2517,7 +2534,7 @@
       "allies_enemies": "Aliados: Benzaiten (pasión creativa), Susano-o (tormenta y fuerza destructiva). Enemigos: Izanagi e Izanami, cuya armonía cíclica se ve alterada por la violencia del fuego. Relación ambivalente: Amaterasu, cuya luz comparte afinidad con el fuego pero en un marco más ordenado.",
       "dogma": "Kagutsuchi enseña que el fuego destruye, pero también purifica y da paso a la renovación. La pasión y la furia son fuerzas que deben abrazarse, pues en la llama se encuentra la verdad del cambio. Los fieles creen que la vida solo florece tras aceptar la destrucción necesaria.",
       "stronghold": "Los sacerdotes de Kagutsuchi, al alcanzar nivel 9, pueden fundar un Santuario de la Llama Renaciente, que actúa como templo y como lugar de exorcismos y ritos de fuego.",
-      "campaign_link": "¡Patrón sagrado de Kazgrim! Señor del fuego primordial, la forja y la renovación por las llamas. Eje de la misión enana de Karak-Kharag.",
+      "campaign_link": "¡Patrón sagrado de Kazgrim! Señor del fuego primordial, la forja y la renovación. Los Frescos del Sanctum de Kanatsu-mi han revelado su Llama Dorada ascendente: un fuego que nutre la vida, reconstruye tras la ceniza y coexiste en armonía con el agua en la fuente sagrada.",
       "icon": "🔥"
     },
     {
@@ -2656,7 +2673,7 @@
       "allies_enemies": "Aliados: Deidades de la ley, la purificación y el equilibrio cósmico. Enemigos: Dioses del caos, la corrupción mágica y aquellos que imponen la no-muerte sin consentimiento.",
       "dogma": "Shien enseña que la magia es una llama sagrada, destinada a iluminar y purificar. La muerte es un tránsito natural, que puede aceptarse o transformarse según la voluntad de cada uno, siempre que sea de manera libre y consciente. La belleza es un reflejo del orden, y todo ritual debe ejecutarse con perfección estética. La no-muerte sólo es aceptable con consentimiento libre y consciente; imponerla es un crimen contra el orden. Los templos y ceremonias deben ser impecables, pues la armonía exterior refleja la interna.",
       "stronghold": "Los sacerdotes de Shien, al alcanzar nivel 9, pueden fundar un Santuario Púrpura, que actúa como templo, centro de estudios mágicos y lugar de ceremonias funerarias y de purificación.",
-      "campaign_link": "¡Patrona de Katsumi y de las Llamas Custodias (Hi no Mamori)! Diosa de la magia ordenada y la purificación ritual. Crucial para los refugiados kunitas.",
+      "campaign_link": "¡Patrona de Katsumi y de las Llamas Custodias (Hi no Mamori)! Su deliberada y sistemática ausencia en Kanatsu-mi (puerta exterior de obsidiana, estanterías y los Frescos del Sanctum calculados geométricamente para diez dioses) constituye uno de los mayores enigmas teológicos del grupo.",
       "icon": "🔮"
     },
     {

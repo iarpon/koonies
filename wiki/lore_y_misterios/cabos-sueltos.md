@@ -1,5 +1,21 @@
 # 🧩 Tablero de Misterios & Cabos Sueltos
 
+## Los Frescos del Sanctum de Kanatsu-mi: La Llama Dorada y el Décimo Dios
+- **Prioridad:** Máxima / Crítica | **Estado:** Descubrimiento Reciente | **Categoría:** Teología & Destino de Kazgrim
+
+Al cruzar Kazgrim el umbral del sanctum con su símbolo sagrado, las cuatro paredes revelaron frescos que reescriben la cosmología kunita. Kagutsuchi posee una segunda llama dorada que coexiste con el agua y nutre en vez de destruir. Además, la Corte Celestial fue concebida para diez dioses pero solo se pintaron nueve; Shien ha sido deliberadamente excluida por tercera vez y un vigía anónimo de espaldas mantiene a raya el abismo exterior.
+
+### Pistas y Hallazgos:
+- **Panel I:** Llegada a Thir-Lashan. Doble llama de Kagutsuchi (roja descendente / dorada ascendente).
+- **Panel II:** Comunión de los clérigos con elementos puros. Las antiguas oraciones de Kaz eran instrucciones literales.
+- **Panel III:** Consagración del santuario. Fuego dorado y agua conviven en la fuente sin anularse.
+- **Panel IV:** El vigía sin rostro ni armas conteniendo la oscuridad exterior. Brecha en el círculo para un décimo dios.
+- **La Triple Ausencia de Shien:** Excluida de la puerta exterior de obsidiana, los estantes superiores y los frescos.
+- **Punto de vista constante:** Las sombras se alejan del espectador, como si el observador fuera la luz.
+- 👉 **[[frescos-kanatsu-mi|Ver Informe Completo de los Frescos del Sanctum]]**
+
+---
+
 ## La Maldición de las Venas Negras de Glunt
 - **Prioridad:** Alta | **Estado:** Contenida / Curada en Kanatsu-mi | **Categoría:** Salud de los Koonies
 
