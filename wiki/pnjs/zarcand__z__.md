@@ -4,7 +4,7 @@
 - **Categoría:** Misterios Arcanos & Nigromancia
 - **Raza / Edad:** Humano (Desconocida)
 - **Rol / Profesión:** Nigromante de los Callejones de Elken
-- **Ubicación:** Bajos Fondos de Elken (Prófugo)
+- **Ubicación:** Bajos Fondos de Elken (En paradero desconocido)
 - **Facción:** Cultos Nigrománticos Prohibidos
 - **Actitud hacia el Grupo:** Enemigo Mortal de Los Koonies
 - **Estado Actual:** Malherido / En paradero desconocido

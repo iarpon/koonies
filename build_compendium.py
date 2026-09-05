@@ -734,7 +734,7 @@ curated_npcs = [
         "race": "Humano",
         "age": "Desconocida",
         "role": "Nigromante de los Callejones de Elken",
-        "location": "Bajos Fondos de Elken (Prófugo)",
+        "location": "Bajos Fondos de Elken (En paradero desconocido)",
         "faction": "Cultos Nigrománticos Prohibidos",
         "attitude": "Enemigo Mortal de Los Koonies",
         "status": "Malherido / En paradero desconocido",

@@ -640,10 +640,15 @@ function setNpcCategoryFilter(cat) {
   
   // Sync pill buttons
   document.querySelectorAll('.npc-cat-btn').forEach(btn => {
+    const isProfugo = btn.dataset.cat === 'Prófugo';
     if (btn.dataset.cat === cat) {
-      btn.className = 'npc-cat-btn active px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-amber-500/20 text-amber-300 border border-amber-500/40 transition';
+      btn.className = isProfugo
+        ? 'npc-cat-btn active px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-rose-500/20 text-rose-300 border border-rose-500/50 transition'
+        : 'npc-cat-btn active px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-amber-500/20 text-amber-300 border border-amber-500/40 transition';
     } else {
-      btn.className = 'npc-cat-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-slate-900/80 text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition';
+      btn.className = isProfugo
+        ? 'npc-cat-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-slate-900/80 text-rose-300/80 hover:bg-slate-800 border border-rose-500/30 transition'
+        : 'npc-cat-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-slate-900/80 text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition';
     }
   });
 
@@ -752,10 +757,16 @@ function renderNpcs() {
       (n.faction && n.faction.toLowerCase().includes(search)) ||
       (n.location && n.location.toLowerCase().includes(search));
 
-    const matchesCategory = filterCat === 'all' || 
-      (filterCat === 'Prófugo' && (n.status.toLowerCase().includes('busca') || n.status.toLowerCase().includes('prófugo'))) ||
-      n.category === filterCat ||
-      n.location.includes(filterCat);
+    let matchesCategory = false;
+    if (filterCat === 'all') {
+      matchesCategory = true;
+    } else if (filterCat === 'Prófugo' || filterCat === 'busca' || filterCat === 'En busca y captura') {
+      // Filtrar estrictamente por orden de busca y captura en su estado oficial (Sutter Izen y Bruiser Holloway)
+      const statusLower = (n.status || '').toLowerCase();
+      matchesCategory = statusLower.includes('busca') || statusLower.includes('captura');
+    } else {
+      matchesCategory = n.category === filterCat || (n.location && n.location.includes(filterCat));
+    }
 
     return matchesSearch && matchesCategory;
   };
