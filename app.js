@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initLucide() {
-  if (window.lucide) {
-    lucide.createIcons();
+  if (typeof window !== 'undefined' && window.lucide && window.lucide.createIcons) {
+    window.lucide.createIcons();
   }
 }
 
@@ -62,18 +62,19 @@ function navigateTab(tabId) {
   // Update Nav Buttons (Desktop)
   document.querySelectorAll('.nav-btn').forEach(btn => {
     if (btn.dataset.tab === tabId) {
-      btn.className = 'nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition flex items-center gap-1.5 text-amber-300 bg-amber-500/10 border border-amber-500/30 shadow-sm';
+      btn.className = 'nav-btn active-tab px-2.5 lg:px-3 py-1.5 rounded-lg text-xs lg:text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-amber-300 bg-amber-500/15 border border-amber-500/50 shadow-sm';
     } else {
-      btn.className = 'nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60';
+      btn.className = 'nav-btn px-2.5 lg:px-3 py-1.5 rounded-lg text-xs lg:text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60 border border-transparent';
     }
   });
 
   // Mobile Nav Buttons
   document.querySelectorAll('.nav-mobile-btn').forEach(btn => {
     if (btn.dataset.tab === tabId) {
-      btn.className = 'nav-mobile-btn flex-shrink-0 flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold';
+      btn.className = 'nav-mobile-btn active-tab flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-amber-500/25 text-amber-300 border border-amber-500/60 font-bold shadow-[0_0_12px_-2px_rgba(245,158,11,0.3)]';
+      btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     } else {
-      btn.className = 'nav-mobile-btn flex-shrink-0 flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium';
+      btn.className = 'nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium hover:border-slate-700';
     }
   });
 
@@ -812,6 +813,23 @@ function renderMagicItems() {
 // DEITIES & PANTHEON
 // -------------------------------------------------------------
 let currentPantheonFilter = 'all';
+let currentDeitySummaryView = 'cards'; // 'cards' or 'table'
+
+function switchDeitySummaryView(mode) {
+  currentDeitySummaryView = mode;
+  const btnGrid = document.getElementById('deityViewModeGrid');
+  const btnTable = document.getElementById('deityViewModeTable');
+  if (btnGrid && btnTable) {
+    if (mode === 'cards') {
+      btnGrid.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm';
+      btnTable.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 text-slate-400 hover:text-slate-200 border border-transparent';
+    } else {
+      btnTable.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm';
+      btnGrid.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 text-slate-400 hover:text-slate-200 border border-transparent';
+    }
+  }
+  renderDeities();
+}
 
 function filterDeities(pantheon) {
   currentPantheonFilter = pantheon;
@@ -826,6 +844,199 @@ function filterDeities(pantheon) {
   });
 
   renderDeities();
+}
+
+function renderDeitySymbolsOverview(filtered) {
+  const container = document.getElementById('deitySymbolsContainer');
+  if (!container) return;
+
+  if (!filtered || filtered.length === 0) {
+    container.innerHTML = `
+      <div class="p-6 text-center bg-slate-950/40 rounded-xl border border-slate-800 text-slate-400 text-xs">
+        No se encontraron símbolos sagrados que coincidan con la búsqueda o filtro.
+      </div>
+    `;
+    return;
+  }
+
+  if (currentDeitySummaryView === 'table') {
+    // Render Comparative Table
+    let tableHtml = `
+      <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-inner">
+        <table class="deity-table">
+          <thead>
+            <tr>
+              <th class="text-left min-w-[170px]">Deidad & Epíteto</th>
+              <th class="text-left min-w-[260px]">Símbolo Sagrado (Heráldica)</th>
+              <th class="text-left min-w-[140px]">Panteón & Alineamiento</th>
+              <th class="text-left min-w-[160px]">Ámbitos Principales</th>
+              <th class="text-left min-w-[180px]">Orden Clerical</th>
+              <th class="text-center min-w-[90px]">Ficha</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/80 font-sans">
+    `;
+
+    filtered.forEach(d => {
+      let pantheonBadge = '<span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">🌿 Lyndoria</span>';
+      if (d.pantheon === 'Amatsukuni') {
+        pantheonBadge = '<span class="text-[10px] px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/30">🌸 Amatsukuni</span>';
+      } else if (d.pantheon === 'Amarkan') {
+        pantheonBadge = '<span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30">☀️ Amarkan</span>';
+      }
+
+      let campaignPill = '';
+      if (d.id === 'kagutsuchi') campaignPill = '<span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-500/25 text-amber-300 border border-amber-500/40 inline-block mt-1">🔥 Patrón Kazgrim</span>';
+      else if (d.id === 'shien') campaignPill = '<span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-purple-500/25 text-purple-300 border border-purple-500/40 inline-block mt-1">🔮 Patrona Katsumi</span>';
+      else if (d.id === 'liryel') campaignPill = '<span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-blue-500/25 text-blue-300 border border-blue-500/40 inline-block mt-1">✨ Invocada Thir</span>';
+      else if (d.id === 'solkarion') campaignPill = '<span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-500/25 text-amber-200 border border-amber-500/40 inline-block mt-1">☀️ Culto Thir</span>';
+
+      const portfolioTags = (d.portfolio || []).slice(0, 3).map(p => 
+        `<span class="inline-block text-[10px] px-1.5 py-0.5 mr-1 mb-1 rounded bg-slate-900 border border-slate-700/60 text-slate-300">${p}</span>`
+      ).join('');
+
+      tableHtml += `
+        <tr class="hover:bg-amber-500/5 transition">
+          <td class="align-top py-3 px-3">
+            <div class="flex items-start gap-2.5">
+              <span class="text-xl flex-shrink-0 mt-0.5">${d.icon || '✨'}</span>
+              <div>
+                <a href="javascript:void(0)" onclick="openDeityModal('${d.id}')" class="font-cinzel font-bold text-amber-200 hover:text-amber-100 hover:underline text-xs sm:text-sm block">
+                  ${d.name}
+                </a>
+                <span class="text-xs text-slate-400 font-crimson italic block">${d.title || d.rank}</span>
+                ${campaignPill}
+              </div>
+            </div>
+          </td>
+          <td class="align-top py-3 px-3">
+            <div class="p-2.5 rounded-xl bg-amber-950/20 border border-amber-500/25 text-amber-100 font-crimson text-xs sm:text-[13px] leading-relaxed">
+              <strong class="text-amber-400 font-cinzel text-[10px] uppercase block mb-0.5">Símbolo Sagrado:</strong>
+              "${d.symbol}"
+            </div>
+          </td>
+          <td class="align-top py-3 px-3">
+            <div class="space-y-1">
+              ${pantheonBadge}
+              <div class="text-[11px] text-slate-300 font-mono">${d.alignment} • ${d.rank}</div>
+            </div>
+          </td>
+          <td class="align-top py-3 px-3">
+            <div class="leading-tight">${portfolioTags}</div>
+          </td>
+          <td class="align-top py-3 px-3">
+            <div class="text-xs font-cinzel text-amber-200 font-semibold">${d.cleric_order}</div>
+            <div class="text-[10px] text-slate-400 font-mono mt-0.5">Armas: ${d.weapons || 'Especiales'}</div>
+          </td>
+          <td class="align-middle text-center py-3 px-3">
+            <button onclick="openDeityModal('${d.id}')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 text-xs font-semibold border border-slate-700 hover:border-amber-500/40 transition flex items-center justify-center gap-1 mx-auto">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> Ver
+            </button>
+          </td>
+        </tr>
+      `;
+    });
+
+    tableHtml += `
+          </tbody>
+        </table>
+      </div>
+    `;
+
+    container.innerHTML = tableHtml;
+  } else {
+    // Render Mosaico de Símbolos (Cards)
+    let gridHtml = `
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+    `;
+
+    filtered.forEach(d => {
+      let borderAccent = 'border-slate-800/90 hover:border-amber-500/50';
+      let haloGlow = 'from-amber-500/10 to-transparent';
+      let pantheonBadge = 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30';
+      let pantheonIcon = '🌿';
+
+      if (d.pantheon === 'Amatsukuni') {
+        borderAccent = 'border-slate-800/90 hover:border-purple-500/50';
+        haloGlow = 'from-purple-500/10 to-transparent';
+        pantheonBadge = 'bg-purple-500/10 text-purple-300 border-purple-500/30';
+        pantheonIcon = '🌸';
+      } else if (d.pantheon === 'Amarkan') {
+        borderAccent = 'border-slate-800/90 hover:border-amber-500/60 shadow-amber-500/10';
+        haloGlow = 'from-amber-500/20 to-transparent';
+        pantheonBadge = 'bg-amber-500/10 text-amber-300 border-amber-500/30';
+        pantheonIcon = '☀️';
+      }
+
+      let campaignBadge = '';
+      if (d.id === 'kagutsuchi') campaignBadge = '<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/25 text-amber-300 border border-amber-500/50">🔥 Patrón Kazgrim</span>';
+      else if (d.id === 'shien') campaignBadge = '<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-500/25 text-purple-300 border border-purple-500/50">🔮 Katsumi (Ausente)</span>';
+      else if (d.id === 'liryel') campaignBadge = '<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-500/25 text-blue-300 border border-blue-500/50">✨ Invocada Thir</span>';
+      else if (d.id === 'solkarion') campaignBadge = '<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/25 text-amber-200 border border-amber-500/50">☀️ Culto Thir</span>';
+
+      const portfolioTags = (d.portfolio || []).slice(0, 4).map(p => 
+        `<span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-900/90 border border-slate-700/60 text-slate-300">${p}</span>`
+      ).join(' ');
+
+      gridHtml += `
+        <div class="symbol-card-seal bg-gradient-to-b from-[#111622] to-[#0b0e14] p-4 rounded-xl border ${borderAccent} flex flex-col justify-between space-y-3 cursor-pointer group" onclick="openDeityModal('${d.id}')">
+          
+          <div class="space-y-2.5">
+            <!-- Header Tag Row -->
+            <div class="flex items-center justify-between gap-1 flex-wrap">
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full border ${pantheonBadge}">
+                ${pantheonIcon} ${d.pantheon}
+              </span>
+              ${campaignBadge || `<span class="text-[10px] font-mono text-slate-400">${d.alignment} • ${d.rank}</span>`}
+            </div>
+
+            <!-- Deity Title & Icon -->
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-br ${haloGlow} bg-slate-950 border border-amber-500/30 flex items-center justify-center text-2xl flex-shrink-0 shadow-md group-hover:scale-105 group-hover:border-amber-400 transition duration-300">
+                ${d.icon || '✨'}
+              </div>
+              <div class="min-w-0 flex-1">
+                <h4 class="font-cinzel text-base font-bold text-amber-200 group-hover:text-amber-300 transition truncate">
+                  ${d.name}
+                </h4>
+                <p class="font-crimson text-xs text-slate-300 italic truncate">${d.title || d.rank}</p>
+              </div>
+            </div>
+
+            <!-- PROMINENT SACRED SYMBOL BANNER -->
+            <div class="symbol-quote-banner p-2.5 rounded-xl space-y-1">
+              <div class="flex items-center gap-1.5 text-[10px] uppercase font-bold tracking-wider text-amber-300 font-cinzel">
+                <i data-lucide="sparkles" class="w-3 h-3 text-amber-400"></i> Símbolo Sagrado
+              </div>
+              <p class="font-crimson text-xs sm:text-[13px] text-amber-100 italic leading-snug">
+                "${d.symbol}"
+              </p>
+            </div>
+
+            <!-- Portfolio Chips -->
+            <div class="flex flex-wrap gap-1 pt-0.5">
+              ${portfolioTags}
+            </div>
+
+            <!-- Cleric Order -->
+            <div class="text-[11px] text-slate-400 font-sans border-t border-slate-800/80 pt-2 flex items-center justify-between">
+              <span class="truncate max-w-[190px] text-slate-300 font-medium">🛡️ ${d.cleric_order}</span>
+              <span class="text-amber-400 text-xs font-semibold group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">Ver ficha <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+            </div>
+          </div>
+
+        </div>
+      `;
+    });
+
+    gridHtml += `
+      </div>
+    `;
+
+    container.innerHTML = gridHtml;
+  }
+
+  initLucide();
 }
 
 function renderDeities() {
@@ -848,12 +1059,13 @@ function renderDeities() {
     if (search) {
       const matchName = d.name.toLowerCase().includes(search);
       const matchTitle = (d.title || '').toLowerCase().includes(search);
+      const matchSymbol = (d.symbol || '').toLowerCase().includes(search);
       const matchPortfolio = (d.portfolio || []).some(p => p.toLowerCase().includes(search));
       const matchOrder = (d.cleric_order || '').toLowerCase().includes(search);
       const matchPlane = (d.plane || '').toLowerCase().includes(search);
       const matchAlign = (d.alignment || '').toLowerCase().includes(search) || (d.alignment_name || '').toLowerCase().includes(search);
       const matchDogma = (d.dogma || '').toLowerCase().includes(search);
-      if (!matchName && !matchTitle && !matchPortfolio && !matchOrder && !matchPlane && !matchAlign && !matchDogma) {
+      if (!matchName && !matchTitle && !matchSymbol && !matchPortfolio && !matchOrder && !matchPlane && !matchAlign && !matchDogma) {
         return false;
       }
     }
@@ -864,6 +1076,9 @@ function renderDeities() {
   if (countLabel) {
     countLabel.textContent = `${filtered.length} deidades mostradas`;
   }
+
+  // Render the Sacred Symbols direct overview
+  renderDeitySymbolsOverview(filtered);
 
   container.innerHTML = '';
 

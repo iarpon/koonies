@@ -14,60 +14,64 @@
   <canvas id="ambientCanvas"></canvas>
 
   <!-- Top Navigation Bar -->
-  <header class="sticky top-0 z-40 bg-[#0c1017]/95 backdrop-blur-md border-b border-amber-500/20 px-3 sm:px-6 lg:px-8 py-3 transition-all">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
+  <header class="sticky top-0 z-40 bg-[#0a0d14]/95 backdrop-blur-md border-b border-amber-500/25 px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 transition-all shadow-[0_4px_24px_-4px_rgba(0,0,0,0.8)]">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
       
       <!-- Brand Logo -->
-      <div class="flex items-center gap-2.5 sm:gap-3 cursor-pointer" onclick="navigateTab('home')">
-        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-amber-500/20 to-purple-600/20 border border-amber-500/40 flex items-center justify-center shadow-lg shadow-amber-500/10 flex-shrink-0">
-          <i data-lucide="shield-alert" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400"></i>
+      <div class="flex items-center gap-2.5 sm:gap-3.5 cursor-pointer group flex-shrink-0" onclick="navigateTab('home')">
+        <div class="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-500/25 via-purple-600/20 to-slate-900 border border-amber-500/50 flex items-center justify-center shadow-lg shadow-amber-500/10 group-hover:border-amber-400 group-hover:scale-105 transition duration-300">
+          <i data-lucide="shield-alert" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 group-hover:text-amber-300 transition"></i>
+          <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
         </div>
         <div>
-          <h1 class="font-cinzel text-lg sm:text-xl font-bold tracking-wider text-amber-200 hover:text-amber-100 transition leading-tight">LOS KOONIES</h1>
-          <p class="text-xs tracking-wider text-slate-400 uppercase font-semibold">Crónica de Campaña • AD&D 2E</p>
+          <div class="flex items-center gap-2">
+            <h1 class="font-cinzel text-lg sm:text-xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-100 to-amber-300 group-hover:to-white transition leading-tight">LOS KOONIES</h1>
+            <span class="hidden xl:inline-block text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">AD&D 2E</span>
+          </div>
+          <p class="text-[11px] sm:text-xs tracking-wider text-slate-400 uppercase font-semibold">Crónica & Compendio de Campaña</p>
         </div>
       </div>
 
-      <!-- Main Navigation Tabs (Desktop) -->
-      <nav class="hidden md:flex items-center gap-1.5 lg:gap-2">
-        <button onclick="navigateTab('home')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-amber-300 bg-amber-500/10 border border-amber-500/30" data-tab="home">
+      <!-- Main Navigation Tabs (Desktop Dock) -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-1.5 p-1 bg-slate-950/70 rounded-xl border border-slate-800/80 shadow-inner">
+        <button onclick="navigateTab('home')" class="nav-btn active-tab px-2.5 lg:px-3 py-1.5 rounded-lg text-xs lg:text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-amber-300 bg-amber-500/15 border border-amber-500/50 shadow-sm" data-tab="home">
           <i data-lucide="compass" class="w-3.5 h-3.5"></i> Inicio
         </button>
-        <button onclick="navigateTab('sessions')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="sessions">
-          <i data-lucide="scroll" class="w-3.5 h-3.5"></i> Diario & Cronología
-          <span class="text-xs px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-sans font-bold">16</span>
+        <button onclick="navigateTab('sessions')" class="nav-btn px-2.5 lg:px-3 py-1.5 rounded-lg text-xs lg:text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60 border border-transparent" data-tab="sessions">
+          <i data-lucide="scroll" class="w-3.5 h-3.5"></i> Diario
+          <span class="text-[11px] px-1.5 py-0.2 rounded-full bg-amber-500/20 text-amber-300 font-sans font-bold">16</span>
         </button>
-        <button onclick="navigateTab('characters')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="characters">
-          <i data-lucide="users" class="w-3.5 h-3.5"></i> Protagonistas
-          <span class="text-xs px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-sans font-bold">5</span>
+        <button onclick="navigateTab('characters')" class="nav-btn px-2.5 lg:px-3 py-1.5 rounded-lg text-xs lg:text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60 border border-transparent" data-tab="characters">
+          <i data-lucide="users" class="w-3.5 h-3.5"></i> Koonies
+          <span class="text-[11px] px-1.5 py-0.2 rounded-full bg-purple-500/20 text-purple-300 font-sans font-bold">5</span>
         </button>
-        <button onclick="navigateTab('npcs')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="npcs">
-          <i data-lucide="drama" class="w-3.5 h-3.5"></i> Dramatis Personae
+        <button onclick="navigateTab('npcs')" class="nav-btn px-2.5 lg:px-3 py-1.5 rounded-lg text-xs lg:text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60 border border-transparent" data-tab="npcs">
+          <i data-lucide="drama" class="w-3.5 h-3.5"></i> PNJs
         </button>
-        <button onclick="navigateTab('deities')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="deities">
-          <i data-lucide="sun" class="w-3.5 h-3.5"></i> Deidades
-          <span class="text-xs px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-sans font-bold">23</span>
+        <button onclick="navigateTab('deities')" class="nav-btn group px-2.5 lg:px-3 py-1.5 rounded-lg text-xs lg:text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60 border border-transparent" data-tab="deities">
+          <i data-lucide="sun" class="w-3.5 h-3.5 text-amber-400 group-hover:rotate-45 transition-transform duration-300"></i> Deidades
+          <span class="text-[11px] px-1.5 py-0.2 rounded-full bg-amber-500/25 text-amber-300 font-sans font-bold border border-amber-500/40 shadow-[0_0_8px_rgba(245,158,11,0.25)]">23</span>
         </button>
-        <button onclick="navigateTab('maps')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="maps">
+        <button onclick="navigateTab('maps')" class="nav-btn px-2.5 lg:px-3 py-1.5 rounded-lg text-xs lg:text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60 border border-transparent" data-tab="maps">
           <i data-lucide="map" class="w-3.5 h-3.5"></i> Atlas
-          <span class="text-xs px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-sans font-bold">5</span>
+          <span class="text-[11px] px-1.5 py-0.2 rounded-full bg-rose-500/20 text-rose-300 font-sans font-bold">5</span>
         </button>
-        <button onclick="navigateTab('mysteries')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="mysteries">
+        <button onclick="navigateTab('mysteries')" class="nav-btn px-2.5 lg:px-3 py-1.5 rounded-lg text-xs lg:text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60 border border-transparent" data-tab="mysteries">
           <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> Misterios
         </button>
-        <button onclick="navigateTab('vault')" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60" data-tab="vault">
+        <button onclick="navigateTab('vault')" class="nav-btn px-2.5 lg:px-3 py-1.5 rounded-lg text-xs lg:text-sm font-semibold tracking-wide transition flex items-center gap-1.5 text-slate-300 hover:text-amber-200 hover:bg-slate-800/60 border border-transparent" data-tab="vault">
           <i data-lucide="coins" class="w-3.5 h-3.5"></i> Bóveda
         </button>
       </nav>
 
       <!-- Action Tools -->
-      <div class="flex items-center gap-1.5 sm:gap-2">
-        <button id="ambientSoundBtn" onclick="toggleAmbientAudio()" title="Ambientación sonora (Fuego & Lluvia)" class="p-2 rounded-lg bg-slate-800/80 hover:bg-amber-500/20 text-slate-300 hover:text-amber-300 border border-slate-700/60 transition flex items-center gap-1 text-xs">
+      <div class="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+        <button id="ambientSoundBtn" onclick="toggleAmbientAudio()" title="Ambientación sonora (Fuego & Lluvia)" class="p-2 rounded-xl bg-slate-800/80 hover:bg-amber-500/20 text-slate-300 hover:text-amber-300 border border-slate-700/60 transition flex items-center gap-1 text-xs shadow-sm">
           <i data-lucide="volume-x" id="soundIcon" class="w-4 h-4"></i>
           <span class="hidden sm:inline text-[11px] font-medium">Ambiente</span>
         </button>
 
-        <button onclick="openSearchModal()" class="px-2.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/60 flex items-center gap-2 text-xs transition">
+        <button onclick="openSearchModal()" class="px-2.5 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/60 flex items-center gap-2 text-xs transition shadow-sm">
           <i data-lucide="search" class="w-3.5 h-3.5 text-amber-400"></i>
           <span class="hidden sm:inline text-slate-400">Buscar...</span>
           <kbd class="hidden sm:inline px-1.5 py-0.5 text-[10px] bg-slate-900 rounded border border-slate-700 text-slate-400 font-sans">⌘K</kbd>
@@ -77,31 +81,33 @@
     </div>
 
     <!-- Mobile App-Style Tab Navigation -->
-    <div class="md:hidden flex items-center pt-2.5 mt-2 border-t border-slate-800/80 overflow-x-auto no-scrollbar gap-1.5 pb-0.5">
-      <button onclick="navigateTab('home')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold" data-tab="home">
-        <i data-lucide="compass" class="w-3.5 h-3.5"></i> Inicio
-      </button>
-      <button onclick="navigateTab('sessions')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="sessions">
-        <i data-lucide="scroll" class="w-3.5 h-3.5"></i> Diario (16)
-      </button>
-      <button onclick="navigateTab('characters')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="characters">
-        <i data-lucide="users" class="w-3.5 h-3.5"></i> Koonies (5)
-      </button>
-      <button onclick="navigateTab('npcs')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="npcs">
-        <i data-lucide="drama" class="w-3.5 h-3.5"></i> PNJs
-      </button>
-      <button onclick="navigateTab('deities')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="deities">
-        <i data-lucide="sun" class="w-3.5 h-3.5"></i> Deidades (23)
-      </button>
-      <button onclick="navigateTab('maps')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="maps">
-        <i data-lucide="map" class="w-3.5 h-3.5"></i> Atlas (5)
-      </button>
-      <button onclick="navigateTab('mysteries')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="mysteries">
-        <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> Misterios
-      </button>
-      <button onclick="navigateTab('vault')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="vault">
-        <i data-lucide="coins" class="w-3.5 h-3.5"></i> Bóveda
-      </button>
+    <div class="relative md:hidden pt-2.5 mt-2 border-t border-slate-800/80">
+      <div class="flex items-center overflow-x-auto no-scrollbar gap-1.5 pb-1 px-1 scroll-smooth">
+        <button onclick="navigateTab('home')" class="nav-mobile-btn active-tab flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-amber-500/25 text-amber-300 border border-amber-500/60 font-bold shadow-[0_0_12px_-2px_rgba(245,158,11,0.3)]" data-tab="home">
+          <i data-lucide="compass" class="w-3.5 h-3.5"></i> Inicio
+        </button>
+        <button onclick="navigateTab('sessions')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="sessions">
+          <i data-lucide="scroll" class="w-3.5 h-3.5"></i> Diario (16)
+        </button>
+        <button onclick="navigateTab('characters')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="characters">
+          <i data-lucide="users" class="w-3.5 h-3.5"></i> Koonies (5)
+        </button>
+        <button onclick="navigateTab('npcs')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="npcs">
+          <i data-lucide="drama" class="w-3.5 h-3.5"></i> PNJs
+        </button>
+        <button onclick="navigateTab('deities')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium hover:border-amber-500/40" data-tab="deities">
+          <i data-lucide="sun" class="w-3.5 h-3.5 text-amber-400"></i> Deidades (23)
+        </button>
+        <button onclick="navigateTab('maps')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="maps">
+          <i data-lucide="map" class="w-3.5 h-3.5"></i> Atlas (5)
+        </button>
+        <button onclick="navigateTab('mysteries')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="mysteries">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> Misterios
+        </button>
+        <button onclick="navigateTab('vault')" class="nav-mobile-btn flex-shrink-0 flex items-center gap-1.5 text-xs sm:text-sm px-3.5 py-2 rounded-full bg-slate-900/80 text-slate-300 border border-slate-800 font-medium" data-tab="vault">
+          <i data-lucide="coins" class="w-3.5 h-3.5"></i> Bóveda
+        </button>
+      </div>
     </div>
   </header>
 
@@ -647,6 +653,91 @@
 
       </div>
 
+      <!-- Direct Summary of Deities & Sacred Symbols Showcase -->
+      <div id="deitySymbolsSection" class="rpg-card p-5 sm:p-7 rounded-2xl border border-amber-500/30 bg-gradient-to-br from-slate-900/95 via-[#0f1420]/90 to-amber-950/20 space-y-5 shadow-2xl">
+        
+        <!-- Header of the Summary Section -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-800/80 pb-4">
+          <div class="space-y-1">
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/35 text-amber-300 text-xs font-semibold tracking-wider font-cinzel">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i> RESUMEN DIRECTO & SÍMBOLOS SAGRADOS
+            </div>
+            <h3 class="font-cinzel text-xl sm:text-2xl font-bold text-amber-100 flex items-center gap-2">
+              Compendio de Símbolos Sagrados y Atributos Divinos
+            </h3>
+            <p class="font-crimson text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+              Resumen directo de la heráldica sagrada, órdenes de clérigos especialistas, esferas de conjuros y atributos de las 23 deidades canónicas de Eranthys. Pulsa sobre cualquier deidad para abrir su ficha reglamentaria completa de AD&D 2ª Edición.
+            </p>
+          </div>
+
+          <!-- View Switcher (Mosaico de Símbolos / Tabla Resumen) -->
+          <div class="flex items-center gap-2 self-start lg:self-center flex-shrink-0">
+            <div class="bg-slate-950/80 p-1 rounded-xl border border-slate-800 flex items-center gap-1 shadow-inner">
+              <button id="deityViewModeGrid" onclick="switchDeitySummaryView('cards')" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm">
+                <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i> Mosaico de Símbolos
+              </button>
+              <button id="deityViewModeTable" onclick="switchDeitySummaryView('table')" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 text-slate-400 hover:text-slate-200 border border-transparent">
+                <i data-lucide="table" class="w-3.5 h-3.5"></i> Tabla Comparativa
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Campaign Connections Highlight Ribbon -->
+        <div class="space-y-2">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-amber-400/90 font-cinzel flex items-center gap-1.5">
+            <i data-lucide="shield" class="w-3.5 h-3.5 text-amber-400"></i> Deidades Clave con Vínculo Directo en la Campaña de los Koonies:
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <!-- Kagutsuchi (Kazgrim) -->
+            <div onclick="openDeityModal('kagutsuchi')" class="cursor-pointer group p-3 rounded-xl bg-slate-950/70 hover:bg-amber-950/30 border border-amber-500/30 hover:border-amber-500/60 transition flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/40 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition">🔥</div>
+              <div class="min-w-0">
+                <div class="text-[10px] font-bold uppercase tracking-wider text-amber-400 font-cinzel">Patrón de Kazgrim</div>
+                <div class="text-xs font-bold text-amber-100 group-hover:text-amber-300 truncate font-cinzel">Kagutsuchi</div>
+                <div class="text-[11px] text-slate-300 font-crimson truncate">Llama roja y dorada</div>
+              </div>
+            </div>
+
+            <!-- Shien (Katsumi / Enigma) -->
+            <div onclick="openDeityModal('shien')" class="cursor-pointer group p-3 rounded-xl bg-slate-950/70 hover:bg-purple-950/30 border border-purple-500/30 hover:border-purple-500/60 transition flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/40 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition">🔮</div>
+              <div class="min-w-0">
+                <div class="text-[10px] font-bold uppercase tracking-wider text-purple-400 font-cinzel">Patrona de Katsumi</div>
+                <div class="text-xs font-bold text-purple-100 group-hover:text-purple-300 truncate font-cinzel">Shien (Llama Púrpura)</div>
+                <div class="text-[11px] text-slate-300 font-crimson truncate">Círculo con llama púrpura</div>
+              </div>
+            </div>
+
+            <!-- Liryel (Invocada en Thir) -->
+            <div onclick="openDeityModal('liryel')" class="cursor-pointer group p-3 rounded-xl bg-slate-950/70 hover:bg-blue-950/30 border border-blue-500/30 hover:border-blue-500/60 transition flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/40 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition">✨</div>
+              <div class="min-w-0">
+                <div class="text-[10px] font-bold uppercase tracking-wider text-blue-400 font-cinzel">Invocada en Thir</div>
+                <div class="text-xs font-bold text-blue-100 group-hover:text-blue-300 truncate font-cinzel">Liryel (Velo & Magia)</div>
+                <div class="text-[11px] text-slate-300 font-crimson truncate">Espiral azul con ojo blanco</div>
+              </div>
+            </div>
+
+            <!-- Solkarion (Imperio de Thir) -->
+            <div onclick="openDeityModal('solkarion')" class="cursor-pointer group p-3 rounded-xl bg-slate-950/70 hover:bg-amber-950/30 border border-amber-500/30 hover:border-amber-500/60 transition flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/40 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition">🌞</div>
+              <div class="min-w-0">
+                <div class="text-[10px] font-bold uppercase tracking-wider text-amber-400 font-cinzel">Fe Solar de Thir</div>
+                <div class="text-xs font-bold text-amber-100 group-hover:text-amber-300 truncate font-cinzel">Solkarion (Sol Eterno)</div>
+                <div class="text-[11px] text-slate-300 font-crimson truncate">Dragón alado en disco solar</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Symbols Content Container (Dynamic Cards or Table) -->
+        <div id="deitySymbolsContainer">
+          <!-- Populated dynamically by renderDeitySymbolsOverview() in app.js -->
+        </div>
+
+      </div>
+
       <!-- Filters, Search & Categories -->
       <div class="rpg-card p-4 sm:p-5 rounded-2xl border border-slate-800 space-y-4">
         <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
@@ -654,7 +745,7 @@
           <!-- Search input -->
           <div class="relative flex-1">
             <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-            <input type="text" id="deitySearchInput" oninput="renderDeities()" placeholder="Buscar por deidad, orden clerical, ámbito, alineamiento o plano..." class="w-full pl-10 pr-4 py-2 bg-slate-900/90 border border-slate-700/80 rounded-xl text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500/50">
+            <input type="text" id="deitySearchInput" oninput="renderDeities()" placeholder="Buscar por deidad, símbolo sagrado (llama, lobo, espiral...), orden clerical, ámbito o alineamiento..." class="w-full pl-10 pr-4 py-2 bg-slate-900/90 border border-slate-700/80 rounded-xl text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500/50">
           </div>
 
           <!-- Quick Stats -->
