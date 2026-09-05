@@ -105,7 +105,7 @@ function renderHomePartyLineup() {
         <img src="${c.primary_image}" alt="${c.name}" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/20 group-hover:opacity-0 transition"></div>
       </div>
-      <h4 class="font-cinzel text-xs sm:text-sm font-bold text-white group-hover:text-amber-200 transition truncate w-full">${c.name}</h4>
+      <h4 class="font-cinzel text-sm sm:text-base font-bold text-white group-hover:text-amber-200 transition truncate w-full">${c.name}</h4>
       <p class="text-xs font-semibold text-slate-400 truncate w-full mt-0.5">${c.title}</p>
       <span class="mt-2 text-xs font-semibold font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider" style="background-color: ${c.accent}25; color: ${c.accent}; border: 1px solid ${c.accent}40;">
         ${roleTag}
@@ -244,7 +244,7 @@ function renderSessionsList() {
           <span class="text-xs font-semibold font-sans text-slate-400 font-medium">${s.irl_date || ''}</span>
         </div>
 
-        <h4 class="font-cinzel font-bold text-sm sm:text-base text-slate-100 truncate ${isSelected ? 'text-amber-200' : ''}">
+        <h4 class="font-cinzel font-bold text-base sm:text-lg text-slate-100 truncate ${isSelected ? 'text-amber-200' : ''}">
           ${s.title}
         </h4>
 
@@ -309,9 +309,9 @@ function renderSessionReader(sessionNum) {
     }
 
     // Markdown-like parse
-    text = text.replace(/# (.*)/g, '<h1 class="font-cinzel text-xl text-amber-200 font-bold mt-4 mb-2">$1</h1>');
-    text = text.replace(/## (.*)/g, '<h2 class="font-cinzel text-lg text-slate-200 font-semibold mt-4 mb-2">$1</h2>');
-    text = text.replace(/### (.*)/g, '<h3 class="font-cinzel text-base text-amber-300 font-semibold mt-3 mb-1">$1</h3>');
+    text = text.replace(/# (.*)/g, '<h1 class="font-cinzel text-2xl sm:text-3xl text-amber-200 font-bold mt-5 mb-3">$1</h1>');
+    text = text.replace(/## (.*)/g, '<h2 class="font-cinzel text-xl sm:text-2xl text-slate-200 font-bold mt-5 mb-2.5">$1</h2>');
+    text = text.replace(/### (.*)/g, '<h3 class="font-cinzel text-lg sm:text-xl text-amber-300 font-semibold mt-4 mb-2">$1</h3>');
     text = text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>');
     text = text.replace(/\*(.*?)\*/g, '<em class="text-amber-100/90 italic">$1</em>');
     text = text.replace(/==(.*?)==/g, '<mark class="bg-amber-500/20 text-amber-200 px-1.5 py-0.5 rounded">$1</mark>');
@@ -366,7 +366,7 @@ function renderSessionReader(sessionNum) {
       </div>
 
       <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 space-y-1">
-        <h2 class="font-cinzel text-lg sm:text-2xl lg:text-3xl font-bold text-white drop-shadow-md leading-tight">
+        <h2 class="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-black text-white drop-shadow-md leading-tight">
           Sesión ${session.number}: ${session.title}
         </h2>
         <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs text-amber-300/90 pt-1">
@@ -454,7 +454,7 @@ function renderCharacters() {
         </div>
 
         <div class="absolute bottom-3 left-4 right-4">
-          <h3 class="font-cinzel text-xl font-bold text-white tracking-wide">${c.name}</h3>
+          <h3 class="font-cinzel text-2xl sm:text-3xl font-bold text-white tracking-wide">${c.name}</h3>
           <p class="text-xs font-medium text-amber-200">${c.title}</p>
         </div>
       </div>
@@ -631,7 +631,7 @@ function renderNpcs() {
               ${n.status || 'Estado Desconocido'}
             </span>
           </div>
-          <h4 class="font-cinzel text-sm sm:text-base font-bold text-white truncate mt-1">${n.name}</h4>
+          <h4 class="font-cinzel text-base sm:text-lg font-bold text-white truncate mt-1">${n.name}</h4>
           <p class="text-xs text-amber-300/90 italic font-crimson">${n.nickname || n.role}</p>
         </div>
       </div>
@@ -752,7 +752,7 @@ function renderMysteries() {
               ${m.status}
             </span>
           </div>
-          <h3 class="font-cinzel text-base sm:text-lg font-bold text-amber-100">${m.title}</h3>
+          <h3 class="font-cinzel text-lg sm:text-xl font-bold text-amber-100">${m.title}</h3>
           <p class="font-crimson text-slate-300 text-sm leading-relaxed">
             ${m.description}
           </p>

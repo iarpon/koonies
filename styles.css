@@ -185,8 +185,8 @@ code, pre, kbd, samp, .font-mono {
 .prose-rpg h1 {
   font-family: 'Cinzel', serif;
   color: var(--gold-light);
-  font-size: 2.1rem;
-  margin-top: 1.75rem;
+  font-size: 2.35rem;
+  margin-top: 1.85rem;
   margin-bottom: 0.85rem;
   border-bottom: 1px solid rgba(212, 168, 83, 0.25);
   padding-bottom: 0.5rem;
@@ -196,8 +196,8 @@ code, pre, kbd, samp, .font-mono {
   .prose-rpg h1 {
   font-family: 'Cinzel', serif;
   color: var(--gold-light);
-  font-size: 2.1rem;
-  margin-top: 1.75rem;
+  font-size: 2.35rem;
+  margin-top: 1.85rem;
   margin-bottom: 0.85rem;
   border-bottom: 1px solid rgba(212, 168, 83, 0.25);
   padding-bottom: 0.5rem;
@@ -208,8 +208,8 @@ code, pre, kbd, samp, .font-mono {
 .prose-rpg h2 {
   font-family: 'Cinzel', serif;
   color: #e2e8f0;
-  font-size: 1.65rem;
-  margin-top: 1.75rem;
+  font-size: 1.85rem;
+  margin-top: 1.85rem;
   margin-bottom: 0.65rem;
   display: flex;
   align-items: center;
@@ -226,8 +226,8 @@ code, pre, kbd, samp, .font-mono {
   .prose-rpg h2 {
   font-family: 'Cinzel', serif;
   color: #e2e8f0;
-  font-size: 1.65rem;
-  margin-top: 1.75rem;
+  font-size: 1.85rem;
+  margin-top: 1.85rem;
   margin-bottom: 0.65rem;
   display: flex;
   align-items: center;
@@ -239,8 +239,8 @@ code, pre, kbd, samp, .font-mono {
 .prose-rpg h3 {
   font-family: 'Cinzel', serif;
   color: var(--gold-primary);
-  font-size: 1.35rem;
-  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  margin-top: 1.6rem;
   margin-bottom: 0.5rem;
   word-break: break-word;
 }
