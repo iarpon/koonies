@@ -4,17 +4,7 @@
 - **Fecha en el Mundo:** 26 de Sulmar, Año 18 CL
 - **Fecha Real de Juego:** 11/04/26
 - **Localización:** Catacumbas Subterráneas de Viledel
-- **Experiencia Otorgada:** **Personaje               PX Base (3,330 / 5)         Clase             Total PX Final        10%**
-
-**Glunt                                      **666                            65                             **731               804  **
-
-**Hiroyuki                                **666                             65                            **731               804**
-
-**Sakura                                   **666                           100                           **766               842**
-
-**Ainur                                 **333/333                   65/200                    398/**533      398/**586
-
-**Kazgrim                                **666                            100                          **766                842**
+- **Experiencia Otorgada:** 730-840 PX (desglose detallado al final)
 
 ---
 

@@ -4,17 +4,7 @@
 - **Fecha en el Mundo:** 16 de Iryn, Año 19 CL
 - **Fecha Real de Juego:** 27/06/26
 - **Localización:** Estudio Superior de la Torre de Zenopus
-- **Experiencia Otorgada:** PX:
-
-Sakura 150 + 100  + 10% = 275
-
-Glunt: 150+10%= 165
-
-Hiro: 150+10%= 165
-
-Ainur: Ladrón 75+50+10%=137
-
-Ranger 75+50=125
+- **Experiencia Otorgada:** 125-275 PX (desglose detallado al final)
 
 ---
 

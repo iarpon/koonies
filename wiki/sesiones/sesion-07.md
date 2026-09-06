@@ -4,15 +4,7 @@
 - **Fecha en el Mundo:** 13 de Iryn, Año 19 CL
 - **Fecha Real de Juego:** 09/05/26
 - **Localización:** Taberna del Ganso — Almacenes del Puerto
-- **Experiencia Otorgada:** PX: 
-
-Ainur: 60px +10%=66px ladrón 60+90px =150px para Ranger
-
-Sakura: 120 + 100px +10% = 242 px
-
-Glunt: 120+90px + 10%=231 px
-
-Hiroyuki: 120 + 90px+10% = 231 px
+- **Experiencia Otorgada:** 150-240 PX (desglose detallado al final)
 
 ---
 

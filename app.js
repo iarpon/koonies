@@ -206,6 +206,16 @@ function filterSessions(act) {
   renderSessionsList();
 }
 
+function formatXpBadge(xp) {
+  if (!xp || typeof xp !== 'string') return '250 PX';
+  const clean = xp.trim();
+  if (clean.length > 25 || clean.includes('\n') || clean.includes('#')) {
+    const m = clean.match(/(\d+[\d\s\-–+/]*\s*(?:PX|px|xp|XP))/);
+    return m ? m[1].toUpperCase() : '250 PX';
+  }
+  return clean;
+}
+
 function renderSessionsList() {
   const container = document.getElementById('sessionsListCol');
   if (!container || !window.CAMPAIGN_DATA) return;
@@ -259,7 +269,7 @@ function renderSessionsList() {
           <span class="truncate max-w-[150px] flex items-center gap-1">
             <i data-lucide="map-pin" class="w-3 h-3 text-amber-400"></i> ${s.location.split('—')[0]}
           </span>
-          <span class="text-amber-400 font-sans font-bold">${s.xp || ''}</span>
+          <span class="text-amber-400 font-sans font-bold">${formatXpBadge(s.xp)}</span>
         </div>
       </div>
     `;
@@ -304,11 +314,13 @@ function renderSessionReader(sessionNum) {
     // Normalize excessive tabs
     text = text.replace(/\t+/g, ' ');
 
-    // Special callout formatting for in-game letters/notes
+    // Special callout formatting for in-game letters/notes, loot, and xp rewards
     if (text.includes('Mr. Izen,') || text.includes('Harvey,') || text.includes('Señor Izen,')) {
       text = `<div class="rpg-callout-letter my-4"><i data-lucide="mail" class="w-4 h-4 text-amber-400 mb-1 inline mr-1"></i>${text}</div>`;
-    } else if (text.startsWith('PX:') || text.startsWith('PX ')) {
+    } else if (text.startsWith('PX:') || text.startsWith('PX ') || text.startsWith('PX.') || text.includes('PX Base') || text.includes('Recompensas de Experiencia') || text.includes('Reparto Final de PX')) {
       text = `<div class="rpg-callout-reward my-4"><strong class="font-cinzel text-emerald-300 block mb-1">⚔️ Recompensas de Experiencia:</strong>${text}</div>`;
+    } else if (text.startsWith('### 📦 Botín') || text.startsWith('### 💰 Inventario')) {
+      text = `<div class="rpg-card p-4 my-4 rounded-xl border border-amber-500/40 bg-gradient-to-br from-slate-900/90 to-amber-950/20">${text}</div>`;
     }
 
     // Markdown-like parse
@@ -368,14 +380,14 @@ function renderSessionReader(sessionNum) {
         </span>
       </div>
 
-      <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 space-y-1">
-        <h2 class="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-black text-white drop-shadow-md leading-tight">
+      <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 space-y-1 z-10 max-w-full pointer-events-none">
+        <h2 class="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-black text-white drop-shadow-md leading-tight line-clamp-2 pointer-events-auto">
           Sesión ${session.number}: ${session.title}
         </h2>
-        <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs text-amber-300/90 pt-1">
+        <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs text-amber-300/90 pt-1 pointer-events-auto">
           <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3.5 h-3.5 text-amber-400"></i> ${session.in_game_date || 'Fecha en el mundo no registrada'}</span>
           <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400"></i> ${session.location || 'Costa de los Naufragios'}</span>
-          <span class="flex items-center gap-1 text-emerald-400 font-sans font-bold"><i data-lucide="award" class="w-3.5 h-3.5"></i> ${session.xp || '250 PX'}</span>
+          <span class="flex items-center gap-1 text-emerald-400 font-sans font-bold"><i data-lucide="award" class="w-3.5 h-3.5"></i> ${formatXpBadge(session.xp)}</span>
         </div>
       </div>
     </div>

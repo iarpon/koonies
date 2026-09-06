@@ -4,17 +4,7 @@
 - **Fecha en el Mundo:** 14 de Iryn (Tarde), Año 19 CL
 - **Fecha Real de Juego:** 30/05/26
 - **Localización:** Criptas y Bóvedas de Zenopus
-- **Experiencia Otorgada:** PX: 
-
-Sakura 250 +10% = 275
-
-Glunt: 250+50+10%= 330
-
-Hiro: 250+50+10%= 330
-
-Ainur: Ladrón 125+10%=137 
-
-             Ranger 125+50=175
+- **Experiencia Otorgada:** 250-330 PX (desglose detallado al final)
 
 ---
 

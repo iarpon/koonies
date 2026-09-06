@@ -278,22 +278,22 @@ session_covers_unique = {
 }
 
 session_meta_titles = {
-    1: {"title": "La Danza de las Cadenas — El Despertar en la Playa", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "15 de Sulmar, Año 18 CL", "loc": "Isla de Viladel — Costa del Naufragio"},
-    2: {"title": "Sangre en la Colina — El Barranco de los Trasgos", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "20 de Sulmar, Año 18 CL", "loc": "Isla de la Tortuga — Colinas Heladas"},
-    3: {"title": "La Visión de Liryel & La Mansión de Viledel", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "24 de Sulmar, Año 18 CL", "loc": "Templo de la Diosa — Mansión de Viledel"},
-    4: {"title": "Las Catacumbas de Viledel — La Traición de Keestake", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "26 de Sulmar, Año 18 CL", "loc": "Catacumbas Subterráneas de Viledel"},
-    5: {"title": "Diario de Navegación — El Escape de Korinn en el Rimed Mallow", "act": "Acto II: La Travesía por el Mar de las Nieblas", "in_game": "2 de Iryn, Año 19 CL", "loc": "Mar Abierto — A bordo del Rimed Mallow"},
-    6: {"title": "La Llegada a Elken — Refugio en Tierra Extraña", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "12 de Iryn, Año 19 CL", "loc": "Ciudad de Elken — Costa de los Naufragios"},
-    7: {"title": "La Noche del Ganso y la Mañana del Mago", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "13 de Iryn, Año 19 CL", "loc": "Taberna del Ganso — Almacenes del Puerto"},
-    8: {"title": "Los Koonies y la Niebla que No Perdona", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "13 de Iryn (Noche), Año 19 CL", "loc": "Puertas de Elken — La Torre de la Niebla"},
-    9: {"title": "El Dedo de Kaz y el Secreto de la Torre Cerca del Cementerio", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "14 de Iryn, Año 19 CL", "loc": "Torre del Cementerio de Elken"},
-    10: {"title": "La Bóveda Prohibida — Pócimas y Manos Esqueléticas", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "14 de Iryn (Tarde), Año 19 CL", "loc": "Criptas y Bóvedas de Zenopus"},
-    11: {"title": "La Máscara Habla — Revelaciones de Mandra Voss", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "15 de Iryn, Año 19 CL", "loc": "La Casa de los Tesoros — Sala de la Máscara"},
-    12: {"title": "Anamnesis — El Diario Oculto de Zenopus y Kanatsu-mi", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "16 de Iryn, Año 19 CL", "loc": "Estudio Superior de la Torre de Zenopus"},
-    13: {"title": "Cadenas, Caminos y el Símbolo de Kagutsuchi", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "17-19 de Iryn, Año 19 CL", "loc": "Camino Fluvial de Elken hacia Milborne"},
-    14: {"title": "El Monolito del Río y la Senda del Musgo", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "20 de Iryn, Año 19 CL", "loc": "Monolito de la Gran Llama — Ribera del Río"},
-    15: {"title": "La Caverna de las Columnas Olvidadas", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "21 de Iryn, Año 19 CL", "loc": "Cueva Ancestral de Construcción Tosca"},
-    16: {"title": "La Hija del Molinero, el Enano que Recordaba y la Fuente de Vida", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "22-24 de Iryn, Año 19 CL", "loc": "Milborne, Thurmaster y Kanatsu-mi"}
+    1: {"title": "La Danza de las Cadenas — El Despertar en la Playa", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "15 de Sulmar, Año 18 CL", "loc": "Isla de Viladel — Costa del Naufragio", "xp": "250-350 PX"},
+    2: {"title": "Sangre en la Colina — El Barranco de los Trasgos", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "20 de Sulmar, Año 18 CL", "loc": "Isla de la Tortuga — Colinas Heladas", "xp": "250 PX"},
+    3: {"title": "La Visión de Liryel & La Mansión de Viledel", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "24 de Sulmar, Año 18 CL", "loc": "Templo de la Diosa — Mansión de Viledel", "xp": "250-350 PX"},
+    4: {"title": "Las Catacumbas de Viledel — La Traición de Keestake", "act": "Acto I: Naufragio en la Isla de Viladel", "in_game": "26 de Sulmar, Año 18 CL", "loc": "Catacumbas Subterráneas de Viledel", "xp": "730-840 PX"},
+    5: {"title": "Diario de Navegación — El Escape de Korinn en el Rimed Mallow", "act": "Acto II: La Travesía por el Mar de las Nieblas", "in_game": "2 de Iryn, Año 19 CL", "loc": "Mar Abierto — A bordo del Rimed Mallow", "xp": "100 PX"},
+    6: {"title": "La Llegada a Elken — Refugio en Tierra Extraña", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "12 de Iryn, Año 19 CL", "loc": "Ciudad de Elken — Costa de los Naufragios", "xp": "150-175 PX"},
+    7: {"title": "La Noche del Ganso y la Mañana del Mago", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "13 de Iryn, Año 19 CL", "loc": "Taberna del Ganso — Almacenes del Puerto", "xp": "150-240 PX"},
+    8: {"title": "Los Koonies y la Niebla que No Perdona", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "13 de Iryn (Noche), Año 19 CL", "loc": "Puertas de Elken — La Torre de la Niebla", "xp": "250-350 PX"},
+    9: {"title": "El Dedo de Kaz y el Secreto de la Torre Cerca del Cementerio", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "14 de Iryn, Año 19 CL", "loc": "Torre del Cementerio de Elken", "xp": "250-350 PX"},
+    10: {"title": "La Bóveda Prohibida — Pócimas y Manos Esqueléticas", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "14 de Iryn (Tarde), Año 19 CL", "loc": "Criptas y Bóvedas de Zenopus", "xp": "250-330 PX"},
+    11: {"title": "La Máscara Habla — Revelaciones de Mandra Voss", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "15 de Iryn, Año 19 CL", "loc": "La Casa de los Tesoros — Sala de la Máscara", "xp": "250-350 PX"},
+    12: {"title": "Anamnesis — El Diario Oculto de Zenopus y Kanatsu-mi", "act": "Acto III: La Ciudad Fronteriza de Elken", "in_game": "16 de Iryn, Año 19 CL", "loc": "Estudio Superior de la Torre de Zenopus", "xp": "125-275 PX"},
+    13: {"title": "Cadenas, Caminos y el Símbolo de Kagutsuchi", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "17-19 de Iryn, Año 19 CL", "loc": "Camino Fluvial de Elken hacia Milborne", "xp": "200 PX"},
+    14: {"title": "El Monolito del Río y la Senda del Musgo", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "20 de Iryn, Año 19 CL", "loc": "Monolito de la Gran Llama — Ribera del Río", "xp": "250-350 PX"},
+    15: {"title": "La Caverna de las Columnas Olvidadas", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "21 de Iryn, Año 19 CL", "loc": "Cueva Ancestral de Construcción Tosca", "xp": "215-500 PX"},
+    16: {"title": "La Hija del Molinero, el Enano que Recordaba y la Fuente de Vida", "act": "Acto IV: La Marcha a Milborne y Thurmaster", "in_game": "22-24 de Iryn, Año 19 CL", "loc": "Milborne, Thurmaster y Kanatsu-mi", "xp": "250-350 PX"}
 }
 
 curated_sessions = []
@@ -312,7 +312,8 @@ for sp in session_pages:
         "title": f"Sesión {s_num}",
         "act": "Crónica de Aventuras",
         "in_game": "Fecha desconocida",
-        "loc": "Costa de los Naufragios"
+        "loc": "Costa de los Naufragios",
+        "xp": "250-350 PX"
     })
     
     cover_img = session_covers_unique.get(s_num, "images/asset_10816842.png")
@@ -328,30 +329,106 @@ for sp in session_pages:
     
     used_images_in_session = set([cover_img])
     
-    for t in ordered_texts:
-        raw_t = t["text"].strip()
-        
-        # Clean long dashes that cause horizontal overflow
-        raw_t = re.sub(r'-{3,}', '---', raw_t)
-        # Normalize excessive tabs
-        raw_t = re.sub(r'\t+', ' ', raw_t)
-        
-        if "PX:" in raw_t or "PX " in raw_t or "Experiencia:" in raw_t:
-            xp_found = raw_t
+    # Custom curated narrative for Session 2 to unify combat, character moments, temple exploration, and loot cleanly without duplicates
+    if s_num == 2:
+        blocks = [
+            {
+                "text": """# **Sesión II — Sangre en la Colina**
+
+*La Isla de la Tortuga*
+
+Tras sobrevivir al naufragio y al negrero Hafkris, el grupo se aventuró hacia el interior de la isla buscando refugio contra el frío insoportable. En un barranco entre dos colinas, os topasteis con una visión brutal: una escaramuza entre orcos de la tribu **Hak-kubra** y goblins de la **Flota Sithisila**.
+
+## ***I. El Bautismo de Fuego***
+
+La batalla no fue una coreografía heroica, sino un caos desesperado por la supervivencia donde cada uno tuvo que recurrir a su ingenio:
+
+- **Kazgrim Iwakura y la Prueba del Destino:** Movido por su deseo de demostrar que la fuerza física no lo es todo para proteger a los suyos, Kazgrim intentó usar el entorno empujando rocas para aplastar a los enemigos. Sin embargo, la fortuna le fue esquiva y sus esfuerzos resultaron en vano. La situación se tornó trágica cuando una flecha de un arquero goblin le atravesó el cuello, dejándolo al borde de la muerte.
+- **Sakura, la Protectora Inesperada:** Mientras los demás se centraban en el acero, Sakura mantuvo la cabeza fría. Se dedicó a hostigar a los enemigos arrojando piedras con precisión y, en un acto heroico, logró estabilizar y salvar la vida de Kazgrim tras su herida mortal.
+- **Glunt y el Rechazo de la Tecnología:** Por tercera vez consecutiva, la ballesta pesada le falló a Glunt en el momento crítico. Frustrado, el coloso arrojó el arma mecánica al suelo y recurrió a su vieja fiabilidad: un **remo de madera**. Con él, cargó al cuerpo a cuerpo, demostrando que su fuerza bruta es mucho más efectiva con un madero que con engranajes.
+- **Hiroyuki, el Acero de Amatsukuni:** Con la espada ancha de Hafkris en mano, Hiroyuki fue un torbellino de metal. Se abrió paso entre las filas goblins, eliminando a todo aquel que se interpusiera en su camino con una determinación gélida.
+- **Ainur y el Rescate de la Esperanza:** Mientras el caos reinaba, Ainur centró sus esfuerzos en el objetivo táctico: rescatar al anciano maniatado que los orcos tenían como botín. Esquivando con agilidad los embates del imponente Líder Orco, logró poner a salvo al prisionero.""",
+                "images": ["images/asset_55929730.png", "images/asset_-963801075.png"]
+            },
+            {
+                "text": """## ***II. Keestake y el Hogar del Sea King***
+
+Finalmente, el grupo unió fuerzas para abatir al Líder Orco. Con la zona despejada y el corazón aún latiendo con fuerza, rescatasteis al hombre: **Keestake**, el antiguo palafrenero del Rey del Mar, Viledel.
+
+Keestake, un hombre demacrado que ha sobrevivido 60 años solo en esta roca comiendo ratas, os ha contado la verdad: este es el antiguo hogar del **Sea King** y estáis rodeados de enemigos que buscan su tesoro perdido. Por ahora, os ha guiado hacia el único lugar donde los orcos no se atreven a entrar por miedo a la ira divina: el **Templo de la Diosa**.""",
+                "images": ["images/asset_966061567.png"]
+            },
+            {
+                "text": """## ***III. El Camino al Santuario y el Templo de Liryel***
+
+Keestake guio al grupo por senderos ocultos y terrenos escabrosos para evitar las patrullas de orcos y goblins. Durante la marcha, el anciano intentaba relatar la trágica historia de la isla y el destino del Rey del Mar, Viledel. Glunt incomodó a Keestake con preguntas inocentes pero inadecuadas, lo que ofendió al anciano; a pesar de los esfuerzos carismáticos de Ainur por interceder, el guía se sumió en un silencio hosco durante el resto del trayecto.
+
+Al llegar, la visión del templo de dos pisos construido con maderas nobles fue desoladora. El vestíbulo y la sala principal estaban profanados con pintadas de excrementos hechas por los orcos Hak-kubra, un acto que consternó profundamente a Kazgrim.
+
+A pesar del cansancio, el grupo se puso en marcha para asegurar el refugio:
+- **Hoguera y Refugio:** Keestake, ayudado por Sakura, comenzó a despejar un área para una hoguera usando los restos de los muebles de lujo destrozados recientemente.
+- **Búsqueda en la Cocina:** Kazgrim y Glunt exploraron la cocina, la zona menos saqueada, encontrando trapos y palanganas, aunque no agua.
+- **El Pozo del Jardín:** Siguiendo las indicaciones de Keestake, Kazgrim cortó la espesa hiedra que bloqueaba la salida al patio trasero. Allí descubrieron un jardín descuidado pero no saqueado, con un pozo funcional que les proporcionó el agua necesaria para limpiar el templo.
+- **El Santuario y la Señal de la Diosa:** Tras cortinas azules (originalmente púrpuras y doradas) ahora sucias y raídas, hallaron la estatua de la diosa Liryel en su trono, con una mano y la nariz rotas. Tras limpiar la efigie y encender velas ceremoniales de salvia, Kazgrim experimentó una profunda paz y tranquilidad. Interpretó esta calma como una señal divina de su destino, lo que reforzó su motivación de reconstruir el templo algún día.""",
+                "images": ["images/asset_1815133749.png"]
+            },
+            {
+                "text": """## ***IV. Supervivencia, el Festín y los Turnos de Guardia***
+
+El ánimo del grupo mejoró considerablemente gracias a la pericia de Keestake:
+
+- **El Festín:** Keestake se escabulló en la oscuridad y regresó con cuatro conejos para la cena. El anciano atribuyó este éxito a la ballesta pesada, que ahora volvía a ser útil gracias a que Sakura había logrado comprender y ajustar su mecanismo.
+- **Información Táctica:** Ante las preguntas de Kazgrim, Keestake estimó que las fuerzas enemigas en la isla ascienden a unos 30 orcos y 40 goblins.
+- **Guardias y Descanso:** Dada la hora tardía, establecieron turnos de guardia de dos horas. Para combatir el frío, usaron las viejas cortinas del santuario a modo de mantas improvisadas.""",
+                "images": ["images/asset_1864454001.png"]
+            },
+            {
+                "text": """### 📦 Botín y Equipo Recuperado
+
+- **1 hacha de batalla (1d8):** Asignada a Glunt.
+- **2 arcos cortos y 24 flechas:** Para Ainur (12 y 12 flechas).
+- **2 Bardiches (2d4) y dagas varias:** Repartidas entre el grupo (1 daga c/u).
+- **Armadura de cuero acolchado (líder orco):** Reclamada por Hiroyuki.
+- **5 lanzas (1d6):** Solo quedaba 1 lanza en condiciones útiles, tomada por Kazgrim.
+- **Monedas antiguas:** 33 monedas de plata extrañas recuperadas de los cuerpos.
+- **Provisiones:** Cantimploras y carne en salazón de rata.
+- **Prendas:** Capas para el frío (aunque infestadas de sabandijas) y las botas altas del líder orco.""",
+                "images": ["images/asset_-1269990602.png"]
+            },
+            {
+                "text": """PX: 250 PX para cada personaje por derrotar a los orcos y goblins y rescatar con vida a Keestake (avance hacia Nivel 1). Salud: Kazgrim se encuentra extremadamente débil tras la flecha en el cuello, pero a salvo bajo el techo del templo.""",
+                "images": []
+            }
+        ]
+        for b in blocks:
+            for img_p in b["images"]:
+                used_images_in_session.add(img_p)
+    else:
+        for t in ordered_texts:
+            raw_t = t["text"].strip()
             
-        valid_imgs = []
-        for img in sorted(page_images, key=lambda item: dist(t, item)):
-            p = img.get("image_info", {}).get("path")
-            if p and p not in used_images_in_session and os.path.exists(os.path.join(ROOT_DIR, p)):
-                valid_imgs.append(p)
-                used_images_in_session.add(p)
-                if len(valid_imgs) >= 1:
-                    break
-                    
-        blocks.append({
-            "text": raw_t,
-            "images": valid_imgs
-        })
+            # Clean long dashes that cause horizontal overflow
+            raw_t = re.sub(r'-{3,}', '---', raw_t)
+            # Normalize excessive tabs
+            raw_t = re.sub(r'\t+', ' ', raw_t)
+            
+            # Only assign xp_found if it's a dedicated short badge (not an entire chronicle or long text)
+            if ("PX:" in raw_t or "PX " in raw_t or "PX." in raw_t) and len(raw_t) < 40 and "\n" not in raw_t:
+                xp_found = raw_t.strip()
+                
+            valid_imgs = []
+            for img in sorted(page_images, key=lambda item: dist(t, item)):
+                p = img.get("image_info", {}).get("path")
+                if p and p not in used_images_in_session and os.path.exists(os.path.join(ROOT_DIR, p)):
+                    valid_imgs.append(p)
+                    used_images_in_session.add(p)
+                    if len(valid_imgs) >= 1:
+                        break
+                        
+            blocks.append({
+                "text": raw_t,
+                "images": valid_imgs
+            })
         
     all_session_images = list(used_images_in_session)
     full_narrative = "\n\n".join(b["text"] for b in blocks)
@@ -372,7 +449,7 @@ for sp in session_pages:
         "irl_date": irl_date,
         "in_game_date": meta["in_game"],
         "location": meta["loc"],
-        "xp": xp_found or "250-350 PX",
+        "xp": meta.get("xp") or xp_found or "250-350 PX",
         "cover_image": cover_img,
         "summary": summary_snippet or "Los Koonies continúan su odisea a través de tierras inhóspitas y misterios arcanos.",
         "blocks": blocks,
