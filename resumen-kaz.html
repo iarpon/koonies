@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Dossier de Campaña (1-16) • Kazrim Iwakura</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background-color: #090b10;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .kaz-badge {
+      background: linear-gradient(135deg, rgba(234, 88, 12, 0.25) 0%, rgba(180, 83, 9, 0.25) 100%);
+      border: 1px solid rgba(234, 88, 12, 0.5);
+      color: #fdba74;
+    }
+    .kaz-card {
+      background: rgba(18, 22, 31, 0.95);
+      border: 1px solid rgba(234, 88, 12, 0.2);
+    }
+    .quick-chip {
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid rgba(234, 88, 12, 0.3);
+      color: #fed7aa;
+      white-space: nowrap;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col pb-24 selection:bg-orange-600 selection:text-white">
+
+  <!-- Mobile Sticky Top Bar -->
+  <header class="sticky top-0 z-50 bg-[#0c1017]/95 backdrop-blur-md border-b border-orange-500/30 px-4 py-2.5">
+    <div class="max-w-2xl mx-auto flex items-center justify-between mb-2">
+      <div class="flex items-center gap-2">
+        <span class="p-1.5 rounded-lg bg-orange-500/20 text-orange-400">
+          <i data-lucide="hammer" class="w-4 h-4"></i>
+        </span>
+        <div>
+          <h1 class="text-xs font-bold tracking-wider text-orange-300 uppercase">Kazrim Iwakura</h1>
+          <p class="text-[10px] text-slate-400">Dossier de Campaña (Sesiones 1-16)</p>
+        </div>
+      </div>
+      <a href="kazrim.html" class="px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs font-medium text-slate-300 hover:text-white flex items-center gap-1">
+        <span>Ficha</span>
+        <i data-lucide="chevron-right" class="w-3 h-3"></i>
+      </a>
+    </div>
+
+    <!-- Quick Navigation Chips -->
+    <div class="max-w-2xl mx-auto flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 text-xs">
+      <a href="#acto1" class="quick-chip px-2.5 py-1 rounded-full font-medium">Acto I</a>
+      <a href="#acto2" class="quick-chip px-2.5 py-1 rounded-full font-medium">Acto II</a>
+      <a href="#acto3" class="quick-chip px-2.5 py-1 rounded-full font-medium">Acto III</a>
+      <a href="#acto4" class="quick-chip px-2.5 py-1 rounded-full font-medium">Acto IV</a>
+      <a href="#actual" class="quick-chip px-2.5 py-1 rounded-full font-bold text-amber-300 border-amber-500/50">Dónde Estamos</a>
+      <a href="#frentes" class="quick-chip px-2.5 py-1 rounded-full font-bold text-orange-300 border-orange-500/50">Frentes</a>
+      <a href="#kazrim" class="quick-chip px-2.5 py-1 rounded-full font-medium">Tu Rol</a>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-2xl w-full mx-auto px-4 py-5 space-y-6">
+
+    <!-- Hero Card -->
+    <div class="rounded-2xl kaz-card p-4 sm:p-5 border-orange-500/40 shadow-lg relative overflow-hidden">
+      <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl"></div>
+      <span class="text-[10px] font-bold tracking-widest uppercase text-orange-400 bg-orange-950/60 px-2 py-0.5 rounded border border-orange-500/30">Puesta al día rápida</span>
+      <h2 class="text-xl font-black text-white mt-1.5 mb-1">Las Crónicas de Los Koonies</h2>
+      <p class="text-xs text-slate-300 leading-relaxed">
+        Todo lo que ha ocurrido desde el naufragio en la Isla de Viladel hasta la torre del mago Tauster en Thurmaster. Un repaso rápido para jugar sin lagunas.
+      </p>
+    </div>
+
+    <!-- ACTO I -->
+    <section id="acto1" class="space-y-3">
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-2">
+        <span class="w-6 h-6 rounded-md bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs font-bold">1</span>
+        <h3 class="text-sm font-bold text-slate-100 uppercase tracking-wide">Acto I: Naufragio y Fuga (Sesiones 1 a 4)</h3>
+      </div>
+
+      <div class="rounded-xl kaz-card p-4 space-y-3 text-xs leading-relaxed text-slate-300">
+        <div>
+          <h4 class="font-bold text-orange-300 text-sm mb-1 flex items-center gap-1.5">
+            <i data-lucide="flame" class="w-3.5 h-3.5 text-orange-400"></i>
+            El Exilio y la Isla de la Tortuga
+          </h4>
+          <p>
+            Huyendo del cataclismo de <strong class="text-white">Amatsukuni</strong> (eclipse púrpura y fuego verde frío), vuestro galeón fue asaltado por negreros de Lyndoria. Tras encallar en la Isla de Viladel, Glunt alcanzó las llaves y os liberó. En la arena liquidasteis al carcelero <strong class="text-white">Hafkris</strong> y Sakura rescató un misterioso libro arcano.
+          </p>
+        </div>
+
+        <div class="border-t border-slate-800/80 pt-2.5">
+          <h4 class="font-bold text-amber-300 mb-1">El Flechazo y el Templo de Liryel (Sesión 2)</h4>
+          <p>
+            Entre orcos y goblins, <strong class="text-rose-300">una flecha en el cuello casi te mata</strong>; Sakura te salvó la vida en el último segundo. Rescatasteis a <strong class="text-white">Keestake</strong> (palafrenero del Rey del Mar Viledel), quien os guio al ruinoso templo de la diosa Liryel. Limpiasteis el altar de profanaciones orcas y sentiste una profunda comunión divina.
+          </p>
+        </div>
+
+        <div class="border-t border-slate-800/80 pt-2.5">
+          <h4 class="font-bold text-emerald-300 mb-1">Catacumbas y tu Primer Gran Milagro (Sesiones 3-4)</h4>
+          <p>
+            Keestake os traicionó encerrándoos en las catacumbas bajo la mansión de Viledel. En la oscuridad total, <strong class="text-orange-300">rezaste a Kagutsuchi y una luz sagrada guió al grupo</strong> hasta el mausoleo del Rey del Mar. Derrotasteis a la sombra no-muerta del heredero y escapasteis por una gruta marina en el balandro <em class="text-white">Rimed Mallow</em>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTO II -->
+    <section id="acto2" class="space-y-3">
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-2">
+        <span class="w-6 h-6 rounded-md bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold">2</span>
+        <h3 class="text-sm font-bold text-slate-100 uppercase tracking-wide">Acto II: Elken y los Kunitas (Sesiones 5 y 6)</h3>
+      </div>
+
+      <div class="rounded-xl kaz-card p-4 space-y-3 text-xs leading-relaxed text-slate-300">
+        <p>
+          Llegasteis a <strong class="text-white">Elken</strong>, una ciudad portuaria fronteriza, fría y corrupta. En las afueras descubristeis el <strong class="text-amber-300">campamento de refugiados de Amatsukuni</strong>, liderado por <strong class="text-white">Hanae</strong>, donde vuestra gente sobrevive marginada.
+        </p>
+        <p class="border-t border-slate-800/80 pt-2 text-slate-400">
+          Una noche en un callejón, unos matones os emboscaron: no querían vuestro oro, sino arrancarle a <strong class="text-slate-200">Ainur</strong> un misterioso colgante que llevaba al cuello.
+        </p>
+      </div>
+    </section>
+
+    <!-- ACTO III -->
+    <section id="acto3" class="space-y-3">
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-2">
+        <span class="w-6 h-6 rounded-md bg-purple-500/20 text-purple-400 flex items-center justify-center text-xs font-bold">3</span>
+        <h3 class="text-sm font-bold text-slate-100 uppercase tracking-wide">Acto III: Torre Maldita y Venas Negras (Sesiones 7 a 12)</h3>
+      </div>
+
+      <div class="rounded-xl kaz-card p-4 space-y-3 text-xs leading-relaxed text-slate-300">
+        <div>
+          <h4 class="font-bold text-purple-300 mb-1">La Conspiración en la Taberna del Ganso (Sesión 7)</h4>
+          <p>
+            Liquidasteis a un sicario (Harvey). Hallasteis una carta que destapaba que <strong class="text-white">Lord Emmothach</strong> fue asesinado, <strong class="text-white">Lady Thora</strong> y su hijo pequeño <strong class="text-white">Itarus</strong> secuestrados, y el curtidor <strong class="text-white">Sutter Izen</strong> lideraba el contrabando local.
+          </p>
+        </div>
+
+        <div class="border-t border-slate-800/80 pt-2.5">
+          <h4 class="font-bold text-rose-300 mb-1">La Maldición de Glunt y «El Dedo de Kaz» (Sesiones 8 a 10)</h4>
+          <p>
+            Explorasteis la torre abandonada del archimago <strong class="text-white">Zenopus</strong>. Una niebla necrótica contagió a Glunt con la <strong class="text-rose-400">Maldición de las Venas Negras</strong> (hilos oscuros que devoran su vitalidad y no curan con magia normal). En esa misma torre, <strong class="text-amber-300">Kazrim metió la mano en una trampa</strong> que casi le arranca un dedo. Salvasteis a esclavos Higmoni y refugiasteis a Lady Thora.
+          </p>
+        </div>
+
+        <div class="border-t border-slate-800/80 pt-2.5">
+          <h4 class="font-bold text-sky-300 mb-1">La Máscara y «Anamnesis» (Sesiones 11-12)</h4>
+          <p>
+            La Máscara de Sol reveló que la cura no estaba en Elken. Con la clave mágica <em>«Anamnesis»</em>, abristeis el diario secreto de Zenopus: él sufrió la misma maldición y se curó en el manantial sagrado de <strong class="text-emerald-300">Kanatsu-mi (el Río de la Vida)</strong>, al sur de Thurmaster. Lady Thora os financió el viaje para salvar a Glunt.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTO IV -->
+    <section id="acto4" class="space-y-3">
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-2">
+        <span class="w-6 h-6 rounded-md bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs font-bold">4</span>
+        <h3 class="text-sm font-bold text-slate-100 uppercase tracking-wide">Acto IV: La Senda Sagrada y la Forja (Sesiones 13 a 16)</h3>
+      </div>
+
+      <div class="rounded-xl kaz-card p-4 space-y-3 text-xs leading-relaxed text-slate-300">
+        <div>
+          <h4 class="font-bold text-amber-300 mb-1">Milborne y los 4 Monolitos (Sesiones 13 y 14)</h4>
+          <p>
+            Llegasteis a la posada de Milborne (propiedad de los padres de Jelenneth). Remontasteis el río siguiendo cuatro monolitos sagrados grabados con la llama de Kagutsuchi. Derrotasteis a un fiero <strong class="text-white">Oso-Búho</strong>. Al llegar a la pared de roca, <strong class="text-orange-300">Kazrim encajó su símbolo sagrado</strong> y la montaña se abrió de par en par.
+          </p>
+        </div>
+
+        <div class="border-t border-slate-800/80 pt-2.5">
+          <h4 class="font-bold text-emerald-300 mb-1">Santuario de Kanatsu-mi y Glunt Curado (Sesión 15)</h4>
+          <p>
+            Un templo de obsidiana caliente con relieves de los dioses de Amatsukuni. Glunt bebió del agua sagrada y <strong class="text-emerald-400">la maldición de las venas negras desapareció por completo</strong>. En la biblioteca contemplasteis los sagrados <strong class="text-orange-300">Frescos de Kanatsu-mi</strong> con la profecía de Kagutsuchi.
+          </p>
+        </div>
+
+        <div class="border-t border-slate-800/80 pt-2.5">
+          <h4 class="font-bold text-orange-300 mb-1">El Viejo Oso, Jelenneth y Tauster (Sesión 16)</h4>
+          <p>
+            De vuelta en la posada, un anciano enano cojo (<strong class="text-white">El Viejo Oso</strong>) reconoció tus escrituras sagradas y te reveló un secreto de oro: en las montañas hay una <strong class="text-amber-200">ciudadela enana perdida</strong> con salones ciclópeos y una <strong class="text-orange-400">gran forja de Kagutsuchi</strong>. De repente entró <strong class="text-white">Jelenneth</strong>; al ver el colgante de Ainur, palideció y os llevó volando ante su maestro, el sabio y paranoico <strong class="text-white">Tauster</strong> en Thurmaster.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DONDE ESTAMOS AHORA -->
+    <section id="actual" class="space-y-3">
+      <div class="flex items-center gap-2 border-b border-orange-500/40 pb-2">
+        <i data-lucide="compass" class="w-5 h-5 text-orange-400"></i>
+        <h3 class="text-base font-bold text-orange-300 uppercase tracking-wide">📍 ¿Dónde estás sentado exactamente ahora?</h3>
+      </div>
+
+      <div class="rounded-2xl border border-orange-500/50 bg-gradient-to-br from-[#1b1e2b] to-[#0f131d] p-4 sm:p-5 space-y-2 text-xs text-slate-200">
+        <p class="text-sm font-semibold text-white">
+          Estáis dentro de la torre de <span class="text-orange-400 font-bold">Tauster el Sabio</span> en la aldea de <span class="text-orange-400 font-bold">Thurmaster</span>.
+        </p>
+        <ul class="space-y-1.5 text-slate-300 list-disc list-inside">
+          <li><strong>Glunt</strong> está 100% curado y rebosa salud.</li>
+          <li><strong>Jelenneth</strong> y su maestro Tauster están ante vosotros.</li>
+          <li><strong>Tauster</strong> os pide escoltar a Jelenneth en una carrera contrarreloj para recuperar un artefacto antes que otros rivales oscuros.</li>
+          <li><strong>Ainur</strong> se quitó el misterioso colgante y se lo entregó a <strong>Sakura</strong>.</li>
+          <li><strong>Hiroyuki</strong> sigue obsesionado con volver a Elken a salvar al niño Itarus.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FRENTES ABIERTOS -->
+    <section id="frentes" class="space-y-3">
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-2">
+        <i data-lucide="swords" class="w-5 h-5 text-amber-400"></i>
+        <h3 class="text-base font-bold text-amber-300 uppercase tracking-wide">⚔️ Los 5 Frentes Abiertos</h3>
+      </div>
+
+      <div class="grid grid-cols-1 gap-3 text-xs">
+        
+        <div class="rounded-xl kaz-card p-3.5 border-l-4 border-l-amber-500">
+          <div class="flex justify-between items-start mb-1">
+            <span class="font-bold text-white text-sm">1. La Misión de Tauster y Jelenneth</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold">Inmediata</span>
+          </div>
+          <p class="text-slate-300">
+            Tauster os pide que acompañéis a Jelenneth a encontrar un objeto clave antes de que caiga en manos enemigas. Es la propuesta que tenéis sobre la mesa ahora mismo.
+          </p>
+        </div>
+
+        <div class="rounded-xl kaz-card p-3.5 border-l-4 border-l-orange-500 bg-orange-950/20">
+          <div class="flex justify-between items-start mb-1">
+            <span class="font-bold text-orange-200 text-sm">2. La Ciudadela Enana y la Gran Forja</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded bg-orange-500/30 text-orange-300 font-bold">¡Tu Gancho Clave!</span>
+          </div>
+          <p class="text-slate-300">
+            El Viejo Oso describió la fortaleza perdida en las montañas, su forja ciclópea de Kagutsuchi y escrituras kunitas subterráneas. El renacer de tu dios espera allí.
+          </p>
+        </div>
+
+        <div class="rounded-xl kaz-card p-3.5 border-l-4 border-l-blue-500">
+          <div class="flex justify-between items-start mb-1">
+            <span class="font-bold text-white text-sm">3. La Tensión con Hiroyuki</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Debate interno</span>
+          </div>
+          <p class="text-slate-300">
+            Hiro siente el deber moral de samurái de regresar a Elken a salvar a Itarus (el hijo secuestrado de Lady Thora). Hay que consensuar el siguiente paso del grupo.
+          </p>
+        </div>
+
+        <div class="rounded-xl kaz-card p-3.5 border-l-4 border-l-purple-500">
+          <div class="flex justify-between items-start mb-1">
+            <span class="font-bold text-white text-sm">4. El Pueblo Maldito de Orlane</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 font-semibold">Misterio</span>
+          </div>
+          <p class="text-slate-300">
+            En Milborne se rumorea que los habitantes de Orlane actúan como copias frías y desconfiadas, y que el pueblo "huele mal". Indicios claros de corrupción o secta.
+          </p>
+        </div>
+
+        <div class="rounded-xl kaz-card p-3.5 border-l-4 border-l-rose-500">
+          <div class="flex justify-between items-start mb-1">
+            <span class="font-bold text-white text-sm">5. El Colgante Arcano (Ahora de Sakura)</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 font-semibold">Peligro</span>
+          </div>
+          <p class="text-slate-300">
+            Ainur se lo entregó a Sakura. Fue el causante del ataque del nigromante en Elken y Tauster lo miró con auténtico recelo. Vinculado a la hechicería de Amatsukuni.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TU PAPEL COMO KAZRIM -->
+    <section id="kazrim" class="space-y-3">
+      <div class="flex items-center gap-2 border-b border-orange-500/30 pb-2">
+        <i data-lucide="award" class="w-5 h-5 text-orange-400"></i>
+        <h3 class="text-base font-bold text-orange-300 uppercase tracking-wide">🛡️ Tu Destino como Kazrim</h3>
+      </div>
+
+      <div class="rounded-xl kaz-card p-4 space-y-2.5 text-xs text-slate-300 leading-relaxed">
+        <p>
+          <strong class="text-orange-300">Ya no eres un novicio asustado:</strong> Abriste las puertas milenarias de la montaña con tu símbolo sagrado, salvaste al grupo en las catacumbas con tu plegaria y guiaste a Glunt a su salvación milagrosa.
+        </p>
+        <p>
+          <strong class="text-amber-300">La Forja te llama:</strong> Mientras los magos se pierden en reliquias y Hiro en promesas políticas, tú tienes la revelación más poderosa: una forja ancestral de Kagutsuchi esperando en las montañas para devolver la dignidad a tu clan y a tu fe.
+        </p>
+      </div>
+    </section>
+
+    <!-- Bottom Actions -->
+    <div class="pt-4 flex flex-col sm:flex-row gap-3">
+      <a href="kazrim.html" class="flex-1 py-3 px-4 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-center text-xs flex items-center justify-center gap-2 shadow-lg shadow-orange-950/50">
+        <i data-lucide="user" class="w-4 h-4"></i>
+        <span>Volver a la Ficha de Kazrim</span>
+      </a>
+      <a href="index.html" class="flex-1 py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-center text-xs flex items-center justify-center gap-2 border border-slate-700">
+        <i data-lucide="home" class="w-4 h-4"></i>
+        <span>Portal Principal Koonies</span>
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
